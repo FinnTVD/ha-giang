@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import SubTitle from '../global/SubTitle'
 import SlideCheersTour from './SlideCheersTour'
+import Button from '../global/Button'
 
 const arr = [
     {
@@ -36,7 +37,7 @@ export default function CheersTour() {
             />
             <div className='max-md:px-[4.27vw] relative w-[35.4375vw] max-md:mt-[6vw] max-md:w-[86.4vw] max-md:h-[104.83733vw] lg:h-auto lg:mr-[5.69vw] max-md:mx-auto'>
                 <Image
-                    className=' max-md:object-contain lg:object-cover z-[0]'
+                    className=' max-md:object-contain lg:object-fill z-[0]'
                     src='/images/mapvn.png'
                     fill
                     sizes='100vw'
@@ -78,6 +79,13 @@ export default function CheersTour() {
                     designed for adventure-seekers — those who want to experience the biggest challenge Vietnam has to
                     offer in a safe environment with our experienced easy riders.
                 </p>
+                <div className='flex gap-x-[1vw] mt-[1.87vw]'>
+                    <Button
+                        primary={true}
+                        content={'book now'}
+                    />
+                    <Button content={'read more'} />
+                </div>
             </div>
         </section>
     )
