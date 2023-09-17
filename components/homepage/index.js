@@ -1,11 +1,13 @@
-import TheGallery from "./TheGallery";
-import Travelers from "./Travelers";
+import CheersTour from './CheersTour'
+import TheGallery from './TheGallery'
+import Travelers from './Travelers'
 
 export default function IndexHomePage() {
     return (
         <main>
-            <TheGallery/>
-            <Travelers/>
+            <CheersTour />
+            <TheGallery />
+            <Travelers />
         </main>
     )
 }

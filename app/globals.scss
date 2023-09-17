@@ -2,18 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    --font-poppins:'__Poppins_0fd924', '__Poppins_Fallback_0fd924';
-    --font-roboto:'__Roboto_471caf', '__Roboto_Fallback_471caf';
+:root {
+    --font-poppins: "__Poppins_0fd924", "__Poppins_Fallback_0fd924";
+    --font-roboto: "__Roboto_471caf", "__Roboto_Fallback_471caf";
+
+    --gray-scale-80: #2e2e2e;
+    --primary-70: #b34b1e;
+    --gray-scale-50: #727272;
+    --primary-5: #fff0ea;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
+#cheers-tour {
+    .description {
+        strong {
+            font-weight: 600;
+            color: var(--gray-scale-80);
+        }
+    }
+}
