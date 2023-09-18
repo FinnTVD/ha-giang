@@ -4,6 +4,8 @@ import CheersTour from './CheersTour'
 // import Test from './Test'
 import TheGallery from './TheGallery'
 import Travelers from './Travelers'
+import Weather from './Weather'
+import TheTrip from './TheTrip'
 
 export default function IndexHomePage() {
     return (
@@ -20,6 +22,8 @@ export default function IndexHomePage() {
             <CheersTour />
             <TheGallery />
             <Travelers />
+            <Weather />
+            <TheTrip />
         </main>
     )
 }

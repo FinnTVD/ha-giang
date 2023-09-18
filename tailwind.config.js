@@ -13,6 +13,7 @@ module.exports = {
         extend: {
             backgroundImage: {
                 'gradient-travelers': 'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)',
+                'gradient-travelers2': 'linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)',
             },
             colors: {
                 'gray-scale-80': 'var(--gray-scale-80)',
@@ -20,6 +21,7 @@ module.exports = {
                 'gray-scale-50': 'var(--gray-scale-50)',
                 'gray-scale-5': 'var(gray-scale-5)',
                 'primary-50': 'var(--primary-50)',
+                'primary-5': 'var(--primary-5)',
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
@@ -56,6 +58,7 @@ module.exports = {
             },
             boxShadow: {
                 slideTrave: '0px 4px 6px 0px rgba(0, 0, 0, 0.06)',
+                btnTravel: '0px 4px 16px 0px rgba(0, 0, 0, 0.06)',
             },
             fontFamily: {
                 poppins: ['var(--font-poppins)'],

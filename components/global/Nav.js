@@ -69,7 +69,7 @@ export default function Nav() {
                     ))}
                 </ul>
                 <div className='flex gap-x-[0.5vw]'>
-                    <div className='bg-primary-70 rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'>
+                    <div className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             width='16'
@@ -83,7 +83,7 @@ export default function Nav() {
                             />
                         </svg>
                     </div>
-                    <div className='bg-primary-70 rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'>
+                    <div className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             width='16'

@@ -4,7 +4,7 @@ import SlideTravelers from './SlideTravelers'
 
 export default function Travelers() {
     return (
-        <section className='w-full relative h-[500px] mt-[6.25vw] px-[12.75vw]'>
+        <section className='w-full relative h-fit mt-[6.25vw] px-[12.75vw]'>
             <Image
                 className='object-cover z-0'
                 src={'/images/bg-traveller.png'}
@@ -19,12 +19,12 @@ export default function Travelers() {
                 subTitleClass={'text-center'}
             />
             <SlideTravelers />
-            <div className=' flex flex-col items-center relative z-[5] gap-y-[0.5vw]'>
+            <div className=' flex flex-col items-center relative z-[5] gap-y-[0.5vw] mt-[1.88vw]'>
                 <span className='font-poppins text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
                     View us on:
                 </span>
                 <div className='flex gap-x-[0.75vw]'>
-                    <button className='w-[9.25vw] h-[3vw] rounded-[0.5vw] bg-white flex justify-center items-center'>
+                    <button className='w-[9.25vw] shadow-btnTravel h-[3vw] rounded-[0.5vw] bg-white flex justify-center items-center'>
                         <Image
                             className='object-cover w-[7vw] h-[1.5vw]'
                             src={'/images/tri.svg'}
@@ -32,7 +32,7 @@ export default function Travelers() {
                             height={30}
                         />
                     </button>
-                    <button className='w-[9.25vw] h-[3vw] rounded-[0.5vw] bg-white flex justify-center items-center'>
+                    <button className='w-[9.25vw] shadow-btnTravel h-[3vw] rounded-[0.5vw] bg-white flex justify-center items-center'>
                         <Image
                             className='object-cover w-[7vw] h-[1.5vw]'
                             src={'/images/trus.svg'}
@@ -42,6 +42,7 @@ export default function Travelers() {
                     </button>
                 </div>
             </div>
+            <div className='w-full h-[14vw] bg-gradient-travelers2 absolute bottom-0 left-0 z-[1]'></div>
         </section>
     )
 }
