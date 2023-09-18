@@ -12,8 +12,11 @@ export default function SlideTravelers() {
             className='h-[14vw] mt-[2.5vw]'
         >
             {arr?.map((e, index) => (
-                <SwiperSlide key={index}>
-                    <div className='w-full h-full relative rounded-[1vw] overflow-hidden p-[1.56vw] bg-white flex flex-col items-center justify-center'>
+                <SwiperSlide
+                    className='rounded-[1vw]'
+                    key={index}
+                >
+                    <div className='w-full shadow-slideTrave h-full relative rounded-[1vw] overflow-hidden p-[1.56vw] bg-white flex flex-col items-center justify-center'>
                         <p className='text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
                             Blown away by our Tanzania safari, I never expected it to be that good — it totally exceeded
                             my expectations and was all hassle free. Our guide was absolutely amazing too. Have

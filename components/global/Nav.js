@@ -48,12 +48,14 @@ export default function Nav() {
     return (
         <nav className='flex w-full relative z-[1] justify-center pt-[1.5vw]'>
             <div className='w-[calc(100vw-12vw)] bg-white rounded-[1vw] flex items-center justify-between h-fit px-[1.88vw]'>
-                <Image
-                    className='w-[4.75vw] h-[4.16vw] object-cover my-[0.913vw]'
-                    src='/images/logo.png'
-                    width={80}
-                    height={70}
-                />
+                <Link href={'/'}>
+                    <Image
+                        className='w-[4.75vw] h-[4.16vw] object-cover my-[0.913vw]'
+                        src='/images/logo.png'
+                        width={80}
+                        height={70}
+                    />
+                </Link>
                 <ul className='text-gray-scale-80 flex py-[1.06vw] font-poppins'>
                     {listNav?.map((e) => (
                         <li key={e?.id}>

@@ -7,7 +7,7 @@ import 'swiper/css/free-mode'
 
 const poppins = Poppins({
     weight: ['300', '400', '500', '600', '700', '800', '900'],
-    subsets: ['latin'],
+    subsets: ['devanagari'],
 })
 const roboto = Roboto({
     weight: ['300', '400', '500', '700', '900'],

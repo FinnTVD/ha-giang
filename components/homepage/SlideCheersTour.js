@@ -2,21 +2,27 @@
 
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode } from 'swiper/modules'
+import { Autoplay, FreeMode } from 'swiper/modules'
 
 export default function SlideCheersTour({ arr }) {
     return (
         <Swiper
-            spaceBetween={4}
+            loop={true}
+            spaceBetween={0}
             slidesPerView={'auto'}
-            modules={[FreeMode]}
-            className='h-[21.89547vw] md:!hidden max-md:!px-[4.27vw]'
+            autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+            }}
+            speed={1500}
+            modules={[FreeMode, Autoplay]}
+            className='h-[25.6vw] md:!hidden max-md:!px-[4.27vw]'
         >
             {Array.isArray(arr) &&
                 arr?.map((e, index) => (
                     <SwiperSlide
                         key={index}
-                        className='!h-full !w-[86.28vw] !flex !justify-center !items-center'
+                        className='!h-full !w-[91.4vw] !flex !justify-center !items-center'
                     >
                         <Image
                             className='z-0 object-contain'
@@ -24,7 +30,7 @@ export default function SlideCheersTour({ arr }) {
                             fill
                             sizes='100vw'
                         />
-                        <span className='relative font-poppins z-[1] text-primary-5 font-bold text-[3.733vw] leading-[1.57] tracking-[0.00933rem]'>
+                        <span className='relative w-full line-clamp-1 text-center font-poppins z-[1] text-primary-5 font-bold text-[3.5vw] leading-[1.57] tracking-[0.00933rem]'>
                             {e?.title}
                         </span>
                     </SwiperSlide>
