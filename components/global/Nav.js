@@ -56,7 +56,7 @@ export default function Nav() {
                         height={70}
                     />
                 </Link>
-                <ul className='text-gray-scale-80 flex py-[1.06vw] font-poppins'>
+                <ul className='text-gray-scale-80 flex py-[1.06vw] '>
                     {listNav?.map((e) => (
                         <li key={e?.id}>
                             <Link

@@ -56,7 +56,7 @@ export function ComboboxDemo() {
                     variant='outline'
                     role='combobox'
                     aria-expanded={open}
-                    className='w-[200px] justify-between text-[1vw] font-poppins font-medium leading-normal tracking-[0.005rem] text-gray-scale-80'
+                    className='w-[200px] justify-between text-[1vw]  font-medium leading-normal tracking-[0.005rem] text-gray-scale-80'
                 >
                     {value ? frameworks.find((framework) => framework.value === value)?.label : 'Select framework...'}
                     <ChevronsUpDown className='w-4 h-4 ml-2 opacity-50 shrink-0' />

@@ -34,14 +34,14 @@ export default function Weather() {
                         onClick={() => setMonth(index)}
                         className={`${
                             index === month ? 'bg-primary-70 text-white' : 'bg-[#f9f9f9] text-gray-scale-50'
-                        } w-[4.625vw] h-[4.625vw] rounded-full flex justify-center items-center font-poppins text-[0.875vw] font-medium leading-[1.57] tracking-[0.00219rem] cursor-pointer`}
+                        } w-[4.625vw] h-[4.625vw] rounded-full flex justify-center items-center  text-[0.875vw] font-medium leading-[1.57] tracking-[0.00219rem] cursor-pointer`}
                     >
                         JAN
                     </div>
                 ))}
             </div>
             <div className='relative z-[5] w-fit mx-auto mt-[1.56vw]'>
-                <span className='font-poppins font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-80'>
+                <span className=' font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-80'>
                     A lovely time to travel. Excellent wildlife viewing.
                 </span>
                 <div className='flex gap-x-[1vw] mt-[0.75vw] justify-center'>
@@ -53,7 +53,7 @@ export default function Weather() {
                             width={36}
                             height={36}
                         />
-                        <span className='font-poppins text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-50'>
+                        <span className=' text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-50'>
                             27 - 32 degree
                         </span>
                     </div>
@@ -65,7 +65,7 @@ export default function Weather() {
                             width={36}
                             height={36}
                         />
-                        <span className='font-poppins text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-50'>
+                        <span className=' text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-50'>
                             65 - 80 mm
                         </span>
                     </div>

@@ -1,6 +1,6 @@
 export default function SubTitle({ subTitle, title, subTitleClass, titleClass, boxClass }) {
     return (
-        <div className={`${boxClass} uppercase text-primary-70 w-full relative z-[5]`}>
+        <div className={`${boxClass} uppercase text-primary-70 w-full relative z-[5] font-heavitas`}>
             <h3
                 className={`${subTitleClass} text-[1vw] leading-normal max-md:text-[3.2vw] font-extrabold mb-[0.75vw] max-md:mb-[2.13vw]`}
             >

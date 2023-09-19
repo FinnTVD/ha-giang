@@ -4,7 +4,7 @@ export default function BookNowHeader() {
     return (
         <div className='bg-white w-[71.75vw] items-center rounded-[0.75vw] absolute bottom-[2.63vw] left-1/2 -translate-x-1/2 flex justify-between py-[1.25vw] px-[1.88vw]'>
             <div>
-                <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] font-poppins'>
+                <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] '>
                     TOUR
                 </span>
                 <ComboboxDemo />
@@ -24,7 +24,7 @@ export default function BookNowHeader() {
                 />
             </svg>
             <div>
-                <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] font-poppins'>
+                <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] '>
                     SELF - DRIVING
                 </span>
                 {/* <ComboboxDemo /> */}
@@ -44,14 +44,14 @@ export default function BookNowHeader() {
                 />
             </svg>
             <div>
-                <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] font-poppins'>
+                <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] '>
                     PRIVATE DRIVER
                 </span>
                 {/* <ComboboxDemo /> */}
             </div>
             <button className='text-white flex flex-col gap-y-[0.25vw] bg-primary-70 py-[0.75vw] px-[1.5vw] rounded-[0.5vw]'>
-                <span className='font-poppins text-center text-[1.625vw] font-bold leading-[1.23]'>$299</span>
-                <span className='font-poppins text-center text-[0.875vw] font-bold leading-[1.43] tracking-[0.00875rem]'>
+                <span className=' text-center text-[1.625vw] font-bold leading-[1.23] block w-full'>$299</span>
+                <span className=' text-center text-[0.875vw] font-bold leading-[1.43] tracking-[0.00875rem]'>
                     BOOK NOW
                 </span>
             </button>

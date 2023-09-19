@@ -2,15 +2,40 @@ import Footer from '@/components/global/Footer'
 import './globals.scss'
 import { Poppins, Roboto } from 'next/font/google'
 import Header from '@/components/global/Header'
+import localFont from 'next/font/local'
+
 import 'swiper/css'
 import 'swiper/css/free-mode'
 
-const poppins = Poppins({
-    weight: ['300', '400', '500', '600', '700', '800', '900'],
-    subsets: ['devanagari'],
+const heavitas = localFont({
+    src: [
+        {
+            path: '../font/Heavitas.ttf',
+            weight: '400',
+            style: 'normal',
+        },
+    ],
+    display: 'swap',
 })
+
+const tomatoes = localFont({
+    src: [
+        {
+            path: '../font/Tomatoes.ttf',
+            weight: '400',
+            style: 'normal',
+        },
+    ],
+    display: 'swap',
+})
+
 const roboto = Roboto({
     weight: ['300', '400', '500', '700', '900'],
+    subsets: ['latin'],
+})
+
+const poppins = Poppins({
+    weight: ['300', '400', '500', '600', '700', '800', '900'],
     subsets: ['latin'],
 })
 
@@ -22,7 +47,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>
-            <body className={`bg-white text-black ${roboto.className} ${poppins.className}`}>
+            <body
+                className={`bg-white text-black ${heavitas.className} ${tomatoes.className} ${roboto.className} ${poppins.className} `}
+            >
                 <Header />
                 {children}
                 <Footer />

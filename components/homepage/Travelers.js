@@ -20,9 +20,7 @@ export default function Travelers() {
             />
             <SlideTravelers />
             <div className=' flex flex-col items-center relative z-[5] gap-y-[0.5vw] mt-[1.88vw]'>
-                <span className='font-poppins text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
-                    View us on:
-                </span>
+                <span className=' text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>View us on:</span>
                 <div className='flex gap-x-[0.75vw]'>
                     <button className='w-[9.25vw] shadow-btnTravel h-[3vw] rounded-[0.5vw] bg-white flex justify-center items-center'>
                         <Image
