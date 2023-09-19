@@ -27,7 +27,7 @@ export default function BookNowHeader() {
                 <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] font-poppins'>
                     SELF - DRIVING
                 </span>
-                <ComboboxDemo />
+                {/* <ComboboxDemo /> */}
             </div>
             <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -47,7 +47,7 @@ export default function BookNowHeader() {
                 <span className='text-[0.875vw] block mb-[0.5vw] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] font-poppins'>
                     PRIVATE DRIVER
                 </span>
-                <ComboboxDemo />
+                {/* <ComboboxDemo /> */}
             </div>
             <button className='text-white flex flex-col gap-y-[0.25vw] bg-primary-70 py-[0.75vw] px-[1.5vw] rounded-[0.5vw]'>
                 <span className='font-poppins text-center text-[1.625vw] font-bold leading-[1.23]'>$299</span>
