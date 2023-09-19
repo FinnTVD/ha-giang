@@ -59,6 +59,7 @@ module.exports = {
             boxShadow: {
                 slideTrave: '0px 4px 6px 0px rgba(0, 0, 0, 0.06)',
                 btnTravel: '0px 4px 16px 0px rgba(0, 0, 0, 0.06)',
+                itemCardTour: '0px 0px 20px 0px rgba(0, 0, 0, 0.12)',
             },
             fontFamily: {
                 poppins: ['var(--font-poppins)'],
