@@ -19,10 +19,10 @@ export default function TheTrip() {
             <div className='flex gap-x-[5vw]'>
                 <div>
                     <div className='mb-[1.5vw]'>
-                        <h3 className='mb-[0.75vw] font-poppins text-[1.625vw] font-semibold leading-[1.23] text-gray-scale-80'>
+                        <h3 className='mb-[0.75vw]  text-[1.625vw] font-semibold leading-[1.23] text-gray-scale-80'>
                             NATURE
                         </h3>
-                        <p className='font-poppins text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
+                        <p className=' text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
                             Browse our full service agency services and prices or contact us for custom quotes.
                         </p>
                     </div>
@@ -30,10 +30,10 @@ export default function TheTrip() {
                 </div>
                 <div>
                     <div className='mb-[1.5vw]'>
-                        <h3 className='mb-[0.75vw] font-poppins text-[1.625vw] font-semibold leading-[1.23] text-gray-scale-80'>
+                        <h3 className='mb-[0.75vw]  text-[1.625vw] font-semibold leading-[1.23] text-gray-scale-80'>
                             JOURNEY
                         </h3>
-                        <p className='font-poppins text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
+                        <p className=' text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
                             Find inspiration and discover amazing knowledge for successful site building.
                         </p>
                     </div>

@@ -58,7 +58,7 @@ export default function CheersTour() {
                                     fill
                                     sizes='100vw'
                                 />
-                                <span className='relative font-poppins z-[1] text-[0.875vw] text-primary-5 font-bold leading-[1.375] tracking-[0.00219rem]'>
+                                <span className='relative  z-[1] text-[0.875vw] text-primary-5 font-bold leading-[1.375] tracking-[0.00219rem]'>
                                     {e?.title}
                                 </span>
                             </li>

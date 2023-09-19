@@ -63,6 +63,8 @@ module.exports = {
             fontFamily: {
                 poppins: ['var(--font-poppins)'],
                 roboto: ['var(--font-roboto)'],
+                tomatoes: ['var(--font-tomatoes)'],
+                heavitas: ['var(--font-heavitas)'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
