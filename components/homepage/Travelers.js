@@ -4,9 +4,9 @@ import SlideTravelers from './SlideTravelers'
 
 export default function Travelers() {
     return (
-        <section className='w-full relative h-fit mt-[6.25vw] px-[12.75vw]'>
+        <section className='w-full relative h-fit mt-[6.25vw] lg:px-[12.75vw]'>
             <Image
-                className='object-cover z-0'
+                className='z-0 object-cover'
                 src={'/images/bg-traveller.png'}
                 fill
                 sizes='100vw'

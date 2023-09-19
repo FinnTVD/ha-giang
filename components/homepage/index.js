@@ -6,6 +6,7 @@ import TheGallery from './TheGallery'
 import Travelers from './Travelers'
 import Weather from './Weather'
 import TheTrip from './TheTrip'
+import GreatTrips from './GreatTrips'
 
 export default function IndexHomePage() {
     return (
@@ -20,6 +21,7 @@ export default function IndexHomePage() {
                 sizes='100vw'
             /> */}
             <CheersTour />
+            <GreatTrips />
             <TheGallery />
             <Travelers />
             <Weather />
