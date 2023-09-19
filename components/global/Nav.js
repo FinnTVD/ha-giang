@@ -61,9 +61,10 @@ export default function Nav() {
                         <li key={e?.id}>
                             <Link
                                 href={e?.href || '/'}
-                                className='text-[0.875vw] font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25vw]'
+                                className='text-[0.875vw] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25vw] block hover:-translate-y-[0.5vw] hover:text-primary-50'
                             >
                                 {e?.title}
+                                <div className='w-[0.6vw] transition duration-500 group-hover:bg-primary-50 group-hover:bottom-[0.5vw] h-[0.6vw] bg-gray-300 rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 opacity-0 group-hover:opacity-100'></div>
                             </Link>
                         </li>
                     ))}

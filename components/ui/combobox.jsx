@@ -8,14 +8,24 @@ import { Button } from '@/components/ui/button'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
+// const frameworks = [
+//     {
+//         value: 'hagianglooptour',
+//         label: 'HA GIANG LOOP TOUR',
+//     },
+//     {
+//         value: 'epicmotorbiketour',
+//         label: 'EPIC MOTORBIKE TOUR',
+//     },
+// ]
 const frameworks = [
     {
         value: 'next.js',
-        label: 'Next.js',
+        label: 'HAGIANGLOOPTOUR',
     },
     {
         value: 'sveltekit',
-        label: 'SvelteKit',
+        label: 'EPICMOTORBIKETOUR',
     },
     {
         value: 'nuxt.js',
@@ -34,6 +44,7 @@ const frameworks = [
 export function ComboboxDemo() {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState(frameworks[0]?.value)
+    console.log('🚀 ~ file: combobox.jsx:47 ~ ComboboxDemo ~ value:', value)
 
     return (
         <Popover
@@ -45,10 +56,10 @@ export function ComboboxDemo() {
                     variant='outline'
                     role='combobox'
                     aria-expanded={open}
-                    className='w-[200px] justify-between'
+                    className='w-[200px] justify-between text-[1vw] font-poppins font-medium leading-normal tracking-[0.005rem] text-gray-scale-80'
                 >
                     {value ? frameworks.find((framework) => framework.value === value)?.label : 'Select framework...'}
-                    <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+                    <ChevronsUpDown className='w-4 h-4 ml-2 opacity-50 shrink-0' />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className='w-[200px] p-0'>

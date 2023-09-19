@@ -9,6 +9,12 @@ export default function Test() {
             >
                 one page
             </Link>
+            <Link
+                href='https://mtf.onepay.vn/paygate/vpcpay.op?vpc_Version=2&vpc_Currency=VND&vpc_Command=pay&vpc_AccessCode=6BEB2566&vpc_Merchant=TESTONEPAY32&vpc_Locale=vn&vpc_ReturnURL=https://ha-giang.vercel.app&vpc_MerchTxnRef=duc210601&vpc_OrderInfo=ducmuaquanao&vpc_Amount=1000000&vpc_TicketNo=113.23.74.47&AgainLink=https://ha-giang.vercel.app&Title=KANGNAMPAY&vpc_SecureHash=6D0870CDE5F24F34F3915FB0045120D6'
+                target='_blank'
+            >
+                one page 2
+            </Link>
             <br />
 
             <Link href={'https://mtf.onepay.vn/paygate/?id=INV-DW9HSTL74X6GMAEU&locale=en'}>pro</Link>
