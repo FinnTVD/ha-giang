@@ -24,8 +24,8 @@ export default function Footer() {
             width={220}
             height={200}
           />
-          <div className="flex md:gap-x-[9.47vw] md:mt-[9.13vw] mt-[8vw] max-md:flex-col gap-[8vw]">
-            <div className="max-md:flex justify-center flex-col">
+          <div className="flex md:gap-x-[9.47vw] md:mt-[9.13vw] mt-[8vw] max-md:flex-col gap-[8vw] max-md:text-center">
+            <div className="max-md:flex justify-center flex-col">S
               <h2 className="md:text-[0.875vw] md:font-[700] font-[600] md:leading-[1.25vw] leading-[4.8vw] md:tracking-[0.00875vw] text-[3.46667vw] ">CONTACT US</h2>
               <div className="flex flex-col md:gap-[0.75vw] gap-[2.13vw] md:mt-[1vw] mt-[2.13vw]">
               <InfoFooter icon={phoneIcon} text={'+84 98 3333 986 (Miss. Linette)'} subText={'+84 989 655 995 (Mr. Chinh)'} />
