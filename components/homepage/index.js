@@ -7,6 +7,7 @@ import Travelers from './Travelers'
 import Weather from './Weather'
 import TheTrip from './TheTrip'
 import GreatTrips from './GreatTrips'
+import Family from './Family'
 
 export default function IndexHomePage() {
     return (
@@ -24,6 +25,7 @@ export default function IndexHomePage() {
             <GreatTrips />
             <TheGallery />
             <Travelers />
+            <Family />
             <Weather />
             <TheTrip />
         </main>
