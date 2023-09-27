@@ -14,12 +14,13 @@ module.exports = {
             backgroundImage: {
                 'gradient-travelers': 'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)',
                 'gradient-travelers2': 'linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)',
+                'gradient-itemCardTour': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 54.17%, #000 100%)',
             },
             colors: {
                 'gray-scale-80': 'var(--gray-scale-80)',
                 'primary-70': 'var(--primary-70)',
                 'gray-scale-50': 'var(--gray-scale-50)',
-                'gray-scale-5': 'var(gray-scale-5)',
+                'gray-scale-5': 'var(--gray-scale-5)',
                 'primary-50': 'var(--primary-50)',
                 'primary-5': 'var(--primary-5)',
                 border: 'hsl(var(--border))',

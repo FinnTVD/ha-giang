@@ -1,10 +1,5 @@
-import TourDetail from '@/components/tourDetail/TourDetail'
-import React from 'react'
+import IndexTourDetail from '@/components/tourDetail'
 
-function page() {
-  return (
-    <TourDetail />
-  )
+export default function page() {
+    return <IndexTourDetail />
 }
-
-export default page
