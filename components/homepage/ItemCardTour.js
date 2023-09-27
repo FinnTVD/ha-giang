@@ -1,16 +1,39 @@
 import Image from 'next/image'
 import Button from '../global/Button'
+import Price from './Price'
 
+const arr = [
+    {
+        price: 169,
+        self: true,
+    },
+    {
+        price: 199,
+        self: false,
+    },
+]
 export default function ItemCardTour() {
     return (
-        <article className='w-[39.8125vw] w-fit p-[1vw] rounded-[1.5vw] bg-white shadow-itemCardTour'>
-            <Image
-                className='object-cover w-full h-[21.125vw] rounded-[1vw]'
-                src={'/images/item-tour.jpg'}
-                alt='item tour'
-                width={700}
-                height={400}
-            />
+        <article className='w-[39.8125vw] p-[1vw] rounded-[1.5vw] bg-white shadow-itemCardTour'>
+            <div className='w-fit h-fit relative'>
+                <Image
+                    className='object-cover w-full h-[21.125vw] rounded-[1vw]'
+                    src={'/images/item-tour.jpg'}
+                    alt='item tour'
+                    width={700}
+                    height={400}
+                />
+                <div className='bg-gradient-itemCardTour absolute top-0 left-0 w-full h-full rounded-[1vw]'></div>
+                <div className='absolute w-fit h-fit bottom-[1vw] left-[1.44vw] flex gap-x-[2.5vw]'>
+                    {arr.map((e, index) => (
+                        <Price
+                            key={index}
+                            price={e?.price}
+                            self={e?.self}
+                        />
+                    ))}
+                </div>
+            </div>
             <h2
                 className='mt-[1.25vw] mb-[0.75vw] text-[1.25vw] font-semibold leading-[1.2] tracking-[0.00188rem] text-gray-scale-80 uppercase line-clamp-1'
                 title='HA GIANG LOOP TOUR (3D3N)'
