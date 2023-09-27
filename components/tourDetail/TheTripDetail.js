@@ -10,7 +10,7 @@ export default function TheTripDetail() {
             />
             <div className='flex gap-x-[1.5vw] mt-[1.87vw]'>
                 <AccordionDemo />
-                <AccordionDemo />
+                <AccordionDemo className='max-md:hidden' />
             </div>
         </section>
     )
