@@ -16,11 +16,13 @@ module.exports = {
                 'gradient-travelers2': 'linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)',
                 'gradient-itemCardTour': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 54.17%, #000 100%)',
                 'gradient-header-detail': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 38.46%, #000 98.99%)',
+                'gradient-weather': 'linear-gradient(180deg, #FFF 93.92%, rgba(255, 255, 255, 0.00) 193.92%)',
             },
             colors: {
                 'gray-scale-80': 'var(--gray-scale-80)',
                 'primary-70': 'var(--primary-70)',
                 'gray-scale-50': 'var(--gray-scale-50)',
+                'gray-scale-20': 'var(--gray-scale-20)',
                 'gray-scale-5': 'var(--gray-scale-5)',
                 'primary-50': 'var(--primary-50)',
                 'primary-5': 'var(--primary-5)',

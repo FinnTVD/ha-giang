@@ -26,6 +26,38 @@ export default function HeaderDetail() {
             </div> */}
             <ContentHeaderDetail />
             <FeaturesHeader />
+            <div className='flex gap-x-[1vw] absolute bottom-0 translate-y-1/2 right-[6.27vw]'>
+                <div className='w-[11.88vw] h-[12.12vw] relative flex items-center justify-center'>
+                    <Image
+                        className='z-0 object-cover'
+                        src={'/images/circle-orange.png'}
+                        alt='circle currency'
+                        fill
+                        sizes='100vw'
+                    />
+                    <div className='relative z-[1] flex flex-col justify-center items-center'>
+                        <span className='text-[0.875vw] text-white font-semibold leading-[1.42] tracking-[0.00875rem]'>
+                            SELF - DRIVING
+                        </span>
+                        <span className='text-[3vw] font-bold leading-[1.08] text-white'>$169</span>
+                    </div>
+                </div>
+                <div className='w-[11.88vw] h-[12.12vw] relative flex items-center justify-center'>
+                    <Image
+                        className='z-0 object-cover'
+                        src={'/images/circle-orange.png'}
+                        alt='circle currency'
+                        fill
+                        sizes='100vw'
+                    />
+                    <div className='relative z-[1] flex flex-col justify-center items-center'>
+                        <span className='text-[0.875vw] text-white font-semibold leading-[1.42] tracking-[0.00875rem]'>
+                            PRIVATE DRIVER
+                        </span>
+                        <span className='text-[3vw] font-bold leading-[1.08] text-white'>$199</span>
+                    </div>
+                </div>
+            </div>
         </header>
     )
 }

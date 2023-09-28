@@ -1,3 +1,4 @@
+import BookingOnline from '../homepage/BookingOnline'
 import Another from './Another'
 import BestTripEver from './BestTripEver'
 import BoxVideo from './BoxVideo'
@@ -13,6 +14,7 @@ export default function IndexTourDetail() {
                 <BestTripEver />
                 <BoxVideo />
                 <TourDetail />
+                <BookingOnline />
                 <TheTripDetail />
                 <Another />
             </main>
