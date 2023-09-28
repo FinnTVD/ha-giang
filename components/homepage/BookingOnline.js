@@ -15,7 +15,6 @@ import SubTitle from '../global/SubTitle'
 import LineTrip from '../icons/LineTrip'
 import RHFDatePicker from '../ui/RHFDatePicker'
 
-
 const defaultValues = {
     selfDriving: 0,
     localDriver: 0,
@@ -50,11 +49,11 @@ export default function BookingOnline() {
         droff: Yup.string(),
         endDate: Yup.string(),
         droffAddress: Yup.string().required(),
-    });
+    })
 
     const methods = useForm({
         resolver: yupResolver(BookingSchema),
-        defaultValues
+        defaultValues,
     })
 
     const {
@@ -80,7 +79,7 @@ export default function BookingOnline() {
             const response = await fetch('https://api.ipify.org?format=json')
             const data = await response.json()
             if (data) {
-                console.log(data);
+                console.log(data)
                 setIp(data.ip)
             }
         } catch (error) {
@@ -97,7 +96,7 @@ export default function BookingOnline() {
             AgainLink: BASE_URL,
             Title: 'Ha Giang Tour Payment',
             vpc_AccessCode: ACCESS_CODE,
-            vpc_Amount: totalAmount + "00",
+            vpc_Amount: totalAmount + '00',
             vpc_Command: 'pay',
             vpc_Currency: 'VND',
             vpc_Locale: 'vn',
@@ -106,7 +105,7 @@ export default function BookingOnline() {
             vpc_OrderInfo: data.name,
             vpc_ReturnURL: BASE_URL + '/payment-successful',
             vpc_TicketNo: ip,
-            vpc_Version: "2",
+            vpc_Version: '2',
         }
         if (pickVpc) {
             const pickParams = pickBy(reqParam, (_, key) => key.startsWith('vpc_') || key.startsWith('user_'))
@@ -117,13 +116,13 @@ export default function BookingOnline() {
     }
 
     const onSubmit = async (data) => {
-        console.log("data", generateParams(data));
+        console.log('data', generateParams(data))
         const params = generateParams(data, true)
-        console.log({ params });
-        const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH);
+        console.log({ params })
+        const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
         const hash = CryptoJS.HmacSHA256(params, secretWordArray)
         const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-        console.log({ vpc_SecureHash });
+        console.log(vpc_SecureHash)
         router.push(`${ONEPAY_HOST}?${generateParams(data)}&vpc_SecureHash=${vpc_SecureHash}`)
     }
 
@@ -135,7 +134,10 @@ export default function BookingOnline() {
                     subTitle={'EASY'}
                 />
             </div>
-            <Form onSubmit={handleSubmit(onSubmit)} {...methods}>
+            <Form
+                onSubmit={handleSubmit(onSubmit)}
+                {...methods}
+            >
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-x-[3vw]'>
                     <div>
                         <div>Type of tour:</div>
@@ -148,9 +150,9 @@ export default function BookingOnline() {
                                         <TextField.Input
                                             className='input-right !bg-white rounded-r-md'
                                             type='number'
-                                            {...register("selfDriving")}
-                                            variant="soft"
-                                            placeholder="0"
+                                            {...register('selfDriving')}
+                                            variant='soft'
+                                            placeholder='0'
                                             min={0}
                                         />
                                     </TextField.Root>
@@ -164,71 +166,122 @@ export default function BookingOnline() {
                                         <TextField.Input
                                             className='input-right !bg-white rounded-r-md'
                                             type='number'
-                                            {...register("localDriver")}
-                                            variant="soft"
-                                            placeholder="0"
+                                            {...register('localDriver')}
+                                            variant='soft'
+                                            placeholder='0'
                                             min={0}
                                         />
                                     </TextField.Root>
                                 </div>
                             </div>
-                            <Separator my="3" size="4" />
+                            <Separator
+                                my='3'
+                                size='4'
+                            />
                             <div className='flex justify-between'>
                                 <div>Total</div>
-                                <div>{(values.selfDriving * selfPrice + values.localDriver * localPrice) || 0}</div>
+                                <div>{values.selfDriving * selfPrice + values.localDriver * localPrice || 0}</div>
                             </div>
                         </div>
 
                         <div className='mt-[1vw]'>Customer information:</div>
                         <div className='grid grid-cols-2 gap-[0.75vw]'>
                             <div className='col-span-2'>
-                                <TextField.Input className='col-span-2' {...register("name")} variant="soft" placeholder="Name *" />
+                                <TextField.Input
+                                    className='col-span-2'
+                                    {...register('name')}
+                                    variant='soft'
+                                    placeholder='Name *'
+                                />
                             </div>
-                            <TextField.Input {...register("email")} variant="soft" placeholder="Email *" />
-                            <TextField.Input {...register("phone")} variant="soft" placeholder="Phone(Whatsapp) *" />
+                            <TextField.Input
+                                {...register('email')}
+                                variant='soft'
+                                placeholder='Email *'
+                            />
+                            <TextField.Input
+                                {...register('phone')}
+                                variant='soft'
+                                placeholder='Phone(Whatsapp) *'
+                            />
                             <div className='col-span-2'>
-                                <TextArea {...register("message")} variant="soft" placeholder="Message *" />
+                                <TextArea
+                                    {...register('message')}
+                                    variant='soft'
+                                    placeholder='Message *'
+                                />
                             </div>
                         </div>
                         <div className='relative grid grid-cols-4 gap-[0.75vw] mt-[1vw]'>
-                            <LineTrip className="absolute top-[1.5vw] -left-[1.5vw] w-[108%]" dayAmount="3 days" />
+                            <LineTrip
+                                className='absolute top-[1.5vw] -left-[1.5vw] w-[108%]'
+                                dayAmount='3 days'
+                            />
                             <div>
                                 <div>Pick up</div>
-                                <Select.Root onValueChange={value => setValue("pickup", value)}>
-                                    <Select.Trigger className='w-full' variant="soft" placeholder="Pick up…" />
+                                <Select.Root onValueChange={(value) => setValue('pickup', value)}>
+                                    <Select.Trigger
+                                        className='w-full'
+                                        variant='soft'
+                                        placeholder='Pick up…'
+                                    />
                                     <Select.Content>
-                                        <Select.Item value="Hanoi">Hanoi</Select.Item>
-                                        <Select.Item value="Bacninh">Bacninh</Select.Item>
+                                        <Select.Item value='Hanoi'>Hanoi</Select.Item>
+                                        <Select.Item value='Bacninh'>Bacninh</Select.Item>
                                     </Select.Content>
                                 </Select.Root>
                             </div>
                             <div>
                                 <div className='truncate'>Departure date</div>
-                                <RHFDatePicker selected={values.departureDate} onChange={(date) => setValue('departureDate', date)} />
+                                <RHFDatePicker
+                                    selected={values.departureDate}
+                                    onChange={(date) => setValue('departureDate', date)}
+                                />
                             </div>
                             <div className='col-span-2'>
                                 <div>Address *</div>
-                                <TextField.Input className='col-span-2' {...register("pickupAddress")} variant="soft" placeholder="Address *" />
+                                <TextField.Input
+                                    className='col-span-2'
+                                    {...register('pickupAddress')}
+                                    variant='soft'
+                                    placeholder='Address *'
+                                />
                             </div>
                         </div>
                         <div className='grid grid-cols-4 gap-[0.75vw] mt-[3.5vw]'>
                             <div>
                                 <div>Droff</div>
-                                <Select.Root className="w-full" onValueChange={value => setValue("droff", value)}>
-                                    <Select.Trigger className='w-full' variant="soft" placeholder="Droff…" />
+                                <Select.Root
+                                    className='w-full'
+                                    onValueChange={(value) => setValue('droff', value)}
+                                >
+                                    <Select.Trigger
+                                        className='w-full'
+                                        variant='soft'
+                                        placeholder='Droff…'
+                                    />
                                     <Select.Content>
-                                        <Select.Item value="Hanoi">Hanoi</Select.Item>
-                                        <Select.Item value="Bacninh">Bacninh</Select.Item>
+                                        <Select.Item value='Hanoi'>Hanoi</Select.Item>
+                                        <Select.Item value='Bacninh'>Bacninh</Select.Item>
                                     </Select.Content>
                                 </Select.Root>
                             </div>
                             <div>
                                 <div>End date</div>
-                                <RHFDatePicker minDate={values.departureDate} selected={values.endDate} onChange={(date) => setValue('endDate', date)} />
+                                <RHFDatePicker
+                                    minDate={values.departureDate}
+                                    selected={values.endDate}
+                                    onChange={(date) => setValue('endDate', date)}
+                                />
                             </div>
                             <div className='col-span-2'>
                                 <div>Address *</div>
-                                <TextField.Input className='col-span-2' {...register("droffAddress")} variant="soft" placeholder="Address *" />
+                                <TextField.Input
+                                    className='col-span-2'
+                                    {...register('droffAddress')}
+                                    variant='soft'
+                                    placeholder='Address *'
+                                />
                             </div>
                         </div>
                     </div>
@@ -245,11 +298,16 @@ export default function BookingOnline() {
                             </div>
                             <div className='flex border-b border-gray-50'>
                                 <div className='w-[10vw] flex-none p-[1vw]'>Contact Infor</div>
-                                <div className='p-[1vw]'>{values.email} - {values.phone}</div>
+                                <div className='p-[1vw]'>
+                                    {values.email} - {values.phone}
+                                </div>
                             </div>
                             <div className='flex border-b border-gray-50'>
                                 <div className='w-[10vw] flex-none p-[1vw]'>Pick up</div>
-                                <div className='p-[1vw]'>{values.departureDate && fDate(values.departureDate)} from {values.pickup} at {values.pickupAddress}</div>
+                                <div className='p-[1vw]'>
+                                    {values.departureDate && fDate(values.departureDate)} from {values.pickup} at{' '}
+                                    {values.pickupAddress}
+                                </div>
                             </div>
                             <div className='flex border-b border-gray-50'>
                                 <div className='w-[10vw] flex-none p-[1vw]'>Tour duration</div>
@@ -257,15 +315,24 @@ export default function BookingOnline() {
                             </div>
                             <div className='flex border-b border-gray-50'>
                                 <div className='w-[10vw] flex-none p-[1vw]'>Droff off</div>
-                                <div className='p-[1vw]'>{values.endDate && fDate(values.endDate)} from {values.droff} at {values.droffAddress}</div>
+                                <div className='p-[1vw]'>
+                                    {values.endDate && fDate(values.endDate)} from {values.droff} at{' '}
+                                    {values.droffAddress}
+                                </div>
                             </div>
                             <div className='flex border-b border-gray-50'>
                                 <div className='w-[10vw] flex-none p-[1vw]'>Self-driving</div>
-                                <div className='p-[1vw]'>{values.selfDriving && `${values.selfDriving} x $169 (${fCurrency(selfCost) || 0} VND)`}</div>
+                                <div className='p-[1vw]'>
+                                    {values.selfDriving &&
+                                        `${values.selfDriving} x $169 (${fCurrency(selfCost) || 0} VND)`}
+                                </div>
                             </div>
                             <div className='flex border-b border-gray-50'>
                                 <div className='w-[10vw] flex-none p-[1vw]'>Local driver</div>
-                                <div className='p-[1vw]'>{values.localDriver && `${values.localDriver} x $199 (${fCurrency(localCose) || 0} VND)`}</div>
+                                <div className='p-[1vw]'>
+                                    {values.localDriver &&
+                                        `${values.localDriver} x $199 (${fCurrency(localCose) || 0} VND)`}
+                                </div>
                             </div>
                             <div className='flex border-b border-gray-50'>
                                 <div className='w-[10vw] flex-none p-[1vw]'>Message</div>
@@ -282,7 +349,10 @@ export default function BookingOnline() {
                                 <div>Service Charge 3%:</div>
                                 <div>{fCurrency(totalPrice * 0.03) || 0} VND</div>
                             </div>
-                            <Separator my="3" size="4" />
+                            <Separator
+                                my='3'
+                                size='4'
+                            />
                             <div className='flex justify-between text-white'>
                                 <div>Total amount:</div>
                                 <h5>{fCurrency(totalPrice + servicePrice) || 0} VND</h5>
@@ -313,7 +383,6 @@ export default function BookingOnline() {
                     </div>
                 </div>
             </Form>
-
         </section>
     )
 }

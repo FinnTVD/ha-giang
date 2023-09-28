@@ -4,7 +4,7 @@ export default function ItemLane({ data, indexCurrent, setIndexCurrent, length }
         <div>
             <div
                 className={`${
-                    data?.id === indexCurrent ? 'bg-primary-70' : 'border border-solid border-primary-70'
+                    data?.id <= indexCurrent ? 'bg-primary-70' : 'border border-solid border-primary-70'
                 } w-[0.75vw] h-[0.75vw] rounded-full relative mx-auto`}
             >
                 {data?.id < length && (
@@ -28,7 +28,7 @@ export default function ItemLane({ data, indexCurrent, setIndexCurrent, length }
                         </svg>
                         <div
                             className={`${
-                                indexCurrent - 1 === data?.id ? 'w-[10.25vw]' : 'w-0'
+                                indexCurrent - 1 >= data?.id ? 'w-[10.25vw]' : 'w-0'
                             } absolute transition-all duration-300 right-[-0.63vw] translate-x-full top-1/2 -translate-y-1/2 h-[2px] bg-primary-70`}
                         ></div>
                     </>
