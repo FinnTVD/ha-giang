@@ -1,19 +1,19 @@
 'use client'
-import SubTitle from '../global/SubTitle'
+import { ACCESS_CODE, BASE_URL, MERCHANT_ID, ONEPAY_HOST, SECRET_KEY_HASH } from '@/config-global'
+import { convertStr2URL, fCurrency, fDate } from '@/lib/utils'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { Select, Separator, TextArea, TextField } from '@radix-ui/themes'
-import LineTrip from '../icons/LineTrip'
-import Button from '../global/Button'
+import CryptoJS from 'crypto-js'
+import { pickBy } from 'lodash'
 import Image from 'next/image'
-import { Form, useForm } from 'react-hook-form'
-import * as Yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import RHFDatePicker from '../ui/RHFDatePicker'
-import { fCurrency, fDate } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
-import CryptoJS from 'crypto-js';
-import { keys, pickBy } from 'lodash'
 import { useEffect, useState } from 'react'
-import { BASE_URL, ONEPAY_HOST, SECRET_KEY_HASH } from '@/config-global'
+import { Form, useForm } from 'react-hook-form'
+import * as Yup from 'yup'
+import Button from '../global/Button'
+import SubTitle from '../global/SubTitle'
+import LineTrip from '../icons/LineTrip'
+import RHFDatePicker from '../ui/RHFDatePicker'
 
 
 const defaultValues = {
@@ -42,14 +42,14 @@ export default function BookingOnline() {
         name: Yup.string().required(),
         email: Yup.string().required().email(),
         phone: Yup.string().required(),
-        // message: Yup.string().required(),
+        message: Yup.string().required(),
         phone: Yup.string().required(),
         pickup: Yup.string(),
         departureDate: Yup.string(),
-        // pickupAddress: Yup.string().required(),
+        pickupAddress: Yup.string().required(),
         droff: Yup.string(),
         endDate: Yup.string(),
-        // droffAddress: Yup.string().required(),
+        droffAddress: Yup.string().required(),
     });
 
     const methods = useForm({
@@ -92,26 +92,17 @@ export default function BookingOnline() {
         getIp()
     }, [])
 
-    const convertStr2URL = (pickParams) => {
-        let str = ''
-        keys(pickParams).forEach((key) => {
-            str += `${key}=${pickParams[key]}&`
-        })
-        str = str.slice(0, -1);
-        return str
-    }
-
     const generateParams = (data, pickVpc = false) => {
         const reqParam = {
             AgainLink: BASE_URL,
-            Title: 'onepay paygate',
-            vpc_AccessCode: "6BEB2566",
+            Title: 'Ha Giang Tour Payment',
+            vpc_AccessCode: ACCESS_CODE,
             vpc_Amount: totalAmount + "00",
             vpc_Command: 'pay',
             vpc_Currency: 'VND',
             vpc_Locale: 'vn',
             vpc_MerchTxnRef: 'hg' + Date.now(),
-            vpc_Merchant: 'TESTONEPAY32',
+            vpc_Merchant: MERCHANT_ID,
             vpc_OrderInfo: data.name,
             vpc_ReturnURL: BASE_URL + '/payment-successful',
             vpc_TicketNo: ip,
