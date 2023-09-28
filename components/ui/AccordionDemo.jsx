@@ -1,11 +1,11 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion'
 
-export function AccordionDemo() {
+export function AccordionDemo({className}) {
     return (
         <Accordion
             type='single'
             collapsible
-            className='w-full'
+            className={`w-full ${className}`}
         >
             <AccordionItem value='item-1'>
                 <AccordionTrigger>Is it accessible?</AccordionTrigger>
