@@ -8,6 +8,7 @@ import Weather from './Weather'
 import TheTrip from './TheTrip'
 import GreatTrips from './GreatTrips'
 import Family from './Family'
+import BookingOnline from './BookingOnline'
 
 export default function IndexHomePage() {
     return (
@@ -37,6 +38,7 @@ export default function IndexHomePage() {
             <Travelers />
             <Family />
             <Weather />
+            <BookingOnline />
             <TheTrip />
         </main>
     )
