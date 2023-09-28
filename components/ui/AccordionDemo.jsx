@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion'
 
-export function AccordionDemo({ className }) {
+export function AccordionDemo({className}) {
     return (
         <Accordion
             type='single'
