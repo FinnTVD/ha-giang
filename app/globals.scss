@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-    --font-poppins: "__Poppins_0fd924", "__Poppins_Fallback_0fd924";
-    --font-roboto: "__Roboto_471caf", "__Roboto_Fallback_471caf";
-    --font-tomatoes: "__tomatoes_dfb65f", "__tomatoes_Fallback_dfb65f";
-    --font-heavitas: "__heavitas_fe1ab9", "__heavitas_Fallback_fe1ab9";
+    --font-poppins: '__Poppins_0fd924', '__Poppins_Fallback_0fd924';
+    --font-roboto: '__Roboto_471caf', '__Roboto_Fallback_471caf';
+    --font-tomatoes: '__tomatoes_dfb65f', '__tomatoes_Fallback_dfb65f';
+    --font-heavitas: '__heavitas_fe1ab9', '__heavitas_Fallback_fe1ab9';
 
     --gray-scale-80: #2e2e2e;
     --gray-scale-50: #727272;
@@ -102,6 +102,12 @@ html {
     display: none;
 }
 
-.input-right{
+.input-right {
     text-align: right;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
