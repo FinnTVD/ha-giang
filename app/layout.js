@@ -3,7 +3,9 @@ import './globals.scss'
 import { Poppins, Roboto } from 'next/font/google'
 import Header from '@/components/global/Header'
 import localFont from 'next/font/local'
+import { Theme } from '@radix-ui/themes';
 
+import '@radix-ui/themes/styles.css';
 import 'swiper/css'
 import 'swiper/css/free-mode'
 
@@ -50,9 +52,12 @@ export default function RootLayout({ children }) {
             <body
                 className={`bg-white text-black ${heavitas.className} ${tomatoes.className} ${roboto.className} ${poppins.className} `}
             >
-                <Header />
-                {children}
-                <Footer />
+                <Theme>
+                    <Header />
+                    {children}
+                    <Footer />
+                </Theme>
+
             </body>
         </html>
     )
