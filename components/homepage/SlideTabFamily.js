@@ -1,11 +1,28 @@
 'use client'
 
-import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const arr = new Array(4).fill(0)
-export default function SlideTabFamily() {
+const arr = [
+    {
+        id: 1,
+        title: 'TOUR LEADER',
+    },
+    {
+        id: 2,
+        title: 'RIDER TEAM',
+    },
+    {
+        id: 3,
+        title: 'SPECIALIST',
+    },
+    {
+        id: 4,
+        title: 'LOCAL HOST',
+    },
+]
+
+export default function SlideTabFamily({ indexTab, setIndexTab }) {
     const swiperRef = useRef()
     const [indexSlider, setIndexSlider] = useState(0)
     const handleSlideChange = (swiper) => {
@@ -15,7 +32,7 @@ export default function SlideTabFamily() {
     return (
         <div
             id='box-slide-family'
-            className='w-fit h-fit relative'
+            className='relative w-fit h-fit'
         >
             <Swiper
                 spaceBetween={36}
@@ -34,7 +51,10 @@ export default function SlideTabFamily() {
                                 : 'text-gray-scale-20'
                         } !w-fit !h-[1.25vw] text-[0.875vw] font-semibold leading-[1.42] tracking-[0.00875vw] cursor-pointer relative`}
                         key={index}
-                        onClick={() => setIndexSlider(index)}
+                        onClick={() => {
+                            setIndexSlider(index)
+                            setIndexTab(e?.id)
+                        }}
                     >
                         TOUR LEADER
                     </SwiperSlide>
