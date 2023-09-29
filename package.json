@@ -33,6 +33,7 @@
     "react": "18.2.0",
     "react-datepicker": "^4.18.0",
     "react-dom": "18.2.0",
+    "react-responsive": "^9.0.2",
     "react-hook-form": "^7.46.2",
     "sass": "^1.67.0",
     "swiper": "^10.2.0",
