@@ -7,7 +7,7 @@ export default function FeaturesHeader() {
     return (
         <article
             id='feature-header'
-            className='flex flex-col gap-y-[1.37vw] max-md:gap-y-[5.33vw] items-center fixed bottom-[10vw] right-[3vw] z-[10]'
+            className='flex flex-col gap-y-[1.37vw] max-md:gap-y-[5.33vw] items-center fixed bottom-[10vw] right-[3vw] max-md:right-[4.27vw] z-[10]'
         >
             <svg
                 xmlns='http://www.w3.org/2000/svg'

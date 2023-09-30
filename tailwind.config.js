@@ -16,7 +16,8 @@ module.exports = {
                 'gradient-travelers2': 'linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)',
                 'gradient-itemCardTour': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 54.17%, #000 100%)',
                 'gradient-header-detail': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 38.46%, #000 98.99%)',
-                'gradient-weather': 'linear-gradient(180deg, #FFF 93.92%, rgba(255, 255, 255, 0.00) 193.92%)',
+                'gradient-banner':
+                    'linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.00) 50.35%, #000 91.33%)',
             },
             colors: {
                 'gray-scale-80': 'var(--gray-scale-80)',
@@ -64,6 +65,7 @@ module.exports = {
                 slideTrave: '0px 4px 6px 0px rgba(0, 0, 0, 0.06)',
                 btnTravel: '0px 4px 16px 0px rgba(0, 0, 0, 0.06)',
                 itemCardTour: '0px 0px 20px 0px rgba(0, 0, 0, 0.12)',
+                boxTour: '0px 4px 12px 0px rgba(0, 0, 0, 0.24)',
             },
             fontFamily: {
                 poppins: ['var(--font-poppins)'],
