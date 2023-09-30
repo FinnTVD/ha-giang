@@ -1,11 +1,14 @@
 import React from 'react'
+import { useMediaQuery } from 'react-responsive'
 
 const LineTrip = ({ dayAmount, className }) => {
+    const isLarge = useMediaQuery({ query: '(max-width: 1650px)' })
+    console.log(isLarge)
     return (
         <svg
             className={className}
             width='742'
-            height='144'
+            height='194%'
             viewBox='0 0 742 144'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'

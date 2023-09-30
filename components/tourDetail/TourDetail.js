@@ -130,7 +130,7 @@ function TourDetail() {
         },
     ]
     return (
-        <section className='flex flex-col mt-[6.25vw]'>
+        <section className='flex flex-col mt-[6.25vw]' id='tourId'>
             <Subtitle
                 subTitle={'YOUR'}
                 title={'TRIP DETAILS'}
