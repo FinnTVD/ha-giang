@@ -32,7 +32,7 @@ export default function IndexHomePage() {
                 </div> */}
                 <Banner />
                 <Image
-                    className='!h-[200vh] object-cover w-full top-0 left-0 z-0'
+                    className='!h-[200vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
                     src={'/images/mask.png'}
                     fill
                     sizes='100vw'
