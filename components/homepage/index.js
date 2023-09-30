@@ -9,6 +9,7 @@ import TheTrip from './TheTrip'
 import GreatTrips from './GreatTrips'
 import Family from './Family'
 import BookingOnline from './BookingOnline'
+import OverviewMb from './OverviewMb'
 
 export default function IndexHomePage() {
     return (

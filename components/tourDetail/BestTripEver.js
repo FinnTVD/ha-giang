@@ -87,7 +87,7 @@ export default function BestTripEver() {
     }, [next, prev])
 
     return (
-        <section className='mt-[6.25vw] px-[6.25vw] flex justify-between'>
+        <section className='mt-[6.25vw] px-[6.25vw] flex justify-between bg-white' id='mapId'>
             <div>
                 <SubTitle
                     title={'BEST TRIP EVER'}
