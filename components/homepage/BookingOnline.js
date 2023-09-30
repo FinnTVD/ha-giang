@@ -18,7 +18,6 @@ import { useMediaQuery } from 'react-responsive'
 import motoImg from '@/public/images/motobikeMobile.svg' 
 
 
-
 const defaultValues = {
     selfDriving: 0,
     localDriver: 0,
@@ -56,11 +55,11 @@ export default function BookingOnline() {
         droff: Yup.string(),
         endDate: Yup.string(),
         droffAddress: Yup.string().required(),
-    });
+    })
 
     const methods = useForm({
         resolver: yupResolver(BookingSchema),
-        defaultValues
+        defaultValues,
     })
 
     const {
@@ -86,7 +85,7 @@ export default function BookingOnline() {
             const response = await fetch('https://api.ipify.org?format=json')
             const data = await response.json()
             if (data) {
-                console.log(data);
+                console.log(data)
                 setIp(data.ip)
             }
         } catch (error) {
@@ -103,7 +102,7 @@ export default function BookingOnline() {
             AgainLink: BASE_URL,
             Title: 'Ha Giang Tour Payment',
             vpc_AccessCode: ACCESS_CODE,
-            vpc_Amount: totalAmount + "00",
+            vpc_Amount: totalAmount + '00',
             vpc_Command: 'pay',
             vpc_Currency: 'VND',
             vpc_Locale: 'vn',
@@ -112,7 +111,7 @@ export default function BookingOnline() {
             vpc_OrderInfo: data.name,
             vpc_ReturnURL: BASE_URL + '/payment-successful',
             vpc_TicketNo: ip,
-            vpc_Version: "2",
+            vpc_Version: '2',
         }
         if (pickVpc) {
             const pickParams = pickBy(reqParam, (_, key) => key.startsWith('vpc_') || key.startsWith('user_'))
@@ -123,13 +122,13 @@ export default function BookingOnline() {
     }
 
     const onSubmit = async (data) => {
-        console.log("data", generateParams(data));
+        console.log('data', generateParams(data))
         const params = generateParams(data, true)
-        console.log({ params });
-        const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH);
+        console.log({ params })
+        const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
         const hash = CryptoJS.HmacSHA256(params, secretWordArray)
         const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-        console.log({ vpc_SecureHash });
+        console.log(vpc_SecureHash)
         router.push(`${ONEPAY_HOST}?${generateParams(data)}&vpc_SecureHash=${vpc_SecureHash}`)
     }
 
@@ -158,9 +157,9 @@ export default function BookingOnline() {
                                             style={isMobile ?  {color: '#B7B7B7', fontSize: '3.73vw'} : 
                                             {color: '#B7B7B7', height: '2.5vw',fontSize: '0.875vw', paddingTop: '0vw'}}
                                             type='number'
-                                            {...register("selfDriving")}
-                                            variant="soft"
-                                            placeholder="0"
+                                            {...register('selfDriving')}
+                                            variant='soft'
+                                            placeholder='0'
                                             min={0}
                                         />
                                     </TextField.Root>
@@ -177,9 +176,9 @@ export default function BookingOnline() {
                                             {color: '#B7B7B7', height: '2.5vw',fontSize: '0.875vw', paddingTop: '0vw'}}
                                             className='input-right !bg-white text-[#B7B7B7] text-[0.875vw] rounded-r-md'
                                             type='number'
-                                            {...register("localDriver")}
-                                            variant="soft"
-                                            placeholder="0"
+                                            {...register('localDriver')}
+                                            variant='soft'
+                                            placeholder='0'
                                             min={0}
                                         />
                                     </TextField.Root>
@@ -219,8 +218,8 @@ export default function BookingOnline() {
                                 <Select.Root onValueChange={value => setValue("pickup", value)}>
                                     <Select.Trigger className='w-full' style={isMobile ? inputMobileStyle : inputStyle} variant="soft" placeholder="Pick up…" />
                                     <Select.Content>
-                                        <Select.Item value="Hanoi">Hanoi</Select.Item>
-                                        <Select.Item value="Bacninh">Bacninh</Select.Item>
+                                        <Select.Item value='Hanoi'>Hanoi</Select.Item>
+                                        <Select.Item value='Bacninh'>Bacninh</Select.Item>
                                     </Select.Content>
                                 </Select.Root>
                             </div>
@@ -240,8 +239,8 @@ export default function BookingOnline() {
                                 <Select.Root className="w-full" onValueChange={value => setValue("droff", value)}>
                                     <Select.Trigger className='w-full' style={isMobile ? inputMobileStyle : inputStyle} variant="soft" placeholder="Droff…" />
                                     <Select.Content>
-                                        <Select.Item value="Hanoi">Hanoi</Select.Item>
-                                        <Select.Item value="Bacninh">Bacninh</Select.Item>
+                                        <Select.Item value='Hanoi'>Hanoi</Select.Item>
+                                        <Select.Item value='Bacninh'>Bacninh</Select.Item>
                                     </Select.Content>
                                 </Select.Root>
                             </div>
@@ -347,7 +346,6 @@ export default function BookingOnline() {
                     </div>
                 </div>
             </Form>
-
         </section>
     )
 }

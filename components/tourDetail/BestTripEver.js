@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import SubTitle from '../global/SubTitle'
 import ItemLane from './ItemLane'
 import Image from 'next/image'
+import Button from '../global/Button'
 
 const arr = [
     {
@@ -166,6 +167,13 @@ export default function BestTripEver() {
                             />
                         </button>
                     </div>
+                </div>
+                <div className='flex justify-center mt-[2.5vw]'>
+                    <Button
+                        primary={true}
+                        content={'book now'}
+                        className={'px-[2vw] py-[1vw]'}
+                    />
                 </div>
                 {/* <div class='flex gap-x-[1.5vw]'>
                     <button
