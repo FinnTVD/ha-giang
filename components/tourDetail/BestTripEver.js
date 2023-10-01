@@ -40,7 +40,7 @@ const listAddress = [
     },
 ]
 
-export default function BestTripEver() {
+export default function BestTripEver({ data }) {
     const [count, setCount] = useState(0)
     const [prev, setPrev] = useState(arr[count]?.src)
     const [next, setNext] = useState(arr[count + 1]?.src)
@@ -88,11 +88,14 @@ export default function BestTripEver() {
     }, [next, prev])
 
     return (
-        <section className='mt-[6.25vw] px-[6.25vw] flex justify-between bg-white' id='mapId'>
+        <section
+            className='mt-[6.25vw] px-[6.25vw] flex justify-between bg-white'
+            id='mapId'
+        >
             <div>
                 <SubTitle
-                    title={'BEST TRIP EVER'}
-                    subTitle={'HA GIANG CHEERS TOUR'}
+                    title={data?.subtitle}
+                    subTitle={data?.title}
                 />
                 <div className='mt-[2.88vw]'>
                     <div>
@@ -109,20 +112,15 @@ export default function BestTripEver() {
                             height={40}
                             quality={100}
                         />
-                        {/* <div className='flex items-center'>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div> */}
                     </div>
-                    <div className='flex gap-x-[5.13vw] relative'>
-                        {listAddress?.map((e, index) => (
+                    <div className='flex gap-x-[5.13vw] relative w-fit'>
+                        {data?.listDay?.map((e, index) => (
                             <ItemLane
                                 indexCurrent={indexCurrent}
-                                setIndexCurrent={setIndexCurrent}
                                 data={e}
                                 key={index}
-                                length={listAddress?.length}
+                                length={data?.listDay?.length}
+                                index={index}
                             />
                         ))}
 

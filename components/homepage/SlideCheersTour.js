@@ -30,7 +30,7 @@ export default function SlideCheersTour({ arr }) {
                             fill
                             sizes='100vw'
                         />
-                        <span className='relative w-full line-clamp-1 text-center  z-[1] text-primary-5 font-bold text-[3.5vw] leading-[1.57] tracking-[0.00933rem]'>
+                        <span className='relative w-full line-clamp-1 text-center  z-[1] text-primary-5 font-bold text-[3.5vw] leading-[1.57] tracking-[0.00933vw]'>
                             {e?.title}
                         </span>
                     </SwiperSlide>

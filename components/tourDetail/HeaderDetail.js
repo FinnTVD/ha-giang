@@ -1,15 +1,29 @@
+'use client'
 import Image from 'next/image'
 import Nav from '../global/Nav'
 import FeaturesHeader from '../global/FeaturesHeader'
 import ContentHeaderDetail from './ContentHeaderDetail'
+import { useEffect, useState } from 'react'
 
-export default function HeaderDetail() {
+export default function HeaderDetail({ data }) {
+    const [isOpen, setIsOpen] = useState(false)
+    useEffect(() => {
+        if (!isOpen) {
+            document.body.style.overflow = 'auto'
+        } else {
+            document.body.style.overflow = 'hidden'
+        }
+    }, [isOpen])
     return (
-        <header className='relative w-full h-screen'>
-            <Nav />
+        <header className='relative w-full h-screen max-md:h-[70vh]'>
+            <Nav
+                header={data?.data?.page?.homeHG?.header}
+                setIsOpen={setIsOpen}
+            />
             <Image
                 className='z-0 object-cover'
-                src='/images/header-detail.jpg'
+                src={data?.data?.tourHG?.featuredImage?.node?.sourceUrl || '/images/header-detail.jpg'}
+                alt={data?.data?.tourHG?.featuredImage?.node?.altText || data?.data?.tourHG?.featuredImage?.node?.title}
                 fill
                 sizes='100vw'
                 priority
@@ -24,10 +38,10 @@ export default function HeaderDetail() {
                     height={800}
                 />
             </div> */}
-            <ContentHeaderDetail />
-            <FeaturesHeader />
-            <div className='flex gap-x-[1vw] absolute bottom-0 translate-y-1/2 right-[6.27vw]'>
-                <div className='w-[11.88vw] h-[12.12vw] relative flex items-center justify-center'>
+            <ContentHeaderDetail data={data?.data?.tourHG?.tourHaGiangDetail?.header} />
+            <FeaturesHeader header={data?.data?.page?.homeHG?.header} />
+            <div className='flex gap-x-[1vw] absolute bottom-0 translate-y-1/2 lg:right-[6.27vw] max-md:left-[4.27vw]'>
+                <div className='w-[11.88vw] h-[12.12vw] max-md:w-[30.69vw] max-md:h-[30.92vw] relative flex items-center justify-center'>
                     <Image
                         className='z-0 object-cover'
                         src={'/images/circle-orange.png'}
@@ -36,13 +50,15 @@ export default function HeaderDetail() {
                         sizes='100vw'
                     />
                     <div className='relative z-[1] flex flex-col justify-center items-center'>
-                        <span className='text-[0.875vw] text-white font-semibold leading-[1.42] tracking-[0.00875rem]'>
+                        <span className='text-[0.875vw] text-white font-semibold leading-[1.42] tracking-[0.00875vw] max-md:text-[2.67vw] max-md:leading-normal'>
                             SELF - DRIVING
                         </span>
-                        <span className='text-[3vw] font-bold leading-[1.08] text-white'>$169</span>
+                        <span className='text-[3vw] font-bold leading-[1.08] text-white max-md:text-[9.067vw] max-md:leading-[1.17] max-md:tracking-[0.02267vw]'>
+                            $169
+                        </span>
                     </div>
                 </div>
-                <div className='w-[11.88vw] h-[12.12vw] relative flex items-center justify-center'>
+                <div className='w-[11.88vw] h-[12.12vw] max-md:w-[30.69vw] max-md:h-[30.92vw] relative flex items-center justify-center'>
                     <Image
                         className='z-0 object-cover'
                         src={'/images/circle-orange.png'}
@@ -51,10 +67,12 @@ export default function HeaderDetail() {
                         sizes='100vw'
                     />
                     <div className='relative z-[1] flex flex-col justify-center items-center'>
-                        <span className='text-[0.875vw] text-white font-semibold leading-[1.42] tracking-[0.00875rem]'>
+                        <span className='text-[0.875vw] text-white font-semibold leading-[1.42] tracking-[0.00875vw] max-md:text-[2.67vw] max-md:leading-normal'>
                             PRIVATE DRIVER
                         </span>
-                        <span className='text-[3vw] font-bold leading-[1.08] text-white'>$199</span>
+                        <span className='text-[3vw] font-bold leading-[1.08] text-white max-md:text-[9.067vw] max-md:leading-[1.17] max-md:tracking-[0.02267vw]'>
+                            $199
+                        </span>
                     </div>
                 </div>
             </div>

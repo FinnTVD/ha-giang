@@ -7,17 +7,18 @@ import HeaderDetail from './HeaderDetail'
 import TheTripDetail from './TheTripDetail'
 import TourDetail from './TourDetail'
 
-export default function IndexTourDetail() {
+export default function IndexTourDetail({ data }) {
+    const { section1, tripDetails, faq } = data?.data?.tourHG?.tourHaGiangDetail
     return (
         <>
-            <HeaderDetail />
+            <HeaderDetail data={data} />
             <main>
-                <OverviewMb />
-                <BestTripEver />
-                <BoxVideo />
-                <TourDetail />
+                <OverviewMb data={data} />
+                <BestTripEver data={section1} />
+                <BoxVideo data={section1} />
+                <TourDetail data={tripDetails} />
                 <BookingOnline />
-                <TheTripDetail />
+                <TheTripDetail data={faq} />
                 <Another />
             </main>
         </>

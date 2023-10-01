@@ -3,20 +3,23 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectCreative, FreeMode } from 'swiper/modules'
 
-const arr = new Array(8).fill(0)
-const style1= {width: '35.625vw', transform: 'translateX(0)'}
-const style2= {width: 'calc((50.5vw - 35.625vw - 48px) / 2)', transform: 'translateX(24px)'}
-const style3= {width: 'calc((50.5vw - 35.625vw - 48px) / 2)', transform:'translateX(calc((16.8333vw - 7.4375vw) + 24px)'}
-const style4= {width: 'calc((50.5vw - 35.625vw - 48px) / 2)', transform:'translateX(calc((16.8333vw - 7.4375vw) * 2 + 24px)'}
-export default function SlideFamily() {
-    const swiperRef = useRef()
+const style1 = { width: '35.625vw', transform: 'translateX(0)' }
+const style2 = { width: 'calc((50.5vw - 35.625vw - 48px) / 2)', transform: 'translateX(24px)' }
+const style3 = {
+    width: 'calc((50.5vw - 35.625vw - 48px) / 2)',
+    transform: 'translateX(calc((16.8333vw - 7.4375vw) + 24px)',
+}
+const style4 = {
+    width: 'calc((50.5vw - 35.625vw - 48px) / 2)',
+    transform: 'translateX(calc((16.8333vw - 7.4375vw) * 2 + 24px)',
+}
+export default function SlideFamily({ section6, setTourLeader }) {
+    const swiperRef = useRef(null)
     const [indexSlider, setIndexSlider] = useState(0)
-    console.log('🚀 ~ file: SlideFamily.js:12 ~ SlideFamily ~ indexSlider:', indexSlider)
     const handleSlideChange = (swiper) => {
+        setTourLeader(section6?.listCategory[0]?.listAddress[swiper.realIndex])
         setIndexSlider(swiper.realIndex)
-        // swiper.translate = (37.125 * window.innerWidth) / 100
     }
 
     const handleNextSlide = () => {
@@ -31,30 +34,38 @@ export default function SlideFamily() {
         const slideImg = document.querySelectorAll('.slideCheers img')
         const slide = document.querySelectorAll('.slideCheers')
         slideImg.forEach((item, index) => {
-            if(indexSlider===Number(slide[index].dataset.swiperSlideIndex)){
+            if (indexSlider === Number(slide[index].dataset.swiperSlideIndex)) {
                 item.style.width = style1.width
                 item.style.transform = style1.transform
                 item.style.opacity = '1'
-            }
-            else{
+            } else {
                 item.style.opacity = '0.6'
-                if((indexSlider===slide.length-1 && Number(slide[index].dataset.swiperSlideIndex)===0) || Math.abs(indexSlider-Number(slide[index].dataset.swiperSlideIndex))===1){
+                if (
+                    (indexSlider === slide.length - 1 && Number(slide[index].dataset.swiperSlideIndex) === 0) ||
+                    Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 1
+                ) {
                     item.style.width = style4.width
                     item.style.transform = style4.transform
-                }
-                else if((indexSlider===slide.length-1 && Number(slide[index].dataset.swiperSlideIndex)===1) || Math.abs(indexSlider-Number(slide[index].dataset.swiperSlideIndex))===2){
+                } else if (
+                    (indexSlider === slide.length - 1 && Number(slide[index].dataset.swiperSlideIndex) === 1) ||
+                    Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 2
+                ) {
                     item.style.width = style3.width
                     item.style.transform = style3.transform
-                }
-                else if((indexSlider===slide.length-2 && Number(slide[index].dataset.swiperSlideIndex)===slide.length-1) || Math.abs(indexSlider-Number(slide[index].dataset.swiperSlideIndex))===2){
+                } else if (
+                    (indexSlider === slide.length - 2 &&
+                        Number(slide[index].dataset.swiperSlideIndex) === slide.length - 1) ||
+                    Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 2
+                ) {
                     item.style.width = style4.width
                     item.style.transform = style4.transform
-                }
-                else if((indexSlider===slide.length-2 && Number(slide[index].dataset.swiperSlideIndex)===0) || Math.abs(indexSlider-Number(slide[index].dataset.swiperSlideIndex))===2){
+                } else if (
+                    (indexSlider === slide.length - 2 && Number(slide[index].dataset.swiperSlideIndex) === 0) ||
+                    Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 2
+                ) {
                     item.style.width = style3.width
                     item.style.transform = style3.transform
-                }
-                else{
+                } else {
                     item.style.width = style2.width
                     item.style.transform = style2.transform
                 }
@@ -65,42 +76,36 @@ export default function SlideFamily() {
     return (
         <div
             id='box-slide-family'
-            className='w-fit h-fit relative'
+            className='w-fit h-fit relative max-md:hidden'
         >
             <Swiper
                 loop={true}
                 spaceBetween={0}
                 slidesPerView={3}
-                // centerInsufficientSlides={true}
-                // centeredSlidesBounds={true}
-                // freeMode={true}
                 grabCursor={true}
                 speed={1000}
-                // virtualTranslate={true}
                 onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper
                 }}
                 className='h-[25.825vw] w-[50.5vw]'
             >
-                {arr?.map((e, index) => (
+                {section6?.listCategory[0]?.listAddress?.map((e, index) => (
                     <SwiperSlide
-                        className="!h-full rounded-[1vw] transition-all duration-1000 relative slideCheers"
+                        className='!h-full rounded-[1vw] transition-all duration-1000 relative slideCheers'
                         key={index}
-                        onClick={() => setIndexSlider(index)}
                     >
-                        {({ isActive }) => (
-                            <Image
-                                className='max-w-[35.625vw] object-cover h-full rounded-[1vw] absolute top-0 left-0 transition-all duration-1000'
-                                src={index % 2 === 0 ? '/images/item-tour.jpg' : '/images/weather.jpg'}
-                                width={500}
-                                height={500}
-                            />
-                        )}
+                        <Image
+                            className='max-w-[35.625vw] object-cover h-full rounded-[1vw] absolute top-0 left-0 transition-all duration-1000'
+                            src={e?.image?.sourceUrl || '/images/item-tour.jpg'}
+                            alt={e?.image?.altText || e?.image?.title}
+                            width={800}
+                            height={600}
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>
-            {arr?.length > 3 && (
+            {section6?.listCategory[0]?.listAddress?.length > 1 && (
                 <>
                     <button
                         onClick={handlePrevSlide}

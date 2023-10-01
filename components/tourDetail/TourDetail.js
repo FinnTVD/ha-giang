@@ -4,7 +4,7 @@ import homeLocation from '@/public/images/homeLocation.svg'
 import imgSlide1 from '@/public/images/imgSlide1.png'
 import imgSlide2 from '@/public/images/imgSlide2.png'
 
-function TourDetail() {
+function TourDetail({ data }) {
     const listTourDetail = [
         {
             title: 'Night 1.',
@@ -130,20 +130,20 @@ function TourDetail() {
         },
     ]
     return (
-        <section className='flex flex-col mt-[6.25vw]' id='tourId'>
+        <section
+            className='flex flex-col mt-[6.25vw]'
+            id='tourId'
+        >
             <Subtitle
-                subTitle={'YOUR'}
-                title={'TRIP DETAILS'}
+                subTitle={data?.subtitle}
+                title={data?.title}
                 boxClass={'md:mb-[1.87vw] flex flex-col md:text-center max-md:pl-[4.27vw]'}
             />
             <div className='flex flex-col md:gap-[2.5vw] max-md:mt-[4.68vw]'>
-                {listTourDetail?.map((tour, index) => (
+                {data?.listDetail?.map((e, index) => (
                     <AboutTour
                         key={index}
-                        title={tour?.title}
-                        subTitle={tour?.subTitle}
-                        content={tour?.content}
-                        categories={tour?.categories}
+                        data={e}
                     />
                 ))}
             </div>

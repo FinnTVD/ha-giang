@@ -41,11 +41,6 @@ const poppins = Poppins({
     subsets: ['latin'],
 })
 
-export const metadata = {
-    title: 'Home | Cheers Tour',
-    description: 'Ha Giang Tour',
-}
-
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>

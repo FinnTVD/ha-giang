@@ -1,5 +1,7 @@
 'use client'
-export default function FeaturesHeader() {
+import Link from 'next/link'
+
+export default function FeaturesHeader({ header }) {
     const scrollToTop = () => {
         if (typeof window === 'undefined') return
         window.scrollTo(0, 0, { behavior: 'smooth' })
@@ -7,7 +9,7 @@ export default function FeaturesHeader() {
     return (
         <article
             id='feature-header'
-            className='flex flex-col gap-y-[1.37vw] max-md:gap-y-[5.33vw] items-center fixed bottom-[10vw] right-[3vw] max-md:right-[4.27vw] z-[10]'
+            className='flex flex-col gap-y-[1.37vw] max-md:gap-y-[5.33vw] items-center fixed bottom-[10vw] right-[3vw] max-md:right-[4.27vw] z-[999]'
         >
             <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -36,10 +38,13 @@ export default function FeaturesHeader() {
                     stroke='#FC692A'
                 />
             </svg>
-            <div className='cursor-pointer w-[3.5vw] text-[0.75vw] font-black leading-[1.08] tracking-[0.03125rem] h-[3.5vw] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67vw] max-md:h-[10.67vw] max-md:text-[2.56vw] max-md:tracking-[0.10667rem]'>
+            <div className='cursor-pointer w-[3.5vw] text-[0.75vw] font-black leading-[1.08] tracking-[0.03125vw] h-[3.5vw] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67vw] max-md:h-[10.67vw] max-md:text-[2.56vw] max-md:tracking-[0.10667vw]'>
                 BOOK NOW
             </div>
-            <div className='relative'>
+            <Link
+                href={`tel:${header?.phoneNumber}`}
+                className='relative cursor-pointer block'
+            >
                 {/* <div className='box-phone absolute bottom-0 left-0 z-0 w-[2.5vw] h-[2.5vw] rounded-full'></div> */}
 
                 <svg
@@ -118,7 +123,7 @@ export default function FeaturesHeader() {
                         </filter>
                     </defs>
                 </svg>
-            </div>
+            </Link>
         </article>
     )
 }
