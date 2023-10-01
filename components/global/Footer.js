@@ -6,8 +6,13 @@ import homeIcon from '@/public/images/FooterHomeIcon.svg'
 import worldIcon from '@/public/images/FooterWorldIcon.svg'
 import transportIcon from '@/public/images/FooterTransportIcon.svg'
 import locationIcon from '@/public/images/FooterLocationIcon.svg'
+import getData from '@/utils/getData'
+import { GET_DATA_FOOTER } from '@/graphql/home/queries'
+import Link from 'next/link'
 
-export default function Footer() {
+export default async function Footer() {
+    const data = await getData(GET_DATA_FOOTER)
+    const { footer } = data?.data?.page?.homeHG
     return (
         <footer className='relative'>
             <svg
@@ -21,11 +26,11 @@ export default function Footer() {
                     fill='#FFFDF7'
                 />
             </svg>
-            <div className='md:h-screen h-[230.4vw] w-full relative md:px-[6.25vw]'>
+            <div className='md:h-screen h-screen w-full relative md:px-[6.25vw]'>
                 <Image
                     className='z-0 max-md:h-[153.6vw] h-full absolute md:inset-0 bottom-0 w-full object-cover'
-                    alt='background'
-                    src='/images/bg-footer.png'
+                    alt={footer?.background?.altText || footer?.background?.title}
+                    src={footer?.background?.sourceUrl || '/images/bg-footer.png'}
                     sizes='100vw'
                     quality={100}
                     width={100}
@@ -33,35 +38,58 @@ export default function Footer() {
                     object-cover
                 />
                 <div className='flex justify-between items-center w-full relative z-[1] max-md:px-[4.27vw] max-md:flex-col'>
-                    <Image
-                        className='md:w-[12.75vw] w-[34.67493vw] md:h-[12.05vw] h-[30.4vw] md:mt-[9.13vw] mt-[14vw] object-cover'
-                        alt='logo'
-                        src='/images/logo-footer.png'
-                        width={220}
-                        height={200}
-                    />
+                    <Link
+                        href='/'
+                        className='w-fit h-fit block'
+                    >
+                        <Image
+                            className='md:w-[12.75vw] w-[34.67493vw] md:h-[12.05vw] h-[30.4vw] md:mt-[9.13vw] mt-[14vw] object-cover'
+                            alt={footer?.logo?.altText || footer?.logo?.title}
+                            src={footer?.logo?.sourceUrl || '/images/logo-footer.png'}
+                            width={220}
+                            height={200}
+                        />
+                    </Link>
                     <div className='flex md:gap-x-[9.47vw] md:mt-[9.13vw] mt-[8vw] max-md:flex-col gap-[8vw] max-md:text-center'>
                         <div className='max-md:flex justify-center flex-col'>
                             <h2 className='md:text-[0.875vw] md:font-[700] font-[600] md:leading-[1.25vw] leading-[4.8vw] md:tracking-[0.00875vw] text-[3.46667vw] '>
                                 CONTACT US
                             </h2>
                             <div className='flex flex-col md:gap-[0.75vw] gap-[2.13vw] md:mt-[1vw] mt-[2.13vw]'>
-                                <InfoFooter
+                                {/* <InfoFooter
                                     icon={phoneIcon}
                                     text={'+84 98 3333 986 (Miss. Linette)'}
                                     subText={'+84 989 655 995 (Mr. Chinh)'}
-                                />
+                                /> */}
+                                <div className='flex gap-x-[0.5vw] max-md:gap-x-[2.13vw]'>
+                                    <Image
+                                        src={phoneIcon}
+                                        alt='icon'
+                                        className='md:w-[1vw] md:h-[1vw] w-[3.73333vw] h-[3.73333vw] mt-[0.19vw] max-md:mt-[0.53vw]'
+                                    />
+                                    <ul className='flex flex-col gap-y-[0.25vw] max-md:gap-y-[2.67vw]'>
+                                        {footer?.contactUs?.peopleContact?.map((e, index) => (
+                                            <li
+                                                key={index}
+                                                className='text-[0.875vw] font-normal leading-[1.57] tracking-[0.00219vw] text-gray-scale-50 max-md:text-[3.467vw] max-md:leading-[1.38]'
+                                            >
+                                                {e?.numberPhone + ' (' + e?.name + ')'}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                                 <InfoFooter
                                     icon={mailIcon}
-                                    text={'@cheershoster1@gmail.com'}
+                                    text={footer?.contactUs?.email}
+                                    href={'mailTo:' + footer?.contactUs?.email}
                                 />
                                 <InfoFooter
                                     icon={homeIcon}
-                                    text={'5 Au Trieu, Hoan Kien, Ha Noi'}
+                                    text={footer?.contactUs?.address}
                                 />
                                 <InfoFooter
                                     icon={worldIcon}
-                                    text={'Vietnam Cheers Hostel Official Site'}
+                                    text={footer?.contactUs?.global}
                                 />
                             </div>
                         </div>
@@ -85,18 +113,15 @@ export default function Footer() {
                                 CHEERS TOURS
                             </h2>
                             <div className='flex flex-col md:gap-[0.75vw] gap-[2.13vw] md:mt-[1vw] mt-[2.13vw]'>
-                                <InfoFooter
-                                    icon={locationIcon}
-                                    text={'Ha Long Bay'}
-                                />
-                                <InfoFooter
-                                    icon={locationIcon}
-                                    text={'Sapa Trekking Tour'}
-                                />
-                                <InfoFooter
-                                    icon={locationIcon}
-                                    text={'Pu Luong Cheers Tour'}
-                                />
+                                {footer?.cheersTour?.map((e, index) => (
+                                    <InfoFooter
+                                        key={index}
+                                        icon={locationIcon}
+                                        text={e?.nameTour}
+                                        href={e?.linkTour?.url}
+                                        className='max-md:text-white'
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>

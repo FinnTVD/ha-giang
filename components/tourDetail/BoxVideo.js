@@ -1,4 +1,4 @@
-export default function BoxVideo() {
+export default function BoxVideo({ data }) {
     return (
         <section className='w-full px-[6.25vw] h-[47vw] mt-[6.25vw]'>
             <iframe

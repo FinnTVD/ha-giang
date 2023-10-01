@@ -44,7 +44,7 @@ const listNav = [
     },
 ]
 
-export default function MenuRes({ isOpen, setIsOpen }) {
+export default function MenuRes({ isOpen, setIsOpen, header }) {
     return (
         <article
             className={`${
@@ -75,7 +75,7 @@ export default function MenuRes({ isOpen, setIsOpen }) {
                         >
                             <Link
                                 className='uppercase font-heavitas text-[5.33vw] font-normal leading-[1] text-gray-scale-80 block text-center'
-                                href={e?.href || '/'}
+                                href={e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href || '/'}
                             >
                                 {e?.title}
                             </Link>
@@ -83,7 +83,10 @@ export default function MenuRes({ isOpen, setIsOpen }) {
                     ))}
                 </ul>
                 <div className='flex gap-x-[3.47vw] justify-center mt-[5.33vw]'>
-                    <div className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[7.46vw] h-[7.46vw]'>
+                    <Link
+                        href={header?.facebook?.url || '/'}
+                        className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[7.46vw] h-[7.46vw]'
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             width='16'
@@ -96,8 +99,11 @@ export default function MenuRes({ isOpen, setIsOpen }) {
                                 fill='white'
                             />
                         </svg>
-                    </div>
-                    <div className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[7.46vw] h-[7.46vw]'>
+                    </Link>
+                    <Link
+                        href={header?.youtube?.url || '/'}
+                        className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[7.46vw] h-[7.46vw]'
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             width='16'
@@ -110,7 +116,7 @@ export default function MenuRes({ isOpen, setIsOpen }) {
                                 fill='white'
                             />
                         </svg>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </article>

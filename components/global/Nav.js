@@ -79,16 +79,18 @@ const components = [
             'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
     },
 ]
-export default function Nav({ setIsOpen }) {
+export default function Nav({ setIsOpen, header }) {
     return (
         <nav className='flex w-full relative z-[1] justify-center pt-[1.5vw] max-md:pt-[5.8vw]'>
             <div className='w-[calc(100vw-12vw)] max-lg:w-[calc(100vw-8.54vw)] lg:bg-white rounded-[1vw] flex items-center justify-between h-fit lg:px-[1.88vw]'>
                 <Link href={'/'}>
                     <Image
                         className='w-[4.75vw] h-[4.16vw] max-md:w-[18.13333vw] max-md:h-[15.8976vw] object-cover lg:my-[0.913vw]'
-                        src='/images/logo.png'
+                        src={header?.logo?.sourceUrl || '/images/logo.png'}
+                        alt={header?.logo?.altText || header?.logo?.title}
                         width={80}
                         height={70}
+                        priority
                     />
                 </Link>
                 <div className='text-gray-scale-80 flex py-[1.06vw] max-lg:hidden'>
@@ -100,7 +102,7 @@ export default function Nav({ setIsOpen }) {
                                         <NavigationMenuTrigger> */}
                                 <Link
                                     href={e?.href || '/'}
-                                    className='text-[0.875vw] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25vw] block hover:-translate-y-[0.5vw] hover:text-primary-50'
+                                    className='text-[0.875vw] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219vw] p-[1.25vw] block hover:-translate-y-[0.5vw] hover:text-primary-50'
                                 >
                                     {e?.title}
                                     <div className='w-[0.6vw] transition duration-500 group-hover:bg-primary-50 group-hover:bottom-[0.5vw] h-[0.6vw] bg-gray-300 rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 opacity-0 group-hover:opacity-100'></div>
@@ -115,8 +117,8 @@ export default function Nav({ setIsOpen }) {
                         ) : (
                             <div key={e?.id}>
                                 <Link
-                                    href={e?.href || '/'}
-                                    className='text-[0.875vw] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25vw] block hover:-translate-y-[0.5vw] hover:text-primary-50'
+                                    href={e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href || '/'}
+                                    className='text-[0.875vw] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219vw] p-[1.25vw] block hover:-translate-y-[0.5vw] hover:text-primary-50'
                                 >
                                     {e?.title}
                                     <div className='w-[0.6vw] transition duration-500 group-hover:bg-primary-50 group-hover:bottom-[0.5vw] h-[0.6vw] bg-gray-300 rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 opacity-0 group-hover:opacity-100'></div>
@@ -126,7 +128,10 @@ export default function Nav({ setIsOpen }) {
                     )}
                 </div>
                 <div className='flex gap-x-[0.5vw] max-lg:hidden'>
-                    <div className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'>
+                    <Link
+                        href={header?.facebook?.url || '/'}
+                        className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             width='16'
@@ -139,8 +144,11 @@ export default function Nav({ setIsOpen }) {
                                 fill='white'
                             />
                         </svg>
-                    </div>
-                    <div className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'>
+                    </Link>
+                    <Link
+                        href={header?.youtube?.url || '/'}
+                        className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75vw] h-[1.75vw]'
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             width='16'
@@ -153,7 +161,7 @@ export default function Nav({ setIsOpen }) {
                                 fill='white'
                             />
                         </svg>
-                    </div>
+                    </Link>
                 </div>
                 <svg
                     xmlns='http://www.w3.org/2000/svg'

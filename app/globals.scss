@@ -91,14 +91,51 @@ html {
     scroll-behavior: smooth;
 }
 
+// --------------Header-----------------//
+
+#box-slogan {
+    p {
+        font-size: 4vw;
+        font-family: var(--font-heavitas);
+        font-weight: 400;
+        line-height: 1.5;
+        @media screen and (max-width: "767px") {
+            font-size: 6.4vw;
+        }
+        strong {
+            font-family: var(--font-tomatoes);
+            font-size: 8vw;
+            font-weight: 400;
+            line-height: 1.5;
+            position: absolute;
+            left: 60%;
+            top: 30%;
+            white-space: nowrap;
+            @media screen and (max-width: "767px") {
+                font-size: 16vw;
+                left: 50%;
+            }
+        }
+    }
+}
+
+// ----------cheers tour----------------
+
 #cheers-tour {
     .description {
+        p + p {
+            margin-top: 1vw;
+            @media screen and (max-width: "767px") {
+                margin-top: 4.27vw;
+            }
+        }
         strong {
             font-weight: 600;
             color: var(--gray-scale-80);
         }
     }
 }
+
 .slideCategory::-webkit-scrollbar {
     display: none;
 }
@@ -111,4 +148,16 @@ canvas {
     top: 0;
     left: 0;
     z-index: 0;
+}
+
+#slide-video {
+    iframe {
+        .ytp-title {
+            display: none;
+        }
+    }
+}
+
+.react-datepicker-popper {
+    z-index: 10 !important;
 }

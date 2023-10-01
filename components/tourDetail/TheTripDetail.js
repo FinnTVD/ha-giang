@@ -1,7 +1,7 @@
 import SubTitle from '../global/SubTitle'
-import { AccordionDemo } from '../ui/AccordionDemo'
+import { AccordionDemoV2 } from '../ui/AccordionDemoV2'
 
-export default function TheTripDetail() {
+export default function TheTripDetail({ data }) {
     return (
         <section className='px-[6.25vw] mt-[6.25vw]'>
             <SubTitle
@@ -9,8 +9,10 @@ export default function TheTripDetail() {
                 subTitle={'FAQ ABOUT'}
             />
             <div className='flex gap-x-[1.5vw] mt-[1.87vw]'>
-                <AccordionDemo />
-                <AccordionDemo className="max-md:hidden" />
+                <AccordionDemoV2
+                    data={data?.listFaq}
+                    className={'grid grid-cols-2 gap-x-[1.5vw]'}
+                />
             </div>
         </section>
     )

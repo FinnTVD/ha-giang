@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper/modules'
 
 const arr = new Array(6).fill(0)
-export default function SlideBanner() {
+export default function SlideBanner({ section1 }) {
     const swiperRef = useRef(null)
 
     const handleNextSlide = () => {
@@ -28,15 +28,23 @@ export default function SlideBanner() {
                 }}
                 modules={[EffectFade]}
                 className='w-full h-full'
+                id='slide-video'
             >
-                {arr?.map((e, index) => (
+                {section1?.slidesVideo?.map((e, index) => (
                     <SwiperSlide key={index}>
-                        <Image
-                            className='object-cover w-full h-full rounded-[1vw]'
-                            src={index % 2 === 0 ? '/images/bannervn.jpg' : '/images/header-detail.jpg'}
-                            width={900}
-                            height={500}
-                        />
+                        <video
+                            autoPlay
+                            loop
+                            className='w-full h-full lg:rounded-[1vw] object-cover min-w-full min-h-full'
+                            id='videoBanner'
+                            playsInline
+                            muted
+                        >
+                            <source
+                                type='video/mp4'
+                                src={e?.linkVideo?.url || '/images/video1.mp4'}
+                            ></source>
+                        </video>
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -83,10 +91,10 @@ export default function SlideBanner() {
                         height={50}
                     />
                     <div className='flex flex-col lg:items-center'>
-                        <span className='mt-[0.5vw] text-white text-[1.25vw] max-md:text-[4.27vw] max-md:font-bold max-md:leading-normal max-md:tracking-[-0.08533rem] font-bold leading-[1.2] tracking-[0.00188rem]'>
+                        <span className='mt-[0.5vw] text-white text-[1.25vw] max-md:text-[4.27vw] max-md:font-bold max-md:leading-normal max-md:tracking-[-0.08533vw] font-bold leading-[1.2] tracking-[0.00188vw]'>
                             Top #1
                         </span>
-                        <span className='text-[0.875vw] text-white max-md:text-[3.2vw] max-md:leading-[1.33vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
+                        <span className='text-[0.875vw] text-white max-md:text-[3.2vw] max-md:leading-[1.33vw] font-normal leading-[1.57] tracking-[0.00219vw]'>
                             Epic loop in Vietnam
                         </span>
                     </div>
@@ -100,10 +108,10 @@ export default function SlideBanner() {
                         height={50}
                     />
                     <div className='flex flex-col lg:items-center'>
-                        <span className='mt-[0.5vw] text-white text-[1.25vw] max-md:text-[4.27vw] max-md:font-bold max-md:leading-normal max-md:tracking-[-0.08533rem] font-bold leading-[1.2] tracking-[0.00188rem]'>
+                        <span className='mt-[0.5vw] text-white text-[1.25vw] max-md:text-[4.27vw] max-md:font-bold max-md:leading-normal max-md:tracking-[-0.08533vw] font-bold leading-[1.2] tracking-[0.00188vw]'>
                             300 km
                         </span>
-                        <span className='text-[0.875vw] text-white max-md:text-[3.2vw] max-md:leading-[1.33vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
+                        <span className='text-[0.875vw] text-white max-md:text-[3.2vw] max-md:leading-[1.33vw] font-normal leading-[1.57] tracking-[0.00219vw]'>
                             North of Hanoi
                         </span>
                     </div>
@@ -117,10 +125,10 @@ export default function SlideBanner() {
                         height={50}
                     />
                     <div className='flex flex-col lg:items-center'>
-                        <span className='mt-[0.5vw] text-white text-[1.25vw] max-md:text-[4.27vw] max-md:font-bold max-md:leading-normal max-md:tracking-[-0.08533rem] font-bold leading-[1.2] tracking-[0.00188rem]'>
+                        <span className='mt-[0.5vw] text-white text-[1.25vw] max-md:text-[4.27vw] max-md:font-bold max-md:leading-normal max-md:tracking-[-0.08533vw] font-bold leading-[1.2] tracking-[0.00188vw]'>
                             8 hours
                         </span>
-                        <span className='text-[0.875vw] text-white max-md:text-[3.2vw] max-md:leading-[1.33vw] font-normal leading-[1.57] tracking-[0.00219rem]'>
+                        <span className='text-[0.875vw] text-white max-md:text-[3.2vw] max-md:leading-[1.33vw] font-normal leading-[1.57] tracking-[0.00219vw]'>
                             Bus drive
                         </span>
                     </div>

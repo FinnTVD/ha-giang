@@ -3,28 +3,28 @@ import TittleIcon from './TittleIcon'
 
 const arr = new Array(6).fill(0)
 
-export default function ContentHeaderDetail() {
+export default function ContentHeaderDetail({ data }) {
     return (
-        <div className='relative z-[10] pl-[6.25vw] mt-[5.31vw]'>
-            <span className='text-white uppercase font-heavitas text-[1vw] font-normal leading-normal '>
-                start with
+        <div className='relative z-[10] lg:pl-[6.25vw] lg:mt-[5.31vw] max-md:absolute max-md:left-[4.27vw] max-md:bottom-[21vw]'>
+            <span className='text-white uppercase font-heavitas text-[1vw] font-normal leading-normal max-md:text-[3.2vw]'>
+                {data?.subtitle}
             </span>
-            <h1 className='uppercase mt-[1vw] font-heavitas text-[4vw] font-normal leading-[1] text-white w-[32.3125vw]'>
-                HA GIANG LOOP TOUR
+            <h1 className='uppercase mt-[1vw] max-md:mt-[2.13vw] font-heavitas text-[4vw] font-normal leading-[1] text-white w-[32.3125vw] max-md:w-[59.51vw] max-md:text-[7.467vw] max-md:leading-[1]'>
+                {data?.title}
             </h1>
-            <div className='w-[15.3125vw] h-[3.375vw] relative flex justify-center items-center mt-[2.75vw] mb-[2.5vw]'>
+            <div className='w-[15.3125vw] h-[3.375vw] max-md:w-[44.039vw] max-md:h-[11.8264vw] relative flex justify-center items-center mt-[2.75vw] max-md:my-[4.27vw] mb-[2.5vw]'>
                 <Image
-                    className='object-cover'
+                    className='object-cover max-md:object-contain'
                     src={'/images/bg-time-detail.png'}
                     fill
                     sizes='100vw'
                 />
-                <span className='relative text-[1vw] font-semibold leading-normal tracking-[0.0125rem] text-gray-scale-80 uppercase'>
-                    3 DAYS - 3 NIGHTS
+                <span className='relative text-[1vw] font-semibold leading-normal tracking-[0.0125vw] text-gray-scale-80 uppercase max-md:text-[3.467vw] max-md:leading-[1.38]'>
+                    {data?.timeTour}
                 </span>
             </div>
-            <div className='flex gap-x-[1.88vw]'>
-                <div className='w-[18vw]'>
+            <div className='flex gap-x-[1.88vw] max-md:gap-x-[8.53vw]'>
+                <div className='w-[18vw] max-md:hidden'>
                     <TittleIcon title={'HIGHLIGHT'}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
@@ -49,17 +49,17 @@ export default function ContentHeaderDetail() {
                         </svg>
                     </TittleIcon>
                     <ul className='mt-[0.13vw] list-disc ml-[2.5vw]'>
-                        {arr?.map((e, index) => (
+                        {data?.highlight?.map((e, index) => (
                             <li
                                 key={index}
-                                className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219rem] text-white'
+                                className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] text-white'
                             >
-                                Motobike tour with local driver
+                                {e?.title}
                             </li>
                         ))}
                     </ul>
                 </div>
-                <div className='w-[13.0625vw] flex flex-col gap-y-[1.44vw]'>
+                <div className='w-[13.0625vw] max-md:w-fit flex flex-col gap-y-[1.44vw]'>
                     <div>
                         <TittleIcon title={'DEPARTURE'}>
                             <svg
@@ -68,7 +68,7 @@ export default function ContentHeaderDetail() {
                                 height='17'
                                 viewBox='0 0 16 17'
                                 fill='none'
-                                className='w-[1vw] h-[1vw]'
+                                className='w-[1vw] h-[1vw] max-md:w-[4.267vw] max-md:h-[4.267vw]'
                             >
                                 <circle
                                     cx='8'
@@ -86,13 +86,11 @@ export default function ContentHeaderDetail() {
                                 />
                             </svg>
                         </TittleIcon>
-                        <ul className='mt-[0.13vw] ml-[1.38vw]'>
-                            <li className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219rem] text-white'>
-                                Every Day
-                            </li>
-                        </ul>
+                        <span className='text-[0.875vw] block font-bold leading-[1.57] tracking-[0.00219vw] text-white mt-[0.13vw] max-md:mt-[0.53vw] ml-[1.38vw] max-md:text-[3.733vw] max-md:font-semibold'>
+                            {data?.departure}
+                        </span>
                     </div>
-                    <div>
+                    <div className='max-md:hidden'>
                         <TittleIcon title={'PICK UP FROM'}>
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -124,12 +122,12 @@ export default function ContentHeaderDetail() {
                                 </defs>
                             </svg>
                         </TittleIcon>
-                        <address className='not-italic text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219rem]'>
-                            Hanoi, Airport, Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city
+                        <address className='not-italic text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw]'>
+                            {data?.pickUpFrom}
                         </address>
                     </div>
                 </div>
-                <div className='w-[12.6875vw] flex flex-col gap-y-[1.44vw]'>
+                <div className='w-[12.6875vw] flex flex-col gap-y-[1.44vw] max-md:w-fit'>
                     <div>
                         <TittleIcon title={'GROUP SIZE'}>
                             <svg
@@ -138,7 +136,7 @@ export default function ContentHeaderDetail() {
                                 height='17'
                                 viewBox='0 0 16 17'
                                 fill='none'
-                                className='w-[1vw] h-[1vw]'
+                                className='w-[1vw] h-[1vw] max-md:w-[4.267vw] max-md:h-[4.267vw]'
                             >
                                 <circle
                                     cx='8'
@@ -156,13 +154,11 @@ export default function ContentHeaderDetail() {
                                 />
                             </svg>
                         </TittleIcon>
-                        <ul className='mt-[0.13vw]'>
-                            <li className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219rem] text-white'>
-                                7-9 pax
-                            </li>
-                        </ul>
+                        <span className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] text-white mt-[0.13vw] block max-md:mt-[0.53vw] max-md:text-[3.733vw] max-md:font-semibold'>
+                            {data?.groupSize}
+                        </span>
                     </div>
-                    <div>
+                    <div className='max-md:hidden'>
                         <TittleIcon title={'TRANSPORT'}>
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -209,8 +205,8 @@ export default function ContentHeaderDetail() {
                                 </defs>
                             </svg>
                         </TittleIcon>
-                        <span className='not-italic text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219rem]'>
-                            Sleeper bus & Motorbike with Local easy rider
+                        <span className='not-italic text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw]'>
+                            {data?.transport}
                         </span>
                     </div>
                 </div>

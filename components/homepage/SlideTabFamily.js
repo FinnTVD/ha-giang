@@ -1,28 +1,10 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { FreeMode } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const arr = [
-    {
-        id: 1,
-        title: 'TOUR LEADER',
-    },
-    {
-        id: 2,
-        title: 'RIDER TEAM',
-    },
-    {
-        id: 3,
-        title: 'SPECIALIST',
-    },
-    {
-        id: 4,
-        title: 'LOCAL HOST',
-    },
-]
-
-export default function SlideTabFamily({ indexTab, setIndexTab }) {
+export default function SlideTabFamily({ setIndexTab, section6 }) {
     const swiperRef = useRef()
     const [indexSlider, setIndexSlider] = useState(0)
     const handleSlideChange = (swiper) => {
@@ -32,31 +14,45 @@ export default function SlideTabFamily({ indexTab, setIndexTab }) {
     return (
         <div
             id='box-slide-family'
-            className='relative w-fit h-fit'
+            className='relative w-fit h-fit max-md:w-full'
         >
             <Swiper
-                spaceBetween={36}
-                slidesPerView='auto'
+                breakpoints={{
+                    0: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 16,
+                    },
+                    768: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 36,
+                    },
+                }}
+                freeMode={true}
                 onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper
                 }}
-                className='h-[1.5vw] w-fit mr-[-2.25vw]'
+                modules={[FreeMode]}
+                className='h-[1.5vw] max-md:h-[5.33vw] w-fit lg:mr-[-2.25vw] max-md:w-full'
             >
-                {arr?.map((e, index) => (
+                {section6?.listCategory?.map((e, index) => (
                     <SwiperSlide
                         className={`${
                             indexSlider === index
-                                ? 'text-primary-70 before:absolute before:left-0 before:w-full before:border before:border-solid before:border-primary-70 before:bottom-[-0.25vw]'
+                                ? 'text-primary-70 before:absolute before:left-0 before:w-full before:border before:border-solid before:border-primary-70 before:bottom-[-0.25vw] max-md:before:bottom-0'
                                 : 'text-gray-scale-20'
-                        } !w-fit !h-[1.25vw] text-[0.875vw] font-semibold leading-[1.42] tracking-[0.00875vw] cursor-pointer relative`}
+                        } !w-fit !h-[1.25vw] max-md:!h-[5.33vw] text-[0.875vw] font-semibold leading-[1.42] tracking-[0.00875vw] cursor-pointer relative max-md:text-[3.2vw] max-md:font-semibold max-md:leading-[1.33] max-md:whitespace-nowrap`}
                         key={index}
                         onClick={() => {
                             setIndexSlider(index)
-                            setIndexTab(e?.id)
+                            setIndexTab(index)
                         }}
                     >
-                        TOUR LEADER
+                        {e?.category}
                     </SwiperSlide>
                 ))}
             </Swiper>
