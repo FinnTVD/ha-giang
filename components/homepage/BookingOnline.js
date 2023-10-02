@@ -119,7 +119,7 @@ export default function BookingOnline() {
             vpc_Command: 'pay',
             vpc_Currency: 'VND',
             vpc_Locale: 'vn',
-            vpc_MerchTxnRef: 'hg_' + Math.floor(Date.now() / 1000 + Math.random()),
+            vpc_MerchTxnRef: Math.floor(Date.now() / 1000) + '_hgtour',
             vpc_Merchant: MERCHANT_ID,
             vpc_OrderInfo: data.name,
             vpc_ReturnURL: BASE_URL + '/payment-successful',
