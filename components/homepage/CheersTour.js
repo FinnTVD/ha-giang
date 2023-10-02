@@ -26,7 +26,7 @@ export default function CheersTour({ section2, allTourHG }) {
                     quality={100}
                 />
             </div>
-            <div className='lg:pt-[9.17vw] lg:w-fit max-md:mt-[2.33vw] overflow-hidden '>
+            <div className='lg:pt-[9.17vw] lg:w-fit max-md:mt-[2.33vw] max-md:overflow-hidden '>
                 <ul className='grid grid-cols-2 gap-[1.51vw] max-md:hidden'>
                     {section2?.listTitle?.map((e, index) => (
                         <li

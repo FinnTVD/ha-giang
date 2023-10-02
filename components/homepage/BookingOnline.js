@@ -50,7 +50,7 @@ const inputMobileStyle = {
     padding: '4.26vw 3.2vw',
 }
 
-export default function BookingOnline() {
+export default function BookingOnline({ popup }) {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
     const [ip, setIp] = useState('')
     const router = useRouter()
@@ -144,7 +144,9 @@ export default function BookingOnline() {
 
     return (
         <section
-            className='pl-[6.25vw] font-poppins pr-[6.31vw] flex flex-col justify-between mt-[6.25vw]'
+            className={`${
+                popup ? '' : 'pl-[6.25vw] pr-[6.31vw] mt-[6.25vw]'
+            } font-poppins flex flex-col justify-between`}
             id='bookingId'
         >
             <div className='mb-[1.88vw] max-md:mb-[5.3vw]'>

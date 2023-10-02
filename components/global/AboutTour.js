@@ -4,11 +4,34 @@ import { useState } from 'react'
 import moon from '@/public/images/moon.svg'
 import btn from '@/public/images/btnEscape.svg'
 import SlideImage from './SlideImage'
+import IconMarker from '../icons/IconMarker'
+import IconHome from '../icons/IconHome'
+import IconBus from '../icons/IconBus'
+import IconMeal from '../icons/IconMeal'
+
+// From Hanoi
+// Noi Bai Airport
+// Sapa
+// Cat Ba Island
+// Ninh Binh
+// Ha Giang city
+// Highlight on loop
+// Meal
+// Transport
+// Accommondation
 
 function AboutTour({ data }) {
     const [activeCate, setActiveCate] = useState(0)
     const [content, setContent] = useState(data?.listCheckin[0])
     const [isShow, setIsShow] = useState(false)
+
+    const handleCheckIcon = (category) => {
+        if (!category) return
+        if (category?.includes('From Hanoi')) return <IconMarker />
+        if (category?.includes('Noi Bai Airport')) return <IconBus />
+        if (category?.includes('Meal')) return <IconMeal />
+        return '/images/homeLocation.svg'
+    }
     return (
         <section
             className={`${
@@ -42,22 +65,21 @@ function AboutTour({ data }) {
             {/* info */}
             <div className='flex gap-[4.27vw] max-md:flex-col'>
                 {/* ------------content-left------------ */}
-                <div className='flex'>
-                    <div className='ml-[0.88vw] pr-[1.5vw] md:block hidden'>
-                        <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            width='6'
-                            height='422'
-                            className='h-full'
-                            viewBox='0 0 6 422'
-                            fill='none'
-                        >
-                            <path
-                                d='M0.333333 419C0.333333 420.473 1.52724 421.667 3 421.667C4.47276 421.667 5.66667 420.473 5.66667 419C5.66667 417.527 4.47276 416.333 3 416.333C1.52724 416.333 0.333333 417.527 0.333333 419ZM2.5 0V419H3.5V0H2.5Z'
-                                fill='#B34B1E'
-                            />
-                        </svg>
-                    </div>
+                <div className='flex relative'>
+                    <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='6'
+                        height='551'
+                        viewBox='0 0 6 551'
+                        fill='none'
+                        className='h-full absolute top-0 left-[0.88vw] max-md:hidden'
+                    >
+                        <path
+                            d='M0.333333 548C0.333333 549.473 1.52724 550.667 3 550.667C4.47276 550.667 5.66667 549.473 5.66667 548C5.66667 546.527 4.47276 545.333 3 545.333C1.52724 545.333 0.333333 546.527 0.333333 548ZM2.5 0V548H3.5V0H2.5Z'
+                            fill='#B34B1E'
+                        />
+                    </svg>
+                    <div className='ml-[0.88vw] pr-[1.5vw] md:block hidden'></div>
                     <div className='flex flex-col md:w-[25.125vw] gap-[1vw] max-md:px-[4.27vw]'>
                         <h4 className='text-[1vw] leading-normal tracking-[0.0125vw] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733vw] max-md:leading-[1.42] max-md:tracking-[0.03733vw]'>
                             {data?.heading}

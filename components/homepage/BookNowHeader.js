@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { ComboboxDemo } from '../ui/combobox'
+import IconMarker from '../icons/IconMarker'
 
 const frameworks1 = [
     {
@@ -43,13 +44,7 @@ export default function BookNowHeader() {
                     TOUR
                 </span>
                 <div className='flex items-center'>
-                    <Image
-                        className='object-contain w-[2vw] h-[2vw] max-md:w-[5.33vw] max-md:h-[5.33vw] max-md:mr-[2.06vw]'
-                        src={'/images/marker.svg'}
-                        alt='marker'
-                        width={40}
-                        height={40}
-                    />
+                    <IconMarker className='w-[2vw] h-[2vw] max-md:w-[5.33vw] max-md:h-[5.33vw] max-md:mr-[2.06vw]' />
                     <ComboboxDemo frameworks={frameworks1} />
                 </div>
             </div>

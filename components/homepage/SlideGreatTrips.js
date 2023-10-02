@@ -67,12 +67,12 @@ export default function SlideGreatTrips({ allTourHG }) {
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper
                     }}
-                    className='lg:w-[81.1vw] h-fit max-md:!px-[4.27vw]'
+                    className='lg:w-[81.1vw] max-md:h-fit max-md:!px-[4.27vw] lg:h-[40vw]'
                 >
                     {allTourHG?.nodes?.map((e, index) => (
                         <SwiperSlide
                             key={index}
-                            className='relative'
+                            className='relative rounded-[1.5vw] max-md:rounded-[4.267vw]'
                         >
                             <ItemCardTour data={e} />
                         </SwiperSlide>
