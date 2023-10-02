@@ -12,7 +12,7 @@ export default function ItemCardTour({ data }) {
             <div className='w-full h-fit relative '>
                 <Link
                     href={'/' + data?.slug}
-                    className='block w-fit h-fit'
+                    className='block w-full h-fit'
                 >
                     <Image
                         className='object-cover w-full h-[21.125vw] max-md:h-[59.2vw] rounded-[1vw] max-md:rounded-[3.2vw]'
@@ -69,6 +69,7 @@ export default function ItemCardTour({ data }) {
                 <Button
                     primary={true}
                     content={'book now'}
+                    href={'/' + data?.slug}
                     className={
                         'my-[0.87vw] w-[9.4375vw] h-[3vw] max-md:rounded-[2.133vw] max-md:flex-1 max-md:h-[11.73vw]'
                     }

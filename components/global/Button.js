@@ -13,7 +13,7 @@ export default function Button({ href, className, type = 'button', primary, cont
                 <Link
                     className={`${className} ${
                         primary ? stylePrimary : styleDefault
-                    } relative rounded-[0.5vw] uppercase py-[0.75vw] max-md:py-[3.2vw] max-md:px-[6.4vw] px-[1.5vw] text-[0.8125vw] font-bold leading-[1.54] max-md:rounded-[2.13vw] max-md:text-[3.467vw] max-md:font-bold max-md:leading-[1.53] text-center `}
+                    } relative rounded-[0.5vw] uppercase py-[0.75vw] max-md:py-[3.2vw] max-md:px-[6.4vw] px-[1.5vw] text-[0.8125vw] font-bold leading-[1.54] max-md:rounded-[2.13vw] max-md:text-[3.467vw] max-md:font-bold max-md:leading-[1.53] text-center inline-block`}
                     href={href || '/'}
                 >
                     {primary && (
@@ -26,7 +26,7 @@ export default function Button({ href, className, type = 'button', primary, cont
                     type={type}
                     className={`${className} ${
                         primary ? stylePrimary : styleDefault
-                    } relative rounded-[0.5vw] uppercase py-[0.75vw] max-md:py-[3.2vw] max-md:px-[6.4vw] px-[1.5vw] text-[0.8125vw] font-bold leading-[1.54] max-md:rounded-[2.13vw] max-md:text-[3.467vw] max-md:font-bold max-md:leading-[1.53] text-center `}
+                    } relative rounded-[0.5vw] uppercase py-[0.75vw] max-md:py-[3.2vw] max-md:px-[6.4vw] px-[1.5vw] text-[0.8125vw] font-bold leading-[1.54] max-md:rounded-[2.13vw] max-md:text-[3.467vw] max-md:font-bold max-md:leading-[1.53] text-center inline-block`}
                 >
                     {primary && (
                         <IconMaskButton className='absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-md:w-[33.62187vw] max-md:h-[8.07093vw] w-[8.31831vw] h-[1.99675vw]' />

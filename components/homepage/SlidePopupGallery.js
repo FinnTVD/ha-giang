@@ -25,7 +25,7 @@ export default function SlidePopupGallery({ section4, indexTab }) {
                     swiperRef.current = swiper
                 }}
                 modules={[FreeMode]}
-                className='h-[29.08975vw] w-full'
+                className='h-[29.08975vw] w-full max-2xl:h-[26vw]'
             >
                 {section4?.listGallery[indexTab]?.slidesImage?.map((e, index) => (
                     <SwiperSlide

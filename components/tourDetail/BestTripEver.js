@@ -7,6 +7,7 @@ import ItemLane from './ItemLane'
 import Image from 'next/image'
 import Button from '../global/Button'
 import { useMediaQuery } from 'react-responsive'
+import { useParams } from 'next/navigation'
 
 const arr = [
     {
@@ -43,6 +44,7 @@ const listAddress = [
 
 export default function BestTripEver({ data }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+    const param = useParams()
 
     const [count, setCount] = useState(0)
     const [prev, setPrev] = useState(arr[count]?.src)
@@ -175,6 +177,7 @@ export default function BestTripEver({ data }) {
                         primary={true}
                         content={'book now'}
                         className={'px-[2vw] py-[1vw]'}
+                        href={`/${param.slug}#bookingId`}
                     />
                 </div>
             </div>
