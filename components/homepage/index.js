@@ -24,7 +24,7 @@ export default function IndexHomePage({ data, allTourHG }) {
                 </Suspense> */}
                 <Banner section1={section1} />
                 <Image
-                    className='!h-[210vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
+                    className='!h-[265vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
                     src={'/images/mask.png'}
                     fill
                     sizes='100vw'
