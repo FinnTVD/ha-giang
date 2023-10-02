@@ -1,6 +1,6 @@
 export default function BoxVideo({ data }) {
     return (
-        <section className='w-full px-[6.25vw] h-[47vw] mt-[6.25vw]'>
+        <section className='w-full px-[6.25vw] max-md:px-[4.27vw] h-[47vw] mt-[6.25vw]'>
             <iframe
                 width='560'
                 height='315'

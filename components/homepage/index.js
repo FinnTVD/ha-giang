@@ -10,11 +10,14 @@ import Family from './Family'
 import Header from '../global/Header'
 import Banner from './Banner'
 
-export default function IndexHomePage({ data }) {
+export default function IndexHomePage({ data, allTourHG }) {
     const { header, section1, section2, section3, section4, section5, section6, section7, section8 } = data
     return (
         <>
-            <Header header={header} />
+            <Header
+                header={header}
+                allTourHG={allTourHG}
+            />
 
             <main className='relative w-full overflow-x-hidden'>
                 {/* <Suspense fallback={<div>Loading ...</div>}>
@@ -27,7 +30,10 @@ export default function IndexHomePage({ data }) {
                     sizes='100vw'
                 />
                 <CheersTour section2={section2} />
-                <GreatTrips section3={section3} />
+                <GreatTrips
+                    section3={section3}
+                    allTourHG={allTourHG}
+                />
                 <TheGallery section4={section4} />
                 <Travelers section5={section5} />
                 <Family section6={section6} />

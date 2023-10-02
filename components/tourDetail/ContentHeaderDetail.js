@@ -49,7 +49,7 @@ export default function ContentHeaderDetail({ data }) {
                         </svg>
                     </TittleIcon>
                     <ul className='mt-[0.13vw] list-disc ml-[2.5vw]'>
-                        {data?.highlight?.map((e, index) => (
+                        {data?.highlight?.slice(0, 6)?.map((e, index) => (
                             <li
                                 key={index}
                                 className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] text-white'

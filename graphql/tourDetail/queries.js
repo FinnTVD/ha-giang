@@ -13,6 +13,13 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
         metaTitle
         metaDescription
       }
+      price{
+          selfDriving
+          localDriver
+          pickUpAndDroff{
+            address
+          }
+        }
       header {
         subtitle
         title
@@ -24,6 +31,12 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
         pickUpFrom
         groupSize
         transport
+        included{
+          item
+        }
+        excluded{
+          item
+        }
       }
       section1 {
         subtitle
@@ -88,6 +101,10 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
         }
       }
       tourHaGiangDetail{
+        price {
+          selfDriving
+          localDriver
+        }
         header{
           pickUpFrom
           groupSize

@@ -6,6 +6,7 @@ import SubTitle from '../global/SubTitle'
 import ItemLane from './ItemLane'
 import Image from 'next/image'
 import Button from '../global/Button'
+import { useMediaQuery } from 'react-responsive'
 
 const arr = [
     {
@@ -41,6 +42,8 @@ const listAddress = [
 ]
 
 export default function BestTripEver({ data }) {
+    const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+
     const [count, setCount] = useState(0)
     const [prev, setPrev] = useState(arr[count]?.src)
     const [next, setNext] = useState(arr[count + 1]?.src)
@@ -59,20 +62,14 @@ export default function BestTripEver({ data }) {
         }
         let a = new hoverEffect({
             parent: document.querySelector('.boxMap'),
-            // intensity: 0,
             intensity1: 1,
             intensity2: 1,
-            // angle2: Math.PI / 2,
             speedIn: 0.5, // speed change
             speedOut: 0.5, // speed change
             hover: false,
 
             image1: prev,
             image2: next,
-            // image3: map3,
-            //   displacementImage:
-            //     "https://images.pexels.com/photos/1097203/pexels-photo-1097203.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260?raw=true",
-            // displacementImage: "/images/map2.png",
             displacementImage: '/displacement/12.png',
         })
         setAnimation(a)
@@ -89,7 +86,7 @@ export default function BestTripEver({ data }) {
 
     return (
         <section
-            className='mt-[6.25vw] px-[6.25vw] flex justify-between bg-white'
+            className='mt-[6.25vw] px-[6.25vw] max-md:mt-[16vw] max-md:px-[4.27vw] flex justify-between max-md:flex-col bg-white'
             id='mapId'
         >
             <div>
@@ -97,6 +94,13 @@ export default function BestTripEver({ data }) {
                     title={data?.subtitle}
                     subTitle={data?.title}
                 />
+                {isMobile && (
+                    <div className='flex justify-center'>
+                        <div className='flex items-center'>
+                            <div class='boxMap relative h-[45vw] w-[45vw]'></div>
+                        </div>
+                    </div>
+                )}
                 <div className='mt-[2.88vw]'>
                     <div>
                         <Image
@@ -173,42 +177,12 @@ export default function BestTripEver({ data }) {
                         className={'px-[2vw] py-[1vw]'}
                     />
                 </div>
-                {/* <div class='flex gap-x-[1.5vw]'>
-                    <button
-                        // onClick={() => setIsHover(!isHover)}
-                        onClick={() => {
-                            animation.previous()
-                            if (count > 0) {
-                                setCount(count - 1)
-                            }
-                        }}
-                        type='button'
-                        name=''
-                        id=''
-                        class='btn btn-primary'
-                    >
-                        Previous
-                    </button>
-                    <button
-                        // onClick={() => setIsHover(!isHover)}
-                        onClick={() => {
-                            animation.next()
-                            if (count < 2) {
-                                setCount(count + 1)
-                            }
-                        }}
-                        type='button'
-                        name=''
-                        id=''
-                        class='btn btn-primary'
-                    >
-                        Next
-                    </button>
-                </div> */}
             </div>
-            <div className='flex items-center'>
-                <div class='boxMap relative h-[45vw] w-[45vw]'></div>
-            </div>
+            {!isMobile && (
+                <div className='flex items-center'>
+                    <div class='boxMap relative h-[45vw] w-[45vw]'></div>
+                </div>
+            )}
         </section>
     )
 }

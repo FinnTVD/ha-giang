@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { PopupNav } from './PopupNav'
 // import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuTrigger } from '../ui/navigation-menu'
 
 const listNav = [
@@ -79,7 +80,7 @@ const components = [
             'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
     },
 ]
-export default function Nav({ setIsOpen, header }) {
+export default function Nav({ setIsOpen, header, allTourHG }) {
     return (
         <nav className='flex w-full relative z-[1] justify-center pt-[1.5vw] max-md:pt-[5.8vw]'>
             <div className='w-[calc(100vw-12vw)] max-lg:w-[calc(100vw-8.54vw)] lg:bg-white rounded-[1vw] flex items-center justify-between h-fit lg:px-[1.88vw]'>
@@ -97,22 +98,26 @@ export default function Nav({ setIsOpen, header }) {
                     {listNav?.map((e) =>
                         e?.id === 3 ? (
                             <div key={e?.id}>
-                                {/* <NavigationMenu>
-                                    <NavigationMenuItem>
-                                        <NavigationMenuTrigger> */}
-                                <Link
-                                    href={e?.href || '/'}
-                                    className='text-[0.875vw] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219vw] p-[1.25vw] block hover:-translate-y-[0.5vw] hover:text-primary-50'
-                                >
-                                    {e?.title}
-                                    <div className='w-[0.6vw] transition duration-500 group-hover:bg-primary-50 group-hover:bottom-[0.5vw] h-[0.6vw] bg-gray-300 rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 opacity-0 group-hover:opacity-100'></div>
-                                </Link>
-                                {/* </NavigationMenuTrigger>
-                                        <NavigationMenuContent>
-                                            <p>lorem</p>
-                                        </NavigationMenuContent>
-                                    </NavigationMenuItem>
-                                </NavigationMenu> */}
+                                <PopupNav allTourHG={allTourHG}>
+                                    <div className='text-[0.875vw] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219vw] p-[1.25vw]  hover:-translate-y-[0.5vw] hover:text-primary-50 flex items-center gap-x-[0.25vw]'>
+                                        {e?.title}
+                                        <svg
+                                            xmlns='http://www.w3.org/2000/svg'
+                                            fill='none'
+                                            viewBox='0 0 24 24'
+                                            strokeWidth='1.5'
+                                            stroke='currentColor'
+                                            class='w-[1vw] h-[1vw]'
+                                        >
+                                            <path
+                                                strokeLinecap='round'
+                                                strokeLinejoin='round'
+                                                d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+                                            />
+                                        </svg>
+                                        <div className='w-[0.6vw] transition duration-500 group-hover:bg-primary-50 group-hover:bottom-[0.5vw] h-[0.6vw] bg-gray-300 rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 opacity-0 group-hover:opacity-100'></div>
+                                    </div>
+                                </PopupNav>
                             </div>
                         ) : (
                             <div key={e?.id}>

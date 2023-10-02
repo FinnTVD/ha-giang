@@ -20,6 +20,8 @@ module.exports = {
                     'linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.00) 50.35%, #000 91.33%)',
                 'gradient-greatTrips':
                     'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.76) 60.94%, #FFF 100%)',
+                'gradient-detailTourRes':
+                    'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.50) 100%)',
             },
             colors: {
                 'gray-scale-80': 'var(--gray-scale-80)',

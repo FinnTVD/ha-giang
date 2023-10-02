@@ -51,5 +51,10 @@ export async function generateMetadata() {
 }
 export default async function page() {
     const data = await getData(GET_DATA_HOME)
-    return <IndexHomePage data={data?.data?.page?.homeHG} />
+    return (
+        <IndexHomePage
+            data={data?.data?.page?.homeHG}
+            allTourHG={data?.data?.allTourHG}
+        />
+    )
 }

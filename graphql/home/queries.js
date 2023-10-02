@@ -200,6 +200,30 @@ const GET_DATA_HOME = `
       }
     }
   }
+  allTourHG {
+    nodes {
+      title
+      slug
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+          title
+        }
+      }
+      tourHaGiangDetail {
+        price {
+          selfDriving
+          localDriver
+        }
+        header {
+          pickUpFrom
+          groupSize
+          transport
+        }
+      }
+    }
+  }
 }
 `
 
@@ -234,6 +258,12 @@ const GET_DATA_FOOTER = `
           }
         }
       }
+    }
+  }
+  allTourHG {
+    nodes {
+      title
+      slug
     }
   }
 }

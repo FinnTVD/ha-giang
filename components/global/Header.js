@@ -8,7 +8,7 @@ import MenuRes from './MenuRes'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
-export default function Header({ header }) {
+export default function Header({ header, allTourHG }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
@@ -24,6 +24,7 @@ export default function Header({ header }) {
                 <Nav
                     setIsOpen={setIsOpen}
                     header={header}
+                    allTourHG={allTourHG}
                 />
                 <Image
                     className='z-0 object-cover'
@@ -54,6 +55,7 @@ export default function Header({ header }) {
                     setIsOpen={setIsOpen}
                     isOpen={isOpen}
                     header={header}
+                    allTourHG={allTourHG}
                 />
             )}
         </header>

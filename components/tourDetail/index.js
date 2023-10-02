@@ -7,19 +7,26 @@ import HeaderDetail from './HeaderDetail'
 import TheTripDetail from './TheTripDetail'
 import TourDetail from './TourDetail'
 
-export default function IndexTourDetail({ data }) {
-    const { section1, tripDetails, faq } = data?.data?.tourHG?.tourHaGiangDetail
+export default function IndexTourDetail({ data, allTourHG, slug }) {
     return (
         <>
-            <HeaderDetail data={data} />
+            <HeaderDetail
+                data={data}
+                allTourHG={allTourHG}
+            />
             <main>
-                <OverviewMb data={data} />
-                <BestTripEver data={section1} />
-                <BoxVideo data={section1} />
-                <TourDetail data={tripDetails} />
+                <OverviewMb data={data?.data?.tourHG?.tourHaGiangDetail?.header} />
+                <div className='max-md:flex max-md:flex-col-reverse'>
+                    <BestTripEver data={data?.data?.tourHG?.tourHaGiangDetail?.section1} />
+                    <BoxVideo data={data?.data?.tourHG?.tourHaGiangDetail?.section1} />
+                </div>
+                <TourDetail data={data?.data?.tourHG?.tourHaGiangDetail?.tripDetails} />
                 <BookingOnline />
-                <TheTripDetail data={faq} />
-                <Another />
+                <TheTripDetail data={data?.data?.tourHG?.tourHaGiangDetail?.faq} />
+                <Another
+                    allTourHG={allTourHG}
+                    slug={slug}
+                />
             </main>
         </>
     )
