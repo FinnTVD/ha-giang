@@ -80,6 +80,7 @@ export default function BookingOnline() {
         register,
         watch,
         setValue,
+        setError,
         formState: { errors },
         handleSubmit,
     } = methods
@@ -119,7 +120,7 @@ export default function BookingOnline() {
             vpc_Command: 'pay',
             vpc_Currency: 'VND',
             vpc_Locale: 'vn',
-            vpc_MerchTxnRef: 'hg_' + Math.floor(Date.now() / 1000 + Math.random()),
+            vpc_MerchTxnRef: Math.floor(Date.now() / 1000) + '_hgtour',
             vpc_Merchant: MERCHANT_ID,
             vpc_OrderInfo: data.name,
             vpc_ReturnURL: BASE_URL + '/payment-successful',
@@ -135,6 +136,12 @@ export default function BookingOnline() {
     }
 
     const onSubmit = async (data) => {
+        if (totalAmount <= 0) {
+            setError("root", {
+                message: "Please choose at least a type of tour"
+            })
+            return;
+        }
         const params = generateParams(data, true)
         const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
         const hash = CryptoJS.HmacSHA256(params, secretWordArray)
@@ -544,6 +551,8 @@ export default function BookingOnline() {
                                 </h5>
                             </div>
                         </div>
+
+                        <p>{errors.root?.message}</p>
 
                         <div className='flex items-center mt-[1vw] gap-[1.88vw] max-md:gap-[2.13vw] max-md:mt-[3.2vw] max-md:flex-col'>
                             <Button
