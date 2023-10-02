@@ -80,6 +80,7 @@ export default function BookingOnline() {
         register,
         watch,
         setValue,
+        setError,
         formState: { errors },
         handleSubmit,
     } = methods
@@ -135,6 +136,12 @@ export default function BookingOnline() {
     }
 
     const onSubmit = async (data) => {
+        if (totalAmount <= 0) {
+            setError("root", {
+                message: "Please choose at least a type of tour"
+            })
+            return;
+        }
         const params = generateParams(data, true)
         const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
         const hash = CryptoJS.HmacSHA256(params, secretWordArray)
@@ -544,6 +551,8 @@ export default function BookingOnline() {
                                 </h5>
                             </div>
                         </div>
+
+                        <p>{errors.root?.message}</p>
 
                         <div className='flex items-center mt-[1vw] gap-[1.88vw] max-md:gap-[2.13vw] max-md:mt-[3.2vw] max-md:flex-col'>
                             <Button
