@@ -40,7 +40,7 @@ export default function SlideGreatTrips({ allTourHG }) {
                                     indexTab === index ? 'text-primary-70' : 'text-gray-scale-80'
                                 } text-[3.733vw] font-semibold leading-[1.42] tracking-[0.03733vw] py-[3.2vw]`}
                             >
-                                3 DAYS TOUR
+                                {index === 0 ? '4 DAYS TOUR' : '3 DAYS TOUR'}
                             </span>
                         </div>
                     ))}

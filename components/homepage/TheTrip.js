@@ -5,7 +5,7 @@ import SubTitle from '../global/SubTitle'
 import { useMediaQuery } from 'react-responsive'
 import { AccordionDemo } from '../ui/AccordionDemo'
 
-export default function TheTrip({ section8 }) {
+export default function TheTrip({ section8, allTourHG }) {
     const [active, setActive] = useState(0)
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
 
@@ -20,6 +20,7 @@ export default function TheTrip({ section8 }) {
                     primary={true}
                     content={'BOOK NOW'}
                     className={'mt-[1.87vw] max-md:hidden'}
+                    href={'/' + allTourHG?.nodes[1]?.slug}
                 />
             </div>
             <div className='flex flex-col md:gap-[0.75vw] gap-[4.27vw]'>

@@ -5,7 +5,7 @@ import SlidePopupGallery from './SlidePopupGallery'
 import Image from 'next/image'
 const arr = new Array(2).fill(0)
 
-export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, setIndexTab }) {
+export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, setIndexTab, allTourHG }) {
     return (
         <>
             <div
@@ -33,10 +33,10 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
                     indexTab={indexTab}
                 />
                 <ul className=' flex justify-center mt-[1.47vw] gap-x-[0.75vw]'>
-                    {arr?.map((e, index) => (
-                        <li>
+                    {allTourHG?.nodes?.map((e, index) => (
+                        <li key={index}>
                             <Link
-                                href='/'
+                                href={'/' + e?.slug}
                                 className='py-[0.75vw] px-[1.25vw] rounded-[0.5vw] bg-primary-5 shadow-btnTravel flex items-center gap-x-[0.5vw]'
                             >
                                 <Image
@@ -47,7 +47,7 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
                                     height={30}
                                 />
                                 <span className='text-primary-70 text-[0.875vw] font-semibold leading-[1.42] tracking-[0.00875vw]'>
-                                    3 DAYS TOUR
+                                    {index === 0 ? '4 DAYS TOUR' : '3 DAYS TOUR'}
                                 </span>
                             </Link>
                         </li>

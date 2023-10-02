@@ -15,7 +15,7 @@ export default async function Footer() {
     const data = await getData(GET_DATA_FOOTER)
     const { footer } = data?.data?.page?.homeHG
     return (
-        <footer className='relative'>
+        <footer className='relative overflow-hidden'>
             <BgFooter className='w-full md:h-[58.5625vw] h-full absolute top-0 left-0 z-0 max-md:inset-0' />
             <div className='md:h-screen h-screen w-full relative md:px-[6.25vw]'>
                 <Image

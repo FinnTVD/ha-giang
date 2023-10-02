@@ -3,26 +3,7 @@ import SubTitle from '../global/SubTitle'
 import SlideCheersTour from './SlideCheersTour'
 import Button from '../global/Button'
 
-const arr = [
-    {
-        id: 1,
-        title: 'SUPPORT LOCAL - SUSTAINABLE TRAVEL',
-    },
-    {
-        id: 2,
-        title: 'FREE 100% CANCELLATION',
-    },
-    {
-        id: 3,
-        title: 'DAILY DEPARTURES',
-    },
-    {
-        id: 4,
-        title: 'NO HAPPY - FULL REFUND',
-    },
-]
-
-export default function CheersTour({ section2 }) {
+export default function CheersTour({ section2, allTourHG }) {
     return (
         <section
             id='cheers-tour'
@@ -64,27 +45,19 @@ export default function CheersTour({ section2 }) {
                         </li>
                     ))}
                 </ul>
-                <SlideCheersTour arr={arr} />
+                <SlideCheersTour section2={section2} />
                 <div
                     className='description lg:w-[43vw] mt-[2.39vw] max-md:mt-[5.33vw] max-md:text-justify max-md:px-[4.27vw] text-gray-scale-50 text-[0.875vw] 
                 font-normal leading-[1.375] tracking-[0.00219vw] max-md:text-[3.733vw] max-md:leading-[1.57] max-md:tracking-[0.00933vw]'
                     dangerouslySetInnerHTML={{ __html: section2?.description }}
                 />
-                {/* The 3 Days Epic Ha giang Loop Tour with easy rider organized by <strong>Vietnam Cheers</strong>
-                    Hostel is a must in Vietnam for any traveller. It is considered a highlight of South East Asia.
-                    <br />
-                    <br />
-                    Explore <strong>Ma Pi Leng</strong>, one of The Big Four Passes in Vietnam, through thousands of
-                    conical limestone peaks as well as deep and meandering valleys. Party dinner, waterfall and local le
-                    at authentic <strong>Cheers Du Gia Homestay</strong>. will be the unique experience also. This is
-                    designed for adventure-seekers — those who want to experience the biggest challenge Vietnam has to
-                    offer in a safe environment with our experienced easy riders.
-                </div> */}
+
                 <div className='flex gap-x-[1vw] max-md:gap-x-[3.2vw] mt-[1.87vw] max-md:mt-[5.33vw] max-md:px-[4.27vw]'>
                     <Button
                         primary={true}
                         content={'book now'}
                         className={'max-md:h-[12.8vw] max-md:flex-1'}
+                        href={'/' + allTourHG?.nodes[1]?.slug}
                     />
                     <Button
                         content={'read more'}

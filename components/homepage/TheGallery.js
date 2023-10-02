@@ -4,7 +4,7 @@ import SubTitle from '../global/SubTitle'
 import SlideGallery from './SlideGallery'
 import PopupGallery from './PopupGallery'
 
-export default function TheGallery({ section4 }) {
+export default function TheGallery({ section4, allTourHG }) {
     const [isOpen, setIsOpen] = useState(false)
     const [indexTab, setIndexTab] = useState(0)
     return (
@@ -25,6 +25,7 @@ export default function TheGallery({ section4 }) {
                 setIsOpen={setIsOpen}
                 isOpen={isOpen}
                 setIndexTab={setIndexTab}
+                allTourHG={allTourHG}
             />
         </section>
     )

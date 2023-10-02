@@ -19,12 +19,12 @@ export default function SlideTravelers({ section5 }) {
     return (
         <div className='relative z-[5]'>
             <Swiper
+                loop={true}
                 breakpoints={{
                     0: {
                         slidesPerView: 'auto',
                         spaceBetween: 16,
                         centeredSlides: true,
-                        loop: true,
                     },
                     768: {
                         slidesPerView: 3,

@@ -24,21 +24,30 @@ export default function IndexHomePage({ data, allTourHG }) {
                 </Suspense> */}
                 <Banner section1={section1} />
                 <Image
-                    className='!h-[210vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
+                    className='!h-[265vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
                     src={'/images/mask.png'}
                     fill
                     sizes='100vw'
                 />
-                <CheersTour section2={section2} />
+                <CheersTour
+                    section2={section2}
+                    allTourHG={allTourHG}
+                />
                 <GreatTrips
                     section3={section3}
                     allTourHG={allTourHG}
                 />
-                <TheGallery section4={section4} />
+                <TheGallery
+                    section4={section4}
+                    allTourHG={allTourHG}
+                />
                 <Travelers section5={section5} />
                 <Family section6={section6} />
                 <Weather section7={section7} />
-                <TheTrip section8={section8} />
+                <TheTrip
+                    section8={section8}
+                    allTourHG={allTourHG}
+                />
             </main>
         </>
     )
