@@ -9,7 +9,7 @@ import IconMotor from '../icons/IconMotor'
 
 const arr = new Array(2).fill(0)
 
-export default function SlideGreatTrips() {
+export default function SlideGreatTrips({ allTourHG }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const swiperRef = useRef(null)
     const [indexTab, setIndexTab] = useState(0)
@@ -69,12 +69,12 @@ export default function SlideGreatTrips() {
                     }}
                     className='lg:w-[81.1vw] h-fit max-md:!px-[4.27vw]'
                 >
-                    {arr?.map((e, index) => (
+                    {allTourHG?.nodes?.map((e, index) => (
                         <SwiperSlide
                             key={index}
                             className='relative'
                         >
-                            <ItemCardTour />
+                            <ItemCardTour data={e} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

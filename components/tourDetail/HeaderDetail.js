@@ -4,8 +4,11 @@ import Nav from '../global/Nav'
 import FeaturesHeader from '../global/FeaturesHeader'
 import ContentHeaderDetail from './ContentHeaderDetail'
 import { useEffect, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
+import MenuRes from '../global/MenuRes'
 
-export default function HeaderDetail({ data }) {
+export default function HeaderDetail({ data, allTourHG }) {
+    const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
         if (!isOpen) {
@@ -19,6 +22,7 @@ export default function HeaderDetail({ data }) {
             <Nav
                 header={data?.data?.page?.homeHG?.header}
                 setIsOpen={setIsOpen}
+                allTourHG={allTourHG}
             />
             <Image
                 className='z-0 object-cover'
@@ -54,7 +58,7 @@ export default function HeaderDetail({ data }) {
                             SELF - DRIVING
                         </span>
                         <span className='text-[3vw] font-bold leading-[1.08] text-white max-md:text-[9.067vw] max-md:leading-[1.17] max-md:tracking-[0.02267vw]'>
-                            $169
+                            ${data?.data?.tourHG?.tourHaGiangDetail?.price?.selfDriving}
                         </span>
                     </div>
                 </div>
@@ -71,11 +75,19 @@ export default function HeaderDetail({ data }) {
                             PRIVATE DRIVER
                         </span>
                         <span className='text-[3vw] font-bold leading-[1.08] text-white max-md:text-[9.067vw] max-md:leading-[1.17] max-md:tracking-[0.02267vw]'>
-                            $199
+                            ${data?.data?.tourHG?.tourHaGiangDetail?.price?.localDriver}
                         </span>
                     </div>
                 </div>
             </div>
+            {isMobile && (
+                <MenuRes
+                    setIsOpen={setIsOpen}
+                    isOpen={isOpen}
+                    header={data?.data?.page?.homeHG?.header}
+                    allTourHG={allTourHG}
+                />
+            )}
         </header>
     )
 }

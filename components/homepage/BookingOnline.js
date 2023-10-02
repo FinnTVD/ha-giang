@@ -85,7 +85,6 @@ export default function BookingOnline() {
             const response = await fetch('https://api.ipify.org?format=json')
             const data = await response.json()
             if (data) {
-                console.log(data)
                 setIp(data.ip)
             }
         } catch (error) {
@@ -122,13 +121,10 @@ export default function BookingOnline() {
     }
 
     const onSubmit = async (data) => {
-        console.log('data', generateParams(data))
         const params = generateParams(data, true)
-        console.log({ params })
         const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
         const hash = CryptoJS.HmacSHA256(params, secretWordArray)
         const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-        console.log(vpc_SecureHash)
         router.push(`${ONEPAY_HOST}?${generateParams(data)}&vpc_SecureHash=${vpc_SecureHash}`)
     }
 

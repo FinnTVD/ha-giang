@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import highLightImg from '@/public/icons/hightLight.svg'
 import includedImg from '@/public/icons/included.svg'
 import pickUpFromImg from '@/public/icons/pickUpFrom.svg'
@@ -10,30 +10,72 @@ import rowUpImg from '@/public/icons/rowUp.svg'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useMediaQuery } from 'react-responsive'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const list = [
-    { name: 'Information', id: 1, to: '' },
+    { name: 'Information', id: 1, to: '#box-tab' },
     { name: 'Map', id: 2, to: '#mapId' },
     { name: 'Trip detail', id: 3, to: '#tourId' },
     { name: 'Book online', id: 4, to: '#bookingId' },
 ]
-const OverviewMb = () => {
+
+gsap.registerPlugin(ScrollTrigger)
+const OverviewMb = ({ data }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const param = useParams()
-    const [select, setSelect] = useState(1)
+    const parentRef = useRef(null)
+    const [isFixed, setIsFixed] = useState(false)
+    const [indexTab, setIndexTab] = useState(1)
     const [show, setShow] = useState(true)
-
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            setTimeout(() => {
+                gsap.matchMedia().add('(max-width: 767px)', () => {
+                    gsap.to('#box-tab', {
+                        scrollTrigger: {
+                            trigger: parentRef.current,
+                            start: 'top top',
+                            end: '2000 top',
+                            onToggle: (self) => {
+                                if (self.isActive) {
+                                    setIsFixed(true)
+                                } else {
+                                    window.scrollY < 900 && setIsFixed(false)
+                                }
+                            },
+                        },
+                    })
+                })
+            }, 500)
+        }, parentRef)
+        return () => {
+            ctx.revert()
+        }
+    }, [])
     if (!isMobile) return
     return (
-        <div className='hidden max-md:flex flex-col ml-[3.62vw] z-10 mt-[23vw]'>
-            <div className='overflow-auto mb-[4.26vw]'>
+        <div
+            ref={parentRef}
+            className='hidden max-md:flex flex-col ml-[3.62vw] z-10 mt-[23vw]'
+        >
+            <div
+                id='box-tab'
+                className={`${
+                    isFixed ? 'fixed left-0 top-0 bg-white px-[4.27vw] py-[2.13vw] w-full z-[99]' : ''
+                } overflow-auto mb-[4.26vw] transition-all duration-500`}
+            >
                 <div className='flex gap-[3.2vw] mb-[1.6vw] w-[100vw] '>
                     {list?.map((item) => (
                         <Link
-                            href={`/tour/${param.slug}${item.to}`}
-                            className={`text-[3.46vw] h-[6.4vw] pb-[1.6vw] w-[24.42vw] font-poppins text-center
+                            data-src={true}
+                            href={`/${param.slug}${item.to}`}
+                            onClick={() => setIndexTab(item?.id)}
+                            className={`${
+                                isFixed ? 'text-[4.46vw]' : 'text-[3.46vw]'
+                            } h-[6.4vw] pb-[1.6vw] w-[24.42vw] font-poppins text-center
           ${
-              select === item?.id
+              indexTab === item?.id
                   ? 'text-[#B34B1E] font-semibold border-b-[0.4vw] border-[#B34B1E]'
                   : 'font-normal text-[#898989]'
           }`}
@@ -45,33 +87,87 @@ const OverviewMb = () => {
                 </div>
             </div>
             <div className={`${show ? '' : 'h-[40vw] overflow-hidden'}`}>
-                {data?.map((item) =>
-                    item.id === select ? (
-                        <div>
-                            {item?.data?.map((el) => (
-                                <div>
-                                    <h2 className='text-[3.46vw] flex gap-[1.6vw] mb-[0.53vw] text-[#A1A1A1] uppercase'>
-                                        <Image
-                                            src={el.icon}
-                                            alt='icon'
-                                        />
-                                        {el?.title}
-                                    </h2>
-                                    <ul className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
-                                        {el?.list.map((i) => (
-                                            <li
-                                                key={i.id}
-                                                className='text-[#2E2E2E]  font-semibold text-[3.73vw]'
-                                            >
-                                                {i.content}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                    ) : null,
-                )}
+                <div>
+                    <h2 className='text-[3.46vw] flex gap-[1.6vw] mb-[0.53vw] text-[#A1A1A1] uppercase'>
+                        <Image
+                            src={highLightImg}
+                            alt='icon'
+                        />
+                        hight light:
+                    </h2>
+                    <ul className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
+                        {data?.highlight.map((e, index) => (
+                            <li
+                                key={index}
+                                className='text-[#2E2E2E]  font-semibold text-[3.73vw]'
+                            >
+                                {e?.title}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div>
+                    <h2 className='text-[3.46vw] flex gap-[1.6vw] mb-[0.53vw] text-[#A1A1A1] uppercase'>
+                        <Image
+                            src={transportImg}
+                            alt='icon'
+                        />
+                        TRANSPORT:
+                    </h2>
+                    <div className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
+                        <span className='text-[#2E2E2E]  font-semibold text-[3.73vw]'>{data?.transport}</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 className='text-[3.46vw] flex gap-[1.6vw] mb-[0.53vw] text-[#A1A1A1] uppercase'>
+                        <Image
+                            src={pickUpFromImg}
+                            alt='icon'
+                        />
+                        PICK UP FROM:
+                    </h2>
+                    <div className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
+                        <span className='text-[#2E2E2E]  font-semibold text-[3.73vw]'>{data?.pickUpFrom}</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 className='text-[3.46vw] flex gap-[1.6vw] mb-[0.53vw] text-[#A1A1A1] uppercase'>
+                        <Image
+                            src={includedImg}
+                            alt='icon'
+                        />
+                        INCLUDED:
+                    </h2>
+                    <ul className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
+                        {data?.included.map((e, index) => (
+                            <li
+                                key={index}
+                                className='text-[#2E2E2E]  font-semibold text-[3.73vw]'
+                            >
+                                {e?.item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div>
+                    <h2 className='text-[3.46vw] flex gap-[1.6vw] mb-[0.53vw] text-[#A1A1A1] uppercase'>
+                        <Image
+                            src={excludedImg}
+                            alt='icon'
+                        />
+                        EXCLUDED:
+                    </h2>
+                    <ul className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
+                        {data?.excluded.map((e, index) => (
+                            <li
+                                key={index}
+                                className='text-[#2E2E2E]  font-semibold text-[3.73vw]'
+                            >
+                                {e?.item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
             <button
                 onClick={() => setShow((pre) => !pre)}
@@ -89,110 +185,3 @@ const OverviewMb = () => {
 }
 
 export default OverviewMb
-var data = [
-    {
-        id: 1,
-        title: 'Information',
-        data: [
-            {
-                id: 1,
-                icon: highLightImg,
-                title: 'Highlight:',
-                list: [
-                    {
-                        id: 1,
-                        content: 'Off the beaten track',
-                    },
-                    {
-                        id: 2,
-                        content: 'Off the beaten track',
-                    },
-                    {
-                        id: 3,
-                        content: 'Off the beaten track',
-                    },
-                    {
-                        id: 4,
-                        content: 'Off the beaten track',
-                    },
-                    {
-                        id: 5,
-                        content: 'Off the beaten track',
-                    },
-                    {
-                        id: 6,
-                        content: 'Off the beaten track',
-                    },
-                ],
-            },
-            {
-                id: 2,
-                icon: transportImg,
-                title: 'TRANSPORT:',
-                list: [
-                    {
-                        id: 1,
-                        content: 'Sleeper bus & Motorbike with Local easy rider',
-                    },
-                ],
-            },
-            {
-                id: 3,
-                icon: pickUpFromImg,
-                title: 'PICK UP FROM:',
-                list: [
-                    {
-                        id: 1,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                ],
-            },
-            {
-                id: 4,
-                icon: includedImg,
-                title: 'INCLUDED:',
-                list: [
-                    {
-                        id: 1,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                    {
-                        id: 2,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                    {
-                        id: 3,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                    {
-                        id: 4,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                    {
-                        id: 5,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                    {
-                        id: 6,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                ],
-            },
-            {
-                id: 5,
-                icon: excludedImg,
-                title: 'EXCLUDED:',
-                list: [
-                    {
-                        id: 1,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                    {
-                        id: 2,
-                        content: 'Hanoi, Airport,  Sapa, Cat ba island, Ninh Binh or any hotel in Ha Giang city',
-                    },
-                ],
-            },
-        ],
-    },
-]

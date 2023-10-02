@@ -91,6 +91,11 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: var(--font-poppins);
+    overflow: hidden;
+}
+
 // --------------Header-----------------//
 
 #box-slogan {
@@ -160,4 +165,27 @@ canvas {
 
 .react-datepicker-popper {
     z-index: 10 !important;
+}
+
+#content-trip-details {
+    p + p {
+        margin-top: 1vw;
+        @media screen and (max-width: "767px") {
+            margin-top: 2.67vw;
+        }
+    }
+    p {
+        font-size: 0.875vw;
+        font-weight: 400;
+        line-height: 1.57;
+        letter-spacing: 0.00219vw;
+        @media screen and (max-width: "767px") {
+            font-size: 3.733vw;
+            letter-spacing: 0.00933vw;
+        }
+        strong {
+            color: var(--gray-scale-80);
+            font-weight: 600;
+        }
+    }
 }

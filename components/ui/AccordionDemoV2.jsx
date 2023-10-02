@@ -27,6 +27,7 @@ export function AccordionDemoV2({ className, data }) {
                                     }
                                 }}
                                 index={index}
+                                className={'max-md:mt-0'}
                             >
                                 {e?.question}
                             </AccordionTrigger>

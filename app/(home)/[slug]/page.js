@@ -4,5 +4,11 @@ import getData from '@/utils/getData'
 
 export default async function page({ params }) {
     const data = await getData(GET_DETAIL_TOUR, { slug: params?.slug })
-    return <IndexTourDetail data={data} />
+    return (
+        <IndexTourDetail
+            data={data}
+            allTourHG={data?.data?.allTourHG}
+            slug={params?.slug}
+        />
+    )
 }

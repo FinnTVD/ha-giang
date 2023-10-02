@@ -44,7 +44,7 @@ const listNav = [
     },
 ]
 
-export default function MenuRes({ isOpen, setIsOpen, header }) {
+export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
     return (
         <article
             className={`${

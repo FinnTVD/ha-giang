@@ -8,8 +8,13 @@ import SlideImage from './SlideImage'
 function AboutTour({ data }) {
     const [activeCate, setActiveCate] = useState(0)
     const [content, setContent] = useState(data?.listCheckin[0])
+    const [isShow, setIsShow] = useState(false)
     return (
-        <section className='flex flex-col md:gap-[1vw] md:px-[6.31vw] about-tour'>
+        <section
+            className={`${
+                isShow ? 'h-[11vw] max-md:h-[15vw] overflow-hidden' : ''
+            } flex flex-col md:gap-[1vw] md:px-[6.31vw] about-tour relative transition-all duration-500`}
+        >
             <div className='flex justify-between max-md:px-[4.27vw] items-center max-md:mb-[1.87vw]'>
                 <div className='flex md:gap-[0.625vw] gap-[2.34vw] items-center max-md:flex-row-reverse'>
                     <Image
@@ -22,7 +27,10 @@ function AboutTour({ data }) {
                         {data?.step}
                     </h3>
                 </div>
-                <div>
+                <div
+                    className='cursor-pointer relative z-[50]'
+                    onClick={() => setIsShow(!isShow)}
+                >
                     <Image
                         alt='btn'
                         src={btn}
@@ -51,18 +59,19 @@ function AboutTour({ data }) {
                         </svg>
                     </div>
                     <div className='flex flex-col md:w-[25.125vw] gap-[1vw] max-md:px-[4.27vw]'>
-                        <h4 className='md:text-[1vw] text-[3.27869vw] font-[600] md:leading-[1.5vw] leading-[4.68384vw] md:tracking-[0.0125vw] tracking-[0.03279vw] font-poppins text-gray-scale-80'>
+                        <h4 className='text-[1vw] leading-normal tracking-[0.0125vw] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733vw] max-md:leading-[1.42] max-md:tracking-[0.03733vw]'>
                             {data?.heading}
                         </h4>
                         <div
-                            className='md:text-[0.875vw] text-[3.27869vw] font-roboto font-[400] md:leading-[1.375vw] leading-[5.15222vw] md:tracking-[0.00219vw] tracking-[0.0082vw] text-gray-scale-50'
+                            id='content-trip-details'
+                            className='md:text-[0.875vw] text-[3.27869vw] font-poppins font-[400] md:leading-[1.375vw] leading-[5.15222vw] md:tracking-[0.00219vw] tracking-[0.0082vw] text-gray-scale-50'
                             dangerouslySetInnerHTML={{ __html: content?.content }}
                         />
                     </div>
                 </div>
 
                 {/* ------------content-right----------- */}
-                <div className='flex flex-col md:gap-[1vw] gap-[4.27vw] justify-end'>
+                <div className='flex flex-col md:gap-[1vw] gap-[4.27vw] justify-start'>
                     <div className='flex md:gap-[0.75vw] gap-[3.2vw] max-md:overflow-x-auto max-md:px-[4.27vw] max-md:pb-[1vw] whitespace-nowrap slideCategory'>
                         {data?.listCheckin?.map((item, index) => (
                             <div
@@ -102,6 +111,11 @@ function AboutTour({ data }) {
                     </div>
                 </div>
             </div>
+            <div
+                className={`${
+                    isShow ? 'z-10 opacity-100' : 'z-[-1] opacity-0'
+                } w-full h-[14vw] max-md:h-[16vw] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes absolute bottom-0 left-0 transition-all duration-150`}
+            ></div>
         </section>
     )
 }
