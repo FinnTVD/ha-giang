@@ -60,7 +60,7 @@ const SlideGallery = ({ section4, setIsOpen, setIndexTab }) => {
                                 strokeDasharray='10 10'
                             />
                         </svg>
-                        <div className='w-[11vw] h-[11vw] x-[2] absolute lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 group-hover:opacity-100 opacity-0 transition-all duration-300 bg-[#CDE82B99] backdrop-blur-[3px] rounded-full max-md:w-[73.6vw] max-md:h-[73.6vw] max-md:bottom-[-44.8vw] max-md:opacity-100'></div>
+                        <div className='w-[11vw] h-[11vw] x-[2] absolute lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 group-hover:opacity-100 opacity-0 transition-all duration-500 bg-[#95e82b99] scale-90 group-hover:scale-100 backdrop-blur-[3px] rounded-full max-md:w-[73.6vw] max-md:h-[73.6vw] max-md:bottom-[-44.8vw] max-md:opacity-100'></div>
                         <span className='absolute lg:top-1/2 capitalize left-1/2 -translate-x-1/2 lg:-translate-y-1/2 text-white z-[5] text-[1.25vw] font-semibold leading-[1.2] tracking-[0.00188vw] max-md:bottom-[8vw] max-md:text-[5.33vw] max-md:leading-[1.2] max-md:tracking-[0.008vw]'>
                             {e?.category}
                         </span>

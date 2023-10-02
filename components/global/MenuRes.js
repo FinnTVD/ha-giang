@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import IconClose from '../icons/IconClose'
 const listNav = [
     {
         id: 1,
@@ -58,14 +59,20 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
                 fill
                 sizes='100vw'
             />
-            <Image
+            {/* <Image
                 onClick={() => setIsOpen(false)}
                 className='absolute top-[8.53vw] right-[4.27vw] object-cover z-10 cursor-pointer'
                 src={'/images/close-res.svg'}
                 alt='close res'
                 width={40}
                 height={40}
-            />
+            /> */}
+            <div
+                onClick={() => setIsOpen(false)}
+                className='absolute top-[8.53vw] right-[4.27vw] object-cover z-10 cursor-pointer'
+            >
+                <IconClose className={'w-[8.53vw] h-[8.53vw]'} />
+            </div>
             <div className='relative z-10 w-full'>
                 <ul className='flex flex-col items-center gap-y-[6.4vw]'>
                     {listNav?.map((e, index) => (

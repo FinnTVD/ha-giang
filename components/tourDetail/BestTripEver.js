@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Button from '../global/Button'
 import { useMediaQuery } from 'react-responsive'
 import { useParams } from 'next/navigation'
+import IconBtnLeft from '../icons/IconBtnLeft'
 
 const arr = [
     {
@@ -142,13 +143,7 @@ export default function BestTripEver({ data }) {
                             }}
                             className='p-[0.75vw] absolute top-[1.8vw] left-0 -translate-x-full z-[5]'
                         >
-                            <Image
-                                className='object-contain w-[1.82vw] h-[0.82vw]'
-                                src={'/images/btn-left.svg'}
-                                alt='btn-slide'
-                                width={36}
-                                height={18}
-                            />
+                            <IconBtnLeft className={'w-[1.82vw] h-[0.82vw]'} />
                         </button>
                         <button
                             onClick={() => {
@@ -162,13 +157,7 @@ export default function BestTripEver({ data }) {
                             }}
                             className='p-[0.75vw] absolute top-[1.8vw] right-0 translate-x-full z-[5]'
                         >
-                            <Image
-                                className='object-contain w-[1.82vw] h-[0.82vw] rotate-180'
-                                src={'/images/btn-left.svg'}
-                                alt='btn-slide'
-                                width={36}
-                                height={18}
-                            />
+                            <IconBtnLeft className={'w-[1.82vw] h-[0.82vw] rotate-180'} />
                         </button>
                     </div>
                 </div>

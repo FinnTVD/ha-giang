@@ -79,7 +79,7 @@ export default function SlidePeople({ section6, indexTab }) {
                             </div>
                         </div>
                         <div className='absolute z-20 top-0 left-0 max-md:left-1/2 max-md:top-[5%] max-md:-translate-x-1/2 w-full h-full bg-white/95 p-[1.5vw] rounded-[1vw] opacity-0 translate-y-[110%] transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 shadow-btnTravel max-md:rounded-[4.27vw] max-md:p-[4.27vw] max-md:w-[90%] max-md:h-[90%]'>
-                            <h2 className='text-[1vw] font-semibold leading-normal tracking-[0.005vw] text-[#8B3A17] text-center line-clamp-1 max-md:text-[6vw]'>
+                            <h2 className='text-[1vw] font-semibold leading-normal tracking-[0.005vw] text-primary-80 text-center line-clamp-1 max-md:text-[6vw]'>
                                 {e?.name}
                             </h2>
                             <div className='text-[0.875vw] max-md:text-[3.875vw] mt-[0.25vw] leading-[1.57] font-normal tracking-[0.00219vw] text-gray-scale-50 flex items-center justify-center line-clamp-2'>
