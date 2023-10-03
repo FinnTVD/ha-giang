@@ -1,7 +1,5 @@
-import PaymentSuccessFulPage from "@/components/payment-successful";
+import PaymentSuccessFulPage from '@/components/payment-successful'
 
-export default function PaymentSuccessFul() {
-  return (
-    <PaymentSuccessFulPage />
-  );
+export default function PaymentSuccessFul({ searchParams }) {
+    return <PaymentSuccessFulPage searchParams={searchParams} />
 }

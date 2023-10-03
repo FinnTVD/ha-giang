@@ -3,9 +3,9 @@ import Image from 'next/image'
 import IconMarker from '../icons/IconMarker'
 import { useState } from 'react'
 import { ComboboxV2 } from '../ui/ComboboxV2'
+import { PopupBookNow } from '../global/PopupBookNow'
 
 export default function BookNowHeader({ allTourHG }) {
-    console.log('🚀 ~ file: BookNowHeader.js:19 ~ BookNowHeader ~ allTourHG:', allTourHG)
     const [countSelf, setCountSelf] = useState(1)
     const [countDriver, setCountDriver] = useState(1)
     const [tour, setTour] = useState(allTourHG?.nodes[0])
@@ -50,14 +50,14 @@ export default function BookNowHeader({ allTourHG }) {
                         width={40}
                         height={40}
                     />
-                    <div className='flex items-center ml-[0.5vw]'>
-                        <span className='text-gray-scale-80 text-[1vw] font-bold leading-normal tracking-[0.005vw]'>
+                    <div className='flex items-center ml-[0.5vw] justify-end max-md:w-full'>
+                        <span className='text-gray-scale-80 text-[1vw] font-bold leading-normal tracking-[0.005vw] max-md:text-[3.733vw] max-md:font-semibold max-md:leading-[1.57vw]'>
                             {countSelf} pax
                         </span>
-                        <div className=' flex gap-x-[0.75vw] ml-[1vw]'>
+                        <div className=' flex gap-x-[0.75vw] ml-[1vw] max-md:ml-auto max-md:gap-x-[2.13vw]'>
                             <button
                                 onClick={() => setCountSelf(countSelf + 1)}
-                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                                className='w-[2.25vw] h-[2.25vw] max-md:w-[6.25vw] max-md:h-[6.25vw] max-md:text-[4.5vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
                             >
                                 +
                             </button>
@@ -66,7 +66,7 @@ export default function BookNowHeader({ allTourHG }) {
                                     if (countSelf === 0) return
                                     setCountSelf(countSelf - 1)
                                 }}
-                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                                className='w-[2.25vw] h-[2.25vw] max-md:w-[6.25vw] max-md:h-[6.25vw] max-md:text-[4.5vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
                             >
                                 -
                             </button>
@@ -101,14 +101,14 @@ export default function BookNowHeader({ allTourHG }) {
                         height={40}
                     />
                     {/* <ComboboxDemo frameworks={frameworks2} /> */}
-                    <div className='flex items-center ml-[0.5vw]'>
-                        <span className='text-gray-scale-80 text-[1vw] font-bold leading-normal tracking-[0.005vw]'>
+                    <div className='flex items-center ml-[0.5vw] justify-end max-md:w-full'>
+                        <span className='text-gray-scale-80 text-[1vw] font-bold leading-normal tracking-[0.005vw] max-md:text-[3.733vw] max-md:font-semibold max-md:leading-[1.57vw]'>
                             {countDriver} pax
                         </span>
-                        <div className=' flex gap-x-[0.75vw] ml-[1vw]'>
+                        <div className=' flex gap-x-[0.75vw] ml-[1vw] max-md:ml-auto max-md:gap-x-[2.13vw]'>
                             <button
                                 onClick={() => setCountDriver(countDriver + 1)}
-                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                                className='w-[2.25vw] h-[2.25vw] max-md:w-[6.25vw] max-md:h-[6.25vw] max-md:text-[4.5vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
                             >
                                 +
                             </button>
@@ -117,7 +117,7 @@ export default function BookNowHeader({ allTourHG }) {
                                     if (countDriver === 0) return
                                     setCountDriver(countDriver - 1)
                                 }}
-                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                                className='w-[2.25vw] h-[2.25vw] max-md:w-[6.25vw] max-md:h-[6.25vw] max-md:text-[4.5vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
                             >
                                 -
                             </button>
@@ -125,16 +125,33 @@ export default function BookNowHeader({ allTourHG }) {
                     </div>
                 </div>
             </div>
-            <button className='text-white flex max-md:justify-between max-md:items-center lg:flex-col gap-y-[0.25vw] bg-primary-70 py-[0.75vw] px-[1.5vw] rounded-[0.5vw] max-md:w-full max-md:mt-[6.4vw] max-md:p-[3.2vw] max-md:rounded-[2.13vw]'>
-                <span className='lg:text-center max-md:w-fit text-[1.625vw] font-bold leading-[1.23] block w-full max-md:text-[5.33vw] max-md:leading-[1.2] max-md:tracking-[0.008vw]'>
-                    $
-                    {countDriver * tour?.tourHaGiangDetail?.price?.localDriver +
-                        countSelf * tour?.tourHaGiangDetail?.price?.selfDriving}
-                </span>
-                <span className=' text-center text-[0.875vw] font-bold leading-[1.43] tracking-[0.00875vw] max-md:text-[3.467vw] max-md:font-semibold max-md:leading-[1.53] whitespace-nowrap'>
-                    BOOK NOW
-                </span>
-            </button>
+            <PopupBookNow
+                tour={{
+                    tour,
+                    countDriver,
+                    countSelf,
+                }}
+                allTourHG={allTourHG}
+            >
+                <button
+                    className={`${
+                        countDriver * tour?.tourHaGiangDetail?.price?.localDriver +
+                            countSelf * tour?.tourHaGiangDetail?.price?.selfDriving ===
+                        0
+                            ? 'bg-gray-scale-5 pointer-events-none'
+                            : 'bg-primary-70'
+                    } text-white flex max-md:justify-between max-md:items-center lg:flex-col gap-y-[0.25vw] py-[0.75vw] px-[1.5vw] rounded-[0.5vw] max-md:w-full max-md:mt-[6.4vw] max-md:p-[3.2vw] max-md:rounded-[2.13vw]`}
+                >
+                    <span className='lg:text-center max-md:w-fit text-[1.625vw] font-bold leading-[1.23] block w-full max-md:text-[5.33vw] max-md:leading-[1.2] max-md:tracking-[0.008vw]'>
+                        $
+                        {countDriver * tour?.tourHaGiangDetail?.price?.localDriver +
+                            countSelf * tour?.tourHaGiangDetail?.price?.selfDriving}
+                    </span>
+                    <span className=' text-center text-[0.875vw] font-bold leading-[1.43] tracking-[0.00875vw] max-md:text-[3.467vw] max-md:font-semibold max-md:leading-[1.53] whitespace-nowrap'>
+                        BOOK NOW
+                    </span>
+                </button>
+            </PopupBookNow>
         </div>
     )
 }

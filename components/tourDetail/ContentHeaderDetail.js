@@ -18,6 +18,7 @@ export default function ContentHeaderDetail({ data }) {
                     src={'/images/bg-time-detail.png'}
                     fill
                     sizes='100vw'
+                    priority
                 />
                 <span className='relative text-[1vw] font-semibold leading-normal tracking-[0.0125vw] text-gray-scale-80 uppercase max-md:text-[3.467vw] max-md:leading-[1.38]'>
                     {data?.timeTour}

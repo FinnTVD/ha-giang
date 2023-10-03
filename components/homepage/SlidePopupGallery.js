@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { FreeMode } from 'swiper/modules'
+import { FreeMode, Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export default function SlidePopupGallery({ section4, indexTab }) {
@@ -17,20 +17,34 @@ export default function SlidePopupGallery({ section4, indexTab }) {
     return (
         <div className='relative w-full h-fit'>
             <Swiper
-                spaceBetween={24}
-                slidesPerView={2}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 2,
+                        spaceBetween: 16,
+                        direction: 'vertical',
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 24,
+                    },
+                }}
                 grabCursor={true}
                 freeMode={true}
+                mousewheel={true}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper
                 }}
-                modules={[FreeMode]}
-                className='h-[29.08975vw] w-full max-2xl:h-[26vw]'
+                modules={[FreeMode, Mousewheel]}
+                className='lg:h-[29.08975vw] w-full max-2xl:h-[26vw] max-md:!h-fit'
             >
                 {section4?.listGallery[indexTab]?.slidesImage?.map((e, index) => (
                     <SwiperSlide
                         key={index}
-                        className='relative'
+                        className='relative max-md:!h-[63.467vw]'
                     >
                         <Image
                             className='object-cover w-full h-full rounded-[1vw]'
