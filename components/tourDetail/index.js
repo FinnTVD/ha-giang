@@ -13,6 +13,7 @@ export default function IndexTourDetail({ data, allTourHG, slug }) {
             <HeaderDetail
                 data={data}
                 allTourHG={allTourHG}
+                slug={slug}
             />
             <main>
                 <OverviewMb data={data?.data?.tourHG?.tourHaGiangDetail?.header} />

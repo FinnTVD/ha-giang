@@ -139,7 +139,7 @@ const OverviewMb = ({ data }) => {
                         INCLUDED:
                     </h2>
                     <ul className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
-                        {data?.included.map((e, index) => (
+                        {data?.included?.map((e, index) => (
                             <li
                                 key={index}
                                 className='text-[#2E2E2E]  font-semibold text-[3.73vw]'
@@ -158,7 +158,7 @@ const OverviewMb = ({ data }) => {
                         EXCLUDED:
                     </h2>
                     <ul className='pl-[5.86vw] list-disc flex flex-col gap-[0.53vw] mb-[6.4vw]'>
-                        {data?.excluded.map((e, index) => (
+                        {data?.excluded?.map((e, index) => (
                             <li
                                 key={index}
                                 className='text-[#2E2E2E]  font-semibold text-[3.73vw]'
