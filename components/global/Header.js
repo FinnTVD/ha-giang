@@ -44,6 +44,7 @@ export default function Header({ header, allTourHG }) {
                         alt='linear res'
                         width={400}
                         height={800}
+                        priority
                     />
                 )}
                 <ContentHeader header={header} />

@@ -182,11 +182,11 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 onSubmit={handleSubmit(onSubmit)}
                 {...methods}
             >
-                <div className='flex gap-x-[1.5vw]'>
-                    <div className='w-fit'>
-                        <div className='flex gap-x-[0.75vw]'>
-                            <div className='w-[21vw]'>
-                                <div className='mb-[1.88vw]'>
+                <div className='flex gap-x-[1.5vw] max-md:flex-col max-md:gap-y-[8vw]'>
+                    <div className='w-fit max-md:w-full'>
+                        <div className='flex gap-x-[0.75vw] max-md:flex-col'>
+                            <div className='w-[21vw] max-md:w-full'>
+                                <div className='mb-[1.88vw] max-md:mb-[4.27vw]'>
                                     <div className='truncate font-bold mb-[0.5vw] text-[0.875vw] max-md:text-[3.46vw] text-gray-scale-50'>
                                         Tour
                                     </div>
@@ -213,7 +213,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                         }}
                                     >
                                         <Select.Trigger
-                                            className='w-full !p-[1vw] !h-[3.375vw] text-[0.875vw] font-bold leading-[1.57] text-gray-scale-80'
+                                            className='w-full !p-[1vw] max-md:!px-[3.2vw] !h-[3.375vw] max-md:!h-[11.375vw] text-[0.875vw] font-bold leading-[1.57] text-gray-scale-80'
                                             style={isMobile ? inputMobileStyle : inputStyle}
                                             variant='soft'
                                             placeholder='Select tour…'
@@ -236,11 +236,11 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                 </div>
                                 <div className='rounded-[0.5vw] bg-[#F2F2F2] p-[1vw] max-md:flex max-md:rounded-[2.13vw] max-md:flex-col max-md:gap-[3.2vw] max-md:p-[4.26vw]'>
                                     <div className='flex justify-between items-center'>
-                                        <span className='text-[0.75vw] font-medium leading-[1.33] text-gray-scale-50 uppercase'>
+                                        <span className='text-[0.75vw] font-medium leading-[1.33] text-gray-scale-50 uppercase max-md:text-[3.467vw] max-md:leading-[1.38]'>
                                             self - driving
                                         </span>
                                         <div className='flex items-center'>
-                                            <span className='text-[0.875vw] text-gray-scale-50 font-semibold lading-[1.57] tracking-[0.00219vw] block mr-[0.75vw]'>
+                                            <span className='text-[0.875vw] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733vw] max-md:mr-[3.2vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw] block mr-[0.75vw]'>
                                                 ${selfPrice}
                                             </span>
                                             <button
@@ -248,11 +248,11 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                                     if (selfDriving === 0) return
                                                     setSelfDriving(selfDriving - 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 -
                                             </button>
-                                            <span className='flex items-center mx-[0.5vw] text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw]'>
+                                            <span className='flex items-center mx-[0.5vw] text-[0.875vw] font-bold leading-[1.57] max-md:mx-[2.13vw] max-md:text-[3.733vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw]'>
                                                 {selfDriving === 0
                                                     ? '00'
                                                     : selfDriving > 9
@@ -263,18 +263,18 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                                 onClick={() => {
                                                     setSelfDriving(selfDriving + 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 +
                                             </button>
                                         </div>
                                     </div>
                                     <div className='flex justify-between my-[0.75vw] h-[2.5vw] items-center max-md:my-0 max-md:h-[10.66vw]'>
-                                        <span className='text-[0.75vw] font-medium leading-[1.33] text-gray-scale-50 uppercase whitespace-nowrap'>
+                                        <span className='text-[0.75vw] font-medium leading-[1.33] text-gray-scale-50 uppercase whitespace-nowrap max-md:text-[3.467vw] max-md:leading-[1.38]'>
                                             PRIVATE DRIVER
                                         </span>
                                         <div className='flex items-center'>
-                                            <span className='text-[0.875vw] text-gray-scale-50 font-semibold lading-[1.57] tracking-[0.00219vw] block mr-[0.75vw]'>
+                                            <span className='text-[0.875vw] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733vw] max-md:mr-[3.2vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw] block mr-[0.75vw]'>
                                                 ${localPrice}
                                             </span>
                                             <button
@@ -282,11 +282,11 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                                     if (localDriver === 0) return
                                                     setLocalDriver(localDriver - 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 -
                                             </button>
-                                            <span className='flex items-center mx-[0.5vw] text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw]'>
+                                            <span className='flex items-center mx-[0.5vw] text-[0.875vw] font-bold leading-[1.57] max-md:mx-[2.13vw] max-md:text-[3.733vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw]'>
                                                 {localDriver === 0
                                                     ? '00'
                                                     : localDriver > 9
@@ -297,7 +297,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                                 onClick={() => {
                                                     setLocalDriver(localDriver + 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 +
                                             </button>
@@ -321,7 +321,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                     </div>
                                 </div>
                             </div>
-                            <div className='w-[21vw]'>
+                            <div className='w-[21vw] max-md:w-full max-md:mt-[4.27vw]'>
                                 <div className='truncate font-semibold mb-[0.5vw] text-[0.875vw] max-md:text-[3.46vw]'>
                                     Customer information:
                                 </div>
@@ -376,7 +376,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                             {...register('message')}
                                             style={
                                                 isMobile
-                                                    ? { ...inputMobileStyle, height: '5.5625vw' }
+                                                    ? { ...inputMobileStyle, height: '24.5625vw' }
                                                     : { ...inputStyle, height: '8.9vw' }
                                             }
                                             className='rounded-[0.5vw] px-[1vw] py-[0.75vw]'
@@ -387,7 +387,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                 </div>
                             </div>
                         </div>
-                        <div className='relative grid grid-cols-4 gap-[0.75vw] w-[42.75vw] max-md:gap-[3.2vw] mt-[1vw] max-md:mt-[4.2vw]'>
+                        <div className='relative grid grid-cols-4 gap-[0.75vw] w-[42.75vw] max-md:w-full max-md:gap-[3.2vw] mt-[1vw] max-md:mt-[4.2vw]'>
                             <IconEnjoin className='absolute top-[4.5vw] left-0 max-md:hidden w-full' />
                             <div className='max-md:col-span-2'>
                                 <div className='truncate font-semibold mb-[0.5vw] text-[0.875vw] max-md:text-[3.46vw]'>
@@ -456,7 +456,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                             alt='moto'
                             className='my-[6.4vw] max-md:block hidden'
                         />
-                        <div className='grid grid-cols-4 gap-[0.75vw] mt-[3.5vw] max-md:gap-[3.2vw] max-md:mt-[4.2vw] w-[42.75vw]'>
+                        <div className='grid grid-cols-4 gap-[0.75vw] mt-[3.5vw] max-md:gap-[3.2vw] max-md:mt-[4.2vw] w-[42.75vw] max-md:w-full'>
                             <div className='max-md:max-md:col-span-2'>
                                 <div className='font-semibold mb-[0.5vw] text-[0.875vw] max-md:text-[3.46vw]'>
                                     Droff
