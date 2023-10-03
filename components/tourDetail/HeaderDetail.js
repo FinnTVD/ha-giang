@@ -43,7 +43,10 @@ export default function HeaderDetail({ data, allTourHG }) {
                 />
             </div> */}
             <ContentHeaderDetail data={data?.data?.tourHG?.tourHaGiangDetail?.header} />
-            <FeaturesHeader header={data?.data?.page?.homeHG?.header} />
+            <FeaturesHeader
+                allTourHG={allTourHG}
+                header={data?.data?.page?.homeHG?.header}
+            />
             <div className='flex gap-x-[1vw] absolute bottom-0 translate-y-1/2 lg:right-[6.27vw] max-md:left-[4.27vw]'>
                 <div className='w-[11.88vw] h-[12.12vw] max-md:w-[30.69vw] max-md:h-[30.92vw] relative flex items-center justify-center'>
                     <Image

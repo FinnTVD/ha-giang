@@ -58,7 +58,7 @@ const LineTrip = ({ dayAmount, className }) => {
                     x='292.431'
                     y='64.7563'
                 >
-                    Enjoin {dayAmount} In Ha Giang.
+                    Enjoin In Ha Giang.
                 </tspan>
             </text>
             <path

@@ -21,7 +21,10 @@ export default function IndexTourDetail({ data, allTourHG, slug }) {
                     <BoxVideo data={data?.data?.tourHG?.tourHaGiangDetail?.section1} />
                 </div>
                 <TourDetail data={data?.data?.tourHG?.tourHaGiangDetail?.tripDetails} />
-                <BookingOnline />
+                <BookingOnline
+                    data={data?.data?.tourHG?.tourHaGiangDetail?.price}
+                    title={data?.data?.tourHG?.title}
+                />
                 <TheTripDetail data={data?.data?.tourHG?.tourHaGiangDetail?.faq} />
                 <Another
                     allTourHG={allTourHG}

@@ -215,6 +215,19 @@ const GET_DATA_HOME = `
         price {
           selfDriving
           localDriver
+          pickUp{
+          province
+          listAddress{
+            address
+          }
+        }
+        droff{
+          province
+          listAddress{
+            address
+          }
+        }
+          longTimeTourDay
         }
         header {
           pickUpFrom

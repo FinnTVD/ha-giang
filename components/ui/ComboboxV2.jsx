@@ -47,7 +47,9 @@ export function ComboboxV2({ allTourHG, setTour }) {
                                 <Check
                                     className={cn(
                                         'mr-2 h-4 w-4',
-                                        value === item?.title?.toLowerCase() ? 'opacity-100' : 'opacity-0',
+                                        value?.toLowerCase() === item?.title?.toLowerCase()
+                                            ? 'opacity-100'
+                                            : 'opacity-0',
                                     )}
                                 />
                                 {item?.title}

@@ -14,6 +14,7 @@ import BgFooter from '../icons/BgFooter'
 export default async function Footer() {
     const data = await getData(GET_DATA_FOOTER)
     const { footer } = data?.data?.page?.homeHG
+    if (!footer) return
     return (
         <footer className='relative overflow-hidden'>
             <BgFooter className='w-full md:h-[58.5625vw] h-full absolute top-0 left-0 z-0 max-md:inset-0' />
@@ -24,6 +25,7 @@ export default async function Footer() {
                     src={footer?.background?.sourceUrl || '/images/bg-footer.png'}
                     sizes='100vw'
                     quality={100}
+                    priority
                     width={100}
                     height={100}
                     object-cover

@@ -16,6 +16,7 @@ import LineTrip from '../icons/LineTrip'
 import RHFDatePicker from '../ui/RHFDatePicker'
 import { useMediaQuery } from 'react-responsive'
 import motoImg from '@/public/images/motobikeMobile.svg'
+import { exchangeRate } from '@/utils'
 
 const defaultValues = {
     selfDriving: 0,
@@ -50,7 +51,7 @@ const inputMobileStyle = {
     padding: '4.26vw 3.2vw',
 }
 
-export default function BookingOnline() {
+export default function BookingOnline({ data, title }) {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
     const [ip, setIp] = useState('')
     const router = useRouter()
@@ -87,10 +88,8 @@ export default function BookingOnline() {
 
     const values = watch()
 
-    const selfPrice = 169
-    const localPrice = 169
-    const selfCost = values.selfDriving * selfPrice * 25000
-    const localCose = values.localDriver * localPrice * 25000
+    const selfCost = values.selfDriving * data?.selfDriving * exchangeRate
+    const localCose = values.localDriver * data?.localDriver * exchangeRate
     const totalPrice = selfCost + localCose
     const servicePrice = totalPrice * 0.03
     const totalAmount = totalPrice + servicePrice
@@ -117,12 +116,13 @@ export default function BookingOnline() {
             Title: 'Ha Giang Tour Payment',
             vpc_AccessCode: ACCESS_CODE,
             vpc_Amount: totalAmount + '00',
+            vpc_CardList: 'INTERNATIONAL',
             vpc_Command: 'pay',
             vpc_Currency: 'VND',
-            vpc_Locale: 'vn',
+            vpc_Locale: 'en',
             vpc_MerchTxnRef: Math.floor(Date.now() / 1000) + '_hgtour',
             vpc_Merchant: MERCHANT_ID,
-            vpc_OrderInfo: data.name,
+            vpc_OrderInfo: data?.name,
             vpc_ReturnURL: BASE_URL + '/payment-successful',
             vpc_TicketNo: ip,
             vpc_Version: '2',
@@ -142,6 +142,18 @@ export default function BookingOnline() {
             })
             return
         }
+        const formData = {
+            nameTour: title,
+            name: data?.name,
+            contactInfo: data?.email + ' - ' + data?.phone,
+            pickUp: fDate(data.departureDate) + 'from' + data.pickup + ' at ' + data.pickupAddress,
+            droffOf: fDate(data.endDate) + ' from ' + data.droff + 'at ' + data.droffAddress,
+            selfDriving: data.selfDriving + 'x $169 (' + fCurrency(selfCost) + ' VND)',
+            localDriver: data.localDriver + 'x $199 (' + fCurrency(localCose) + ' VND)',
+            message: data?.message,
+            total: fCurrency(totalPrice + servicePrice) + ' VND',
+        }
+        localStorage.setItem('formDataPayment', JSON.stringify(formData))
         const params = generateParams(data, true)
         const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
         const hash = CryptoJS.HmacSHA256(params, secretWordArray)
@@ -172,7 +184,7 @@ export default function BookingOnline() {
                         <div className='rounded-[0.5vw] bg-[#F2F2F2] px-[1vw] py-[0.75vw] max-md:flex max-md:rounded-[2.13vw] max-md:flex-col max-md:gap-[3.2vw] max-md:p-[4.26vw]'>
                             <div className='flex justify-between my-[0.75vw] h-[2.5vw] items-center max-md:my-0 max-md:h-[10.66vw]'>
                                 <div className='text-[0.875vw] font-normal leading-[150%] max-md:text-[3.46vw]'>
-                                    3 days of self-driving
+                                    {data?.longTimeTourDay} days of self-driving
                                 </div>
                                 <div
                                     className='w-[12.1875vw] rounded-[0.5vw] max-md:max-md:w-[30.13vw] px-[0.5vw]
@@ -180,7 +192,7 @@ export default function BookingOnline() {
                                 >
                                     <TextField.Root className='bg-white rounded-[0.5vw]'>
                                         <TextField.Slot className='bg-white font-semibold text-[#727272] text-[0.875vw] rounded-l-md max-md:text-[3.73vw]'>
-                                            $169
+                                            ${data?.selfDriving}
                                         </TextField.Slot>
                                         <TextField.Input
                                             className='input-right !bg-white text-[#B7B7B7] text-[0.875vw] rounded-r-md'
@@ -205,7 +217,7 @@ export default function BookingOnline() {
                             </div>
                             <div className='flex justify-between my-[0.75vw] h-[2.5vw] items-center max-md:my-0 max-md:h-[10.66vw]'>
                                 <div className='text-[0.875vw] font-normal leading-[150%] max-md:text-[3.46vw]'>
-                                    3 days with local driver
+                                    {data?.longTimeTourDay} days with local driver
                                 </div>
                                 <div
                                     className='w-[12.1875vw] rounded-[0.5vw] max-md:max-md:w-[30.13vw] px-[0.5vw]
@@ -213,7 +225,7 @@ export default function BookingOnline() {
                                 >
                                     <TextField.Root className='bg-white rounded-[0.5vw]'>
                                         <TextField.Slot className='bg-white font-semibold text-[#727272] text-[0.875vw] rounded-l-md max-md:text-[3.73vw]'>
-                                            $199
+                                            ${data?.localDriver}
                                         </TextField.Slot>
                                         <TextField.Input
                                             style={
@@ -249,7 +261,9 @@ export default function BookingOnline() {
                                     className='text-[#E56026] font-bold text-center flex leading-[2.5vw] justify-center rounded-[0.5vw] text-[1.25vw] w-[12.1875vw] h-[2.5vw] bg-white max-md:text-[5.33vw] 
                                 max-md:rounded-[2.13vw] max-md:max-md:w-[30.13vw] max-md:h-[10.66vw] max-md:items-center'
                                 >
-                                    ${values.selfDriving * selfPrice + values.localDriver * localPrice || 0}
+                                    $
+                                    {values.selfDriving * data?.selfDriving + values.localDriver * data?.localDriver ||
+                                        0}
                                 </div>
                             </div>
                         </div>
@@ -320,7 +334,7 @@ export default function BookingOnline() {
                         <div className='relative grid grid-cols-4 gap-[0.75vw] max-md:gap-[3.2vw] mt-[1vw] max-md:mt-[4.2vw]'>
                             <LineTrip
                                 className='absolute top-[3vw] -left-[1.5vw] max-md:hidden w-[108%]'
-                                dayAmount='3 days'
+                                dayAmount={data?.longTimeTourDay + ' days'}
                             />
                             <div className='max-md:col-span-2'>
                                 <div className='truncate font-semibold mb-[0.5vw] text-[0.875vw] max-md:text-[3.46vw]'>
@@ -333,9 +347,16 @@ export default function BookingOnline() {
                                         variant='soft'
                                         placeholder='Pick up…'
                                     />
-                                    <Select.Content>
-                                        <Select.Item value='Hanoi'>Hanoi</Select.Item>
-                                        <Select.Item value='Bacninh'>Bacninh</Select.Item>
+                                    <Select.Content className='z-[99]'>
+                                        {data?.pickUp?.map((e, index) => (
+                                            <Select.Item
+                                                key={index}
+                                                value={e?.province}
+                                                className='cursor-pointer hover:bg-gray-scale-5'
+                                            >
+                                                {e?.province}
+                                            </Select.Item>
+                                        ))}
                                     </Select.Content>
                                 </Select.Root>
                             </div>
@@ -353,13 +374,28 @@ export default function BookingOnline() {
                                 <div className='mb-[0.5vw] font-semibold text-[0.875vw] max-md:text-[3.46vw]'>
                                     Address *
                                 </div>
-                                <TextField.Input
-                                    style={isMobile ? inputMobileStyle : inputStyle}
-                                    className='col-span-2'
-                                    {...register('pickupAddress')}
-                                    variant='soft'
-                                    placeholder='Address *'
-                                />
+                                <Select.Root onValueChange={(value) => setValue('pickupAddress', value)}>
+                                    <Select.Trigger
+                                        className='w-full'
+                                        style={isMobile ? inputMobileStyle : inputStyle}
+                                        variant='soft'
+                                        placeholder='Address *'
+                                    />
+                                    <Select.Content className='z-[99]'>
+                                        {values?.pickup &&
+                                            data?.pickUp
+                                                ?.find((e) => e?.province === values?.pickup)
+                                                ?.listAddress?.map((e, index) => (
+                                                    <Select.Item
+                                                        key={index}
+                                                        value={e?.address}
+                                                        className='cursor-pointer hover:bg-gray-scale-5'
+                                                    >
+                                                        {e?.address}
+                                                    </Select.Item>
+                                                ))}
+                                    </Select.Content>
+                                </Select.Root>
                             </div>
                         </div>
                         <Image
@@ -382,9 +418,16 @@ export default function BookingOnline() {
                                         variant='soft'
                                         placeholder='Droff…'
                                     />
-                                    <Select.Content>
-                                        <Select.Item value='Hanoi'>Hanoi</Select.Item>
-                                        <Select.Item value='Bacninh'>Bacninh</Select.Item>
+                                    <Select.Content className='z-[99]'>
+                                        {data?.droff?.map((e, index) => (
+                                            <Select.Item
+                                                key={index}
+                                                value={e?.province}
+                                                className='cursor-pointer hover:bg-gray-scale-5'
+                                            >
+                                                {e?.province}
+                                            </Select.Item>
+                                        ))}
                                     </Select.Content>
                                 </Select.Root>
                             </div>
@@ -403,13 +446,28 @@ export default function BookingOnline() {
                                 <div className='mb-[0.5vw] font-semibold text-[0.875vw] max-md:text-[3.46vw]'>
                                     Address *
                                 </div>
-                                <TextField.Input
-                                    style={isMobile ? inputMobileStyle : inputStyle}
-                                    className='col-span-2'
-                                    {...register('droffAddress')}
-                                    variant='soft'
-                                    placeholder='Address *'
-                                />
+                                <Select.Root onValueChange={(value) => setValue('droffAddress', value)}>
+                                    <Select.Trigger
+                                        className='w-full'
+                                        style={isMobile ? inputMobileStyle : inputStyle}
+                                        variant='soft'
+                                        placeholder='Address *'
+                                    />
+                                    <Select.Content className='z-[99]'>
+                                        {values?.droff &&
+                                            data?.droff
+                                                ?.find((e) => e?.province === values?.droff)
+                                                ?.listAddress?.map((e, index) => (
+                                                    <Select.Item
+                                                        key={index}
+                                                        value={e?.address}
+                                                        className='cursor-pointer hover:bg-gray-scale-5'
+                                                    >
+                                                        {e?.address}
+                                                    </Select.Item>
+                                                ))}
+                                    </Select.Content>
+                                </Select.Root>
                             </div>
                         </div>
                     </div>
@@ -471,7 +529,7 @@ export default function BookingOnline() {
                                     Tour duration
                                 </div>
                                 <div className='py-[0.5vw] px-[1vw] max-md:ml-[4.26vw] max-md:text-[3.46vw]'>
-                                    3 Days
+                                    {data?.longTimeTourDay} Days
                                 </div>
                             </div>
                             <div className='flex border-b h-[3.5vw] border-[#EEE] items-center text-[0.8125vw] max-md:h-[23.46vw]'>

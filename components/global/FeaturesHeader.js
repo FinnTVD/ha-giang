@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { PopupBookNow } from './PopupBookNow'
 
-export default function FeaturesHeader({ header }) {
+export default function FeaturesHeader({ header, allTourHG }) {
     const scrollToTop = () => {
         if (typeof window === 'undefined') return
         window.scrollTo(0, 0, { behavior: 'smooth' })
@@ -39,7 +39,7 @@ export default function FeaturesHeader({ header }) {
                     stroke='#EE6529'
                 />
             </svg>
-            <PopupBookNow>
+            <PopupBookNow allTourHG={allTourHG}>
                 <div className='cursor-pointer w-[3.5vw] text-[0.75vw] font-black leading-[1.08] tracking-[0.03125vw] h-[3.5vw] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67vw] max-md:h-[10.67vw] max-md:text-[2.56vw] max-md:tracking-[0.10667vw]'>
                     BOOK NOW
                 </div>

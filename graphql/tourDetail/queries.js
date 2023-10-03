@@ -16,9 +16,19 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
       price{
           selfDriving
           localDriver
-          pickUpAndDroff{
+          pickUp{
+          province
+          listAddress{
             address
           }
+        }
+        droff{
+          province
+          listAddress{
+            address
+          }
+        }
+          longTimeTourDay
         }
       header {
         subtitle
@@ -104,6 +114,19 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
         price {
           selfDriving
           localDriver
+          pickUp{
+          province
+          listAddress{
+            address
+          }
+        }
+        droff{
+          province
+          listAddress{
+            address
+          }
+        }
+          longTimeTourDay
         }
         header{
           pickUpFrom
