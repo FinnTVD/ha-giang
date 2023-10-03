@@ -50,7 +50,7 @@ const inputMobileStyle = {
     padding: '4.26vw 3.2vw',
 }
 
-export default function BookingOnline({ popup }) {
+export default function BookingOnline() {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
     const [ip, setIp] = useState('')
     const router = useRouter()
@@ -137,10 +137,10 @@ export default function BookingOnline({ popup }) {
 
     const onSubmit = async (data) => {
         if (totalAmount <= 0) {
-            setError("root", {
-                message: "Please choose at least a type of tour"
+            setError('root', {
+                message: 'Please choose at least a type of tour',
             })
-            return;
+            return
         }
         const params = generateParams(data, true)
         const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
@@ -151,12 +151,10 @@ export default function BookingOnline({ popup }) {
 
     return (
         <section
-            className={`${
-                popup ? '' : 'pl-[6.25vw] pr-[6.31vw] mt-[6.25vw]'
-            } font-poppins flex flex-col justify-between`}
+            className={`pl-[6.25vw] pr-[6.31vw] mt-[6.25vw] font-poppins flex flex-col justify-between`}
             id='bookingId'
         >
-            <div className='mb-[1.88vw] max-md:mb-[5.3vw]'>
+            <div className={`mb-[1.88vw] max-md:mb-[5.3vw]`}>
                 <SubTitle
                     title={'ONLINE BOOKING'}
                     subTitle={'EASY'}

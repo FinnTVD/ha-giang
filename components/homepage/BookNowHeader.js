@@ -1,42 +1,14 @@
 'use client'
 import Image from 'next/image'
-import { ComboboxDemo } from '../ui/combobox'
 import IconMarker from '../icons/IconMarker'
+import { useState } from 'react'
+import { ComboboxV2 } from '../ui/ComboboxV2'
 
-const frameworks1 = [
-    {
-        value: 'hagiang loop tour',
-        label: 'HAGIANG LOOP TOUR',
-    },
-    {
-        value: 'epic motorbike tour',
-        label: 'EPIC MOTORBIKE TOUR',
-    },
-]
-const frameworks2 = [
-    {
-        value: '1 pax',
-        label: '1 pax',
-    },
-    {
-        value: '2 pax',
-        label: '2 pax',
-    },
-    {
-        value: '3 pax',
-        label: '3 pax',
-    },
-    {
-        value: '4 pax',
-        label: '4 pax',
-    },
-    {
-        value: '5 pax',
-        label: '5 pax',
-    },
-]
-
-export default function BookNowHeader() {
+export default function BookNowHeader({ allTourHG }) {
+    console.log('🚀 ~ file: BookNowHeader.js:19 ~ BookNowHeader ~ allTourHG:', allTourHG)
+    const [countSelf, setCountSelf] = useState(1)
+    const [countDriver, setCountDriver] = useState(1)
+    const [tour, setTour] = useState(allTourHG?.nodes[0])
     return (
         <div className='bg-white w-[71.75vw] max-md:w-[91.467vw] max-md:rounded-[3.2vw] items-center rounded-[0.75vw] absolute bottom-[2.63vw] left-1/2 -translate-x-1/2 lg:flex lg:justify-between py-[1.25vw] px-[1.88vw] max-md:p-[4.27vw] max-md:bottom-0 max-md:translate-y-1/2 max-md:shadow-boxTour'>
             <div className='max-md:w-full'>
@@ -45,7 +17,10 @@ export default function BookNowHeader() {
                 </span>
                 <div className='flex items-center'>
                     <IconMarker className='w-[2vw] h-[2vw] max-md:w-[5.33vw] max-md:h-[5.33vw] max-md:mr-[2.06vw]' />
-                    <ComboboxDemo frameworks={frameworks1} />
+                    <ComboboxV2
+                        setTour={setTour}
+                        allTourHG={allTourHG}
+                    />
                 </div>
             </div>
             <div className='max-md:mt-[4.27vw] lg:hidden max-md:w-full border-t-[0.5px] border-solid border-[#b9b9b9] max-md:mb-[6.4vw]'></div>
@@ -75,7 +50,28 @@ export default function BookNowHeader() {
                         width={40}
                         height={40}
                     />
-                    <ComboboxDemo frameworks={frameworks2} />
+                    <div className='flex items-center ml-[0.5vw]'>
+                        <span className='text-gray-scale-80 text-[1vw] font-bold leading-normal tracking-[0.005vw]'>
+                            {countSelf} pax
+                        </span>
+                        <div className=' flex gap-x-[0.75vw] ml-[1vw]'>
+                            <button
+                                onClick={() => setCountSelf(countSelf + 1)}
+                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                            >
+                                +
+                            </button>
+                            <button
+                                onClick={() => {
+                                    if (countSelf === 0) return
+                                    setCountSelf(countSelf - 1)
+                                }}
+                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                            >
+                                -
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <svg
@@ -104,12 +100,36 @@ export default function BookNowHeader() {
                         width={40}
                         height={40}
                     />
-                    <ComboboxDemo frameworks={frameworks2} />
+                    {/* <ComboboxDemo frameworks={frameworks2} /> */}
+                    <div className='flex items-center ml-[0.5vw]'>
+                        <span className='text-gray-scale-80 text-[1vw] font-bold leading-normal tracking-[0.005vw]'>
+                            {countDriver} pax
+                        </span>
+                        <div className=' flex gap-x-[0.75vw] ml-[1vw]'>
+                            <button
+                                onClick={() => setCountDriver(countDriver + 1)}
+                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                            >
+                                +
+                            </button>
+                            <button
+                                onClick={() => {
+                                    if (countDriver === 0) return
+                                    setCountDriver(countDriver - 1)
+                                }}
+                                className='w-[2.25vw] h-[2.25vw] rounded-full select-none text-[1.5vw] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+                            >
+                                -
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button className='text-white flex max-md:justify-between max-md:items-center lg:flex-col gap-y-[0.25vw] bg-primary-70 py-[0.75vw] px-[1.5vw] rounded-[0.5vw] max-md:w-full max-md:mt-[6.4vw] max-md:p-[3.2vw] max-md:rounded-[2.13vw]'>
                 <span className='lg:text-center max-md:w-fit text-[1.625vw] font-bold leading-[1.23] block w-full max-md:text-[5.33vw] max-md:leading-[1.2] max-md:tracking-[0.008vw]'>
-                    $299
+                    $
+                    {countDriver * tour?.tourHaGiangDetail?.price?.localDriver +
+                        countSelf * tour?.tourHaGiangDetail?.price?.selfDriving}
                 </span>
                 <span className=' text-center text-[0.875vw] font-bold leading-[1.43] tracking-[0.00875vw] max-md:text-[3.467vw] max-md:font-semibold max-md:leading-[1.53] whitespace-nowrap'>
                     BOOK NOW

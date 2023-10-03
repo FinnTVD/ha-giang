@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import IconMaskButton from '../icons/IconMaskButton'
-const stylePrimary = 'text-gray-scale-90 bg-primary-50'
+const stylePrimary = 'text-white bg-primary-70'
 
 const styleDefault = 'box-border border border-solid border-primary-70 text-primary-70'
 

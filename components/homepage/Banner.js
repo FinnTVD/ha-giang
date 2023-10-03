@@ -126,7 +126,7 @@ export default function Banner({ section1 }) {
             >
                 <div
                     id='box-title'
-                    className={`text-center uppercase text-secondary-green-600 w-full relative z-[5] font-heavitas max-md:mt-[5.33vw]`}
+                    className={`text-center uppercase text-primary-70 w-full relative z-[5] font-heavitas max-md:mt-[5.33vw]`}
                 >
                     <h3
                         id='subtitle'
