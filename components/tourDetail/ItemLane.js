@@ -4,7 +4,7 @@ export default function ItemLane({ data, indexCurrent, index, length }) {
         <div>
             <div
                 className={`${
-                    index + 1 <= indexCurrent ? 'bg-secondary-green-600' : 'border border-solid border-primary-70'
+                    index + 1 <= indexCurrent ? 'bg-primary-70' : 'border border-solid border-primary-70'
                 } w-[0.75vw] h-[0.75vw] rounded-full relative mx-auto`}
             >
                 {index + 1 < length && (
@@ -29,7 +29,7 @@ export default function ItemLane({ data, indexCurrent, index, length }) {
                         <div
                             className={`${
                                 indexCurrent - 1 >= index + 1 ? 'w-[10.25vw]' : 'w-0'
-                            } absolute transition-all duration-300 right-[-0.63vw] translate-x-full top-1/2 -translate-y-1/2 h-[2px] bg-secondary-green-600`}
+                            } absolute transition-all duration-300 right-[-0.63vw] translate-x-full top-1/2 -translate-y-1/2 h-[2px] bg-primary-70`}
                         ></div>
                     </>
                 )}
@@ -49,7 +49,7 @@ export default function ItemLane({ data, indexCurrent, index, length }) {
                     <li
                         className={`${
                             index + 1 === indexCurrent
-                                ? 'bg-[#E3FFBF] text-gray-scale-80'
+                                ? 'bg-[#F2FFBF] text-gray-scale-80'
                                 : 'bg-[#F9F9F9] text-gray-scale-50'
                         } w-[7.0625vw] rounded-[0.5vw] h-fit py-[0.38vw] flex justify-center items-center text-[0.875vw] leading-[1.43] tracking-[0.00875vw] font-medium relative`}
                         key={i}

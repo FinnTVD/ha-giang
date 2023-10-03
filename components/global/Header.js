@@ -48,7 +48,7 @@ export default function Header({ header, allTourHG }) {
                 )}
                 <ContentHeader header={header} />
                 <FeaturesHeader header={header} />
-                <BookNowHeader />
+                <BookNowHeader allTourHG={allTourHG} />
             </div>
             {isMobile && (
                 <MenuRes
