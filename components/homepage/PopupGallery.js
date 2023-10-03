@@ -4,10 +4,8 @@ import Link from 'next/link'
 import SlidePopupGallery from './SlidePopupGallery'
 import Image from 'next/image'
 import IconClose from '../icons/IconClose'
-import { useMediaQuery } from 'react-responsive'
 
 export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, setIndexTab, allTourHG }) {
-    const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     return (
         <>
             <div
@@ -48,29 +46,11 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
                         </li>
                     ))}
                 </ul>
-                {/* {isMobile ? (
-                    <div className='w-full h-full rounded-[4.267vw] overflow-y-scroll relative'>
-                        <div className='w-full h-fit absolute top-0 left-0 flex flex-col z-10'>
-                            {section4?.listGallery[indexTab]?.slidesImage?.map((e, index) => (
-                                <div className='w-full h-[63.46vw] mb-[2.13vw] rounded-[4.267vw]'>
-                                    <Image
-                                        key={index}
-                                        className='object-cover w-full !h-[63.46vw]'
-                                        src={e?.sourceUrl || '/images/gallery.jpg'}
-                                        alt={e?.altText || e?.title}
-                                        fill
-                                        sizes='100vw'
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ) : ( */}
+
                 <SlidePopupGallery
                     section4={section4}
                     indexTab={indexTab}
                 />
-                {/* )} */}
                 <ul className=' flex justify-center mt-[1.47vw] max-md:mt-0 gap-x-[0.75vw] max-md:order-2 max-md:gap-x-[3.2vw]'>
                     {allTourHG?.nodes?.map((e, index) => (
                         <li

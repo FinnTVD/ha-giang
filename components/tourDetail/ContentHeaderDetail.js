@@ -1,18 +1,20 @@
 import Image from 'next/image'
 import TittleIcon from './TittleIcon'
 
-const arr = new Array(6).fill(0)
-
-export default function ContentHeaderDetail({ data }) {
+export default function ContentHeaderDetail({ data, slug }) {
     return (
-        <div className='relative z-[10] lg:pl-[6.25vw] lg:mt-[5.31vw] max-md:absolute max-md:left-[4.27vw] max-md:bottom-[21vw]'>
+        <div className='relative z-[10] lg:pl-[6.25vw] lg:m-[2.31vw] max-md:absolute max-md:left-[4.27vw] max-md:bottom-[21vw]'>
             <span className='text-white uppercase font-heavitas text-[1vw] font-normal leading-normal max-md:text-[3.2vw]'>
                 {data?.subtitle}
             </span>
-            <h1 className='uppercase mt-[1vw] max-md:mt-[2.13vw] font-heavitas text-[4vw] font-normal leading-[1] text-white w-[32.3125vw] max-md:w-[59.51vw] max-md:text-[7.467vw] max-md:leading-[1]'>
+            <h1
+                className={`${
+                    slug === 'epic-motorbike-tour-4d4n' ? 'w-[40vw]' : 'w-[32.3125vw]'
+                } uppercase mt-[1vw] max-md:mt-[2.13vw] font-heavitas text-[4vw] font-normal leading-[1] text-white max-md:w-[59.51vw] max-md:text-[7.467vw] max-md:leading-[1]`}
+            >
                 {data?.title}
             </h1>
-            <div className='w-[15.3125vw] h-[3.375vw] max-md:w-[44.039vw] max-md:h-[11.8264vw] relative flex justify-center items-center mt-[2.75vw] max-md:my-[4.27vw] mb-[2.5vw]'>
+            <div className='w-[15.3125vw] h-[3.375vw] max-md:w-[44.039vw] max-md:h-[11.8264vw] relative flex justify-center items-center lg:mt-[1.75vw] 2xl:mt-[2.75vw] max-md:my-[4.27vw] lg:mb-[1.5vw] 2xl:mb-[2.5vw]'>
                 <Image
                     className='object-cover max-md:object-contain'
                     src={'/images/bg-time-detail.png'}

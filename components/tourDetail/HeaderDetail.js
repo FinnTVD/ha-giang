@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 
-export default function HeaderDetail({ data, allTourHG }) {
+export default function HeaderDetail({ data, allTourHG, slug }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function HeaderDetail({ data, allTourHG }) {
         }
     }, [isOpen])
     return (
-        <header className='relative w-full h-screen max-md:h-[70vh]'>
+        <header className='relative w-full h-[85vh] max-md:h-[70vh]'>
             <Nav
                 header={data?.data?.page?.homeHG?.header}
                 setIsOpen={setIsOpen}
@@ -33,16 +33,10 @@ export default function HeaderDetail({ data, allTourHG }) {
                 priority
             />
             <div className='absolute top-0 left-0 z-0 w-full h-full bg-gradient-header-detail'></div>
-            {/* <div className='absolute bottom-0 left-0 !w-[67.5vw] !h-[65.5vw] z-[10]'>
-                <Image
-                    className='relative z-10 object-cover w-full h-full'
-                    src={'/images/mask-circle-detail.png'}
-                    alt='circle'
-                    width={800}
-                    height={800}
-                />
-            </div> */}
-            <ContentHeaderDetail data={data?.data?.tourHG?.tourHaGiangDetail?.header} />
+            <ContentHeaderDetail
+                data={data?.data?.tourHG?.tourHaGiangDetail?.header}
+                slug={slug}
+            />
             <FeaturesHeader
                 allTourHG={allTourHG}
                 header={data?.data?.page?.homeHG?.header}
@@ -50,7 +44,7 @@ export default function HeaderDetail({ data, allTourHG }) {
             <div className='flex gap-x-[1vw] absolute bottom-0 translate-y-1/2 lg:right-[6.27vw] max-md:left-[4.27vw]'>
                 <div className='w-[11.88vw] h-[12.12vw] max-md:w-[30.69vw] max-md:h-[30.92vw] relative flex items-center justify-center'>
                     <Image
-                        className='z-0 object-cover'
+                        className='z-0 object-cover animate-spin duration-7000'
                         src={'/images/circle-orange.png'}
                         alt='circle currency'
                         fill
@@ -67,7 +61,7 @@ export default function HeaderDetail({ data, allTourHG }) {
                 </div>
                 <div className='w-[11.88vw] h-[12.12vw] max-md:w-[30.69vw] max-md:h-[30.92vw] relative flex items-center justify-center'>
                     <Image
-                        className='z-0 object-cover'
+                        className='z-0 object-cover animate-spin duration-7000'
                         src={'/images/circle-orange.png'}
                         alt='circle currency'
                         fill
