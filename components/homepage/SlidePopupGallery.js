@@ -1,10 +1,13 @@
 'use client'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { FreeMode, Mousewheel } from 'swiper/modules'
+import { useMediaQuery } from 'react-responsive'
+import { FreeMode } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export default function SlidePopupGallery({ section4, indexTab }) {
+    const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+
     const swiperRef = useRef(null)
 
     const handleNextSlide = () => {
@@ -34,20 +37,19 @@ export default function SlidePopupGallery({ section4, indexTab }) {
                 }}
                 grabCursor={true}
                 freeMode={true}
-                mousewheel={true}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper
                 }}
-                modules={[FreeMode, Mousewheel]}
-                className='lg:h-[29.08975vw] w-full max-2xl:h-[26vw] max-md:!h-fit'
+                modules={[FreeMode]}
+                className={`lg:h-[29.08975vw] w-full max-2xl:h-[26vw] max-md:h-[121vw] max-md:rounded-[4.267vw]`}
             >
                 {section4?.listGallery[indexTab]?.slidesImage?.map((e, index) => (
                     <SwiperSlide
                         key={index}
-                        className='relative max-md:!h-[63.467vw]'
+                        className='relative'
                     >
                         <Image
-                            className='object-cover w-full h-full rounded-[1vw]'
+                            className='object-cover w-full h-full rounded-[1vw] max-md:rounded-[4.267vw]'
                             src={e?.sourceUrl || '/images/gallery.jpg'}
                             alt={e?.altText || e?.title}
                             fill
@@ -56,7 +58,7 @@ export default function SlidePopupGallery({ section4, indexTab }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            {section4?.listGallery[indexTab]?.slidesImage?.length > 2 && (
+            {!isMobile && section4?.listGallery[indexTab]?.slidesImage?.length > 2 && (
                 <>
                     <button
                         onClick={handlePrevSlide}
