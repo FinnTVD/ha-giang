@@ -2,6 +2,7 @@ import Destination from '@/components/destinations/Destination'
 import { DESTINATIONS, GET_META_DESTINATION } from '@/graphql/destinantion/queries'
 import getData from '@/utils/getData'
 import React from 'react'
+import { GET_DATA_HOME, GET_DATA_ABOUT_US } from '@/graphql/home/queries'
 
 export async function generateMetadata() {
   const data = await getData(GET_META_DESTINATION)
@@ -62,11 +63,17 @@ async function page() {
   destinations?.data?.allDestination?.nodes?.map((item) => {
     arrayDesSlug.push(item?.slug)
   })
+  const data = await getData(GET_DATA_HOME)
+  const dataAboutUs = await getData(GET_DATA_ABOUT_US)
+
   return (
     <div>
       <Destination 
         arrayDesInit={arrayDesInit}
         arrayDesSlug={arrayDesSlug}
+        dataHome={data?.data?.page?.homeHG}
+        allTourHG={data?.data?.allTourHG}
+        dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
       />
     </div>
   )

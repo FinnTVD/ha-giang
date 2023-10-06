@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-export default function Banner({ bannerData }) {
+export default function Banner({ bannerData, title }) {
     return (
-        <section className='relative px-[6vw] pt-[11.25vw] pb-[4vw] max-md:px-0 max-md:pt-[49vw]'>
+        <section className='relative pt-[11.25vw] pb-[4vw] max-md:px-0 max-md:pt-[49vw]'>
             <Image
                 width={1600}
                 height={567}
@@ -19,7 +19,9 @@ export default function Banner({ bannerData }) {
                 className='absolute bottom-0 left-0 w-full'
             ></Image>
             <div
-                className='relative text-center font-heavitas text-[11.625vw] uppercase leading-[1] max-md:text-[16.5vw]'
+                className={`${
+                    title?.includes('destinations') ? 'max-md:text-[11.2vw]' : 'max-md:text-[16.5vw]'
+                } relative text-center font-heavitas text-[11.625vw] uppercase leading-[1]`}
                 style={{
                     backgroundImage: `url(${bannerData?.textBackground?.sourceUrl})`,
                     backgroundRepeat: 'repeat',
@@ -28,7 +30,7 @@ export default function Banner({ bannerData }) {
                     backgroundPosition: 'center',
                 }}
             >
-                {bannerData?.heading}
+                {title}
             </div>
         </section>
     )

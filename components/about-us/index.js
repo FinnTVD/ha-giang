@@ -32,7 +32,7 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }){
                     allTourHG={allTourHG}
                 />
             </div>
-            <Banner bannerData={banner}></Banner>
+            <Banner bannerData={banner} title={banner?.heading}></Banner>
             <Welcome overview={overview} video={video}></Welcome>
             <ValueTowards valueTowards={valueTowards}></ValueTowards>
             <TextInfinite textRun={textRun}></TextInfinite>

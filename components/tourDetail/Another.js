@@ -4,7 +4,7 @@ import ItemCardTour from '../homepage/ItemCardTour'
 
 export default function Another({ allTourHG, slug, data }) {
     return (
-        <section className='mt-[6.25vw] relative h-[47.4vw] max-md:h-fit flex flex-col items-center pt-[5vw] max-md:pt-[16.5vw]'>
+        <section className='mt-[6.25vw] relative h-[47.4vw] max-md:h-fit flex flex-col items-center pt-[5vw] max-md:pt-[16.5vw] mb-[6.5vw]'>
             {/* <SubTitle
                 subTitle={'another'}
                 title={'GREAT TRIPS'}
