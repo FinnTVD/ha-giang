@@ -34,7 +34,7 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
                 height='16'
                 viewBox='0 0 16 16'
                 fill='none'
-                className='w-[1vw] h-[1vw] max-md:w-[4.5vw] max-md:h-[4.5vw]'
+                className='w-[1vw] h-[1vw] max-md:w-[4.5vw] max-md:h-[4.5vw] transition-all duration-300'
             >
                 <path
                     d='M5.18137 2.33594V3.58565L11.4549 3.58565L2.33203 12.7085L3.21516 13.5916L12.3464 4.4771V10.7506H13.5961V2.33594L5.18137 2.33594Z'

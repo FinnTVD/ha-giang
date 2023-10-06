@@ -33,7 +33,7 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }){
                 />
             </div>
             <Banner bannerData={banner}></Banner>
-            <Welcome overview={overview}></Welcome>
+            <Welcome overview={overview} video={video}></Welcome>
             <ValueTowards valueTowards={valueTowards}></ValueTowards>
             <TextInfinite textRun={textRun}></TextInfinite>
             <Video video={video}></Video>
