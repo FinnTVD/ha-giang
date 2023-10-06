@@ -2,6 +2,7 @@ import Blog from '@/components/blog/Blog'
 import { CATEGORIES, GET_META_BLOG } from '@/graphql/blog/queries'
 import getData from '@/utils/getData'
 import React from 'react'
+import { GET_DATA_HOME, GET_DATA_ABOUT_US } from '@/graphql/home/queries'
 
 export async function generateMetadata() {
   const data = await getData(GET_META_BLOG)
@@ -62,10 +63,16 @@ async function page() {
   categories?.data?.categories?.nodes?.map((item) => {
     arrayCateSlug.push(item?.slug)
   })
+  const data = await getData(GET_DATA_HOME)
+  const dataAboutUs = await getData(GET_DATA_ABOUT_US)
+
   return (
     <Blog 
       arrayCateInit={arrayCateInit}
       arrayCateSlug={arrayCateSlug}
+      dataHome={data?.data?.page?.homeHG}
+      allTourHG={data?.data?.allTourHG}
+      dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
     />
   )
 }

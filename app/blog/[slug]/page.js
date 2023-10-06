@@ -2,6 +2,8 @@ import BlogDetail from '@/components/blog/BlogDetail';
 import { GET_BLOG_DETAIL } from '@/graphql/blog/queries'
 import getDataDetail from '@/utils/getDataDetail'
 import React from 'react'
+import { GET_DATA_HOME, GET_DATA_ABOUT_US } from '@/graphql/home/queries'
+import getData from '@/utils/getData';
 
 export async function generateMetadata({ params: {slug } }) {
   const data = await getDataDetail(GET_BLOG_DETAIL,slug)
@@ -55,9 +57,11 @@ export async function generateMetadata({ params: {slug } }) {
 async function page({ params: {slug } }) {
   const data = await getDataDetail(GET_BLOG_DETAIL,slug)
   const dataTour = data?.data?.post
+  const dataHome = await getData(GET_DATA_HOME)
+  const dataAboutUs = await getData(GET_DATA_ABOUT_US)
   return (
     <div>
-      <BlogDetail data={dataTour}/>
+      <BlogDetail data={dataTour} dataHome={dataHome?.data?.page?.homeHG} allTourHG={dataHome?.data?.allTourHG} dataAboutUs={dataAboutUs?.data?.page?.aboutUs}/>
     </div>
   )
 }

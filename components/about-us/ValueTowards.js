@@ -47,12 +47,12 @@ export default function ValueTowards({valueTowards}){
                                 <p className="mt-[1.25vw] text-[#727272] text-[0.875vw] leading-[1.57] tracking-[0.035] font-poppins">{item?.content}</p>
                             </div>
                             {(index+1 <= data.length-1 && index%2===0 ) && 
-                                <svg className="absolute top-[12.625vw] right-[31.5125vw] h-auto w-[48.3125vw]" xmlns="http://www.w3.org/2000/svg" width="777" height="360" viewBox="0 0 777 360" fill="none">
+                                <svg className="absolute top-[13.625vw] right-[33.8vw] h-auto w-[46vw]" xmlns="http://www.w3.org/2000/svg" width="777" height="360" viewBox="0 0 777 360" fill="none">
                                     <path d="M775 0V205.466C775 209.884 771.418 213.466 767 213.466H9.99999C5.58171 213.466 2 217.048 2 221.466V286.733V360" stroke="#FED35F" stroke-width="3" stroke-dasharray="24 24"/>
                                 </svg>          
                             }
                             {(index+1 <= data.length-1 && index%2!==0 ) && 
-                                <svg className="absolute top-[12.625vw] left-[6.6125vw] h-auto w-[48.3125vw]" xmlns="http://www.w3.org/2000/svg" width="777" height="360" viewBox="0 0 777 360" fill="none">
+                                <svg className="absolute top-[13.625vw] left-[6.6125vw] h-auto w-[46vw]" xmlns="http://www.w3.org/2000/svg" width="777" height="360" viewBox="0 0 777 360" fill="none">
                                     <path d="M2 0V205.17C2 209.588 5.58172 213.17 10 213.17H767C771.418 213.17 775 216.751 775 221.17V286.335V359.5" stroke="#FED35F" stroke-width="3" stroke-dasharray="24 24"/>
                                 </svg>
                             }

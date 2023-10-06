@@ -29,7 +29,7 @@ export default function IndexFaq({data, dataAboutUs, allTourHG}) {
                     allTourHG={allTourHG}
                 />
             </div>
-            <Banner bannerData={banner}></Banner>
+            <Banner bannerData={banner} title={'Cheer tour FAQ'}></Banner>
             <TheTrip section8={section8} allTourHG={data?.data?.allTourHG}/>
             <Family section6={section6} />
             {isMobile && (

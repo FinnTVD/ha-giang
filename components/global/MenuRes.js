@@ -21,12 +21,12 @@ const listNav = [
     {
         id: 4,
         title: 'DESTINATIONS',
-        href: '/',
+        href: '/destinations',
     },
     {
         id: 5,
         title: 'BLOG',
-        href: '/',
+        href: '/blog',
     },
     {
         id: 6,
