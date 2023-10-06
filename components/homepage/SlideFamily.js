@@ -17,6 +17,8 @@ const style4 = {
 export default function SlideFamily({ section6, setTourLeader }) {
     const swiperRef = useRef(null)
     const [indexSlider, setIndexSlider] = useState(0)
+    console.log('🚀 ~ file: SlideFamily.js:20 ~ SlideFamily ~ indexSlider:', indexSlider)
+
     const handleSlideChange = (swiper) => {
         setTourLeader(section6?.listCategory[0]?.listAddress[swiper.realIndex])
         setIndexSlider(swiper.realIndex)
@@ -76,7 +78,7 @@ export default function SlideFamily({ section6, setTourLeader }) {
     return (
         <div
             id='box-slide-family'
-            className='w-fit h-fit relative max-md:hidden'
+            className='relative w-fit h-fit max-md:hidden'
         >
             <Swiper
                 loop={true}
@@ -90,20 +92,23 @@ export default function SlideFamily({ section6, setTourLeader }) {
                 }}
                 className='h-[25.825vw] w-[50.5vw]'
             >
-                {section6?.listCategory[0]?.listAddress?.map((e, index) => (
-                    <SwiperSlide
-                        className='!h-full rounded-[1vw] transition-all duration-1000 relative slideCheers'
-                        key={index}
-                    >
-                        <Image
-                            className='max-w-[35.625vw] object-cover h-full rounded-[1vw] absolute top-0 left-0 transition-all duration-1000'
-                            src={e?.image?.sourceUrl || '/images/item-tour.jpg'}
-                            alt={e?.image?.altText || e?.image?.title}
-                            width={800}
-                            height={600}
-                        />
-                    </SwiperSlide>
-                ))}
+                {[...section6?.listCategory[0]?.listAddress, ...section6?.listCategory[0]?.listAddress]?.map(
+                    (e, index) => (
+                        <SwiperSlide
+                            onClick={() => swiperRef.current.slideNext()}
+                            className='!h-full rounded-[1vw] transition-all duration-1000 relative slideCheers'
+                            key={index}
+                        >
+                            <Image
+                                className='max-w-[35.625vw] object-cover h-full rounded-[1vw] absolute top-0 left-0 transition-all duration-1000'
+                                src={e?.image?.sourceUrl || '/images/item-tour.jpg'}
+                                alt={e?.image?.altText || e?.image?.title}
+                                width={800}
+                                height={600}
+                            />
+                        </SwiperSlide>
+                    ),
+                )}
             </Swiper>
             {section6?.listCategory[0]?.listAddress?.length > 1 && (
                 <>

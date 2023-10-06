@@ -22,6 +22,7 @@ export default function Another({ allTourHG, slug, data }) {
                     ?.map((e, index) => (
                         <ItemCardTour
                             data={e}
+                            allTourHG={allTourHG}
                             key={index}
                         />
                     ))}

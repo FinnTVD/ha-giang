@@ -4,6 +4,7 @@ import Button from '../global/Button'
 import SubTitle from '../global/SubTitle'
 import { useMediaQuery } from 'react-responsive'
 import { AccordionDemo } from '../ui/AccordionDemo'
+import { PopupBookNow } from '../global/PopupBookNow'
 
 export default function TheTrip({ section8, allTourHG }) {
     const [active, setActive] = useState(0)
@@ -16,12 +17,15 @@ export default function TheTrip({ section8, allTourHG }) {
                     title={section8?.title}
                     subTitle={section8?.subtitle}
                 />
-                <Button
-                    primary={true}
-                    content={'BOOK NOW'}
-                    className={'mt-[1.87vw] max-md:hidden'}
-                    href={'/' + allTourHG?.nodes[1]?.slug}
-                />
+                <PopupBookNow allTourHG={allTourHG}>
+                    <div>
+                        <Button
+                            primary={true}
+                            content={'BOOK NOW'}
+                            className={'mt-[1.87vw] max-md:hidden'}
+                        />
+                    </div>
+                </PopupBookNow>
             </div>
             <div className='flex flex-col md:gap-[0.75vw] gap-[4.27vw]'>
                 <div className='flex md:gap-[5vw] max-md:justify-between'>

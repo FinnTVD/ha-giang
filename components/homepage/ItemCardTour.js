@@ -5,8 +5,9 @@ import IconHome from '../icons/IconHome'
 import IconPeople from '../icons/IconPeople'
 import IconBus from '../icons/IconBus'
 import Link from 'next/link'
+import { PopupBookNow } from '../global/PopupBookNow'
 
-export default function ItemCardTour({ data }) {
+export default function ItemCardTour({ data, allTourHG }) {
     return (
         <article className='w-full p-[1vw] max-md:p-[3.2vw] rounded-[1.5vw] max-md:rounded-[4.267vw] bg-white group shadow-itemCardTour'>
             <Link
@@ -20,7 +21,7 @@ export default function ItemCardTour({ data }) {
                     width={700}
                     height={400}
                 />
-                <div className='bg-gradient-itemCardTour absolute top-0 left-0 w-full h-full '></div>
+                <div className='absolute top-0 left-0 w-full h-full bg-gradient-itemCardTour '></div>
                 <div className='absolute w-fit h-fit bottom-[1vw] max-md:bottom-[3.47vw] left-[1.44vw] max-md:left-[4.27vw] flex max-md:flex-col max-md:gap-y-[2.13vw] gap-x-[2.5vw]'>
                     <Price price={data?.tourHaGiangDetail?.price} />
                 </div>
@@ -64,17 +65,28 @@ export default function ItemCardTour({ data }) {
                 </span>
             </div>
             <div className='flex gap-x-[1vw] max-md:gap-x-[3.2vw] mt-[1.25vw] max-md:mt-[3.2vw]'>
+                <PopupBookNow
+                    tour={{
+                        tour: data,
+                        countDriver: 1,
+                        countSelf: 1,
+                    }}
+                    allTourHG={allTourHG}
+                >
+                    <div className='max-md:flex-1'>
+                        <Button
+                            primary={true}
+                            content={'book now'}
+                            maskClass={'w-[8.31831vw]'}
+                            className={
+                                'my-[0.87vw] w-[9.4375vw] h-[3vw] max-md:rounded-[2.133vw] max-md:w-full max-md:h-[11.73vw]'
+                            }
+                        />
+                    </div>
+                </PopupBookNow>
                 <Button
-                    primary={true}
-                    content={'book now'}
                     href={'/' + data?.slug}
-                    maskClass={'w-[8.31831vw]'}
-                    className={
-                        'my-[0.87vw] w-[9.4375vw] h-[3vw] max-md:rounded-[2.133vw] max-md:flex-1 max-md:h-[11.73vw]'
-                    }
-                />
-                <Button
-                    content={'read more'}
+                    content={'view tour'}
                     maskClass={'w-[8.31831vw]'}
                     className={
                         'my-[0.87vw] w-[9.4375vw] h-[3vw] max-md:rounded-[2.133vw] max-md:flex-1 max-md:h-[11.73vw]'

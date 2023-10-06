@@ -4,6 +4,7 @@ import Link from 'next/link'
 import SlidePopupGallery from './SlidePopupGallery'
 import Image from 'next/image'
 import IconClose from '../icons/IconClose'
+import IconMotor from '../icons/IconMotor'
 
 export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, setIndexTab, allTourHG }) {
     return (
@@ -61,13 +62,14 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
                                 href={'/' + e?.slug}
                                 className='py-[0.75vw] max-md:py-[3.2vw] max-md:flex max-md:justify-center px-[1.25vw] rounded-[0.5vw] max-md:rounded-[2.13vw] bg-primary-5 shadow-btnTravel flex items-center gap-x-[0.5vw] max-md:gap-x-[2.13vw]'
                             >
-                                <Image
+                                {/* <Image
                                     className='object-cover max-md:w-[5.33vw] max-md:h-[5.33vw]'
                                     src={'/images/motorV2.svg'}
                                     alt='motor'
                                     width={30}
                                     height={30}
-                                />
+                                /> */}
+                                <IconMotor className={'max-md:w-[5.33vw] max-md:h-[5.33vw]'} />
                                 <span className='text-primary-70 text-[0.875vw] font-semibold leading-[1.42] tracking-[0.00875vw] max-md:text-[3.733vw] max-md:leading-[1.42] max-md:tracking-[0.03733vw]'>
                                     {index === 0 ? '4 DAYS TOUR' : '3 DAYS TOUR'}
                                 </span>

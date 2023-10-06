@@ -8,7 +8,7 @@ export default function GreatTrips({ section3, allTourHG }) {
             <SubTitle
                 title={section3?.title}
                 subTitle={section3?.subtitle}
-                boxClass={'text-center lg:text-white lg:pt-[3vw]'}
+                boxClass={'text-center lg:text-white lg:pt-[3vw] max-md:text-white'}
             />
             <SlideGreatTrips allTourHG={allTourHG} />
             <div className='absolute bottom-[10.69vw] left-0 z-[2] w-full h-[21.9375vw] bg-gradient-greatTrips max-md:hidden'></div>

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import SubTitle from '../global/SubTitle'
 import SlideCheersTour from './SlideCheersTour'
 import Button from '../global/Button'
+import { PopupBookNow } from '../global/PopupBookNow'
 
 export default function CheersTour({ section2, allTourHG }) {
     return (
@@ -53,13 +54,17 @@ export default function CheersTour({ section2, allTourHG }) {
                 />
 
                 <div className='flex gap-x-[1vw] max-md:gap-x-[3.2vw] mt-[1.87vw] max-md:mt-[5.33vw] max-md:px-[4.27vw]'>
+                    <PopupBookNow allTourHG={allTourHG}>
+                        <div className='max-md:flex-1'>
+                            <Button
+                                primary={true}
+                                content={'book now'}
+                                className={'max-md:h-[12.8vw] max-md:w-full'}
+                            />
+                        </div>
+                    </PopupBookNow>
                     <Button
-                        primary={true}
-                        content={'book now'}
-                        className={'max-md:h-[12.8vw] max-md:flex-1'}
-                        href={'/' + allTourHG?.nodes[1]?.slug}
-                    />
-                    <Button
+                        href={'/about-us'}
                         content={'read more'}
                         className={'max-md:h-[12.8vw] max-md:flex-1'}
                     />
