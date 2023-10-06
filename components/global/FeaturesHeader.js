@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { PopupBookNow } from './PopupBookNow'
 
 export default function FeaturesHeader({ header, allTourHG }) {
+    console.log('🚀 ~ file: FeaturesHeader.js:6 ~ FeaturesHeader ~ allTourHG:', allTourHG)
     const scrollToTop = () => {
         if (typeof window === 'undefined') return
         window.scrollTo(0, 0, { behavior: 'smooth' })

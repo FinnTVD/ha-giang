@@ -2,13 +2,17 @@
 
 import 'swiper/css/effect-fade'
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper/modules'
 
 const arr = new Array(6).fill(0)
 export default function SlideBanner({ section1 }) {
     const swiperRef = useRef(null)
+    const [indexSlider, setIndexSlider] = useState(0)
+    const handleSlideChange = (swiper) => {
+        setIndexSlider(swiper.realIndex)
+    }
 
     const handleNextSlide = () => {
         swiperRef.current?.slideNext()
@@ -17,12 +21,18 @@ export default function SlideBanner({ section1 }) {
     const handlePrevSlide = () => {
         swiperRef.current?.slidePrev()
     }
+
+    useEffect(() => {
+        const video = document.getElementById('videoBanner' + indexSlider)
+        video && video?.play()
+    }, [indexSlider])
     return (
         <div className='relative w-full h-full'>
             <Swiper
                 grabCursor={true}
                 slidesPerView={1}
                 effect={'fade'}
+                onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper
                 }}
@@ -34,9 +44,10 @@ export default function SlideBanner({ section1 }) {
                     <SwiperSlide key={index}>
                         <video
                             autoPlay
+                            poster='/images/bannervn.jpg'
                             loop
                             className='w-full h-full lg:rounded-[1vw] object-cover min-w-full min-h-full'
-                            id='videoBanner'
+                            id={'videoBanner' + index}
                             playsInline
                             muted
                         >
@@ -44,6 +55,7 @@ export default function SlideBanner({ section1 }) {
                                 type='video/mp4'
                                 src={e?.linkVideo?.url || '/images/video1.mp4'}
                             ></source>
+                            Your browser does not support HTML5 video.
                         </video>
                     </SwiperSlide>
                 ))}

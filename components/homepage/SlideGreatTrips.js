@@ -25,7 +25,7 @@ export default function SlideGreatTrips({ allTourHG }) {
     return (
         <>
             {isMobile && (
-                <div className='w-full flex gap-x-[3.2vw] px-[4.27vw] my-[5.33vw]'>
+                <div className='w-full flex gap-x-[3.2vw] px-[4.27vw] my-[5.33vw] relative z-20'>
                     {arr?.map((e, index) => (
                         <div
                             key={index}
@@ -74,18 +74,30 @@ export default function SlideGreatTrips({ allTourHG }) {
                             key={index}
                             className='relative rounded-[1.5vw] max-md:rounded-[4.267vw]'
                         >
-                            <ItemCardTour data={e} />
+                            <ItemCardTour
+                                data={e}
+                                allTourHG={allTourHG}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
-            {!isMobile && (
+            {!isMobile ? (
                 <Image
                     className='object-cover absolute top-0 left-0 w-full h-[38vw] z-[1]'
                     src={'/images/mask-great-trips.png'}
                     alt='great trips'
                     width={1600}
                     height={800}
+                    quality={100}
+                />
+            ) : (
+                <Image
+                    className='object-fill max-md:top-[-10vw] absolute top-0 left-0 w-full h-[58vw] z-[1]'
+                    src={'/images/bg-great-trip.png'}
+                    alt='great trips'
+                    width={800}
+                    height={400}
                     quality={100}
                 />
             )}

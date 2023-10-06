@@ -23,13 +23,13 @@ export function ComboboxV2({ allTourHG, setTour }) {
                     role='combobox'
                     aria-expanded={open}
                     title={value}
-                    className='w-[14vw] justify-between text-[1vw] font-poppins font-medium leading-normal tracking-[0.005vw] text-gray-scale-80 border-none whitespace-nowrap line-clamp-1 py-[0.25vw] px-[0.5vw] max-md:text-[3.733vw] max-md:leading-[1.57] max-md:w-full uppercase'
+                    className='w-[20vw] justify-between text-[1vw] font-poppins font-medium leading-normal tracking-[0.005vw] text-gray-scale-80 border-none whitespace-nowrap line-clamp-1 py-[0.25vw] px-[0.5vw] max-md:text-[3.733vw] max-md:leading-[1.57] max-md:w-full uppercase'
                 >
                     {value || 'Select tour...'}
                     <ChevronsUpDown className='w-4 h-4 ml-2 opacity-50 shrink-0' />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className='w-[14vw] p-0 max-md:w-full font-poppins'>
+            <PopoverContent className='w-[20vw] p-0 max-md:w-full font-poppins'>
                 <Command>
                     <CommandInput placeholder='Search tour...' />
                     <CommandEmpty>No tour found.</CommandEmpty>

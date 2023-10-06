@@ -32,7 +32,7 @@ export default function Travelers({ section5 }) {
                             className='w-[9.25vw] shadow-btnTravel h-[3vw] rounded-[0.5vw] max-md:rounded-[2.13vw] max-md:w-[39.467vw] max-md:h-[12.8vw] bg-white flex justify-center items-center'
                         >
                             <Image
-                                className='object-cover w-[7vw] h-[1.5vw] max-md:w-[29.867vw] max-md:h-[6.4vw]'
+                                className='object-contain w-[7vw] h-[1.5vw] max-md:w-[29.867vw] max-md:h-[6.4vw]'
                                 src={e?.button?.sourceUrl || '/images/tri.svg'}
                                 alt={e?.button?.altText || e?.button?.title}
                                 width={120}

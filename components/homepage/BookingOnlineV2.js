@@ -358,7 +358,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
 
                                     <TextField.Input
                                         {...register('email')}
-                                        style={isMobile ?inputMobileStyle : inputStyle}
+                                        style={isMobile ? inputMobileStyle : inputStyle}
                                         className='rounded-[0.5vw] px-[1vw] py-[0.75vw]'
                                         variant='soft'
                                         placeholder='Email *'
@@ -453,7 +453,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                         <Image
                             src={motoImg}
                             alt='moto'
-                            className='my-[6.4vw] max-md:block hidden'
+                            className='my-[6.4vw] max-md:block hidden w-full'
                         />
                         <div className='grid grid-cols-4 gap-[0.75vw] mt-[3.5vw] max-md:gap-[3.2vw] max-md:mt-[4.2vw] w-[42.75vw] max-md:w-full'>
                             <div className='max-md:max-md:col-span-2'>
