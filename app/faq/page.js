@@ -1,3 +1,4 @@
+import Banner from '@/components/faq/Banner'
 import Family from '@/components/homepage/Family'
 import TheTrip from '@/components/homepage/TheTrip'
 import { GET_META_FAQ } from '@/graphql/faq/queries'
@@ -60,6 +61,7 @@ async function page() {
  const section6 = data?.data?.page?.homeHG?.section6
   return (
     <div>
+      <Banner/>
       <TheTrip section8={section8} allTourHG={data?.data?.allTourHG}/>
       <Family section6={section6} />
     </div>
