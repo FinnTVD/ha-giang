@@ -281,4 +281,22 @@ const GET_DATA_FOOTER = `
   }
 }
 `
-export { GET_DATA_HOME, GET_META_HOME, GET_DATA_FOOTER }
+
+const GET_DATA_ABOUT_US=`
+{
+  page(id: "cG9zdDozOTE==") {
+    aboutUs{
+      banner{
+        heading
+        background {
+          sourceUrl
+        }
+        textBackground {
+          sourceUrl
+        }
+      }
+    }
+  }
+}
+`
+export { GET_DATA_HOME, GET_META_HOME, GET_DATA_FOOTER, GET_DATA_ABOUT_US }

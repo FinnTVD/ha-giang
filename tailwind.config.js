@@ -95,6 +95,10 @@ module.exports = {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: 0 },
                 },
+                'scrollInfinite': {
+                    '0%': { transform: 'translatex(0%)' },
+                    '100%': { transform: 'translatex(-50%)' },
+                },
             },
             transitionDuration: {
                 7000: '7000ms',
@@ -102,7 +106,8 @@ module.exports = {
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
-            },
+                'scrollInfinite': 'scrollInfinite 25s linear infinite',
+            }
         },
     },
     plugins: [require('tailwindcss-animate')],
