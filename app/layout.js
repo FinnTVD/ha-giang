@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
             <ApolloWrapper>
                 <body
                     suppressHydrationWarning={true}
-                    className={`bg-white text-black ${heavitas.className} ${tomatoes.className} ${roboto.className} ${poppins.className} `}
+                    className={`bg-white text-black ${heavitas.className} ${tomatoes.className} ${roboto.className} ${poppins.className} w-full h-[100vh] overflow-y-scroll`}
                 >
                     <Theme>
                         {children}
