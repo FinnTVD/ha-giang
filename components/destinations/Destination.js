@@ -67,9 +67,9 @@ function Destination({arrayDesInit,arrayDesSlug,dataHome,dataAboutUs,allTourHG})
         <Banner bannerData={banner} title={'Our destinations'}></Banner>
       <div className='relative'>
         <div className='relative z-10'>
-          <h2 className='md:pt-[9.755vw] pt-[23.53vw] md:mb-0 mb-[4.27vw] px-[8.12vw] max-md:px-[4.27vw] text-[4vw] font-[600] max-md:text-[5.86vw] capitalize'>
+          {/* <h2 className='md:pt-[9.755vw] pt-[23.53vw] md:mb-0 mb-[4.27vw] px-[8.12vw] max-md:px-[4.27vw] text-[4vw] font-[600] max-md:text-[5.86vw] capitalize'>
             our destinations
-          </h2>
+          </h2> */}
           {/* Filter */}
           <div className='mx-[8.12vw] max-md:mx-[4.27vw] flex filter-blog gap-[2.5vw]' ref={eleRef}>
             <div className='flex flex-col'>
