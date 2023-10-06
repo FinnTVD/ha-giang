@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 const data = ['SUPPORT LOCAL - SUSTAINABLE TRAVEL', 'SUPPORT LOCAL - SUSTAINABLE TRAVEL', 'SUPPORT LOCAL - SUSTAINABLE TRAVEL']
 const description = "<p>The 3 Days Epic Ha giang Loop Tour with easy rider organized by Vietnam Cheers Hostel is a must in Vietnam for any traveller. It is considered a highlight of South East Asia. <br> Explore <strong> Ma Pi Leng </strong>, one of The Big Four Passes in Vietnam, through thousands of conical limestone peaks as well as deep and meandering valleys. Party dinner, waterfall and local le at authentic Cheers Du Gia Homestay. will be the unique experience also. This is designed for adventure-seekers — those who want to experience the biggest challenge Vietnam has to offer in a safe environment with our experienced easy riders.</p>"
-export default function Welcome({overview}){
+export default function Welcome({overview, video}){
 
     return(
         <section className="mt-[2.25vw] w-[40.625vw] my-0 mx-auto max-md:mt-[11.2vw] max-md:w-full">
@@ -17,7 +17,7 @@ export default function Welcome({overview}){
             <iframe
                 width='375'
                 height='210'
-                src='https://www.youtube.com/embed/2uBkJJmvots?si=Eil5E2TvwgKtxo88'
+                src={video?.video?.url_video || 'https://www.youtube.com/embed/2uBkJJmvots?si=Eil5E2TvwgKtxo88'}
                 title='YouTube video player'
                 frameborder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'

@@ -21,10 +21,12 @@ export default function ValueTowards({valueTowards}){
         swiper3.current.slideToLoop(index)
     }
     let dupData = []
-    for(let i=0; i<2; i++){
-        data.forEach((item,index) => {
-            dupData.push(item)
-        })
+    if(valueTowards){
+        for(let i=0; i<2; i++){
+            valueTowards?.content?.forEach((item,index) => {
+                dupData.push(item)
+            })
+        }
     }
     return(
         <section className="mt-[6.25vw] px-[6.25vw] max-md:px-0">
@@ -67,9 +69,9 @@ export default function ValueTowards({valueTowards}){
                     onSlideChange={handleSlideChange}
                     className="h-[57.3vw]"
                 >
-                    {dupData.map((item, index) => 
+                    {dupData?.map((item, index) => 
                         <SwiperSlide className="px-[2.5vw]" key={index}>
-                            <Image src={item.picture} width={343} height={215} className="w-full h-full object-cover"></Image>
+                            <Image src={item?.image?.sourceUrl} width={343} height={215} className="w-full h-full object-cover rounded-[2vw]"></Image>
                         </SwiperSlide>
                     )}                  
                 </Swiper>
@@ -83,12 +85,12 @@ export default function ValueTowards({valueTowards}){
                     spaceBetween={20}
                     className="!pl-[2.5vw] mt-[5.3vw]"
                 >
-                    {dupData.map((item, index) => 
+                    {dupData?.map((item, index) => 
                         <SwiperSlide className="!flex flex-col items-center" key={index}>
                             <div className="flex justify-center items-center w-[34vw] h-[34vw] rounded-[50%]" style={{background: index===indexSlider && 'linear-gradient(180deg, rgba(246, 185, 0, 0.60) 7.88%, rgba(255, 255, 255, 0.00) 98.49%)', backdropFilter: 'blur(6.9vw)'}}>
-                                <Image src={item.icon} width={128} height={128} className="w-auto h-[12.2vw] object-cover"></Image>
+                                <Image src={item?.icon?.sourceUrl} width={128} height={128} className="w-auto h-[12.2vw] object-cover"></Image>
                             </div>
-                            <h3 className="text-[#05320C] text-[3.7vw] font-bold leading-[1.23] font-poppins mt-[-4vw] text-center relative z-[2]">{item.title}</h3>
+                            <h3 className="text-[#05320C] text-[3.7vw] font-bold leading-[1.23] font-poppins mt-[-4vw] text-center relative z-[2]">{item?.title}</h3>
                         </SwiperSlide>
                     )}
                 </Swiper>
@@ -102,7 +104,7 @@ export default function ValueTowards({valueTowards}){
                 >
                     {dupData.map((item, index) => 
                         <SwiperSlide className="px-[2.5vw]" key={index}>
-                            <p className="text-[#727272] text-[3.7vw] leading-[1.57] tracking-[0.035] font-poppins text-center">{item.description}</p>
+                            <p className="text-[#727272] text-[3.7vw] leading-[1.57] tracking-[0.035] font-poppins text-center">{item?.content}</p>
                         </SwiperSlide>
                     )}
                 </Swiper>
