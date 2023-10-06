@@ -9,7 +9,7 @@ const nextConfig = {
                 hostname: 'cheers-cms.okhub.tech',
             },
         ],
-    },
+    }
 }
 
 module.exports = nextConfig
