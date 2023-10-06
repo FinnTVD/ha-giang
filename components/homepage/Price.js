@@ -6,7 +6,7 @@ export default function Price({ price }) {
                     ${price?.selfDriving}
                 </span>
                 <div className='flex w-fit flex-col'>
-                    <span className='text-[0.875vw] font-semibold leading-[1.428] tracking-[0.00875vw] text-gray-scale-5 max-md:text-[3.467vw] max-md:leading-[1.38]'>
+                    <span className='text-[0.875vw] font-bold leading-[1.428] tracking-[0.00875vw] text-gray-scale-5 max-md:text-[3.467vw] max-md:leading-[1.38]'>
                         SELF - DRIVING
                     </span>
                     <div className='w-full mt-[0.25vw] max-md:mt-[1.07vw] border-t border-white border-solid opacity-50 max-md:opacity-80'></div>
@@ -17,7 +17,7 @@ export default function Price({ price }) {
                     ${price?.localDriver}
                 </span>
                 <div className='flex w-fit flex-col'>
-                    <span className='text-[0.875vw] font-semibold leading-[1.428] tracking-[0.00875vw] text-gray-scale-5 max-md:text-[3.467vw] max-md:leading-[1.38]'>
+                    <span className='text-[0.875vw] font-bold leading-[1.428] tracking-[0.00875vw] text-gray-scale-5 max-md:text-[3.467vw] max-md:leading-[1.38]'>
                         LOCAL DRIVER
                     </span>
                     <div className='w-full mt-[0.25vw] max-md:mt-[1.07vw] border-t border-white border-solid opacity-50 max-md:opacity-80'></div>

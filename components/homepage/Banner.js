@@ -21,7 +21,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top top',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -31,7 +31,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top top',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -45,7 +45,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top top',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -55,7 +55,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top top',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -66,7 +66,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top 15%',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -76,7 +76,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top 15%',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -86,7 +86,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top 15%',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -96,7 +96,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top top',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })
@@ -106,7 +106,7 @@ export default function Banner({ section1 }) {
                             trigger: parentRef.current,
                             start: 'top 60%',
                             end: 'top top',
-                            scrub: true,
+                            scrub: 1,
                             once: true,
                         },
                     })

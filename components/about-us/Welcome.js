@@ -21,7 +21,7 @@ export default function Welcome(){
                 frameborder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                 allowfullscreen
-                className='object-cover w-full h-[65vw] mt-[5.3vw] md:hidden'
+                className='object-cover w-full h-[56vw] mt-[5.3vw] md:hidden'
             ></iframe>
             <div className="px-[2.5vw] mt-[6.4vw] md:hidden">
                 <Image src="/images/abMap.png" width={324} height={393.14} className="w-full"></Image>
