@@ -13,7 +13,7 @@ import Family from "../homepage/Family"
 
 export default function IndexAboutUs({ data, allTourHG, dataAboutUs }){
     const { header, section6 } = data
-    const {banner} = dataAboutUs
+    const {banner, overview,valueTowards, textRun, video,  } = dataAboutUs
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
@@ -33,10 +33,10 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }){
                 />
             </div>
             <Banner bannerData={banner}></Banner>
-            <Welcome></Welcome>
-            <ValueTowards></ValueTowards>
-            <TextInfinite></TextInfinite>
-            <Video></Video>
+            <Welcome overview={overview}></Welcome>
+            <ValueTowards valueTowards={valueTowards}></ValueTowards>
+            <TextInfinite textRun={textRun}></TextInfinite>
+            <Video video={video}></Video>
             <Family section6={section6} />
             {isMobile && (
                 <MenuRes

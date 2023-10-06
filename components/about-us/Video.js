@@ -1,12 +1,13 @@
 
-export default function Video(){
+export default function Video({video}){
     return(
         <section className="px-[8.875vw] mt-[6.25vw] max-md:hidden">
+        
             <iframe
                 width='560'
                 height='315'
-                src='https://www.youtube.com/embed/2uBkJJmvots?si=Eil5E2TvwgKtxo88'
-                title='YouTube video player'
+                src={video?.video?.url_video || 'https://www.youtube.com/embed/2uBkJJmvots?si=Eil5E2TvwgKtxo88'}
+                title={'Introduce video'}
                 frameborder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                 allowfullscreen
