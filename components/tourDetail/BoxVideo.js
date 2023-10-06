@@ -1,6 +1,6 @@
 export default function BoxVideo({ data }) {
     return (
-        <section className='w-full px-[6.25vw] max-md:px-[4.27vw] h-[47vw] mt-[6.25vw]'>
+        <section className='w-full px-[6.25vw] h-[47vw] mt-[6.25vw] max-md:px-0 max-md:mt-[5.3vw] max-md:h-[56vw]'>
             <iframe
                 width='560'
                 height='315'
@@ -9,7 +9,7 @@ export default function BoxVideo({ data }) {
                 frameborder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                 allowfullscreen
-                className='object-cover w-full h-full rounded-[1.25vw]'
+                className='object-cover w-full h-full rounded-[1.25vw] max-md:rounded-none'
             ></iframe>
         </section>
     )

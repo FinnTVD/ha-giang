@@ -1,7 +1,7 @@
 'use client'
 export default function ItemLane({ data, indexCurrent, index, length }) {
     return (
-        <div>
+        <div className="max-md:hidden">
             <div
                 className={`${
                     index + 1 <= indexCurrent ? 'bg-primary-70' : 'border border-solid border-primary-70'
@@ -37,7 +37,7 @@ export default function ItemLane({ data, indexCurrent, index, length }) {
             <button
                 className={`${
                     index + 1 === indexCurrent ? 'bg-primary-5' : 'bg-[#F9F9F9]'
-                } w-[7.0625vw] h-[2.75vw] rounded-[0.5vw] flex justify-center mt-[0.94vw] items-center text-[1vw] font-bold leading-normal tracking-[0.0125vw] text-gray-scale-80`}
+                } w-[7.0625vw] h-[2.75vw] max-md:w-[25.3vw] max-md:h-[15.46vw] rounded-[0.5vw] flex justify-center mt-[0.94vw] items-center text-[1vw] font-bold leading-normal tracking-[0.0125vw] text-gray-scale-80 max-md:text-[3.7vw]`}
             >
                 DAY {index + 1}
             </button>
@@ -62,7 +62,7 @@ export default function ItemLane({ data, indexCurrent, index, length }) {
                                 height='35'
                                 viewBox='0 0 9 35'
                                 fill='none'
-                                className='absolute bottom-[-0.25vw] -translate-x-1/2 translate-y-full left-1/2'
+                                className='absolute bottom-[-0.25vw] -translate-x-1/2 translate-y-full left-1/2 max-md:hidden'
                             >
                                 <path
                                     d='M4.5 26.9102C2.29086 26.9102 0.500001 28.701 0.500001 30.9102C0.500001 33.1193 2.29086 34.9102 4.5 34.9102C6.70914 34.9102 8.5 33.1193 8.5 30.9102C8.5 28.701 6.70914 26.9102 4.5 26.9102ZM3.75 3.27835e-08L3.75 2.57585L5.25 2.57585L5.25 -3.27835e-08L3.75 3.27835e-08ZM3.75 7.72754L3.75 12.8792L5.25 12.8792L5.25 7.72754L3.75 7.72754ZM3.75 18.0309L3.75 23.1826L5.25 23.1826L5.25 18.0309L3.75 18.0309ZM3.75 28.3343L3.75 30.9102L5.25 30.9102L5.25 28.3343L3.75 28.3343Z'

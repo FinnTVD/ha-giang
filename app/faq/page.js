@@ -1,8 +1,8 @@
-import Banner from '@/components/faq/Banner'
+import IndexFaq from '@/components/faq'
 import Family from '@/components/homepage/Family'
 import TheTrip from '@/components/homepage/TheTrip'
 import { GET_META_FAQ } from '@/graphql/faq/queries'
-import { GET_DATA_HOME } from '@/graphql/home/queries'
+import { GET_DATA_HOME, GET_DATA_ABOUT_US } from '@/graphql/home/queries'
 import getData from '@/utils/getData'
 import React from 'react'
 
@@ -57,14 +57,15 @@ export async function generateMetadata() {
 
 async function page() {
   const data = await getData(GET_DATA_HOME)
- const section8 = data?.data?.page?.homeHG?.section8
- const section6 = data?.data?.page?.homeHG?.section6
+  const dataAboutUs = await getData(GET_DATA_ABOUT_US)
+
   return (
-    <div>
-      <Banner/>
-      <TheTrip section8={section8} allTourHG={data?.data?.allTourHG}/>
-      <Family section6={section6} />
-    </div>
+    <IndexFaq 
+        data={data?.data?.page?.homeHG}
+        allTourHG={data?.data?.allTourHG}
+        dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
+    >
+    </IndexFaq>
   )
 }
 

@@ -65,7 +65,7 @@ const OverviewMb = ({ data }) => {
                     isFixed ? 'fixed left-0 top-0 bg-white px-[4.27vw] py-[2.13vw] w-full z-[99]' : ''
                 } overflow-auto mb-[4.26vw] transition-all duration-500`}
             >
-                <div className='flex gap-[3.2vw] mb-[1.6vw] w-[100vw] '>
+                <div className='flex gap-[3.2vw] mb-[1.6vw] w-[100vw] whitespace-nowrap'>
                     {list?.map((item) => (
                         <Link
                             data-src={true}

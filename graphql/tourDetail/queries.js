@@ -97,6 +97,10 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
           answer
         }
       }
+      anotherGreatTrips{
+        subtitle
+        title
+      }
     }
   }
   allTourHG{
