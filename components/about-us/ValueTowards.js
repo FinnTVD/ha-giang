@@ -8,7 +8,7 @@ const data= [{picture: "/images/value1.png", icon: "/icons/safe.svg", title: "SA
 {picture: "/images/value3.png", icon: "/icons/cloud.svg", title: "SAFE AND COMFORTABLE", description:"Nature cannot be overlooked when trekking, camping, or motorbike tours, which are tourism activities with many potential risks and challenges. What Travel Up always tries its best to do is to ensure maximum safety so that each trip can be fully experienced. That goal requires us to improve our knowledge every day, be meticulous in each program, as well as equip the tourists on the tour with not only necessary items but also a spirit of vigilance. and ready to conquer."},
 {picture: "/images/value4.png", icon: "/icons/connect.svg", title: "SAFE AND COMFORTABLE", description:"Nature cannot be overlooked when trekking, camping, or motorbike tours, which are tourism activities with many potential risks and challenges. What Travel Up always tries its best to do is to ensure maximum safety so that each trip can be fully experienced. That goal requires us to improve our knowledge every day, be meticulous in each program, as well as equip the tourists on the tour with not only necessary items but also a spirit of vigilance. and ready to conquer."},
 ]
-export default function ValueTowards(){
+export default function ValueTowards({valueTowards}){
     const swiper1 = useRef();
     const swiper2 = useRef();
     const swiper3 = useRef();
@@ -26,24 +26,23 @@ export default function ValueTowards(){
             dupData.push(item)
         })
     }
-
     return(
         <section className="mt-[6.25vw] px-[6.25vw] max-md:px-0">
             <div className="flex flex-col items-center">
-                <h3 className="text-[#B34B1E] font-heavitas text-[1vw] leading-[1] max-md:text-[3.2vw]"> Cheer tour </h3>
-                <h2 className="text-[#B34B1E] font-heavitas text-[3vw] mt-[0.75vw] leading-[1] max-md:text-[6.4vw] max-md:mt-[2.1vw]"> Value towards </h2>
+                <h3 className="text-[#B34B1E] font-heavitas text-[1vw] leading-[1] max-md:text-[3.2vw]"> {valueTowards?.topTitle} </h3>
+                <h2 className="text-[#B34B1E] font-heavitas text-[3vw] mt-[0.75vw] leading-[1] max-md:text-[6.4vw] max-md:mt-[2.1vw]"> {valueTowards?.title} </h2>
             </div>
             <div className="mt-[2.5vw] flex flex-col gap-[8.375vw] max-md:hidden">
-                {data.map((item, index) => 
+                {valueTowards?.content.map((item, index) => 
                     <div className={`${index%2==0 ? "flex-row" : "flex-row-reverse"} flex gap-[4.75vw]`} key={index}>
-                        <Image alt="value-towards-picture" src={item.picture} width={688} height={431} className="w-[43vw] h-[26.9375vw] rounded-[1vw] object-cover"></Image>
-                        <div className="flex relative items-start mt-[4.43vw]">
+                        <Image alt="value-towards-picture" src={item?.image?.sourceUrl} width={688} height={431} className="w-[43vw] flex-1 h-[26.9375vw] rounded-[1vw] object-cover"></Image>
+                        <div className="flex relative flex-1 items-start mt-[4.43vw]">
                             <div className="flex justify-center items-center w-[13.625vw] h-[13.625vw] rounded-[50%] flex-shrink-0" style={{background: 'linear-gradient(180deg, rgba(246, 185, 0, 0.60) 7.88%, rgba(255, 255, 255, 0.00) 98.49%)', backdropFilter: 'blur(1.6vw)'}}>
-                                <Image alt="vale-towards-icon" src={item.icon} width={218} height={218} className="h-[6.25vw] w-auto"></Image>
+                                <Image alt="vale-towards-icon" src={item?.icon?.sourceUrl} width={218} height={218} className="h-[6.25vw] w-auto"></Image>
                             </div>
                             <div className="pt-[5vw] ml-[-2vw] relative z-[2]">
-                                <h3 className="text-[#05320C] text-[1.625vw] font-bold leading-[1.23] font-poppins">{item.title}</h3>
-                                <p className="mt-[1.25vw] text-[#727272] text-[0.875vw] leading-[1.57] tracking-[0.035] font-poppins">{item.description}</p>
+                                <h3 className="text-[#05320C] text-[1.625vw] font-bold leading-[1.23] font-poppins">{item?.title}</h3>
+                                <p className="mt-[1.25vw] text-[#727272] text-[0.875vw] leading-[1.57] tracking-[0.035] font-poppins">{item?.content}</p>
                             </div>
                             {(index+1 <= data.length-1 && index%2===0 ) && 
                                 <svg className="absolute top-[12.625vw] right-[31.5125vw] h-auto w-[48.3125vw]" xmlns="http://www.w3.org/2000/svg" width="777" height="360" viewBox="0 0 777 360" fill="none">
