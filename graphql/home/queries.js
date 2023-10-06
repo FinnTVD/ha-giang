@@ -282,21 +282,45 @@ const GET_DATA_FOOTER = `
 }
 `
 
-const GET_DATA_ABOUT_US=`
-{
-  page(id: "cG9zdDozOTE==") {
-    aboutUs{
-      banner{
-        heading
-        background {
+const GET_DATA_ABOUT_US=`{
+page(id: "cG9zdDozOTE==") {
+  aboutUs{
+    banner{
+      heading
+      background {
+        sourceUrl
+      }
+      textBackground {
+        sourceUrl
+      }
+    }
+    overview {
+      contentBottom
+      contentTop
+      title
+      topTitle
+    } 
+    valueTowards {
+      title
+      topTitle
+      content {
+        content
+        title
+        image {
+          altText
           sourceUrl
         }
-        textBackground {
+        icon {
+          altText
           sourceUrl
         }
       }
     }
+    textRun
+    video {
+      urlVideo
+    }
   }
-}
+}}
 `
 export { GET_DATA_HOME, GET_META_HOME, GET_DATA_FOOTER, GET_DATA_ABOUT_US }

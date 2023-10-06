@@ -5,12 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 const data = ['SUPPORT LOCAL - SUSTAINABLE TRAVEL', 'SUPPORT LOCAL - SUSTAINABLE TRAVEL', 'SUPPORT LOCAL - SUSTAINABLE TRAVEL']
 const description = "<p>The 3 Days Epic Ha giang Loop Tour with easy rider organized by Vietnam Cheers Hostel is a must in Vietnam for any traveller. It is considered a highlight of South East Asia. <br> Explore <strong> Ma Pi Leng </strong>, one of The Big Four Passes in Vietnam, through thousands of conical limestone peaks as well as deep and meandering valleys. Party dinner, waterfall and local le at authentic Cheers Du Gia Homestay. will be the unique experience also. This is designed for adventure-seekers — those who want to experience the biggest challenge Vietnam has to offer in a safe environment with our experienced easy riders.</p>"
-export default function Welcome(){
+export default function Welcome({overview}){
+
     return(
         <section className="mt-[2.25vw] w-[40.625vw] my-0 mx-auto max-md:mt-[11.2vw] max-md:w-full">
             <div className="flex flex-col items-center">
-                <h3 className="text-[#B34B1E] font-heavitas text-[1vw] leading-[1] max-md:text-[3.2vw]"> Welcome to </h3>
-                <h2 className="text-[#B34B1E] font-heavitas text-[3vw] mt-[0.75vw] leading-[1] max-md:text-[6.4vw] max-md:mt-[2.1vw]"> Ha giang cheers tour </h2>
+                <h3 className="text-[#B34B1E] font-heavitas text-[1vw] leading-[1] max-md:text-[3.2vw]">{overview?.topTitle}</h3>
+                <h2 className="text-[#B34B1E] font-heavitas text-[3vw] mt-[0.75vw] leading-[1] max-md:text-[6.4vw] max-md:mt-[2.1vw]"> {overview?.title}</h2>
             </div>
             {/* <video playsInline controls src="http://cheers-cms.okhub.tech/wp-content/uploads/2023/09/video2.mp4" className="w-full mt-[5.3vw] md:hidden"></video> */}
             <iframe
@@ -41,9 +42,8 @@ export default function Welcome(){
                     )}
                 </Swiper>
             </div>
-            <div className={classes['welcome-description']} dangerouslySetInnerHTML={{__html: description}}>
-
-            </div>
+            <div className={classes['welcome-description']} dangerouslySetInnerHTML={{__html: overview?.contentTop}}></div>
+            <div className={classes['welcome-description']} dangerouslySetInnerHTML={{__html: overview?.contentBottom}}></div>
         </section>
     )
 }
