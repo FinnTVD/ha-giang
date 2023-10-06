@@ -59,6 +59,13 @@ export default function BestTripEver({ data }) {
         setNext(arr[count]?.src)
     }, [count])
 
+    let dataLength = 0
+    let dataArr
+    if(data){
+        dataLength = data?.listDay?.length
+        dataArr = new Array(dataLength-1).fill(0)
+    }
+
     // useEffect(() => {
     //     const elementToRemove = document.querySelectorAll('canvas')
     //     if (elementToRemove?.length > 1) {
@@ -99,13 +106,15 @@ export default function BestTripEver({ data }) {
                     subTitle={data?.title}
                 />
                 {isMobile && (
-                    <div className='flex justify-center'>
-                        <div className='flex items-center'>
-                            <div class='boxMap relative h-[45vw] w-[45vw]'></div>
+                    <div className='flex items-center mt-[5.3vw]'>
+                        <div class='boxMap relative h-[77.6vw] w-[91.4vw]'>
+                            {arr.map((item, index) => 
+                                <Image key={index} src={item.src} width={343} height={291} className={`${index===indexMb ? 'opacity-100' : 'opacity-0'} absolute w-full h-full object-contain transition-all duration-300`}></Image>
+                            )}
                         </div>
                     </div>
                 )}
-                <div className='mt-[2.88vw]'>
+                <div className='mt-[2.88vw] max-md:mt-[5.3vw]'>
                     <div>
                         <Image
                             style={{
@@ -113,13 +122,44 @@ export default function BestTripEver({ data }) {
                                     (indexCurrent - 1) * 12.2 + (indexCurrent === listAddress?.length ? 1 : 0) + 'vw'
                                 }) ${indexCurrent === listAddress?.length ? 'rotateY(180deg)' : ''}`,
                             }}
-                            className={` w-[3.37vw] h-[2.25vw] object-contain ml-[1.2vw] transition-all duration-300 max-md:w-[6.4vw] max-md:h-auto`}
+                            className={` w-[3.37vw] h-[2.25vw] object-contain ml-[1.2vw] transition-all duration-300 max-md:w-[6.4vw] max-md:h-auto max-md:hidden`}
                             src={'/images/motor.svg'}
                             alt='motor'
                             width={60}
                             height={40}
                             quality={100}
                         />
+                        <Image
+                            style={{
+                                transform: `translateX(${
+                                    indexMb * 33.2 + 'vw'
+                                }) ${indexMb === data?.listDay?.length-1 ? 'rotateY(180deg)' : ''}`,
+                            }}
+                            className={`md:hidden object-contain ml-[8.8vw] transition-all duration-300 w-[6.4vw] h-auto`}
+                            src={'/images/motor.svg'}
+                            alt='motor'
+                            width={60}
+                            height={40}
+                            quality={100}
+                        />
+                    </div>
+                    <div className='flex items-center ml-[12vw] gap-[3.2vw] md:hidden'>
+                        {dataArr?.map((item, indx) => 
+                        <>  
+                            <svg className='w-[2.1vw]' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                                <circle cx="4" cy="4" r="3" stroke="#B34B1E" stroke-width="2"/>
+                            </svg>
+                            <div className='relative overflow-hidden'>
+                                <svg className='w-[24.5vw]' xmlns="http://www.w3.org/2000/svg" width="94" height="3" viewBox="0 0 94 3" fill="none">
+                                    <path d="M1 1.07812H93" stroke="#B34B1E" stroke-opacity="0.26" stroke-width="2" stroke-linecap="round" stroke-dasharray="10 10"/>
+                                </svg>
+                                <div className={`${indx<=indexMb-1 ? 'translate-x-0' : 'translate-x-[-100%]'} absolute w-full h-[0.5vw] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}></div>
+                            </div>
+                        </>
+                        )}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                            <circle cx="4" cy="4" r="3" stroke="#B34B1E" stroke-width="2"/>
+                        </svg>
                     </div>
                     <div className='flex gap-x-[5.13vw] relative w-fit'>
                         {data?.listDay?.map((e, index) => (
@@ -131,11 +171,11 @@ export default function BestTripEver({ data }) {
                                 index={index}
                             />
                         ))}
-                        <div className='md:hidden'>
+                        <div className='md:hidden mt-[5.3vw]'>
                             <div className='flex gap-[7.5vw]'>
                                 {data?.listDay?.map((e, index) => 
-                                    <div onClick={() => setIndexMb(index)} className={`${index===indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'} md:hidden w-[25.3vw] h-[15.46vw] rounded-[1vw] flex flex-col justify-center items-center`}>
-                                        <span className={`${index===indexMb ? 'text-white' : 'text-[#898989]'} text-[3.7vw] leading-[1.42] gap-[1vw]`}> DAY {index+1} </span>
+                                    <div onClick={() => setIndexMb(index)} className={`${index===indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'} md:hidden w-[25.3vw] h-[15.46vw] rounded-[2vw] flex flex-col justify-center items-center`}>
+                                        <span className={`${index===indexMb ? 'text-white' : 'text-[#898989]'} text-[3.7vw] leading-[1.42] gap-[1vw] font-bold`}> DAY {index+1} </span>
                                         <span className={`${index===indexMb ? 'text-white' : 'text-[#898989]'} text-[3.2vw]`}> {e?.distanceLength} </span>
                                     </div>
                                 )}
@@ -144,7 +184,7 @@ export default function BestTripEver({ data }) {
                                 {data?.listDay?.map((e, index) => 
                                     <div className={`${index===indexMb ? 'block' : 'hidden'} flex gap-[2.1vw] flex-wrap`}>
                                         {e?.listProvince?.map((item) => 
-                                            <div className='w-[29vw] h-[7.4vw] flex-shrink-0 text-[#2E2E2E] bg-[#F2FFBF] flex items-center justify-center font-medium'>{item.province}</div>
+                                            <div className='w-[29vw] h-[7.4vw] flex-shrink-0 text-[#2E2E2E] text-[3.4vw] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1vw]'>{item.province}</div>
                                         )}
                                     </div>
                                 )}
@@ -161,7 +201,7 @@ export default function BestTripEver({ data }) {
                                     setIndexCurrent(indexCurrent - 1)
                                 }
                             }}
-                            className='p-[0.75vw] absolute top-[1.8vw] left-0 -translate-x-full z-[5]'
+                            className='p-[0.75vw] absolute top-[1.8vw] left-0 -translate-x-full z-[5] max-md:hidden'
                         >
                             <IconBtnLeft className={'w-[1.82vw] h-[0.82vw]'} />
                         </button>
@@ -175,13 +215,13 @@ export default function BestTripEver({ data }) {
                                     setIndexCurrent(indexCurrent + 1)
                                 }
                             }}
-                            className='p-[0.75vw] absolute top-[1.8vw] right-0 translate-x-full z-[5]'
+                            className='p-[0.75vw] absolute top-[1.8vw] right-0 translate-x-full z-[5] max-md:hidden'
                         >
                             <IconBtnLeft className={'w-[1.82vw] h-[0.82vw] rotate-180'} />
                         </button>
                     </div>
                 </div>
-                <div className='flex justify-center mt-[2.5vw]'>
+                <div className='flex justify-center mt-[2.5vw] max-md:mt-[5.3vw]'>
                     <Button
                         primary={true}
                         content={'book now'}
