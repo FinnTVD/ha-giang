@@ -52,31 +52,32 @@ export default function BestTripEver({ data }) {
     const [next, setNext] = useState(arr[count + 1]?.src)
     const [animation, setAnimation] = useState(null)
     const [indexCurrent, setIndexCurrent] = useState(1)
+    const [indexMb, setIndexMb] = useState(0)
 
     useEffect(() => {
         setPrev(arr[count]?.src)
         setNext(arr[count]?.src)
     }, [count])
 
-    useEffect(() => {
-        const elementToRemove = document.querySelectorAll('canvas')
-        if (elementToRemove?.length > 1) {
-            elementToRemove[0]?.remove()
-        }
-        let a = new hoverEffect({
-            parent: document.querySelector('.boxMap'),
-            intensity1: 1,
-            intensity2: 1,
-            speedIn: 0.5, // speed change
-            speedOut: 0.5, // speed change
-            hover: false,
+    // useEffect(() => {
+    //     const elementToRemove = document.querySelectorAll('canvas')
+    //     if (elementToRemove?.length > 1) {
+    //         elementToRemove[0]?.remove()
+    //     }
+    //     let a = new hoverEffect({
+    //         parent: document.querySelector('.boxMap'),
+    //         intensity1: 1,
+    //         intensity2: 1,
+    //         speedIn: 0.5, // speed change
+    //         speedOut: 0.5, // speed change
+    //         hover: false,
 
-            image1: prev,
-            image2: next,
-            displacementImage: '/displacement/12.png',
-        })
-        setAnimation(a)
-    }, [next, prev])
+    //         image1: prev,
+    //         image2: next,
+    //         displacementImage: '/displacement/12.png',
+    //     })
+    //     setAnimation(a)
+    // }, [next, prev])
 
     useEffect(() => {
         const elementToRemove = document.querySelectorAll('canvas')
@@ -112,7 +113,7 @@ export default function BestTripEver({ data }) {
                                     (indexCurrent - 1) * 12.2 + (indexCurrent === listAddress?.length ? 1 : 0) + 'vw'
                                 }) ${indexCurrent === listAddress?.length ? 'rotateY(180deg)' : ''}`,
                             }}
-                            className={` w-[3.37vw] h-[2.25vw] object-contain ml-[1.2vw] transition-all duration-300`}
+                            className={` w-[3.37vw] h-[2.25vw] object-contain ml-[1.2vw] transition-all duration-300 max-md:w-[6.4vw] max-md:h-auto`}
                             src={'/images/motor.svg'}
                             alt='motor'
                             width={60}
@@ -130,10 +131,29 @@ export default function BestTripEver({ data }) {
                                 index={index}
                             />
                         ))}
+                        <div className='md:hidden'>
+                            <div className='flex gap-[7.5vw]'>
+                                {data?.listDay?.map((e, index) => 
+                                    <div onClick={() => setIndexMb(index)} className={`${index===indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'} md:hidden w-[25.3vw] h-[15.46vw] rounded-[1vw] flex flex-col justify-center items-center`}>
+                                        <span className={`${index===indexMb ? 'text-white' : 'text-[#898989]'} text-[3.7vw] leading-[1.42] gap-[1vw]`}> DAY {index+1} </span>
+                                        <span className={`${index===indexMb ? 'text-white' : 'text-[#898989]'} text-[3.2vw]`}> {e?.distanceLength} </span>
+                                    </div>
+                                )}
+                            </div>
+                            <div className='mt-[3.7vw]'>
+                                {data?.listDay?.map((e, index) => 
+                                    <div className={`${index===indexMb ? 'block' : 'hidden'} flex gap-[2.1vw] flex-wrap`}>
+                                        {e?.listProvince?.map((item) => 
+                                            <div className='w-[29vw] h-[7.4vw] flex-shrink-0 text-[#2E2E2E] bg-[#F2FFBF] flex items-center justify-center font-medium'>{item.province}</div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
 
                         <button
                             onClick={() => {
-                                animation.previous()
+                                // animation.previous()
                                 if (count > 0) {
                                     setCount(count - 1)
                                 }
@@ -147,7 +167,7 @@ export default function BestTripEver({ data }) {
                         </button>
                         <button
                             onClick={() => {
-                                animation.next()
+                                // animation.next()
                                 if (count < 2) {
                                     setCount(count + 1)
                                 }
@@ -172,7 +192,14 @@ export default function BestTripEver({ data }) {
             </div>
             {!isMobile && (
                 <div className='flex items-center'>
-                    <div class='boxMap relative h-[45vw] w-[45vw]'></div>
+                    <div class='boxMap relative h-[45vw] w-[45vw]'>
+                        {arr.map((item, index) => 
+                            <Image key={index} src={item.src} width={900} height={716} className={`${index===(indexCurrent-1) ? 'opacity-100' : 'opacity-0'} absolute w-full h-full object-contain transition-all duration-300`}></Image>
+                        )}
+                        {/* <Image src='/images/map1.png' width={900} height={716}></Image>
+                        <Image src='/images/map1.png' width={900} height={716}></Image>
+                        <Image src='/images/map1.png' width={900} height={716}></Image> */}
+                    </div>
                 </div>
             )}
         </section>

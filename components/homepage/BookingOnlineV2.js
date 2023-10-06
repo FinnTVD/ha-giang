@@ -309,11 +309,11 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                         className='bg-[#d9d9d9] opacity-60 '
                                     />
                                     <div className='flex justify-between items-center h-[2.5vw] max-md:h-[10.66vw] mt-[0.75vw]'>
-                                        <div className='text-[#E56026] text-[1vw] font-semibold max-md:text-[4.26vw]'>
+                                        <div className='text-[#B34B1E] text-[1vw] font-semibold max-md:text-[4.26vw]'>
                                             Total:{' '}
                                         </div>
                                         <div
-                                            className='text-[#E56026] font-bold text-center flex leading-[2.5vw] justify-center rounded-[0.5vw] text-[1.25vw] w-[12.1875vw] h-[2.5vw] bg-white max-md:text-[5.33vw] 
+                                            className='text-[#B34B1E] font-bold text-center flex leading-[2.5vw] justify-center rounded-[0.5vw] text-[1.25vw] w-[12.1875vw] h-[2.5vw] bg-white max-md:text-[5.33vw] 
                                 max-md:rounded-[2.13vw] max-md:max-md:w-[30.13vw] max-md:h-[10.66vw] max-md:items-center'
                                         >
                                             ${selfDriving * selfPrice + localDriver * localPrice || 0}

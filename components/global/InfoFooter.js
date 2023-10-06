@@ -6,7 +6,7 @@ function InfoFooter({ icon, text, href, className }) {
         <div className='md:text-[0.875vw] text-[3.46667vw] md:leading-[1.375vw] leading-[4.8vw] tracking-[0.00219vw] text-[#727272]'>
             {href ? (
                 <Link
-                    className='flex md:gap-[0.5vw] gap-[2.13vw] md:w-[16.6875vw] items-center max-md:justify-center md:mb-[0.25vw] mb-[2.67vw]'
+                    className='flex md:gap-[0.5vw] gap-[2.13vw] md:w-[16.6875vw] items-center max-md:justify-center md:mb-[0.25vw]'
                     href={href || '/'}
                 >
                     <div>
@@ -19,7 +19,7 @@ function InfoFooter({ icon, text, href, className }) {
                     <p className={className}>{text}</p>
                 </Link>
             ) : (
-                <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:w-[16.6875vw] items-center max-md:justify-center md:mb-[0.25vw] mb-[2.67vw]'>
+                <div className='flex md:gap-[0.5vw] gap-[2.13vw] md:w-[16.6875vw] items-center max-md:justify-center md:mb-[0.25vw]'>
                     <div>
                         <Image
                             src={icon}

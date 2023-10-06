@@ -51,7 +51,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                             />
                         </svg>
                     </TittleIcon>
-                    <ul className='mt-[0.13vw] list-disc ml-[2.5vw]'>
+                    <ul className='mt-[0.13vw] list-disc ml-[2.5vw]' style={{background: 'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px'}}>
                         {data?.highlight?.slice(0, 6)?.map((e, index) => (
                             <li
                                 key={index}
@@ -63,7 +63,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                     </ul>
                 </div>
                 <div className='w-[13.0625vw] max-md:w-fit flex flex-col gap-y-[1.44vw]'>
-                    <div>
+                    <div className='flex flex-col items-start'>
                         <TittleIcon title={'DEPARTURE'}>
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -89,7 +89,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                                 />
                             </svg>
                         </TittleIcon>
-                        <span className='text-[0.875vw] block font-bold leading-[1.57] tracking-[0.00219vw] text-white mt-[0.13vw] max-md:mt-[0.53vw] ml-[1.38vw] max-md:text-[3.733vw] max-md:font-semibold'>
+                        <span className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] text-white mt-[0.13vw] max-md:mt-[0.53vw] ml-[1.38vw] max-md:text-[3.733vw] max-md:font-semibold max-md:ml-[5.8vw]' style={{background: 'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px'}}>
                             {data?.departure}
                         </span>
                     </div>
@@ -125,13 +125,13 @@ export default function ContentHeaderDetail({ data, slug }) {
                                 </defs>
                             </svg>
                         </TittleIcon>
-                        <address className='not-italic text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw]'>
+                        <address className='not-italic text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] ml-[1.375vw]' style={{background: 'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px'}}>
                             {data?.pickUpFrom}
                         </address>
                     </div>
                 </div>
                 <div className='w-[12.6875vw] flex flex-col gap-y-[1.44vw] max-md:w-fit'>
-                    <div>
+                    <div className='flex flex-col items-start'>
                         <TittleIcon title={'GROUP SIZE'}>
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -157,7 +157,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                                 />
                             </svg>
                         </TittleIcon>
-                        <span className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] text-white mt-[0.13vw] block max-md:mt-[0.53vw] max-md:text-[3.733vw] max-md:font-semibold'>
+                        <span className='text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] text-white mt-[0.13vw] block max-md:mt-[0.53vw] max-md:text-[3.733vw] max-md:font-semibold ml-[1.375vw] max-md:ml-[5.8vw]' style={{background: 'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px'}}>
                             {data?.groupSize}
                         </span>
                     </div>
@@ -208,7 +208,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                                 </defs>
                             </svg>
                         </TittleIcon>
-                        <span className='not-italic text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw]'>
+                        <span className='not-italic block text-white text-[0.875vw] font-bold leading-[1.57] tracking-[0.00219vw] ml-[1.375vw]' style={{background: 'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px'}}>
                             {data?.transport}
                         </span>
                     </div>

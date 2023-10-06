@@ -30,6 +30,7 @@ export default function IndexTourDetail({ data, allTourHG, slug }) {
                 <Another
                     allTourHG={allTourHG}
                     slug={slug}
+                    data={data?.data?.tourHG?.tourHaGiangDetail?.anotherGreatTrips}
                 />
             </main>
         </>

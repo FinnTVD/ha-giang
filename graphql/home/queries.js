@@ -320,6 +320,10 @@ page(id: "cG9zdDozOTE==") {
     video {
       urlVideo
     }
+    meta{
+      title
+      description
+    }
   }
 }}
 `

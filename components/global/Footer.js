@@ -18,7 +18,7 @@ export default async function Footer() {
     return (
         <footer className='relative overflow-hidden'>
             <BgFooter className='w-full md:h-[58.5625vw] h-full absolute top-0 left-0 z-0 max-md:inset-0' />
-            <div className='md:h-screen h-screen w-full relative md:px-[6.25vw]'>
+            <div className='md:h-screen max-md:h-auto w-full relative md:px-[6.25vw] pb-[74.6vw]'>
                 <Image
                     className='z-0 max-md:h-[153.6vw] h-full absolute md:inset-0 bottom-0 w-full object-cover'
                     alt={footer?.background?.altText || footer?.background?.title}
@@ -111,7 +111,7 @@ export default async function Footer() {
                                         icon={locationIcon}
                                         text={e?.nameTour}
                                         href={e?.linkTour?.url}
-                                        className='max-md:text-white'
+                                        className=''
                                     />
                                 ))}
                             </div>
