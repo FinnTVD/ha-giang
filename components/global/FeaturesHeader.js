@@ -8,7 +8,7 @@ export default function FeaturesHeader({ header, allTourHG }) {
         window.scrollTo(0, 0, { behavior: 'smooth' })
     }
     return (
-        <article
+        <div
             id='feature-header'
             className='flex flex-col gap-y-[1.37vw] max-md:gap-y-[5.33vw] items-center fixed bottom-[10vw] right-[3vw] max-md:right-[4.27vw] z-[999]'
         >
@@ -46,7 +46,7 @@ export default function FeaturesHeader({ header, allTourHG }) {
             </PopupBookNow>
             <Link
                 href={`tel:${header?.phoneNumber}`}
-                className='relative cursor-pointer block'
+                className='relative block cursor-pointer'
             >
                 {/* <div className='box-phone absolute bottom-0 left-0 z-0 w-[2.5vw] h-[2.5vw] rounded-full'></div> */}
 
@@ -127,6 +127,6 @@ export default function FeaturesHeader({ header, allTourHG }) {
                     </defs>
                 </svg>
             </Link>
-        </article>
+        </div>
     )
 }

@@ -171,9 +171,11 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
             className={`font-poppins flex flex-col justify-start`}
             id='bookingId'
         >
-            <div className={`mb-[1vw]`}>
-                <div className={` uppercase text-primary-70 w-full relative z-[5] font-heavitas`}>
-                    <h2 className={` text-[2vw] font-extrabold leading-[1] max-md:text-[6.4vw] max-md:leading-[1.17]`}>
+            <div className={`mb-[1vw] w-fit`}>
+                <div className={` uppercase text-primary-70 w-full relative z-[5] font-heavitas w-fit`}>
+                    <h2
+                        className={` text-[2vw] font-extrabold leading-[1] max-md:text-[6.4vw] max-md:leading-[1.17] w-fit`}
+                    >
                         BOOK TOUR
                     </h2>
                 </div>
@@ -235,7 +237,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                     Type of tour:
                                 </div>
                                 <div className='rounded-[0.5vw] bg-[#F2F2F2] p-[1vw] max-md:flex max-md:rounded-[2.13vw] max-md:flex-col max-md:gap-[3.2vw] max-md:p-[4.26vw]'>
-                                    <div className='flex justify-between items-center'>
+                                    <div className='flex items-center justify-between'>
                                         <span className='text-[0.75vw] font-medium leading-[1.33] text-gray-scale-50 uppercase max-md:text-[3.467vw] max-md:leading-[1.38]'>
                                             self - driving
                                         </span>
@@ -335,7 +337,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                             placeholder='Name *'
                                         />
                                     </div>
-                                    {/*<div className=' hidden max-md:block'>
+                                    {/* <div className='hidden max-md:block'>
                                         <TextField.Input
                                             {...register('email')}
                                             style={isMobile ? inputMobileStyle : inputStyle}
@@ -344,7 +346,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                             placeholder='Email *'
                                         />
                                     </div>
-                                    <div className=' hidden max-md:block'>
+                                    <div className='hidden max-md:block'>
                                         <TextField.Input
                                             {...register('phone')}
                                             style={isMobile ? inputMobileStyle : inputStyle}
@@ -353,24 +355,21 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                             placeholder='Phone(Whatsapp) *'
                                         />
                                     </div> */}
-                                    {!isMobile && (
-                                        <TextField.Input
-                                            {...register('email')}
-                                            style={isMobile ? { display: 'none' } : inputStyle}
-                                            className='rounded-[0.5vw] px-[1vw] py-[0.75vw]'
-                                            variant='soft'
-                                            placeholder='Email *'
-                                        />
-                                    )}
-                                    {!isMobile && (
-                                        <TextField.Input
-                                            {...register('phone')}
-                                            style={isMobile ? { display: 'none' } : inputStyle}
-                                            className='rounded-[0.5vw] px-[1vw] py-[0.75vw]'
-                                            variant='soft'
-                                            placeholder='Phone (Whatsapp) *'
-                                        />
-                                    )}
+
+                                    <TextField.Input
+                                        {...register('email')}
+                                        style={isMobile ?inputMobileStyle : inputStyle}
+                                        className='rounded-[0.5vw] px-[1vw] py-[0.75vw]'
+                                        variant='soft'
+                                        placeholder='Email *'
+                                    />
+                                    <TextField.Input
+                                        {...register('phone')}
+                                        style={isMobile ? inputMobileStyle : inputStyle}
+                                        className='rounded-[0.5vw] px-[1vw] py-[0.75vw]'
+                                        variant='soft'
+                                        placeholder='Phone (Whatsapp) *'
+                                    />
                                     <div className=''>
                                         <TextArea
                                             {...register('message')}

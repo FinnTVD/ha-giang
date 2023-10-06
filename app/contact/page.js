@@ -1,18 +1,18 @@
-import IndexAboutUs from '@/components/about-us'
+import IndexContact from '@/components/contact'
+import { GET_DATA_CONTACT, GET_META_CONTACT, GET_NAV_AND_FOOTER } from '@/graphql/contact/queries'
 import getData from '@/utils/getData'
-import { GET_DATA_ABOUT_US, GET_DATA_HOME } from '@/graphql/home/queries'
 
 export async function generateMetadata() {
-    const data = await getData(GET_DATA_ABOUT_US)
+    const data = await getData(GET_META_CONTACT)
     if (!data) return
-    const { featuredImage, aboutUs } = data?.data?.page
+    const { featuredImage, contact } = data?.data?.page
     return {
-        title: aboutUs?.meta?.title,
-        description: aboutUs?.meta?.description,
+        title: contact?.meta?.metaTitle,
+        description: contact?.meta?.metaDescription,
         applicationName: process.env.SITE_NAME,
         openGraph: {
-            title: aboutUs?.meta?.title,
-            description: aboutUs?.meta?.description,
+            title: contact?.meta?.metaTitle,
+            description: contact?.meta?.metaDescription,
             url: process.env.DOMAIN,
             siteName: process.env.SITE_NAME,
             images: [
@@ -26,8 +26,8 @@ export async function generateMetadata() {
         },
         twitter: {
             card: 'summary_large_image',
-            title: aboutUs?.meta?.title,
-            description: aboutUs?.meta?.description,
+            title: contact?.meta?.metaTitle,
+            description: contact?.meta?.metaDescription,
             creator: process.env.SITE_NAME,
             images: [
                 {
@@ -50,15 +50,14 @@ export async function generateMetadata() {
         },
     }
 }
-export default async function AboutUs() {
-    const data = await getData(GET_DATA_HOME)
-    const dataAboutUs = await getData(GET_DATA_ABOUT_US)
 
+export default async function page() {
+    const data = await getData(GET_DATA_CONTACT)
+    const dataHome = await getData(GET_NAV_AND_FOOTER)
     return (
-        <IndexAboutUs
-            data={data?.data?.page?.homeHG}
-            allTourHG={data?.data?.allTourHG}
-            dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
-        ></IndexAboutUs>
+        <IndexContact
+            data={data?.data?.page?.contact}
+            dataHome={dataHome}
+        />
     )
 }
