@@ -11,9 +11,10 @@ import { useMediaQuery } from 'react-responsive'
 import Family from '../homepage/Family'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
+import CheersTour from '../homepage/CheersTour'
 
 export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
-    const { header, section6 } = data
+    const { header, section6, section2 } = data
     const { banner, overview, valueTowards, textRun, video } = dataAboutUs
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
@@ -50,6 +51,13 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
                 overview={overview}
                 video={video}
             ></Welcome>
+            {isMobile && (
+                <CheersTour
+                    section2={section2}
+                    allTourHG={allTourHG}
+                    isOther={true}
+                />
+            )}
             <ValueTowards valueTowards={valueTowards}></ValueTowards>
             <TextInfinite textRun={textRun}></TextInfinite>
             <Video video={video}></Video>

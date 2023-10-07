@@ -65,7 +65,7 @@ function AboutTour({ data }) {
             {/* info */}
             <div className='flex gap-[4.27vw] max-md:flex-col'>
                 {/* ------------content-left------------ */}
-                <div className='flex relative'>
+                <div className='relative flex'>
                     <svg
                         xmlns='http://www.w3.org/2000/svg'
                         width='6'
@@ -134,9 +134,10 @@ function AboutTour({ data }) {
                 </div>
             </div>
             <div
+                onClick={() => setIsShow(false)}
                 className={`${
                     isShow ? 'z-10 opacity-100' : 'z-[-1] opacity-0'
-                } w-full h-[14vw] max-md:h-[16vw] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes absolute bottom-0 left-0 transition-all duration-150`}
+                } w-full cursor-pointer h-[14vw] max-md:h-[16vw] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes absolute bottom-0 left-0 transition-all duration-150`}
             ></div>
         </section>
     )

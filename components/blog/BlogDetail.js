@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+
 import TwitterShare from '../blogDetail/TwitterShare'
 import FaceBookShare from '../blogDetail/FaceBookShare'
 import LinkedInShare from '../blogDetail/LinkedInShare'
@@ -7,14 +7,12 @@ import moment from 'moment'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
-import Banner from '../about-us/Banner'
 import { useState, useEffect } from 'react'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
+import Image from 'next/image'
 
-function BlogDetail({ data, dataHome, dataAboutUs, allTourHG }) {
-    const header = dataHome?.header
-    const banner = dataAboutUs?.banner
+function BlogDetail({ data, dataHome, allTourHG }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
@@ -30,23 +28,52 @@ function BlogDetail({ data, dataHome, dataAboutUs, allTourHG }) {
             <div className='absolute top-0 left-0 w-full'>
                 <Nav
                     setIsOpen={setIsOpen}
-                    header={header}
+                    header={dataHome?.header}
                     allTourHG={allTourHG}
                 />
             </div>
+
             <NavFixed
                 setIsOpen={setIsOpen}
-                header={header}
+                header={dataHome?.header}
                 allTourHG={allTourHG}
             />
+
             <FeaturesHeader
-                header={header}
+                header={dataHome?.header}
                 allTourHG={allTourHG}
             />
-            <Banner
-                bannerData={banner}
-                title={'Blog Detail'}
-            ></Banner>
+
+            <div className='relative pt-[11.25vw] pb-[4vw] max-md:px-0 max-md:pt-[49vw]'>
+                <Image
+                    width={1600}
+                    height={567}
+                    alt={data?.featuredImage?.node?.altText || data?.featuredImage?.node?.title}
+                    src={data?.featuredImage?.node?.sourceUrl || '/images/t11.jpg'}
+                    className='absolute top-0 left-0 w-full h-full object-cover z-[-1]'
+                />
+                <div className='bg-white bg-opacity-[0.85] absolute w-full h-full left-0 top-0'></div>
+                <Image
+                    width={1600}
+                    height={435}
+                    alt='about-us-overlay'
+                    src='/images/abcloud.png'
+                    className='absolute bottom-0 left-0 w-full'
+                />
+                <div
+                    className={`max-md:text-[16.5vw] relative text-center font-heavitas text-[11.625vw] uppercase leading-[1]`}
+                    style={{
+                        backgroundImage: `url(${data?.featuredImage?.node?.sourceUrl || '/images/t11.jpg'})`,
+                        backgroundRepeat: 'repeat',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundPosition: 'center',
+                    }}
+                >
+                    {data?.destination?.nodes[0]?.name || data?.categories?.nodes[0]?.name || 'discovery ha giang'}
+                </div>
+            </div>
+
             <div>
                 <div className='max-md:mx-[4.27vw] mx-[8.12vw] mt-[8vw]'>
                     <h2 className=' text-[#171717] max-md:text-[5.867vw] text-[4vw] font-semibold capitalize md:leading-[110%] leading-[120%] '>
@@ -125,11 +152,12 @@ function BlogDetail({ data, dataHome, dataAboutUs, allTourHG }) {
                     </div>
                 </div>
             </div>
+
             {isMobile && (
                 <MenuRes
                     setIsOpen={setIsOpen}
                     isOpen={isOpen}
-                    header={header}
+                    header={dataHome?.header}
                     allTourHG={allTourHG}
                 />
             )}

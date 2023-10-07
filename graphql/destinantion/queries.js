@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client"
+import { gql } from '@apollo/client'
 
 const DESTINATIONS = `
 query {
@@ -11,42 +11,35 @@ query {
 }`
 
 const GET_ALL_DESTINATION = gql`
-query GetAllDestination(
-  $offset: Int!
-  $size: Int!
-  $destinationSlug: [String!]
-) {
-  allDestinations(
-    where: {
-      offsetPagination: { offset: $offset, size: $size }
-      orderby: { field: DATE, order: DESC }
-      taxQuery: {
-        taxArray: [
-          { taxonomy: DESTINATION, operator: IN, terms: $destinationSlug, field: SLUG }
-        ]
-      }
+    query GetAllDestination($offset: Int!, $size: Int!, $destinationSlug: [String!]) {
+        allDestinations(
+            where: {
+                offsetPagination: { offset: $offset, size: $size }
+                orderby: { field: DATE, order: DESC }
+                taxQuery: { taxArray: [{ taxonomy: DESTINATION, operator: IN, terms: $destinationSlug, field: SLUG }] }
+            }
+        ) {
+            nodes {
+                id
+                excerpt
+                title
+                slug
+                date
+                featuredImage {
+                    node {
+                        altText
+                        sourceUrl
+                    }
+                }
+            }
+            pageInfo {
+                offsetPagination {
+                    total
+                }
+            }
+        }
     }
-  ) {
-    nodes {
-        id
-        excerpt
-        title
-        slug
-        date
-        featuredImage {
-          node {
-            altText
-            sourceUrl
-          }
-      }
-    }
-    pageInfo {
-      offsetPagination {
-        total
-      }
-    }
-  }
-}`
+`
 
 const GET_DESTINATION_DETAIL = `
 query GetDestinationDetail($slug: ID!) {
@@ -55,6 +48,11 @@ query GetDestinationDetail($slug: ID!) {
     date
     content
     link
+    destination{
+      nodes{
+        name
+      }
+    }
     featuredImage {
       node {
         altText
@@ -83,4 +81,27 @@ const GET_META_DESTINATION = `
 }
 `
 
-export {DESTINATIONS,GET_ALL_DESTINATION,GET_DESTINATION_DETAIL,GET_META_DESTINATION}
+const GET_OTHER_DESTINATIONS = `
+{
+allDestinations(
+    first: 5
+    where: {orderby: {field: DATE, order: DESC}}
+  ) {
+    nodes {
+      slug
+    title
+    date
+    featuredImage {
+      node {
+        title
+        altText
+        sourceUrl
+      }
+    }
+      excerpt
+    }
+  }
+}
+`
+
+export { DESTINATIONS, GET_ALL_DESTINATION, GET_DESTINATION_DETAIL, GET_META_DESTINATION, GET_OTHER_DESTINATIONS }

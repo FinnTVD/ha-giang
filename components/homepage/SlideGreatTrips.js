@@ -13,7 +13,6 @@ export default function SlideGreatTrips({ allTourHG }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const swiperRef = useRef(null)
     const [indexTab, setIndexTab] = useState(0)
-    console.log('🚀 ~ file: SlideGreatTrips.js:16 ~ SlideGreatTrips ~ indexTab:', indexTab)
 
     const handleSlideChange = (swiper) => {
         setIndexTab(swiper.realIndex)

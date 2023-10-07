@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client"
+import { gql } from '@apollo/client'
 
 const CATEGORIES = `
 query {
@@ -11,42 +11,35 @@ query {
 }`
 
 const GET_ALL_BLOG = gql`
-query GetAllPost(
-  $offset: Int!
-  $size: Int!
-  $categorySlug: [String!]
-) {
-  posts(
-    where: {
-      offsetPagination: { offset: $offset, size: $size }
-      orderby: { field: DATE, order: DESC }
-      taxQuery: {
-        taxArray: [
-          { taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG }
-        ]
-      }
+    query GetAllPost($offset: Int!, $size: Int!, $categorySlug: [String!]) {
+        posts(
+            where: {
+                offsetPagination: { offset: $offset, size: $size }
+                orderby: { field: DATE, order: DESC }
+                taxQuery: { taxArray: [{ taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG }] }
+            }
+        ) {
+            nodes {
+                id
+                excerpt
+                title
+                slug
+                date
+                featuredImage {
+                    node {
+                        altText
+                        sourceUrl
+                    }
+                }
+            }
+            pageInfo {
+                offsetPagination {
+                    total
+                }
+            }
+        }
     }
-  ) {
-    nodes {
-        id
-        excerpt
-        title
-        slug
-        date
-        featuredImage {
-          node {
-            altText
-            sourceUrl
-          }
-      }
-    }
-    pageInfo {
-      offsetPagination {
-        total
-      }
-    }
-  }
-}`
+`
 
 const GET_BLOG_DETAIL = `
 query GetBlogDetail($slug: ID!) {
@@ -55,6 +48,11 @@ query GetBlogDetail($slug: ID!) {
     date
     content
     link
+    categories{
+      nodes{
+        name
+      }
+    }
     featuredImage {
       node {
         altText
@@ -84,4 +82,28 @@ const GET_META_BLOG = `
 }
 `
 
-export {CATEGORIES,GET_ALL_BLOG,GET_BLOG_DETAIL,GET_META_BLOG}
+const GET_OTHER_POST = `
+{
+  posts(
+    first: 5
+    where: {orderby: {field: DATE, order: DESC}}
+  ) {
+    nodes {
+      slug
+    title
+    date
+    featuredImage {
+      node {
+        title
+        altText
+        sourceUrl
+      }
+    }
+      excerpt
+    }
+  }
+}
+
+`
+
+export { CATEGORIES, GET_ALL_BLOG, GET_BLOG_DETAIL, GET_META_BLOG, GET_OTHER_POST }

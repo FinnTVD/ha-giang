@@ -20,6 +20,7 @@ export default function SlidePopupGallery({ section4, indexTab }) {
     return (
         <div className='relative w-full h-fit'>
             <Swiper
+                loop={true}
                 breakpoints={{
                     0: {
                         slidesPerView: 2,

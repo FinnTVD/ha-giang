@@ -4,19 +4,21 @@ import SlideCheersTour from './SlideCheersTour'
 import Button from '../global/Button'
 import { PopupBookNow } from '../global/PopupBookNow'
 
-export default function CheersTour({ section2, allTourHG }) {
+export default function CheersTour({ section2, allTourHG, isOther }) {
     return (
         <section
             id='cheers-tour'
             className='mt-[6.25vw] max-md:mt-[16vw] lg:flex lg:justify-between lg:flex-row-reverse relative lg:pl-[6.25vw] h-fit w-full z-[10]'
         >
-            <SubTitle
-                boxClass={
-                    'lg:!absolute lg:top-0 lg:left-[6.25vw] lg:!w-[26.875vw] max-md:!w-[58.4vw]  max-md:!px-[4.27vw]'
-                }
-                subTitle={section2?.subTitle}
-                title={section2?.title}
-            />
+            {!isOther && (
+                <SubTitle
+                    boxClass={
+                        'lg:!absolute lg:top-0 lg:left-[6.25vw] lg:!w-[26.875vw] max-md:!w-[58.4vw]  max-md:!px-[4.27vw]'
+                    }
+                    subTitle={section2?.subTitle}
+                    title={section2?.title}
+                />
+            )}
             <div className='max-md:px-[4.27vw] relative w-[35.4375vw] max-md:mt-[6vw] max-md:w-[86.4vw] max-md:h-[104.83733vw] lg:h-auto lg:mr-[5.69vw] max-md:mx-auto'>
                 <Image
                     className=' max-md:object-contain lg:object-fill z-[0]'

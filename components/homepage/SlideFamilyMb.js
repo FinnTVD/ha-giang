@@ -19,8 +19,9 @@ export default function SlideFamilyMb({ section6, setTourLeader }) {
         swiperRef.current?.slidePrev()
     }
     return (
-        <div className='w-full relative h-fit md:hidden'>
+        <div className='relative w-full h-fit md:hidden'>
             <Swiper
+                loop={true}
                 slidesPerView={1}
                 effect={'fade'}
                 onSlideChange={handleSlideChange}

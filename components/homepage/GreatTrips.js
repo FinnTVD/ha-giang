@@ -1,4 +1,3 @@
-'use client'
 import SubTitle from '../global/SubTitle'
 import SlideGreatTrips from './SlideGreatTrips'
 
@@ -8,7 +7,7 @@ export default function GreatTrips({ section3, allTourHG }) {
             <SubTitle
                 title={section3?.title}
                 subTitle={section3?.subtitle}
-                boxClass={'text-center lg:text-white lg:pt-[3vw] max-md:text-white'}
+                boxClass={`max-md:text-white lg:text-white text-center lg:pt-[3vw]`}
             />
             <SlideGreatTrips allTourHG={allTourHG} />
             <div className='absolute bottom-[10.69vw] left-0 z-[2] w-full h-[21.9375vw] bg-gradient-greatTrips max-md:hidden'></div>

@@ -18,13 +18,13 @@ export default function SlidePeople({ section6, indexTab }) {
     return (
         <div className='relative w-full h-fit'>
             <Swiper
+                loop={true}
                 grabCursor={true}
                 breakpoints={{
                     0: {
                         slidesPerView: 'auto',
                         spaceBetween: 16,
                         centeredSlides: true,
-                        loop: true,
                     },
                     768: {
                         slidesPerView: 3,

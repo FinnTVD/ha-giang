@@ -1,5 +1,7 @@
 import BlogDetail from '@/components/blog/BlogDetail'
-import { GET_DESTINATION_DETAIL } from '@/graphql/destinantion/queries'
+import OtherArticle from '@/components/blog/OtherArticle'
+import GreatTrips from '@/components/homepage/GreatTrips'
+import { GET_DESTINATION_DETAIL, GET_OTHER_DESTINATIONS } from '@/graphql/destinantion/queries'
 import { GET_DATA_HOME } from '@/graphql/home/queries'
 import getData from '@/utils/getData'
 import getDataDetail from '@/utils/getDataDetail'
@@ -55,8 +57,9 @@ export async function generateMetadata({ params: { slug } }) {
 
 async function page({ params: { slug } }) {
     const data = await getDataDetail(GET_DESTINATION_DETAIL, slug)
-    const dataDestination = data?.data?.destinations
     const dataHome = await getData(GET_DATA_HOME)
+    const dataOtherDestinations = await getData(GET_OTHER_DESTINATIONS)
+    const dataDestination = data?.data?.destinations
 
     return (
         <>
@@ -64,6 +67,18 @@ async function page({ params: { slug } }) {
                 data={dataDestination}
                 dataHome={dataHome?.data?.page?.homeHG}
                 allTourHG={dataHome?.data?.allTourHG}
+            />
+            <OtherArticle
+                dataOtherPost={dataOtherDestinations?.data?.allDestinations?.nodes}
+                slug={slug}
+                category='destinations'
+            />
+            <GreatTrips
+                allTourHG={dataHome?.data?.allTourHG}
+                section3={{
+                    subtitle: 'our',
+                    title: 'great trips',
+                }}
             />
         </>
     )

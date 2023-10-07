@@ -10,7 +10,7 @@ function BlogItem({ data, params }) {
             href={`${params}/${encodeURIComponent(data?.slug)}`}
             className='blog-item'
         >
-            <div className={`w-full`}>
+            <div className={`w-full font-poppins`}>
                 <div className='relative image'>
                     <div className='thumb md:rounded-[0.5vw] rounded-[2.13333vw]'>
                         <Image
