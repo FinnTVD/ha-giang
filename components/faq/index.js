@@ -7,6 +7,7 @@ import TheTrip from '../homepage/TheTrip'
 import Family from '../homepage/Family'
 import Banner from '../about-us/Banner'
 import FeaturesHeader from '../global/FeaturesHeader'
+import NavFixed from '../global/NavFixed'
 
 export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
     const { header, section6, section8 } = data
@@ -30,6 +31,11 @@ export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
                     allTourHG={allTourHG}
                 />
             </div>
+            <NavFixed
+                setIsOpen={setIsOpen}
+                header={header}
+                allTourHG={allTourHG}
+            />
             <FeaturesHeader
                 header={header}
                 allTourHG={allTourHG}

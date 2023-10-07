@@ -10,6 +10,7 @@ import MenuRes from '../global/MenuRes'
 import { useMediaQuery } from 'react-responsive'
 import Family from '../homepage/Family'
 import FeaturesHeader from '../global/FeaturesHeader'
+import NavFixed from '../global/NavFixed'
 
 export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
     const { header, section6 } = data
@@ -32,6 +33,11 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
                     allTourHG={allTourHG}
                 />
             </div>
+            <NavFixed
+                setIsOpen={setIsOpen}
+                header={header}
+                allTourHG={allTourHG}
+            />
             <FeaturesHeader
                 header={header}
                 allTourHG={allTourHG}
