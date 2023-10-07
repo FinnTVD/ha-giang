@@ -4,7 +4,6 @@ import { PopupBookNow } from './PopupBookNow'
 import IconPhoneHeader from '../icons/IconPhoneHeader'
 
 export default function FeaturesHeader({ header, allTourHG }) {
-    console.log('🚀 ~ file: FeaturesHeader.js:6 ~ FeaturesHeader ~ allTourHG:', allTourHG)
     const scrollToTop = () => {
         if (typeof window === 'undefined') return
         window.scrollTo(0, 0, { behavior: 'smooth' })

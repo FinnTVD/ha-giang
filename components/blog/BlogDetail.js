@@ -4,16 +4,17 @@ import TwitterShare from '../blogDetail/TwitterShare'
 import FaceBookShare from '../blogDetail/FaceBookShare'
 import LinkedInShare from '../blogDetail/LinkedInShare'
 import moment from 'moment'
-import { GET_ALL_BLOG } from '@/graphql/blog/queries'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
 import Banner from '../about-us/Banner'
 import { useState, useEffect } from 'react'
+import FeaturesHeader from '../global/FeaturesHeader'
+import NavFixed from '../global/NavFixed'
 
 function BlogDetail({ data, dataHome, dataAboutUs, allTourHG }) {
-    const { header } = dataHome
-    const { banner } = dataAboutUs
+    const header = dataHome?.header
+    const banner = dataAboutUs?.banner
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
@@ -33,6 +34,15 @@ function BlogDetail({ data, dataHome, dataAboutUs, allTourHG }) {
                     allTourHG={allTourHG}
                 />
             </div>
+            <NavFixed
+                setIsOpen={setIsOpen}
+                header={header}
+                allTourHG={allTourHG}
+            />
+            <FeaturesHeader
+                header={header}
+                allTourHG={allTourHG}
+            />
             <Banner
                 bannerData={banner}
                 title={'Blog Detail'}
@@ -58,7 +68,7 @@ function BlogDetail({ data, dataHome, dataAboutUs, allTourHG }) {
                         <span className='md:ml-[0.66vw] ml-[1.067vw] text-[#171717] font-manrope md:text-[1vw] md:mr-[1.75vw] mr-[4.8vw] text-[3.2vw] leading-[130%] '>
                             {moment(data?.date)?.format('DD MMMM YYYY')}
                         </span>
-                        <svg
+                        {/* <svg
                             xmlns='http://www.w3.org/2000/svg'
                             width='20'
                             height='21'
@@ -72,7 +82,7 @@ function BlogDetail({ data, dataHome, dataAboutUs, allTourHG }) {
                         </svg>
                         <span className='ml-[0.25vw]  text-[#171717] font-manrope md:text-[1vw] text-[3.2vw] leading-[130%] '>
                             Trinh Tran
-                        </span>
+                        </span> */}
                     </div>
                     <div className='w-full md:mt-[1.31vw] mt-[5.067vw] h-[1px] bg-[#44444424]'></div>
                 </div>

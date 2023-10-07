@@ -53,7 +53,6 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
     const navRef = useRef(null)
     const [isShow, setIsShow] = useState(false)
     const [prevScrollY, setPrevScrollY] = useState(0)
-    console.log('🚀 ~ file: NavFixed.js:56 ~ NavFixed ~ prevScrollY:', prevScrollY)
 
     useEffect(() => {
         if (typeof window === 'undefined') return
@@ -84,8 +83,8 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
         <nav
             ref={navRef}
             className={`${
-                isShow ? 'translate-y-0 opacity-100' : '-translate-y-[150%] opacity-0'
-            } fixed left-1/2 top-0 -translate-x-1/2 transition-all duration-1000 z-[999] flex justify-center pt-[1.5vw] max-md:pt-[5.8vw] `}
+                isShow ? 'translate-y-0 opacity-100' : ''
+            } fixed left-1/2 top-0 -translate-x-1/2 transition-all duration-1000 z-[999] flex justify-center pt-[1.5vw] max-md:pt-[5.8vw] font-heavitas -translate-y-[150%] opacity-0`}
         >
             <div className='w-[calc(100vw-12vw)] max-lg:w-[calc(100vw-8.54vw)] lg:bg-white rounded-[1vw] flex items-center justify-between h-fit lg:px-[1.88vw]'>
                 <Link href={'/'}>
