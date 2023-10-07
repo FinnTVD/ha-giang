@@ -52,8 +52,10 @@ const inputMobileStyle = {
 }
 
 export default function BookingOnline({ data, title }) {
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
     const [ip, setIp] = useState('')
+    // const [selfDriving, setSelfDriving] = useState(0)
+    // const [localDriver, setLocalDriver] = useState(0)
     const router = useRouter()
 
     const BookingSchema = Yup.object({
@@ -186,6 +188,7 @@ export default function BookingOnline({ data, title }) {
                                 <div className='text-[0.875vw] font-normal leading-[150%] max-md:text-[3.46vw]'>
                                     {data?.longTimeTourDay} days of self-driving
                                 </div>
+                                {/* {!isMobile ? ( */}
                                 <div
                                     className='w-[12.1875vw] rounded-[0.5vw] max-md:max-md:w-[30.13vw] px-[0.5vw]
                                 max-md:h-[10.66vw] bg-white max-md:rounded-[2.13vw] max-md:flex max-md:items-center max-md:py-[3.2vw] max-md:px-[4.26vw]'
@@ -214,6 +217,7 @@ export default function BookingOnline({ data, title }) {
                                         />
                                     </TextField.Root>
                                 </div>
+                                {/* )  */}
                             </div>
                             <div className='flex justify-between my-[0.75vw] h-[2.5vw] items-center max-md:my-0 max-md:h-[10.66vw]'>
                                 <div className='text-[0.875vw] font-normal leading-[150%] max-md:text-[3.46vw]'>
@@ -281,7 +285,7 @@ export default function BookingOnline({ data, title }) {
                                     placeholder='Name *'
                                 />
                             </div>
-                            <div className='col-span-2 hidden max-md:block'>
+                            <div className='hidden col-span-2 max-md:block'>
                                 <TextField.Input
                                     {...register('email')}
                                     style={isMobile ? inputMobileStyle : inputStyle}
@@ -290,7 +294,7 @@ export default function BookingOnline({ data, title }) {
                                     placeholder='Email *'
                                 />
                             </div>
-                            <div className='col-span-2 hidden max-md:block'>
+                            <div className='hidden col-span-2 max-md:block'>
                                 <TextField.Input
                                     {...register('phone')}
                                     style={isMobile ? inputMobileStyle : inputStyle}

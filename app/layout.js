@@ -45,15 +45,15 @@ export default function RootLayout({ children }) {
     return (
         <html lang='en'>
             <ApolloWrapper>
-                <body
-                    suppressHydrationWarning={true}
-                    className={`bg-white text-black ${heavitas.className} ${tomatoes.className} ${roboto.className} ${poppins.className} w-full h-[100vh] overflow-y-scroll`}
-                >
-                    <Theme>
+                <Theme>
+                    <body
+                        suppressHydrationWarning={true}
+                        className={`bg-white text-black ${heavitas.className} ${tomatoes.className} ${roboto.className} ${poppins.className} w-full h-[100vh] overflow-y-scroll`}
+                    >
                         {children}
                         <Footer />
-                    </Theme>
-                </body>
+                    </body>
+                </Theme>
             </ApolloWrapper>
         </html>
     )

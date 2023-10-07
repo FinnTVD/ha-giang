@@ -11,6 +11,8 @@ import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
 import Banner from '../about-us/Banner'
 import IconFilterDestination from '../icons/IconFilterDestination'
+import FeaturesHeader from '../global/FeaturesHeader'
+import NavFixed from '../global/NavFixed'
 function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }) {
     const [value, setValue] = useState(arrayCateSlug)
     const eleRef = useRef()
@@ -65,6 +67,15 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
                     allTourHG={allTourHG}
                 />
             </div>
+            <NavFixed
+                setIsOpen={setIsOpen}
+                header={header}
+                allTourHG={allTourHG}
+            />
+            <FeaturesHeader
+                header={header}
+                allTourHG={allTourHG}
+            />
             <Banner
                 bannerData={banner}
                 title={'Our blog'}

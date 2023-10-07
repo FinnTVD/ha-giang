@@ -7,7 +7,7 @@ export default function Banner({ bannerData, title }) {
                 width={1600}
                 height={567}
                 alt='about-us-banner'
-                src={bannerData?.background?.sourceUrl}
+                src={bannerData?.background?.sourceUrl || '/images/t11.jpg'}
                 className='absolute top-0 left-0 w-full h-full object-cover z-[-1]'
             ></Image>
             <div className='bg-white bg-opacity-[0.85] absolute w-full h-full left-0 top-0'></div>
@@ -23,7 +23,7 @@ export default function Banner({ bannerData, title }) {
                     title?.includes('destinations') ? 'max-md:text-[11.2vw]' : 'max-md:text-[16.5vw]'
                 } relative text-center font-heavitas text-[11.625vw] uppercase leading-[1]`}
                 style={{
-                    backgroundImage: `url(${bannerData?.textBackground?.sourceUrl})`,
+                    backgroundImage: `url(${bannerData?.textBackground?.sourceUrl || '/images/t11.jpg'})`,
                     backgroundRepeat: 'repeat',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',

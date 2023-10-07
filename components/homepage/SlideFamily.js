@@ -17,7 +17,6 @@ const style4 = {
 export default function SlideFamily({ section6, setTourLeader }) {
     const swiperRef = useRef(null)
     const [indexSlider, setIndexSlider] = useState(0)
-    console.log('🚀 ~ file: SlideFamily.js:20 ~ SlideFamily ~ indexSlider:', indexSlider)
 
     const handleSlideChange = (swiper) => {
         setTourLeader(section6?.listCategory[0]?.listAddress[swiper.realIndex])

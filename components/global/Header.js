@@ -7,6 +7,7 @@ import BookNowHeader from '../homepage/BookNowHeader'
 import MenuRes from './MenuRes'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import NavFixed from './NavFixed'
 
 export default function Header({ header, allTourHG }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
@@ -22,6 +23,11 @@ export default function Header({ header, allTourHG }) {
         <header className='relative w-full h-screen max-md:h-[90vh] overflow-hidden'>
             <div className='max-md:h-[70vh] h-screen relative'>
                 <Nav
+                    setIsOpen={setIsOpen}
+                    header={header}
+                    allTourHG={allTourHG}
+                />
+                <NavFixed
                     setIsOpen={setIsOpen}
                     header={header}
                     allTourHG={allTourHG}

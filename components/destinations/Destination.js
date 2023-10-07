@@ -10,6 +10,8 @@ import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
 import Banner from '../about-us/Banner'
+import FeaturesHeader from '../global/FeaturesHeader'
+import NavFixed from '../global/NavFixed'
 function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTourHG }) {
     const [destination, setDestination] = useState(arrayDesSlug)
     const eleRef = useRef()
@@ -43,8 +45,8 @@ function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTou
     const pageInfo = data?.allDestinations?.pageInfo?.offsetPagination?.total
     const totalPage = Math.ceil(pageInfo / 12)
 
-    const { header } = dataHome
-    const { banner } = dataAboutUs
+    const header = dataHome?.header
+    const banner = dataAboutUs?.banner
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
@@ -64,6 +66,15 @@ function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTou
                     allTourHG={allTourHG}
                 />
             </div>
+            <NavFixed
+                setIsOpen={setIsOpen}
+                header={header}
+                allTourHG={allTourHG}
+            />
+            <FeaturesHeader
+                header={header}
+                allTourHG={allTourHG}
+            />
             <Banner
                 bannerData={banner}
                 title={'Our destinations'}
