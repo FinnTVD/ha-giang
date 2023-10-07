@@ -15,13 +15,6 @@ import NavFixed from '../global/NavFixed'
 function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTourHG }) {
     const [destination, setDestination] = useState(arrayDesSlug)
     const eleRef = useRef()
-    const handleChange = (e) => {
-        if (e.target.value === '') {
-            setDestination(arrayDesSlug)
-        } else {
-            setDestination(e.target.value)
-        }
-    }
     const [activePage, setActivePage] = useState(0)
     const { data, refetch, loading } = useQuery(GET_ALL_DESTINATION, {
         variables: {
@@ -30,6 +23,15 @@ function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTou
             destinationSlug: destination,
         },
     })
+
+    const handleChange = (e) => {
+        if (e.target.value === '') {
+            setDestination(arrayDesSlug)
+        } else {
+            setDestination(e.target.value)
+        }
+    }
+
     const handleChangePage = (index) => {
         setActivePage(index)
         refetch({
@@ -39,8 +41,10 @@ function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTou
     }
 
     useEffect(() => {
+        if (activePage === 0) return
         eleRef?.current?.scrollIntoView({ behavior: 'smooth' })
     }, [activePage])
+
     const allDestination = data?.allDestinations?.nodes
     const pageInfo = data?.allDestinations?.pageInfo?.offsetPagination?.total
     const totalPage = Math.ceil(pageInfo / 12)
@@ -133,7 +137,7 @@ function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTou
                         {Array.from({ length: totalPage }, (_, index) => (
                             <div
                                 key={index}
-                                onClick={() => handleChangePage(index)}
+                                onClick={() => handleChangePage(index + 1)}
                                 className={`cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center ${
                                     activePage === index ? 'bg-primary-70  opacity-[1]' : 'bg-orange-400 opacity-[0.2]'
                                 }`}

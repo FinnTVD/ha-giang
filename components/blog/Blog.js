@@ -16,13 +16,6 @@ import NavFixed from '../global/NavFixed'
 function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }) {
     const [value, setValue] = useState(arrayCateSlug)
     const eleRef = useRef()
-    const handleChange = (e) => {
-        if (e.target.value === '') {
-            setValue(arrayCateSlug)
-        } else {
-            setValue(e.target.value)
-        }
-    }
     const [activePage, setActivePage] = useState(0)
     const { data, refetch, loading } = useQuery(GET_ALL_BLOG, {
         variables: {
@@ -31,6 +24,20 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
             categorySlug: value,
         },
     })
+
+    useEffect(() => {
+        if (activePage === 0) return
+        eleRef?.current?.scrollIntoView({ behavior: 'smooth' })
+    }, [activePage])
+
+    const handleChange = (e) => {
+        if (e.target.value === '') {
+            setValue(arrayCateSlug)
+        } else {
+            setValue(e.target.value)
+        }
+    }
+
     const handleChangePage = (index) => {
         setActivePage(index)
         refetch({
@@ -39,9 +46,6 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
         })
     }
 
-    useEffect(() => {
-        eleRef?.current?.scrollIntoView({ behavior: 'smooth' })
-    }, [activePage])
     const allBlogData = data?.posts?.nodes
     const pageInfo = data?.posts?.pageInfo?.offsetPagination?.total
     const totalPage = Math.ceil(pageInfo / 12)
@@ -135,7 +139,7 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
                         {Array.from({ length: totalPage }, (_, index) => (
                             <div
                                 key={index}
-                                onClick={() => handleChangePage(index)}
+                                onClick={() => handleChangePage(index + 1)}
                                 className={`cursor-pointer md:w-[2.125vw] md:h-[2.125vw] w-[9.07vw] h-[9.07vw] rounded-[50%] flex justify-center items-center ${
                                     activePage === index ? 'bg-primary-70 opacity-[1]' : 'bg-orange-400 opacity-[0.2]'
                                 }`}
