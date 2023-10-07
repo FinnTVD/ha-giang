@@ -15,37 +15,43 @@ const listNav = [
     },
     {
         id: 3,
-        title: 'TOUR',
-        href: '/tour',
+        title: 'TOUR 3D3N',
+        href: '/ha-giang-loop-tour-3d3n',
     },
     {
         id: 4,
+        title: 'TOUR 4D4N',
+        href: '/epic-motorbike-tour-4d4n',
+    },
+    {
+        id: 5,
         title: 'DESTINATIONS',
         href: '/destinations',
     },
     {
-        id: 5,
+        id: 6,
         title: 'BLOG',
         href: '/blog',
     },
     {
-        id: 6,
+        id: 7,
         title: 'FAQ',
         href: '/faq',
     },
     {
-        id: 7,
+        id: 8,
         title: 'CONTACT',
         href: '/contact',
     },
     {
-        id: 8,
+        id: 9,
         title: 'VIETNAM CHEERS HOSTEL',
         href: '/viet-nam-cheers-hostel',
     },
 ]
 
 export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
+    console.log('🚀 ~ file: MenuRes.js:54 ~ MenuRes ~ allTourHG:', allTourHG)
     return (
         <div
             className={`${
