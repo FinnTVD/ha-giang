@@ -6,6 +6,7 @@ import Image from 'next/image'
 import FeaturesHeader from '../global/FeaturesHeader'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
+import NavFixed from '../global/NavFixed'
 
 export default function HeaderContact({ dataHome, data }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
@@ -26,6 +27,11 @@ export default function HeaderContact({ dataHome, data }) {
                     allTourHG={dataHome?.data?.allTourHG}
                 />
             </div>
+            <NavFixed
+                setIsOpen={setIsOpen}
+                header={dataHome?.data?.page?.homeHG?.header}
+                allTourHG={dataHome?.data?.allTourHG}
+            />
             <FeaturesHeader
                 header={dataHome?.data?.page?.homeHG?.header}
                 allTourHG={dataHome?.data?.allTourHG}
