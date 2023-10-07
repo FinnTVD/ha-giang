@@ -51,7 +51,7 @@ const inputMobileStyle = {
 }
 
 export default function BookingOnlineV2({ tour = '', allTourHG }) {
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
     const [ip, setIp] = useState('')
     const [selfDriving, setSelfDriving] = useState(0)
     const [localDriver, setLocalDriver] = useState(0)
@@ -245,15 +245,15 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                             <span className='text-[0.875vw] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733vw] max-md:mr-[3.2vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw] block mr-[0.75vw]'>
                                                 ${selfPrice}
                                             </span>
-                                            <button
+                                            <div
                                                 onClick={() => {
                                                     if (selfDriving === 0) return
                                                     setSelfDriving(selfDriving - 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] cursor-pointer max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 -
-                                            </button>
+                                            </div>
                                             <span className='flex items-center mx-[0.5vw] text-[0.875vw] font-bold leading-[1.57] max-md:mx-[2.13vw] max-md:text-[3.733vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw]'>
                                                 {selfDriving === 0
                                                     ? '00'
@@ -261,14 +261,14 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                                     ? selfDriving
                                                     : '0' + selfDriving}
                                             </span>
-                                            <button
+                                            <div
                                                 onClick={() => {
                                                     setSelfDriving(selfDriving + 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] cursor-pointer max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 +
-                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='flex justify-between my-[0.75vw] h-[2.5vw] items-center max-md:my-0 max-md:h-[10.66vw]'>
@@ -279,15 +279,15 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                             <span className='text-[0.875vw] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733vw] max-md:mr-[3.2vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw] block mr-[0.75vw]'>
                                                 ${localPrice}
                                             </span>
-                                            <button
+                                            <div
                                                 onClick={() => {
                                                     if (localDriver === 0) return
                                                     setLocalDriver(localDriver - 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] cursor-pointer max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 -
-                                            </button>
+                                            </div>
                                             <span className='flex items-center mx-[0.5vw] text-[0.875vw] font-bold leading-[1.57] max-md:mx-[2.13vw] max-md:text-[3.733vw] max-md:tracking-[0.00933vw] tracking-[0.00219vw]'>
                                                 {localDriver === 0
                                                     ? '00'
@@ -295,14 +295,14 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                                                     ? localDriver
                                                     : '0' + localDriver}
                                             </span>
-                                            <button
+                                            <div
                                                 onClick={() => {
                                                     setLocalDriver(localDriver + 1)
                                                 }}
-                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                                                className='w-[2.25vw] h-[2.25vw] max-md:w-[9.6vw] cursor-pointer max-md:h-[9.6vw] max-md:text-[6.5vw] text-[1.5vw] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                                             >
                                                 +
-                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                     <Separator

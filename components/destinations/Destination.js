@@ -10,6 +10,7 @@ import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
 import Banner from '../about-us/Banner'
+import FeaturesHeader from '../global/FeaturesHeader'
 function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTourHG }) {
     const [destination, setDestination] = useState(arrayDesSlug)
     const eleRef = useRef()
@@ -64,6 +65,10 @@ function Destination({ arrayDesInit, arrayDesSlug, dataHome, dataAboutUs, allTou
                     allTourHG={allTourHG}
                 />
             </div>
+            <FeaturesHeader
+                header={header}
+                allTourHG={allTourHG}
+            />
             <Banner
                 bannerData={banner}
                 title={'Our destinations'}

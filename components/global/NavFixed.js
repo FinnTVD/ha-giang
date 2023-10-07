@@ -2,7 +2,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { PopupNav } from './PopupNav'
-
+import { useEffect, useRef, useState } from 'react'
+import useDebounce from '@/hooks/useDebounce'
 // import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuTrigger } from '../ui/navigation-menu'
 
 const listNav = [
@@ -48,16 +49,46 @@ const listNav = [
     },
 ]
 
-export default function Nav({ setIsOpen, header, allTourHG }) {
+export default function NavFixed({ setIsOpen, header, allTourHG }) {
+    const navRef = useRef(null)
+    const [isShow, setIsShow] = useState(false)
+    const [prevScrollY, setPrevScrollY] = useState(0)
+    console.log('🚀 ~ file: NavFixed.js:56 ~ NavFixed ~ prevScrollY:', prevScrollY)
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return
+        document.addEventListener('scroll', handleScroll)
+        return () => {
+            document.removeEventListener('scroll', handleScroll)
+        }
+    }, [prevScrollY])
+
+    const handleScroll = () => {
+        if (typeof window === 'undefined' || !navRef.current) return
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+        if (scrollTop >= 500) {
+            if (scrollTop > prevScrollY) {
+                //Cuộn xuống
+                setIsShow(false)
+            } else if (scrollTop < prevScrollY) {
+                //Cuộn lên
+                setIsShow(true)
+            }
+        } else {
+            setIsShow(false)
+        }
+        setPrevScrollY(scrollTop)
+    }
+
     return (
         <nav
-            className={`w-full relative pt-[1.5vw] max-md:pt-[5.8vw] transition-all duration-1000 z-[999] flex justify-center font-heavitas`}
+            ref={navRef}
+            className={`${
+                isShow ? 'translate-y-0 opacity-100' : '-translate-y-[150%] opacity-0'
+            } fixed left-1/2 top-0 -translate-x-1/2 transition-all duration-1000 z-[999] flex justify-center pt-[1.5vw] max-md:pt-[5.8vw] `}
         >
             <div className='w-[calc(100vw-12vw)] max-lg:w-[calc(100vw-8.54vw)] lg:bg-white rounded-[1vw] flex items-center justify-between h-fit lg:px-[1.88vw]'>
-                <Link
-                    href={'/'}
-                    onClick={() => setIsOpen(false)}
-                >
+                <Link href={'/'}>
                     <Image
                         className='w-[4.75vw] h-[4.16vw] max-md:w-[18.13333vw] max-md:h-[15.8976vw] object-cover lg:my-[0.913vw]'
                         src={header?.logo?.sourceUrl || '/images/logo.png'}

@@ -50,7 +50,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
         <div
             className={`${
                 isOpen ? 'translate-x-0' : 'translate-x-[110%]'
-            } fixed top-0 bottom-0 left-0 z-50 w-full h-screen bg-white lg:hidden pt-[9.067vw] px-[12.13vw] transition-all duration-300`}
+            } fixed top-0 bottom-0 left-0 z-[999999] w-full h-screen bg-white lg:hidden pt-[9.067vw] px-[12.13vw] transition-all duration-300 font-heavitas`}
         >
             <Image
                 className='z-0 object-cover'

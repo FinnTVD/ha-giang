@@ -1,7 +1,6 @@
 'use client'
 
-import hoverEffect from 'hover-effect'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import SubTitle from '../global/SubTitle'
 import ItemLane from './ItemLane'
 import Image from 'next/image'
@@ -50,7 +49,7 @@ export default function BestTripEver({ data }) {
     const [count, setCount] = useState(0)
     const [prev, setPrev] = useState(arr[count]?.src)
     const [next, setNext] = useState(arr[count + 1]?.src)
-    const [animation, setAnimation] = useState(null)
+    // const [animation, setAnimation] = useState(null)
     const [indexCurrent, setIndexCurrent] = useState(1)
     const [indexMb, setIndexMb] = useState(0)
 
@@ -61,9 +60,9 @@ export default function BestTripEver({ data }) {
 
     let dataLength = 0
     let dataArr
-    if(data){
+    if (data) {
         dataLength = data?.listDay?.length
-        dataArr = new Array(dataLength-1).fill(0)
+        dataArr = new Array(dataLength - 1).fill(0)
     }
 
     // useEffect(() => {
@@ -86,14 +85,14 @@ export default function BestTripEver({ data }) {
     //     setAnimation(a)
     // }, [next, prev])
 
-    useEffect(() => {
-        const elementToRemove = document.querySelectorAll('canvas')
-        if (elementToRemove?.length >= 2) {
-            setTimeout(() => {
-                elementToRemove[0]?.remove()
-            }, 100)
-        }
-    }, [next, prev])
+    // useEffect(() => {
+    //     const elementToRemove = document.querySelectorAll('canvas')
+    //     if (elementToRemove?.length >= 2) {
+    //         setTimeout(() => {
+    //             elementToRemove[0]?.remove()
+    //         }, 100)
+    //     }
+    // }, [next, prev])
 
     return (
         <section
@@ -108,9 +107,17 @@ export default function BestTripEver({ data }) {
                 {isMobile && (
                     <div className='flex items-center mt-[5.3vw]'>
                         <div class='boxMap relative h-[77.6vw] w-[91.4vw]'>
-                            {arr.map((item, index) => 
-                                <Image key={index} src={item.src} width={343} height={291} className={`${index===indexMb ? 'opacity-100' : 'opacity-0'} absolute w-full h-full object-contain transition-all duration-300`}></Image>
-                            )}
+                            {arr.map((item, index) => (
+                                <Image
+                                    key={index}
+                                    src={item.src}
+                                    width={343}
+                                    height={291}
+                                    className={`${
+                                        index === indexMb ? 'opacity-100' : 'opacity-0'
+                                    } absolute w-full h-full object-contain transition-all duration-300`}
+                                ></Image>
+                            ))}
                         </div>
                     </div>
                 )}
@@ -131,9 +138,9 @@ export default function BestTripEver({ data }) {
                         />
                         <Image
                             style={{
-                                transform: `translateX(${
-                                    indexMb * 33.2 + 'vw'
-                                }) ${indexMb === data?.listDay?.length-1 ? 'rotateY(180deg)' : ''}`,
+                                transform: `translateX(${indexMb * 33.2 + 'vw'}) ${
+                                    indexMb === data?.listDay?.length - 1 ? 'rotateY(180deg)' : ''
+                                }`,
                             }}
                             className={`md:hidden object-contain ml-[8.8vw] transition-all duration-300 w-[6.4vw] h-auto`}
                             src={'/images/motor.svg'}
@@ -144,21 +151,64 @@ export default function BestTripEver({ data }) {
                         />
                     </div>
                     <div className='flex items-center ml-[12vw] gap-[3.2vw] md:hidden'>
-                        {dataArr?.map((item, indx) => 
-                        <>  
-                            <svg className='w-[2.1vw]' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
-                                <circle cx="4" cy="4" r="3" stroke="#B34B1E" stroke-width="2"/>
-                            </svg>
-                            <div className='relative overflow-hidden'>
-                                <svg className='w-[24.5vw]' xmlns="http://www.w3.org/2000/svg" width="94" height="3" viewBox="0 0 94 3" fill="none">
-                                    <path d="M1 1.07812H93" stroke="#B34B1E" stroke-opacity="0.26" stroke-width="2" stroke-linecap="round" stroke-dasharray="10 10"/>
+                        {dataArr?.map((item, indx) => (
+                            <Fragment key={indx}>
+                                <svg
+                                    className='w-[2.1vw]'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='8'
+                                    height='8'
+                                    viewBox='0 0 8 8'
+                                    fill='none'
+                                >
+                                    <circle
+                                        cx='4'
+                                        cy='4'
+                                        r='3'
+                                        stroke='#B34B1E'
+                                        stroke-width='2'
+                                    />
                                 </svg>
-                                <div className={`${indx<=indexMb-1 ? 'translate-x-0' : 'translate-x-[-100%]'} absolute w-full h-[0.5vw] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}></div>
-                            </div>
-                        </>
-                        )}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
-                            <circle cx="4" cy="4" r="3" stroke="#B34B1E" stroke-width="2"/>
+                                <div className='relative overflow-hidden'>
+                                    <svg
+                                        className='w-[24.5vw]'
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='94'
+                                        height='3'
+                                        viewBox='0 0 94 3'
+                                        fill='none'
+                                    >
+                                        <path
+                                            d='M1 1.07812H93'
+                                            stroke='#B34B1E'
+                                            stroke-opacity='0.26'
+                                            stroke-width='2'
+                                            stroke-linecap='round'
+                                            stroke-dasharray='10 10'
+                                        />
+                                    </svg>
+                                    <div
+                                        className={`${
+                                            indx <= indexMb - 1 ? 'translate-x-0' : 'translate-x-[-100%]'
+                                        } absolute w-full h-[0.5vw] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}
+                                    ></div>
+                                </div>
+                            </Fragment>
+                        ))}
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='8'
+                            height='8'
+                            viewBox='0 0 8 8'
+                            fill='none'
+                        >
+                            <circle
+                                cx='4'
+                                cy='4'
+                                r='3'
+                                stroke='#B34B1E'
+                                stroke-width='2'
+                            />
                         </svg>
                     </div>
                     <div className='flex gap-x-[5.13vw] relative w-fit'>
@@ -169,25 +219,51 @@ export default function BestTripEver({ data }) {
                                 key={index}
                                 length={data?.listDay?.length}
                                 index={index}
+                                setIndexCurrent={setIndexCurrent}
                             />
                         ))}
                         <div className='md:hidden mt-[5.3vw]'>
                             <div className='flex gap-[7.5vw]'>
-                                {data?.listDay?.map((e, index) => 
-                                    <div onClick={() => setIndexMb(index)} className={`${index===indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'} md:hidden w-[25.3vw] h-[15.46vw] rounded-[2vw] flex flex-col justify-center items-center`}>
-                                        <span className={`${index===indexMb ? 'text-white' : 'text-[#898989]'} text-[3.7vw] leading-[1.42] gap-[1vw] font-bold`}> DAY {index+1} </span>
-                                        <span className={`${index===indexMb ? 'text-white' : 'text-[#898989]'} text-[3.2vw]`}> {e?.distanceLength} </span>
+                                {data?.listDay?.map((e, index) => (
+                                    <div
+                                        onClick={() => setIndexMb(index)}
+                                        className={`${
+                                            index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
+                                        } md:hidden w-[25.3vw] h-[15.46vw] rounded-[2vw] flex flex-col justify-center items-center`}
+                                    >
+                                        <span
+                                            className={`${
+                                                index === indexMb ? 'text-white' : 'text-[#898989]'
+                                            } text-[3.7vw] leading-[1.42] gap-[1vw] font-bold`}
+                                        >
+                                            {' '}
+                                            DAY {index + 1}{' '}
+                                        </span>
+                                        <span
+                                            className={`${
+                                                index === indexMb ? 'text-white' : 'text-[#898989]'
+                                            } text-[3.2vw]`}
+                                        >
+                                            {' '}
+                                            {e?.distanceLength}{' '}
+                                        </span>
                                     </div>
-                                )}
+                                ))}
                             </div>
                             <div className='mt-[3.7vw]'>
-                                {data?.listDay?.map((e, index) => 
-                                    <div className={`${index===indexMb ? 'block' : 'hidden'} flex gap-[2.1vw] flex-wrap`}>
-                                        {e?.listProvince?.map((item) => 
-                                            <div className='w-[29vw] h-[7.4vw] flex-shrink-0 text-[#2E2E2E] text-[3.4vw] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1vw]'>{item.province}</div>
-                                        )}
+                                {data?.listDay?.map((e, index) => (
+                                    <div
+                                        className={`${
+                                            index === indexMb ? 'block' : 'hidden'
+                                        } flex gap-[2.1vw] flex-wrap`}
+                                    >
+                                        {e?.listProvince?.map((item) => (
+                                            <div className='w-[29vw] h-[7.4vw] flex-shrink-0 text-[#2E2E2E] text-[3.4vw] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1vw]'>
+                                                {item.province}
+                                            </div>
+                                        ))}
                                     </div>
-                                )}
+                                ))}
                             </div>
                         </div>
 
@@ -233,9 +309,17 @@ export default function BestTripEver({ data }) {
             {!isMobile && (
                 <div className='flex items-center'>
                     <div class='boxMap relative h-[45vw] w-[45vw]'>
-                        {arr.map((item, index) => 
-                            <Image key={index} src={item.src} width={900} height={716} className={`${index===(indexCurrent-1) ? 'opacity-100' : 'opacity-0'} absolute w-full h-full object-contain transition-all duration-300`}></Image>
-                        )}
+                        {arr.map((item, index) => (
+                            <Image
+                                key={index}
+                                src={item.src}
+                                width={900}
+                                height={716}
+                                className={`${
+                                    index === indexCurrent - 1 ? 'opacity-100' : 'opacity-0'
+                                } absolute w-full h-full object-contain transition-all duration-300`}
+                            ></Image>
+                        ))}
                         {/* <Image src='/images/map1.png' width={900} height={716}></Image>
                         <Image src='/images/map1.png' width={900} height={716}></Image>
                         <Image src='/images/map1.png' width={900} height={716}></Image> */}
