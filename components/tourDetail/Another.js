@@ -12,8 +12,8 @@ export default function Another({ allTourHG, slug, data }) {
                 subTitleClass={'text-center'}
             /> */}
             <SubTitle
-                subTitle={data?.subtitle}
-                title={data?.title}
+                subTitle={data?.subtitle || 'Another'}
+                title={data?.title || 'Great Trips'}
                 boxClass={'flex flex-col text-center'}
             />
             <div className='flex justify-center mt-[2.625vw] relative z-[1] gap-x-[1.5vw] max-md:mt-[8vw] max-md:px-[4.27vw]'>

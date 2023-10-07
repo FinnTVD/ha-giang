@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import SubTitle from '../global/SubTitle'
 import ItemLane from './ItemLane'
 import Image from 'next/image'
@@ -9,53 +9,53 @@ import { useMediaQuery } from 'react-responsive'
 import { useParams } from 'next/navigation'
 import IconBtnLeft from '../icons/IconBtnLeft'
 
-const arr = [
-    {
-        id: 1,
-        src: '/images/map1.png',
-    },
-    {
-        id: 2,
-        src: '/images/map2.png',
-    },
-    {
-        id: 3,
-        src: '/images/map3.png',
-    },
-]
+// const arr = [
+//     {
+//         id: 1,
+//         src: '/images/map1.png',
+//     },
+//     {
+//         id: 2,
+//         src: '/images/map2.png',
+//     },
+//     {
+//         id: 3,
+//         src: '/images/map3.png',
+//     },
+// ]
 
-const listAddress = [
-    {
-        id: 1,
-        longLane: 129,
-        listDistrict: ['Ha Giang', 'Tam Son', 'Yen Minh', 'Dong Van'],
-    },
-    {
-        id: 2,
-        longLane: 129,
-        listDistrict: ['Dong Van', 'Lung Cu', 'Ma Pi Lang', 'Nho Que', 'Du Gia'],
-    },
-    {
-        id: 3,
-        longLane: 129,
-        listDistrict: ['Meo Vac', 'Mau Due', 'Lung Tam', 'Quan Ba', 'Ha Giang'],
-    },
-]
+// const listAddress = [
+//     {
+//         id: 1,
+//         longLane: 129,
+//         listDistrict: ['Ha Giang', 'Tam Son', 'Yen Minh', 'Dong Van'],
+//     },
+//     {
+//         id: 2,
+//         longLane: 129,
+//         listDistrict: ['Dong Van', 'Lung Cu', 'Ma Pi Lang', 'Nho Que', 'Du Gia'],
+//     },
+//     {
+//         id: 3,
+//         longLane: 129,
+//         listDistrict: ['Meo Vac', 'Mau Due', 'Lung Tam', 'Quan Ba', 'Ha Giang'],
+//     },
+// ]
 
 export default function BestTripEver({ data }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const param = useParams()
 
     const [count, setCount] = useState(0)
-    const [prev, setPrev] = useState(arr[count]?.src)
-    const [next, setNext] = useState(arr[count + 1]?.src)
+    const [prev, setPrev] = useState(data?.listDay[count]?.router?.sourceUrl)
+    const [next, setNext] = useState(data?.listDay[count + 1]?.router?.sourceUrl)
     // const [animation, setAnimation] = useState(null)
     const [indexCurrent, setIndexCurrent] = useState(1)
     const [indexMb, setIndexMb] = useState(0)
 
     useEffect(() => {
-        setPrev(arr[count]?.src)
-        setNext(arr[count]?.src)
+        setPrev(data?.listDay[count]?.router?.sourceUrl)
+        setNext(data?.listDay[count]?.router?.sourceUrl)
     }, [count])
 
     let dataLength = 0
@@ -107,10 +107,18 @@ export default function BestTripEver({ data }) {
                 {isMobile && (
                     <div className='flex items-center mt-[5.3vw]'>
                         <div class='boxMap relative h-[77.6vw] w-[91.4vw]'>
-                            {arr.map((item, index) => (
+                            <Image
+                                src={data?.backgroundMap?.sourceUrl}
+                                alt='router'
+                                width={343}
+                                height={291}
+                                className={`absolute w-full h-full object-contain transition-all duration-300`}
+                            />
+                            {data?.listDay?.map((item, index) => (
                                 <Image
                                     key={index}
-                                    src={item.src}
+                                    src={item?.router?.sourceUrl}
+                                    alt='router'
                                     width={343}
                                     height={291}
                                     className={`${
@@ -121,13 +129,13 @@ export default function BestTripEver({ data }) {
                         </div>
                     </div>
                 )}
-                <div className='mt-[2.88vw] max-md:mt-[5.3vw]'>
+                <div className='mt-[2.88vw] max-md:mt-[5.3vw] max-md:overflow-x-scroll'>
                     <div>
                         <Image
                             style={{
                                 transform: `translateX(${
-                                    (indexCurrent - 1) * 12.2 + (indexCurrent === listAddress?.length ? 1 : 0) + 'vw'
-                                }) ${indexCurrent === listAddress?.length ? 'rotateY(180deg)' : ''}`,
+                                    (indexCurrent - 1) * 12.2 + (indexCurrent === data?.listDay?.length ? 1 : 0) + 'vw'
+                                }) ${indexCurrent === data?.listDay?.length ? 'rotateY(180deg)' : ''}`,
                             }}
                             className={` w-[3.37vw] h-[2.25vw] object-contain ml-[1.2vw] transition-all duration-300 max-md:w-[6.4vw] max-md:h-auto max-md:hidden`}
                             src={'/images/motor.svg'}
@@ -151,8 +159,11 @@ export default function BestTripEver({ data }) {
                         />
                     </div>
                     <div className='flex items-center ml-[12vw] gap-[3.2vw] md:hidden'>
-                        {dataArr?.map((item, indx) => (
-                            <Fragment key={indx}>
+                        {data?.listDay?.slice(1)?.map((item, indx) => (
+                            <div
+                                key={indx}
+                                className='flex items-center gap-x-[1vw]'
+                            >
                                 <svg
                                     className='w-[2.1vw]'
                                     xmlns='http://www.w3.org/2000/svg'
@@ -171,7 +182,7 @@ export default function BestTripEver({ data }) {
                                 </svg>
                                 <div className='relative overflow-hidden'>
                                     <svg
-                                        className='w-[24.5vw]'
+                                        className='w-[26.5vw]'
                                         xmlns='http://www.w3.org/2000/svg'
                                         width='94'
                                         height='3'
@@ -193,7 +204,25 @@ export default function BestTripEver({ data }) {
                                         } absolute w-full h-[0.5vw] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}
                                     ></div>
                                 </div>
-                            </Fragment>
+                                {indx === data?.listDay?.length - 2 && (
+                                    <svg
+                                        className='w-[2.1vw]'
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='8'
+                                        height='8'
+                                        viewBox='0 0 8 8'
+                                        fill='none'
+                                    >
+                                        <circle
+                                            cx='4'
+                                            cy='4'
+                                            r='3'
+                                            stroke='#B34B1E'
+                                            stroke-width='2'
+                                        />
+                                    </svg>
+                                )}
+                            </div>
                         ))}
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
@@ -236,16 +265,14 @@ export default function BestTripEver({ data }) {
                                                 index === indexMb ? 'text-white' : 'text-[#898989]'
                                             } text-[3.7vw] leading-[1.42] gap-[1vw] font-bold`}
                                         >
-                                            {' '}
-                                            DAY {index + 1}{' '}
+                                            DAY {index + 1}
                                         </span>
                                         <span
                                             className={`${
                                                 index === indexMb ? 'text-white' : 'text-[#898989]'
                                             } text-[3.2vw]`}
                                         >
-                                            {' '}
-                                            {e?.distanceLength}{' '}
+                                            {e?.distanceLength}
                                         </span>
                                     </div>
                                 ))}
@@ -284,10 +311,10 @@ export default function BestTripEver({ data }) {
                         <button
                             onClick={() => {
                                 // animation.next()
-                                if (count < 2) {
+                                if (count < data?.listDay?.length - 1) {
                                     setCount(count + 1)
                                 }
-                                if (indexCurrent < 3) {
+                                if (indexCurrent < data?.listDay?.length) {
                                     setIndexCurrent(indexCurrent + 1)
                                 }
                             }}
@@ -309,10 +336,18 @@ export default function BestTripEver({ data }) {
             {!isMobile && (
                 <div className='flex items-center'>
                     <div class='boxMap relative h-[45vw] w-[45vw]'>
-                        {arr.map((item, index) => (
+                        <Image
+                            src={data?.backgroundMap?.sourceUrl}
+                            alt='router'
+                            width={900}
+                            height={716}
+                            className={`absolute w-full h-full object-contain transition-all duration-300`}
+                        />
+                        {data?.listDay?.map((item, index) => (
                             <Image
                                 key={index}
-                                src={item.src}
+                                src={item?.router?.sourceUrl}
+                                alt='router'
                                 width={900}
                                 height={716}
                                 className={`${
