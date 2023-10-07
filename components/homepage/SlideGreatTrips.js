@@ -13,25 +13,28 @@ export default function SlideGreatTrips({ allTourHG }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
     const swiperRef = useRef(null)
     const [indexTab, setIndexTab] = useState(0)
+    console.log('🚀 ~ file: SlideGreatTrips.js:16 ~ SlideGreatTrips ~ indexTab:', indexTab)
 
     const handleSlideChange = (swiper) => {
         setIndexTab(swiper.realIndex)
     }
 
     const handleSlideTo = (index) => {
-        swiperRef.current?.slideTo(index)
+        // swiperRef.current?.slideTo(index)
+        if (index === indexTab) return
+        swiperRef.current?.slideNext()
     }
 
     return (
         <>
             {isMobile && (
-                <div className='w-full flex gap-x-[3.2vw] px-[4.27vw] my-[5.33vw] relative z-20'>
+                <div className='w-full flex gap-x-[3.2vw] px-[4.27vw] my-[5.33vw] relative z-20 cursor-pointer'>
                     {arr?.map((e, index) => (
                         <div
                             key={index}
                             className={`${
                                 indexTab === index ? 'bg-primary-5' : 'bg-white'
-                            } flex flex-1 justify-center items-center h-fit gap-x-[2.13vw] rounded-[2.133vw] shadow-btnTravel`}
+                            } flex flex-1 justify-center items-center h-fit gap-x-[2.13vw] rounded-[2.133vw] shadow-btnTravel select-none`}
                             onClick={() => handleSlideTo(index)}
                         >
                             <IconMotor className={'w-[5.33vw] h-[5.33vw]'} />
@@ -48,6 +51,7 @@ export default function SlideGreatTrips({ allTourHG }) {
             )}
             <div className='flex justify-center items-end gap-x-[1.5vw] relative z-10 h-fit mt-[1.88vw]'>
                 <Swiper
+                    loop={true}
                     grabCursor={true}
                     breakpoints={{
                         0: {
@@ -92,14 +96,17 @@ export default function SlideGreatTrips({ allTourHG }) {
                     quality={100}
                 />
             ) : (
-                <Image
-                    className='object-fill max-md:top-[-10vw] absolute top-0 left-0 w-full h-[58vw] z-[1]'
-                    src={'/images/bg-great-trip.png'}
-                    alt='great trips'
-                    width={800}
-                    height={400}
-                    quality={100}
-                />
+                <div className='w-full h-fit max-md:top-[-10vw] absolute top-0 left-0 z-[1] '>
+                    <Image
+                        className='object-fill w-full h-[58vw]'
+                        src={'/images/bg-great-trip.png'}
+                        alt='great trips'
+                        width={800}
+                        height={400}
+                        quality={100}
+                    />
+                    <div className='absolute bottom-0 left-0 z-[2] w-full h-[30vw] bg-gradient-greatTrips'></div>
+                </div>
             )}
         </>
     )

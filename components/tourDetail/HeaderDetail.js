@@ -6,6 +6,7 @@ import ContentHeaderDetail from './ContentHeaderDetail'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
+import NavFixed from '../global/NavFixed'
 
 export default function HeaderDetail({ data, allTourHG, slug }) {
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
@@ -24,6 +25,13 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
                 setIsOpen={setIsOpen}
                 allTourHG={allTourHG}
             />
+            {!isMobile && (
+                <NavFixed
+                    setIsOpen={setIsOpen}
+                    header={data?.data?.page?.homeHG?.header}
+                    allTourHG={allTourHG}
+                />
+            )}
             <Image
                 className='z-0 object-cover'
                 src={data?.data?.tourHG?.featuredImage?.node?.sourceUrl || '/images/header-detail.jpg'}

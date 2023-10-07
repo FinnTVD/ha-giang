@@ -74,6 +74,7 @@ module.exports = {
                 itemCardTour: '0px 0px 20px 0px rgba(0, 0, 0, 0.12)',
                 boxTour: '0px 4px 12px 0px rgba(0, 0, 0, 0.24)',
                 btn: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+                navFixed: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
             },
             fontFamily: {
                 poppins: ['var(--font-poppins)'],
@@ -95,7 +96,7 @@ module.exports = {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: 0 },
                 },
-                'scrollInfinite': {
+                scrollInfinite: {
                     '0%': { transform: 'translatex(0%)' },
                     '100%': { transform: 'translatex(-50%)' },
                 },
@@ -106,8 +107,8 @@ module.exports = {
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
-                'scrollInfinite': 'scrollInfinite 25s linear infinite',
-            }
+                scrollInfinite: 'scrollInfinite 25s linear infinite',
+            },
         },
     },
     plugins: [require('tailwindcss-animate')],

@@ -51,7 +51,6 @@ const listNav = [
 ]
 
 export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
-    console.log('🚀 ~ file: MenuRes.js:54 ~ MenuRes ~ allTourHG:', allTourHG)
     return (
         <div
             className={`${
