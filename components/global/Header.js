@@ -34,8 +34,12 @@ export default function Header({ header, allTourHG }) {
                 />
                 <Image
                     className='z-0 object-cover'
-                    src={header?.background?.sourceUrl || '/images/bg-header.jpg'}
-                    alt={header?.background?.altText || header?.background?.title}
+                    src={
+                        isMobile
+                            ? header?.backgroundMobile?.sourceUrl
+                            : header?.background?.sourceUrl || '/images/bg-header.jpg'
+                    }
+                    alt={'background cheer tour'}
                     fill
                     sizes='100vw'
                     priority

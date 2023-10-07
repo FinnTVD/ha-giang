@@ -4,6 +4,7 @@ import IconPhone from '../icons/IconPhone'
 import IconMail from '../icons/IconMail'
 import IconHome from '../icons/IconHome'
 import IconGlobal from '../icons/IconGlobal'
+// import Image from 'next/image'
 
 export default function MapContact({ data, footer }) {
     if (!data) return
@@ -11,11 +12,22 @@ export default function MapContact({ data, footer }) {
 
     return (
         <section className='flex px-[6.25vw] h-fit gap-x-[1.5vw] mb-[6.25vw] max-md:flex-col-reverse max-md:px-[4.27vw] max-md:gap-y-[8vw] max-md:mt-[13vw]'>
+            {/* <div className='relative w-fit h-fit'> */}
             <div
                 id='boxMap'
                 className='!w-[50.4275] max-lg:!w-[56vw] max-md:!w-full h-full max-md:h-[146.4vw] rounded-[0.75vw] max-md:rounded-[4.267vw] overflow-hidden'
                 dangerouslySetInnerHTML={{ __html: `${section1?.map}` }}
-            ></div>
+            />
+            {/* <div className='absolute top-0 left-0 z-20 w-[7.0625vw] h-[2.25vw] rounded-[0.25vw] flex justify-center items-center bg-white'>
+                    <Image
+                        className='w-full h-full'
+                        src='/images/gg-map.png'
+                        alt='gg map'
+                        width={100}
+                        height={25}
+                    />
+                </div>
+            </div> */}
             <div className='flex-1'>
                 <SubTitle
                     boxClass={'flex flex-col-reverse text-center gap-y-[1vw] max-md:gap-y-[4.27vw]'}

@@ -141,7 +141,7 @@ export default function Banner({ section1 }) {
                         {section1?.title}
                     </h2>
                 </div>
-                <div className='lg:relative w-full h-fit'>
+                <div className='w-full lg:relative h-fit'>
                     <h2
                         id='text-vn'
                         className='font-tomatoes relative z-10 text-[16.0195vw] font-normal leading-normal tracking-[0.16019vw] text-[#ffd772] text-center mt-[2.19vw] max-md:text-[6.4vw] max-md:tracking-[0.064vw] max-md:text-white max-md:mt-[3.2vw]'
@@ -152,7 +152,10 @@ export default function Banner({ section1 }) {
                         id='box-slide'
                         className='h-[29.8125vw] w-[53vw] max-md:w-full max-md:h-[100vh] absolute bottom-[11vw] max-md:top-0 max-md:left-0 lg:translate-y-full left-1/2 lg:-translate-x-1/2'
                     >
-                        <SlideBanner section1={section1} />
+                        <SlideBanner
+                            section1={section1}
+                            isMobile={isMobile}
+                        />
                         <div
                             id='overlay'
                             className='absolute top-0 left-0 z-10 w-full h-0 opacity-50 bg-gradient-banner max-md:h-full'

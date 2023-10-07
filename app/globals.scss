@@ -382,5 +382,12 @@ h5 {
         @media screen and (max-width: "767px") {
             width: 100% !important;
         }
+        .gm-inset-map.gm-inset-light {
+            display: none;
+        }
     }
+}
+
+#boxMap .gm-inset-map.gm-inset-light {
+    display: none;
 }

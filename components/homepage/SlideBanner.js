@@ -7,7 +7,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper/modules'
 
 const arr = new Array(6).fill(0)
-export default function SlideBanner({ section1 }) {
+
+let arrSlide = []
+export default function SlideBanner({ section1, isMobile }) {
     const swiperRef = useRef(null)
     const [indexSlider, setIndexSlider] = useState(0)
     const handleSlideChange = (swiper) => {
@@ -26,6 +28,8 @@ export default function SlideBanner({ section1 }) {
         const video = document.getElementById('videoBanner' + indexSlider)
         video && video?.play()
     }, [indexSlider])
+
+    arrSlide = isMobile ? section1?.slidesVideoMobile : section1?.slidesVideo
     return (
         <div className='relative w-full h-full'>
             <Swiper
@@ -40,27 +44,28 @@ export default function SlideBanner({ section1 }) {
                 className='w-full h-full'
                 id='slide-video'
             >
-                {section1?.slidesVideo?.map((e, index) => (
-                    <SwiperSlide key={index}>
-                        <video
-                            autoPlay
-                            poster='/images/bannervn.jpg'
-                            loop
-                            className='w-full h-full lg:rounded-[1vw] object-cover min-w-full min-h-full'
-                            id={'videoBanner' + index}
-                            playsInline
-                            muted
-                        >
-                            <source
-                                type='video/mp4'
-                                src={e?.linkVideo?.url || '/images/video1.mp4'}
-                            ></source>
-                            Your browser does not support HTML5 video.
-                        </video>
-                    </SwiperSlide>
-                ))}
+                {arrSlide?.length &&
+                    arrSlide?.map((e, index) => (
+                        <SwiperSlide key={index}>
+                            <video
+                                autoPlay
+                                poster='/images/bannervn.jpg'
+                                loop
+                                className='w-full h-full lg:rounded-[1vw] object-cover min-w-full min-h-full'
+                                id={'videoBanner' + index}
+                                playsInline
+                                muted
+                            >
+                                <source
+                                    type='video/mp4'
+                                    src={e?.linkVideo?.url || '/images/video1.mp4'}
+                                ></source>
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </SwiperSlide>
+                    ))}
             </Swiper>
-            {arr?.length > 1 && (
+            {arrSlide?.length > 1 && (
                 <>
                     <button
                         onClick={handlePrevSlide}

@@ -33,6 +33,11 @@ const GET_DATA_HOME = `
           altText
           title
         }
+        backgroundMobile{
+          sourceUrl
+          altText
+          title
+        }
         slogan
         phoneNumber
         facebook{
@@ -79,6 +84,11 @@ const GET_DATA_HOME = `
           description
         }
         slidesVideo{
+          linkVideo{
+            url
+          }
+        }
+        slidesVideoMobile{
           linkVideo{
             url
           }
@@ -282,7 +292,7 @@ const GET_DATA_FOOTER = `
 }
 `
 
-const GET_DATA_ABOUT_US=`{
+const GET_DATA_ABOUT_US = `{
 page(id: "cG9zdDozOTE==") {
   aboutUs{
     banner{
