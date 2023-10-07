@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { PopupBookNow } from './PopupBookNow'
 import IconPhoneHeader from '../icons/IconPhoneHeader'
+import IconPhoneHeaderV2 from '../icons/IconPhoneHeaderV2'
 
 export default function FeaturesHeader({ header, allTourHG }) {
     const scrollToTop = () => {
@@ -51,7 +52,8 @@ export default function FeaturesHeader({ header, allTourHG }) {
             >
                 {/* <div className='box-phone absolute bottom-0 left-0 z-0 w-[2.5vw] h-[2.5vw] rounded-full'></div> */}
 
-                <IconPhoneHeader className={'z-[1]'} />
+                {/* <IconPhoneHeader className={'z-[1]'} /> */}
+                <IconPhoneHeaderV2 className={'z-[1] translate-x-[0.5vw]'} />
             </Link>
         </div>
     )
