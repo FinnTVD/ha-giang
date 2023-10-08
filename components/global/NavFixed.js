@@ -65,7 +65,7 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
     const handleScroll = () => {
         if (typeof window === 'undefined' || !navRef.current) return
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-        if (scrollTop >= 500) {
+        if (scrollTop >= 1000) {
             if (scrollTop > prevScrollY) {
                 //Cuộn xuống
                 setIsShow(false)

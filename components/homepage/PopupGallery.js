@@ -12,7 +12,7 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
             <div
                 className={`${
                     isOpen ? 'translate-y-0' : 'translate-y-[110%]'
-                } fixed bottom-0 left-0 w-full max-md:h-[80vh] h-fit bg-white z-[100] pt-[3.75vw] px-[6.25vw] pb-[4.6vw] rounded-tl-[1vw] rounded-tr-[1vw] transition-all duration-500 max-md:flex max-md:flex-col-reverse max-md:justify-end max-md:px-[4.27vw] max-md:pt-[20.8vw] max-md:mb-0`}
+                } fixed bottom-0 left-0 w-full max-md:h-[80vh] h-fit bg-white z-[999999] pt-[3.75vw] px-[6.25vw] pb-[4.6vw] rounded-tl-[1vw] rounded-tr-[1vw] transition-all duration-500 max-md:flex max-md:flex-col-reverse max-md:justify-end max-md:px-[4.27vw] max-md:pt-[20.8vw] max-md:mb-0`}
             >
                 <svg
                     xmlns='http://www.w3.org/2000/svg'
