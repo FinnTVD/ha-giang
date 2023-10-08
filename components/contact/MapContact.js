@@ -15,7 +15,7 @@ export default function MapContact({ data, footer }) {
             {/* <div className='relative w-fit h-fit'> */}
             <div
                 id='boxMap'
-                className='!w-[50.4275] max-lg:!w-[56vw] max-md:!w-full h-full max-md:h-[146.4vw] rounded-[0.75vw] max-md:rounded-[4.267vw] overflow-hidden'
+                className='!w-[50.4275] max-md:!h-[90vh] max-lg:!w-[56vw] max-md:!w-full h-full rounded-[0.75vw] max-md:rounded-[4.267vw] overflow-hidden'
                 dangerouslySetInnerHTML={{ __html: `${section1?.map}` }}
             />
             {/* <div className='absolute top-0 left-0 z-20 w-[7.0625vw] h-[2.25vw] rounded-[0.25vw] flex justify-center items-center bg-white'>
