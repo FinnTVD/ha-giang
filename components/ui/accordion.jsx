@@ -21,7 +21,7 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
         <AccordionPrimitive.Trigger
             ref={ref}
             className={cn(
-                'flex flex-1 items-center justify-between py-[0.5vw] font-medium transition-all [&[data-state=open]>svg]:rotate-45 max-md:text-[3.733vw] leading-[1.57] tracking-[0.00933vw] max-md:pb-[2vw] max-md:mt-[8.67vw]',
+                'flex flex-1 items-center justify-between py-[0.5vw] font-medium transition-all [&[data-state=open]>svg]:rotate-45 max-md:text-[3.733vw] leading-[1.57] tracking-[0.00933vw] max-md:pb-[2vw] max-md:mt-[8.67vw] text-[0.875vw]',
                 className,
                 props?.indexTab === props.index ? 'text-primary-70' : 'text-gray-scale-50',
             )}
@@ -50,7 +50,7 @@ const AccordionContent = React.forwardRef(({ className, children, ...props }, re
     <AccordionPrimitive.Content
         ref={ref}
         className={cn(
-            'overflow-hidden md:text-[0.875vw] transition-all leading-[1.57] tracking-[0.00219vw] text-gray-scale-50 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+            'overflow-hidden text-[0.875vw] max-md:text-[3.733vw] transition-all leading-[1.57] tracking-[0.00219vw] text-gray-scale-50 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
             className,
         )}
         {...props}

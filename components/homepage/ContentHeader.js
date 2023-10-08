@@ -1,5 +1,3 @@
-'use client'
-
 import IconTextHeader from '../icons/IconTextHeader'
 
 export default function ContentHeader({ header }) {
