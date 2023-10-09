@@ -33,6 +33,7 @@ module.exports = {
         'primary-50': 'var(--primary-50)',
         'primary-5': 'var(--primary-5)',
         'secondary-green-600': 'var(--secondary-green-600)',
+        'background-elevation-01': 'var(--background-elevation-01)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -72,9 +73,9 @@ module.exports = {
         btnTravel: '0px 4px 16px 0px rgba(0, 0, 0, 0.06)',
         itemCardTour: '0px 0px 20px 0px rgba(0, 0, 0, 0.12)',
         boxTour: '0px 4px 32px 0px rgba(0, 0, 0, 0.12)',
-
         btn: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
         navFixed: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+        itemTrave: '6px 6px 32px 0px rgba(0, 0, 0, 0.04), 0px 0px 12px 0px rgba(235, 255, 209, 0.10)',
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
