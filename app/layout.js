@@ -10,51 +10,51 @@ import Footer from '@/components/global/Footer'
 import ApolloWrapper from '@/components/global/ApolloWrapper'
 
 const heavitas = localFont({
-    src: [
-        {
-            path: '../font/Heavitas.ttf',
-            weight: '400',
-            style: 'normal',
-        },
-    ],
-    display: 'swap',
+  src: [
+    {
+      path: '../font/Heavitas.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
 })
 
 const tomatoes = localFont({
-    src: [
-        {
-            path: '../font/Tomatoes.ttf',
-            weight: '400',
-            style: 'normal',
-        },
-    ],
-    display: 'swap',
+  src: [
+    {
+      path: '../font/Tomatoes.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
 })
 
 const roboto = Roboto({
-    weight: ['300', '400', '500', '700', '900'],
-    subsets: ['latin'],
+  weight: ['300', '400', '500', '700', '900'],
+  subsets: ['latin'],
 })
 
 const poppins = Poppins({
-    weight: ['300', '400', '500', '600', '700', '800', '900'],
-    subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
 })
 
 export default function RootLayout({ children }) {
-    return (
-        <html lang='en'>
-            <ApolloWrapper>
-                <Theme>
-                    <body
-                        suppressHydrationWarning={true}
-                        className={`bg-white text-black ${heavitas.className} ${tomatoes.className} ${roboto.className} ${poppins.className} w-full h-[100vh] overflow-y-scroll`}
-                    >
-                        {children}
-                        <Footer />
-                    </body>
-                </Theme>
-            </ApolloWrapper>
-        </html>
-    )
+  return (
+    <html lang='en'>
+      <ApolloWrapper>
+        <Theme>
+          <body
+            suppressHydrationWarning={true}
+            className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full h-[100vh] overflow-y-scroll`}
+          >
+            {children}
+            <Footer />
+          </body>
+        </Theme>
+      </ApolloWrapper>
+    </html>
+  )
 }

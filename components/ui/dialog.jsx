@@ -42,8 +42,8 @@ const DialogContent = React.forwardRef(({ className, children, ...props }, ref) 
             {...props}
         >
             {children}
-            <DialogPrimitive.Close className='absolute z-[99] right-0 top-0 p-[1vw] max-md:top-[2vw] max-md:right-0 max-md:p-[1vw] rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground'>
-                <X className='w-[2vw] h-[2vw] max-md:w-[7vw] max-md:h-[7vw]' />
+            <DialogPrimitive.Close className='absolute z-[99] right-0 top-0 p-[1rem] max-md:top-[2rem] max-md:right-0 max-md:p-[1rem] rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground'>
+                <X className='w-[2rem] h-[2rem] max-md:w-[7rem] max-md:h-[7rem]' />
                 <span className='sr-only'>Close</span>
             </DialogPrimitive.Close>
         </DialogPrimitive.Content>

@@ -8,91 +8,89 @@ import Link from 'next/link'
 import { PopupBookNow } from '../global/PopupBookNow'
 
 export default function ItemCardTour({ data, allTourHG }) {
-    return (
-        <article className='w-full p-[1vw] max-md:p-[3.2vw] rounded-[1.5vw] max-md:rounded-[4.267vw] bg-white group shadow-itemCardTour'>
-            <Link
-                href={'/' + data?.slug}
-                className='w-full h-fit relative block overflow-hidden rounded-[1vw] max-md:rounded-[3.2vw]'
-            >
-                <Image
-                    className='object-cover w-full h-[21.125vw] max-md:h-[59.2vw] lg:group-hover:scale-110 transition-all duration-500'
-                    src={data?.featuredImage?.node?.sourceUrl || '/images/item-tour.jpg'}
-                    alt='item tour'
-                    width={700}
-                    height={400}
-                />
-                <div className='absolute top-0 left-0 w-full h-full bg-gradient-itemCardTour '></div>
-                <div className='absolute w-fit h-fit bottom-[1vw] max-md:bottom-[3.47vw] left-[1.44vw] max-md:left-[4.27vw] flex max-md:flex-col max-md:gap-y-[2.13vw] gap-x-[2.5vw]'>
-                    <Price price={data?.tourHaGiangDetail?.price} />
-                </div>
-            </Link>
-            <Link
-                href={'/' + data?.slug}
-                className='block w-full h-fit'
-            >
-                <h2
-                    className='mt-[1.25vw] max-md:mt-[3.2vw] max-md:mb-[2.13vw] mb-[0.75vw] text-[1.25vw] font-semibold leading-[1.2] tracking-[0.00188vw] text-gray-scale-80 uppercase line-clamp-1 max-md:text-[3.733vw] max-md:font-bold max-md:leading-[1.42] max-md:tracking-[0.03733vw]'
-                    title='HA GIANG LOOP TOUR (3D3N)'
-                >
-                    {data?.title}
-                </h2>
-            </Link>
-            <div className='flex items-center'>
-                <IconHome className={'w-[1vw] h-[1vw] max-md:w-[7vw] max-md:h-[4.267vw]'} />
-                <span className='text-[0.875vw] whitespace-nowrap font-semibold leading-[1.57] max-md:text-[3.467vw] max-md:font-semibold tracking-[0.00219vw] text-primary-70 ml-[0.37vw] mr-[0.25vw] max-md:ml-[1.6vw] max-md:mr-[1.07vw]'>
-                    Pick up:
-                </span>
-                <span className='text-gray-scale-50 text-[0.875vw] line-clamp-1 font-normal max-md:text-[3.467vw] max-md:leading-[1.38] max-md:text-[#898989] leading-[1.57] tracking-[0.00219vw]'>
-                    {data?.tourHaGiangDetail?.header?.pickUpFrom}
-                </span>
-            </div>
-            <div className='flex items-center my-[0.5vw] max-md:my-[2.13vw]'>
-                <IconPeople className={'w-[1vw] h-[1vw] max-md:w-[4.267vw] max-md:h-[4.267vw]'} />
-                <span className='text-[0.875vw] font-semibold leading-[1.57] max-md:text-[3.467vw] max-md:font-semibold tracking-[0.00219vw] text-primary-70 ml-[0.37vw] mr-[0.25vw] max-md:ml-[1.6vw] max-md:mr-[1.07vw]'>
-                    Group size:
-                </span>
-                <span className='text-gray-scale-50 text-[0.875vw] line-clamp-1 font-normal max-md:text-[3.467vw] max-md:leading-[1.38] max-md:text-[#898989] leading-[1.57] tracking-[0.00219vw]'>
-                    {data?.tourHaGiangDetail?.header?.groupSize}
-                </span>
-            </div>
-            <div className='flex items-center'>
-                <IconBus className={'w-[1vw] h-[1vw] max-md:w-[4.267vw] max-md:h-[4.267vw]'} />
-                <span className='text-[0.875vw] font-semibold leading-[1.57] max-md:text-[3.467vw] max-md:font-semibold tracking-[0.00219vw] text-primary-70 ml-[0.37vw] mr-[0.25vw] max-md:ml-[1.6vw] max-md:mr-[1.07vw]'>
-                    Transport:
-                </span>
-                <span className='text-gray-scale-50 text-[0.875vw] line-clamp-1 font-normal max-md:text-[3.467vw] max-md:leading-[1.38] max-md:text-[#898989] leading-[1.57] tracking-[0.00219vw]'>
-                    {data?.tourHaGiangDetail?.header?.transport}
-                </span>
-            </div>
-            <div className='flex gap-x-[1vw] max-md:gap-x-[3.2vw] mt-[1.25vw] max-md:mt-[3.2vw]'>
-                <PopupBookNow
-                    tour={{
-                        tour: data,
-                        countDriver: 1,
-                        countSelf: 1,
-                    }}
-                    allTourHG={allTourHG}
-                >
-                    <div className='max-md:flex-1'>
-                        <Button
-                            primary={true}
-                            content={'book now'}
-                            maskClass={'w-[8.31831vw]'}
-                            className={
-                                'my-[0.87vw] w-[9.4375vw] h-[3vw] max-md:rounded-[2.133vw] max-md:w-full max-md:h-[11.73vw] whitespace-nowrap'
-                            }
-                        />
-                    </div>
-                </PopupBookNow>
-                <Button
-                    href={'/' + data?.slug}
-                    content={'view tour'}
-                    maskClass={'w-[8.31831vw]'}
-                    className={
-                        'my-[0.87vw] w-[9.4375vw] h-[3vw] max-md:rounded-[2.133vw] max-md:flex-1 max-md:h-[11.73vw]'
-                    }
-                />
-            </div>
-        </article>
-    )
+  return (
+    <article className='w-full p-[1rem] max-md:p-[3.2rem] rounded-[1.5rem] max-md:rounded-[4.267rem] bg-white group shadow-itemCardTour font-poppins'>
+      <Link
+        href={'/' + data?.slug}
+        className='w-full h-fit relative block overflow-hidden rounded-[1rem] max-md:rounded-[3.2rem]'
+      >
+        <Image
+          className='object-cover w-full h-[21.125rem] max-md:h-[59.2rem] lg:group-hover:scale-110 transition-all duration-500'
+          src={data?.featuredImage?.node?.sourceUrl || '/images/item-tour.jpg'}
+          alt='item tour'
+          width={700}
+          height={400}
+        />
+        <div className='absolute top-0 left-0 w-full h-full bg-gradient-itemCardTour '></div>
+        <div className='absolute w-fit h-fit bottom-[1rem] max-md:bottom-[3.47rem] left-[1.44rem] max-md:left-[4.27rem] flex max-md:flex-col max-md:gap-y-[2.13rem] gap-x-[2.5rem]'>
+          <Price price={data?.tourHaGiangDetail?.price} />
+        </div>
+      </Link>
+      <Link
+        href={'/' + data?.slug}
+        className='block w-full h-fit'
+      >
+        <h2
+          className='mt-[1.25rem] max-md:mt-[3.2rem] max-md:mb-[2.13rem] mb-[0.75rem] text-[1.25rem] font-semibold leading-[1.2] tracking-[0.00188rem] text-gray-scale-80 uppercase line-clamp-1 max-md:text-[3.733rem] max-md:font-bold max-md:leading-[1.42] max-md:tracking-[0.03733rem]'
+          title='HA GIANG LOOP TOUR (3D3N)'
+        >
+          {data?.title}
+        </h2>
+      </Link>
+      <div className='flex items-center'>
+        <IconHome className={'w-[1rem] h-[1rem] max-md:w-[7rem] max-md:h-[4.267rem]'} />
+        <span className='text-[0.875rem] whitespace-nowrap font-semibold leading-[1.57] max-md:text-[3.467rem] max-md:font-semibold tracking-[0.00219rem] text-primary-70 ml-[0.37rem] mr-[0.25rem] max-md:ml-[1.6rem] max-md:mr-[1.07rem]'>
+          Pick up:
+        </span>
+        <span className='text-gray-scale-50 text-[0.875rem] line-clamp-1 font-normal max-md:text-[3.467rem] max-md:leading-[1.38] max-md:text-[#898989] leading-[1.57] tracking-[0.00219rem]'>
+          {data?.tourHaGiangDetail?.header?.pickUpFrom}
+        </span>
+      </div>
+      <div className='flex items-center my-[0.5rem] max-md:my-[2.13rem]'>
+        <IconPeople className={'w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'} />
+        <span className='text-[0.875rem] font-semibold leading-[1.57] max-md:text-[3.467rem] max-md:font-semibold tracking-[0.00219rem] text-primary-70 ml-[0.37rem] mr-[0.25rem] max-md:ml-[1.6rem] max-md:mr-[1.07rem]'>
+          Group size:
+        </span>
+        <span className='text-gray-scale-50 text-[0.875rem] line-clamp-1 font-normal max-md:text-[3.467rem] max-md:leading-[1.38] max-md:text-[#898989] leading-[1.57] tracking-[0.00219rem]'>
+          {data?.tourHaGiangDetail?.header?.groupSize}
+        </span>
+      </div>
+      <div className='flex items-center'>
+        <IconBus className={'w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'} />
+        <span className='text-[0.875rem] font-semibold leading-[1.57] max-md:text-[3.467rem] max-md:font-semibold tracking-[0.00219rem] text-primary-70 ml-[0.37rem] mr-[0.25rem] max-md:ml-[1.6rem] max-md:mr-[1.07rem]'>
+          Transport:
+        </span>
+        <span className='text-gray-scale-50 text-[0.875rem] line-clamp-1 font-normal max-md:text-[3.467rem] max-md:leading-[1.38] max-md:text-[#898989] leading-[1.57] tracking-[0.00219rem]'>
+          {data?.tourHaGiangDetail?.header?.transport}
+        </span>
+      </div>
+      <div className='flex gap-x-[1rem] max-md:gap-x-[3.2rem] mt-[1.25rem] max-md:mt-[3.2rem]'>
+        <PopupBookNow
+          tour={{
+            tour: data,
+            countDriver: 1,
+            countSelf: 1,
+          }}
+          allTourHG={allTourHG}
+        >
+          <div className='max-md:flex-1'>
+            <Button
+              primary={true}
+              content={'book now'}
+              maskClass={'w-[8.31831rem]'}
+              className={
+                'my-[0.87rem] w-[9.4375rem] h-[3rem] max-md:rounded-[2.133rem] max-md:w-full max-md:h-[11.73rem] whitespace-nowrap'
+              }
+            />
+          </div>
+        </PopupBookNow>
+        <Button
+          href={'/' + data?.slug}
+          content={'view tour'}
+          maskClass={'w-[8.31831rem]'}
+          className={'my-[0.87rem] w-[9.4375rem] h-[3rem] max-md:rounded-[2.133rem] max-md:flex-1 max-md:h-[11.73rem]'}
+        />
+      </div>
+    </article>
+  )
 }

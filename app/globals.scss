@@ -92,6 +92,10 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 1vw;
+    @media screen and (min-width: "1600px") {
+        font-size: 16px;
+    }
 }
 
 body {
@@ -127,16 +131,16 @@ body {
 
 #box-slogan {
     p {
-        font-size: 4vw;
+        font-size: 4rem;
         font-family: var(--font-heavitas);
         font-weight: 400;
         line-height: 1.5;
         @media screen and (max-width: "767px") {
-            font-size: 6.4vw;
+            font-size: 6.4rem;
         }
         strong {
             font-family: var(--font-tomatoes);
-            font-size: 8vw;
+            font-size: 8rem;
             font-weight: 400;
             line-height: 1.5;
             position: absolute;
@@ -144,7 +148,7 @@ body {
             top: 30%;
             white-space: nowrap;
             @media screen and (max-width: "767px") {
-                font-size: 16vw;
+                font-size: 16rem;
                 left: 50%;
             }
         }
@@ -156,9 +160,9 @@ body {
 #cheers-tour {
     .description {
         p + p {
-            margin-top: 1vw;
+            margin-top: 1rem;
             @media screen and (max-width: "767px") {
-                margin-top: 4.27vw;
+                margin-top: 4.27rem;
             }
         }
         strong {
@@ -197,18 +201,18 @@ canvas {
 #content-trip-details {
     p + p {
         @media screen and (max-width: "767px") {
-            margin-top: 2.67vw;
+            margin-top: 2.67rem;
         }
-        margin-top: 1vw;
+        margin-top: 1rem;
     }
     p {
-        font-size: 0.875vw;
+        font-size: 0.875rem;
         font-weight: 400;
         line-height: 1.57;
-        letter-spacing: 0.00219vw;
+        letter-spacing: 0.00219rem;
         @media screen and (max-width: "767px") {
-            font-size: 3.733vw;
-            letter-spacing: 0.00933vw;
+            font-size: 3.733rem;
+            letter-spacing: 0.00933rem;
         }
         strong {
             color: var(--gray-scale-80);
@@ -237,43 +241,43 @@ canvas {
 .tip-review::after {
     content: "";
     display: inline-block;
-    width: 0.75vw;
-    height: 1vw;
+    width: 0.75rem;
+    height: 1rem;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), #d4a900;
     position: absolute;
-    bottom: -1vw;
-    left: -0.375vw;
+    bottom: -1rem;
+    left: -0.375rem;
     -webkit-clip-path: polygon(100% 0, 50% 0, 100% 50%);
     clip-path: polygon(100% 0, 50% 0, 100% 50%);
 
     @media screen and (max-width: 768px) {
-        width: 2.6vw;
-        height: 3.13333vw;
-        bottom: -3.1vw;
-        left: -0.9vw;
+        width: 2.6rem;
+        height: 3.13333rem;
+        bottom: -3.1rem;
+        left: -0.9rem;
     }
 }
 .filter-blog {
-    margin-top: 3vw;
-    padding: 0 3vw;
+    margin-top: 3rem;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
     width: max-content;
-    border-radius: 0.75vw;
-    height: 6vw;
+    border-radius: 0.75rem;
+    height: 6rem;
     box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
     select {
-        min-width: 8.75vw;
+        min-width: 8.75rem;
         outline: none;
-        font-size: 1.0625vw;
+        font-size: 1.0625rem;
         color: #171717;
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;
         background-image: url(../public/images/dropDown-blog.svg);
-        background-size: 0.7vw;
+        background-size: 0.7rem;
         background-repeat: no-repeat;
         background-position:
             right 0.7em top 50%,
@@ -283,21 +287,21 @@ canvas {
     }
 
     option {
-        font-size: 1.0625vw;
+        font-size: 1.0625rem;
         color: #171717;
     }
 }
 @media screen and (max-width: 768px) {
     .filter-blog {
-        padding: 3.73vw;
-        height: 10.66vw;
+        padding: 3.73rem;
+        height: 10.66rem;
         select {
-            min-width: 30vw;
-            background-size: 2.6vw;
+            min-width: 30rem;
+            background-size: 2.6rem;
         }
         option,
         select {
-            font-size: 2.93vw;
+            font-size: 2.93rem;
         }
     }
 }
@@ -310,9 +314,9 @@ canvas {
     strong,
     b,
     i {
-        font-size: 1.125vw;
+        font-size: 1.125rem;
         line-height: 1.5;
-        margin: 0.5vw 0;
+        margin: 0.5rem 0;
     }
     h1,
     h2,
@@ -320,27 +324,27 @@ canvas {
     h4,
     h5,
     h6 {
-        margin: 1vw 0;
-        font-size: 1.5vw;
+        margin: 1rem 0;
+        font-size: 1.5rem;
         font-weight: 700;
         line-height: 1.37;
     }
     img {
-        margin: 1.5vw 0;
+        margin: 1.5rem 0;
         width: 100%;
-        height: 34vw;
-        border-radius: 1vw;
+        height: 34rem;
+        border-radius: 1rem;
         align-items: center;
     }
     p:has(.img-small) {
         margin: 0;
         display: flex;
         align-items: center;
-        gap: 2vw;
+        gap: 2rem;
         justify-content: space-between;
     }
     .img-small {
-        height: 17.7vw;
+        height: 17.7rem;
         object-fit: cover;
     }
 }
@@ -353,8 +357,8 @@ canvas {
         strong,
         b,
         i {
-            font-size: 3.73vw;
-            margin: 3.2vw 0;
+            font-size: 3.73rem;
+            margin: 3.2rem 0;
         }
         h1,
         h2,
@@ -362,26 +366,26 @@ canvas {
         h4,
         h5,
         h6 {
-            margin-top: 6.4vw;
-            margin-bottom: 2.13vw;
-            font-size: 4.267vw;
+            margin-top: 6.4rem;
+            margin-bottom: 2.13rem;
+            font-size: 4.267rem;
         }
         img {
-            margin: 6.4vw 0;
+            margin: 6.4rem 0;
             width: 100%;
-            height: 48vw;
-            border-radius: 1vw;
+            height: 48rem;
+            border-radius: 1rem;
             align-items: center;
         }
         p:has(.img-small) {
             margin: 0;
             display: flex;
             align-items: center;
-            gap: 4.39vw;
+            gap: 4.39rem;
             justify-content: space-between;
         }
         .img-small {
-            height: 23.73vw;
+            height: 23.73rem;
             object-fit: cover;
         }
     }
@@ -399,9 +403,9 @@ h5 {
 
 #boxMap {
     iframe {
-        width: 50.4273vw !important;
+        width: 50.4273rem !important;
         @media (min-width: "768px") and (max-width: "1023px") {
-            width: 56.4273vw !important;
+            width: 56.4273rem !important;
         }
         @media screen and (max-width: "767px") {
             width: 100% !important;
@@ -415,4 +419,8 @@ h5 {
 
 #boxMap .gm-inset-map.gm-inset-light {
     display: none;
+}
+
+nav .nav-tour:hover > svg .down {
+    fill: #ee6529;
 }

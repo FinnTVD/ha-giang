@@ -22,13 +22,13 @@ export function ComboboxDemo({ frameworks }) {
                     variant='outline'
                     role='combobox'
                     aria-expanded={open}
-                    className='w-[14vw] justify-between text-[1vw] font-poppins font-medium leading-normal tracking-[0.005vw] text-gray-scale-80 border-none whitespace-nowrap line-clamp-1 py-[0.25vw] px-[0.5vw] max-md:text-[3.733vw] max-md:leading-[1.57] max-md:w-full'
+                    className='w-[14rem] justify-between text-[1rem] font-poppins font-medium leading-normal tracking-[0.005rem] text-gray-scale-80 border-none whitespace-nowrap line-clamp-1 py-[0.25rem] px-[0.5rem] max-md:text-[3.733rem] max-md:leading-[1.57] max-md:w-full'
                 >
                     {value ? frameworks.find((framework) => framework.value === value)?.label : 'Select tour...'}
                     <ChevronsUpDown className='w-4 h-4 ml-2 opacity-50 shrink-0' />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className='w-[14vw] p-0 max-md:w-full font-poppins'>
+            <PopoverContent className='w-[14rem] p-0 max-md:w-full font-poppins'>
                 <Command>
                     <CommandInput placeholder='Search tour...' />
                     <CommandEmpty>No tour found.</CommandEmpty>
@@ -40,7 +40,7 @@ export function ComboboxDemo({ frameworks }) {
                                     setValue(currentValue === value ? '' : currentValue)
                                     setOpen(false)
                                 }}
-                                className='text-[1vw] font-poppins font-medium leading-normal tracking-[0.005vw] line-clamp-2 max-md:text-[3.733vw] max-md:leading-[1.57]'
+                                className='text-[1rem] font-poppins font-medium leading-normal tracking-[0.005rem] line-clamp-2 max-md:text-[3.733rem] max-md:leading-[1.57]'
                                 title={framework.label}
                             >
                                 <Check

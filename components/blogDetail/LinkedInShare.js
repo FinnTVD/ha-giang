@@ -9,7 +9,7 @@ function LinkedInShare({ url, title }) {
     const linkedInUrl = 'https://www.linkedin.com/sharing/share-offsite/?'
     const params = new URLSearchParams({
       url: url,
-      text: title
+      text: title,
     })
     window.open(linkedInUrl + params.toString(), '_blank')
   }
@@ -21,8 +21,7 @@ function LinkedInShare({ url, title }) {
         alt='linkdin'
         width={50}
         height={50}
-        className='w-[6.4vw] h-[6.4vw] object-contain md:w-[1.5vw] md:h-[1.5vw]'
-
+        className='w-[6.4rem] h-[6.4rem] object-contain md:w-[1.5rem] md:h-[1.5rem]'
       />
     </button>
   )

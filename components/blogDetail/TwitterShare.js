@@ -8,7 +8,7 @@ function TwitterShare({ url, title }) {
     const twitterUrl = 'https://twitter.com/intent/tweet?'
     const params = new URLSearchParams({
       url: url,
-      text: title
+      text: title,
     })
     window.open(twitterUrl + params.toString(), '_blank')
   }
@@ -20,7 +20,7 @@ function TwitterShare({ url, title }) {
         alt='twitter'
         width={50}
         height={50}
-        className='w-[6.4vw] h-[6.4vw] object-contain md:w-[1.5vw] md:h-[1.5vw]'
+        className='w-[6.4rem] h-[6.4rem] object-contain md:w-[1.5rem] md:h-[1.5rem]'
       />
     </button>
   )
