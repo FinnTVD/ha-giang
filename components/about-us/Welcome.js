@@ -32,6 +32,14 @@ export default function Welcome({ overview, video }) {
         allowfullscreen
         className='object-cover w-full h-[56rem] mt-[5.3rem] md:hidden'
       ></iframe>
+      <div
+        className={classes['welcome-description']}
+        dangerouslySetInnerHTML={{ __html: overview?.contentTop }}
+      ></div>
+      <div
+        className={classes['welcome-description']}
+        dangerouslySetInnerHTML={{ __html: overview?.contentBottom }}
+      ></div>
       {/* <div className="px-[2.5rem] mt-[6.4rem] md:hidden">
                 <Image src="/images/abMap.png" width={324} height={393.14} className="w-full"></Image>
             </div>

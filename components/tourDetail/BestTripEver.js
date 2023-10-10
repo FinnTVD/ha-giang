@@ -8,43 +8,13 @@ import Button from '../global/Button'
 import { useMediaQuery } from 'react-responsive'
 import { useParams } from 'next/navigation'
 import IconBtnLeft from '../icons/IconBtnLeft'
-
-// const arr = [
-//     {
-//         id: 1,
-//         src: '/images/map1.png',
-//     },
-//     {
-//         id: 2,
-//         src: '/images/map2.png',
-//     },
-//     {
-//         id: 3,
-//         src: '/images/map3.png',
-//     },
-// ]
-
-// const listAddress = [
-//     {
-//         id: 1,
-//         longLane: 129,
-//         listDistrict: ['Ha Giang', 'Tam Son', 'Yen Minh', 'Dong Van'],
-//     },
-//     {
-//         id: 2,
-//         longLane: 129,
-//         listDistrict: ['Dong Van', 'Lung Cu', 'Ma Pi Lang', 'Nho Que', 'Du Gia'],
-//     },
-//     {
-//         id: 3,
-//         longLane: 129,
-//         listDistrict: ['Meo Vac', 'Mau Due', 'Lung Tam', 'Quan Ba', 'Ha Giang'],
-//     },
-// ]
+import ScrollTrigger from 'react-scroll-trigger'
+import useStore from '@/app/(store)/store'
 
 export default function BestTripEver({ data }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
   const param = useParams()
+  const setIndexTab = useStore((state) => state.setIndexTab)
 
   const [count, setCount] = useState(0)
   const [prev, setPrev] = useState(data?.listDay[count]?.router?.sourceUrl)
@@ -64,35 +34,6 @@ export default function BestTripEver({ data }) {
     dataLength = data?.listDay?.length
     dataArr = new Array(dataLength - 1).fill(0)
   }
-
-  // useEffect(() => {
-  //     const elementToRemove = document.querySelectorAll('canvas')
-  //     if (elementToRemove?.length > 1) {
-  //         elementToRemove[0]?.remove()
-  //     }
-  //     let a = new hoverEffect({
-  //         parent: document.querySelector('.boxMap'),
-  //         intensity1: 1,
-  //         intensity2: 1,
-  //         speedIn: 0.5, // speed change
-  //         speedOut: 0.5, // speed change
-  //         hover: false,
-
-  //         image1: prev,
-  //         image2: next,
-  //         displacementImage: '/displacement/12.png',
-  //     })
-  //     setAnimation(a)
-  // }, [next, prev])
-
-  // useEffect(() => {
-  //     const elementToRemove = document.querySelectorAll('canvas')
-  //     if (elementToRemove?.length >= 2) {
-  //         setTimeout(() => {
-  //             elementToRemove[0]?.remove()
-  //         }, 100)
-  //     }
-  // }, [next, prev])
 
   return (
     <section
@@ -129,82 +70,42 @@ export default function BestTripEver({ data }) {
             </div>
           </div>
         )}
-        <div className='mt-[2.88rem] max-md:mt-[5.3rem] max-md:overflow-x-scroll'>
-          <div>
-            <Image
-              style={{
-                transform: `translateX(${
-                  (indexCurrent - 1) * 12.2 + (indexCurrent === data?.listDay?.length ? 1 : 0) + 'rem'
-                }) ${indexCurrent === data?.listDay?.length ? 'rotateY(180deg)' : ''}`,
-              }}
-              className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-md:hidden`}
-              src={'/images/motor.svg'}
-              alt='motor'
-              width={60}
-              height={40}
-              quality={100}
-            />
-            <Image
-              style={{
-                transform: `translateX(${indexMb * 33.2 + 'rem'}) ${
-                  indexMb === data?.listDay?.length - 1 ? 'rotateY(180deg)' : ''
-                }`,
-              }}
-              className={`md:hidden object-contain ml-[8.8rem] transition-all duration-300 w-[6.4rem] h-auto`}
-              src={'/images/motor.svg'}
-              alt='motor'
-              width={60}
-              height={40}
-              quality={100}
-            />
-          </div>
-          <div className='flex items-center ml-[12rem] gap-[3.2rem] md:hidden'>
-            {data?.listDay?.slice(1)?.map((item, indx) => (
-              <div
-                key={indx}
-                className='flex items-center gap-x-[1rem]'
-              >
-                <svg
-                  className='w-[2.1rem]'
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='8'
-                  height='8'
-                  viewBox='0 0 8 8'
-                  fill='none'
+        <ScrollTrigger onEnter={() => setIndexTab(2)}>
+          <div className='mt-[2.88rem] max-md:mt-[5.3rem] max-md:overflow-x-scroll'>
+            <div>
+              <Image
+                style={{
+                  transform: `translateX(${
+                    (indexCurrent - 1) * 12.2 + (indexCurrent === data?.listDay?.length ? 1 : 0) + 'rem'
+                  }) ${indexCurrent === data?.listDay?.length ? 'rotateY(180deg)' : ''}`,
+                }}
+                className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-md:hidden`}
+                src={'/images/motor.svg'}
+                alt='motor'
+                width={60}
+                height={40}
+                quality={100}
+              />
+              <Image
+                style={{
+                  transform: `translateX(${indexMb * 33.2 + 'rem'}) ${
+                    indexMb === data?.listDay?.length - 1 ? 'rotateY(180deg)' : ''
+                  }`,
+                }}
+                className={`md:hidden object-contain ml-[8.8rem] transition-all duration-300 w-[6.4rem] h-auto`}
+                src={'/images/motor.svg'}
+                alt='motor'
+                width={60}
+                height={40}
+                quality={100}
+              />
+            </div>
+            <div className='flex items-center ml-[12rem] gap-[3.2rem] md:hidden'>
+              {data?.listDay?.slice(1)?.map((item, indx) => (
+                <div
+                  key={indx}
+                  className='flex items-center gap-x-[1rem]'
                 >
-                  <circle
-                    cx='4'
-                    cy='4'
-                    r='3'
-                    stroke='#B34B1E'
-                    stroke-width='2'
-                  />
-                </svg>
-                <div className='relative overflow-hidden'>
-                  <svg
-                    className='w-[26.5rem]'
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='94'
-                    height='3'
-                    viewBox='0 0 94 3'
-                    fill='none'
-                  >
-                    <path
-                      d='M1 1.07812H93'
-                      stroke='#B34B1E'
-                      stroke-opacity='0.26'
-                      stroke-width='2'
-                      stroke-linecap='round'
-                      stroke-dasharray='10 10'
-                    />
-                  </svg>
-                  <div
-                    className={`${
-                      indx <= indexMb - 1 ? 'translate-x-0' : 'translate-x-[-100%]'
-                    } absolute w-full h-[0.5rem] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}
-                  ></div>
-                </div>
-                {indx === data?.listDay?.length - 2 && (
                   <svg
                     className='w-[2.1rem]'
                     xmlns='http://www.w3.org/2000/svg'
@@ -221,101 +122,143 @@ export default function BestTripEver({ data }) {
                       stroke-width='2'
                     />
                   </svg>
-                )}
-              </div>
-            ))}
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='8'
-              height='8'
-              viewBox='0 0 8 8'
-              fill='none'
-            >
-              <circle
-                cx='4'
-                cy='4'
-                r='3'
-                stroke='#B34B1E'
-                stroke-width='2'
-              />
-            </svg>
-          </div>
-          <div className='flex gap-x-[5.13rem] relative w-fit'>
-            {data?.listDay?.map((e, index) => (
-              <ItemLane
-                indexCurrent={indexCurrent}
-                data={e}
-                key={index}
-                length={data?.listDay?.length}
-                index={index}
-                setIndexCurrent={setIndexCurrent}
-              />
-            ))}
-            <div className='md:hidden mt-[5.3rem]'>
-              <div className='flex gap-[7.5rem]'>
-                {data?.listDay?.map((e, index) => (
-                  <div
-                    onClick={() => setIndexMb(index)}
-                    className={`${
-                      index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
-                    } md:hidden w-[25.3rem] h-[15.46rem] rounded-[2rem] flex flex-col justify-center items-center`}
-                  >
-                    <span
-                      className={`${
-                        index === indexMb ? 'text-white' : 'text-[#898989]'
-                      } text-[3.7rem] leading-[1.42] gap-[1rem] font-bold`}
+                  <div className='relative overflow-hidden'>
+                    <svg
+                      className='w-[26.5rem]'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='94'
+                      height='3'
+                      viewBox='0 0 94 3'
+                      fill='none'
                     >
-                      DAY {index + 1}
-                    </span>
-                    <span className={`${index === indexMb ? 'text-white' : 'text-[#898989]'} text-[3.2rem]`}>
-                      {e?.distanceLength}
-                    </span>
+                      <path
+                        d='M1 1.07812H93'
+                        stroke='#B34B1E'
+                        stroke-opacity='0.26'
+                        stroke-width='2'
+                        stroke-linecap='round'
+                        stroke-dasharray='10 10'
+                      />
+                    </svg>
+                    <div
+                      className={`${
+                        indx <= indexMb - 1 ? 'translate-x-0' : 'translate-x-[-100%]'
+                      } absolute w-full h-[0.5rem] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}
+                    ></div>
                   </div>
-                ))}
-              </div>
-              <div className='mt-[3.7rem]'>
-                {data?.listDay?.map((e, index) => (
-                  <div className={`${index === indexMb ? 'block' : 'hidden'} flex gap-[2.1rem] flex-wrap`}>
-                    {e?.listProvince?.map((item) => (
-                      <div className='w-[29rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'>
-                        {item.province}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
+                  {indx === data?.listDay?.length - 2 && (
+                    <svg
+                      className='w-[2.1rem]'
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='8'
+                      height='8'
+                      viewBox='0 0 8 8'
+                      fill='none'
+                    >
+                      <circle
+                        cx='4'
+                        cy='4'
+                        r='3'
+                        stroke='#B34B1E'
+                        stroke-width='2'
+                      />
+                    </svg>
+                  )}
+                </div>
+              ))}
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='8'
+                height='8'
+                viewBox='0 0 8 8'
+                fill='none'
+              >
+                <circle
+                  cx='4'
+                  cy='4'
+                  r='3'
+                  stroke='#B34B1E'
+                  stroke-width='2'
+                />
+              </svg>
             </div>
+            <div className='flex gap-x-[5.13rem] relative w-fit'>
+              {data?.listDay?.map((e, index) => (
+                <ItemLane
+                  indexCurrent={indexCurrent}
+                  data={e}
+                  key={index}
+                  length={data?.listDay?.length}
+                  index={index}
+                  setIndexCurrent={setIndexCurrent}
+                />
+              ))}
+              <div className='md:hidden mt-[5.3rem]'>
+                <div className='flex gap-[7.5rem]'>
+                  {data?.listDay?.map((e, index) => (
+                    <div
+                      onClick={() => setIndexMb(index)}
+                      className={`${
+                        index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
+                      } md:hidden w-[25.3rem] h-[15.46rem] rounded-[2rem] flex flex-col justify-center items-center`}
+                    >
+                      <span
+                        className={`${
+                          index === indexMb ? 'text-white' : 'text-[#898989]'
+                        } text-[3.7rem] leading-[1.42] gap-[1rem] font-bold`}
+                      >
+                        DAY {index + 1}
+                      </span>
+                      <span className={`${index === indexMb ? 'text-white' : 'text-[#898989]'} text-[3.2rem]`}>
+                        {e?.distanceLength}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className='mt-[3.7rem]'>
+                  {data?.listDay?.map((e, index) => (
+                    <div className={`${index === indexMb ? 'block' : 'hidden'} flex gap-[2.1rem] flex-wrap`}>
+                      {e?.listProvince?.map((item) => (
+                        <div className='w-[29rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'>
+                          {item.province}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-            <button
-              onClick={() => {
-                // animation.previous()
-                if (count > 0) {
-                  setCount(count - 1)
-                }
-                if (indexCurrent > 1) {
-                  setIndexCurrent(indexCurrent - 1)
-                }
-              }}
-              className='p-[0.75rem] absolute top-[1.8rem] left-0 -translate-x-full z-[5] max-md:hidden'
-            >
-              <IconBtnLeft className={'w-[1.82rem] h-[0.82rem]'} />
-            </button>
-            <button
-              onClick={() => {
-                // animation.next()
-                if (count < data?.listDay?.length - 1) {
-                  setCount(count + 1)
-                }
-                if (indexCurrent < data?.listDay?.length) {
-                  setIndexCurrent(indexCurrent + 1)
-                }
-              }}
-              className='p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-md:hidden'
-            >
-              <IconBtnLeft className={'w-[1.82rem] h-[0.82rem] rotate-180'} />
-            </button>
+              <button
+                onClick={() => {
+                  // animation.previous()
+                  if (count > 0) {
+                    setCount(count - 1)
+                  }
+                  if (indexCurrent > 1) {
+                    setIndexCurrent(indexCurrent - 1)
+                  }
+                }}
+                className='p-[0.75rem] absolute top-[1.8rem] left-0 -translate-x-full z-[5] max-md:hidden'
+              >
+                <IconBtnLeft className={'w-[1.82rem] h-[0.82rem]'} />
+              </button>
+              <button
+                onClick={() => {
+                  // animation.next()
+                  if (count < data?.listDay?.length - 1) {
+                    setCount(count + 1)
+                  }
+                  if (indexCurrent < data?.listDay?.length) {
+                    setIndexCurrent(indexCurrent + 1)
+                  }
+                }}
+                className='p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-md:hidden'
+              >
+                <IconBtnLeft className={'w-[1.82rem] h-[0.82rem] rotate-180'} />
+              </button>
+            </div>
           </div>
-        </div>
+        </ScrollTrigger>
         <div className='flex justify-center mt-[2.5rem] max-md:mt-[5.3rem]'>
           <Button
             primary={true}
@@ -347,9 +290,6 @@ export default function BestTripEver({ data }) {
                 } absolute w-full h-full object-contain transition-all duration-300`}
               ></Image>
             ))}
-            {/* <Image src='/images/map1.png' width={900} height={716}></Image>
-                        <Image src='/images/map1.png' width={900} height={716}></Image>
-                        <Image src='/images/map1.png' width={900} height={716}></Image> */}
           </div>
         </div>
       )}

@@ -49,7 +49,7 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
         allTourHG={allTourHG}
         header={data?.data?.page?.homeHG?.header}
       />
-      <div className='flex gap-x-[1rem] absolute bottom-0 translate-y-1/2 lg:right-[6.27rem] max-md:left-[4.27rem]'>
+      <div className='flex gap-x-[1rem] absolute bottom-0 translate-y-1/2 lg:right-[6.27rem] max-md:left-[4.27rem] font-poppins'>
         <div className='w-[11.88rem] h-[12.12rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center'>
           <Image
             className='z-0 object-cover animate-spin duration-7000'

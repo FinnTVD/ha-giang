@@ -10,6 +10,7 @@ import SlideFamilyMb from './SlideFamilyMb'
 import IconPeople from '../icons/IconPeople'
 import IconMotor from '../icons/IconMotor'
 import IconCheck from '../icons/IconCheck'
+import SlideFamilyV2 from './SlideFamilyV2'
 
 export default function Family({ section6 }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
@@ -103,6 +104,10 @@ export default function Family({ section6 }) {
               section6={section6}
             />
           ) : (
+            // <SlideFamilyV2
+            //   setTourLeader={setTourLeader}
+            //   section6={section6}
+            // />
             <SlideFamily
               setTourLeader={setTourLeader}
               section6={section6}

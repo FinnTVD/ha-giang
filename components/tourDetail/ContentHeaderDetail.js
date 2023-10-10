@@ -14,7 +14,7 @@ export default function ContentHeaderDetail({ data, slug }) {
       >
         {data?.title}
       </h1>
-      <div className='w-[15.3125rem] h-[3.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem]'>
+      <div className='w-[15.3125rem] h-[3.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins'>
         <Image
           className='object-cover max-md:object-contain'
           src={'/images/bg-time-detail.png'}
@@ -26,7 +26,7 @@ export default function ContentHeaderDetail({ data, slug }) {
           {data?.timeTour}
         </span>
       </div>
-      <div className='flex gap-x-[1.88rem] max-md:gap-x-[8.53rem]'>
+      <div className='flex gap-x-[1.88rem] max-md:gap-x-[8.53rem] font-poppins'>
         <div className='w-[18rem] max-md:hidden'>
           <TittleIcon title={'HIGHLIGHT'}>
             <svg

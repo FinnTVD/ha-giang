@@ -17,6 +17,8 @@ import RHFDatePicker from '../ui/RHFDatePicker'
 import { useMediaQuery } from 'react-responsive'
 import motoImg from '@/public/images/motobikeMobile.svg'
 import { exchangeRate } from '@/utils'
+import useStore from '@/app/(store)/store'
+import ScrollTrigger from 'react-scroll-trigger'
 
 const defaultValues = {
   selfDriving: 0,
@@ -54,6 +56,8 @@ const inputMobileStyle = {
 export default function BookingOnline({ data, title }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
   const [ip, setIp] = useState('')
+  const setIndexTab = useStore((state) => state.setIndexTab)
+
   // const [selfDriving, setSelfDriving] = useState(0)
   // const [localDriver, setLocalDriver] = useState(0)
   const router = useRouter()
@@ -268,9 +272,11 @@ export default function BookingOnline({ data, title }) {
               </div>
             </div>
 
-            <div className='mt-[1rem] text-[0.875rem] font-semibold leading-[150%] mb-[0.5rem] max-md:mb-[1.6rem] max-md:text-[3.46rem]'>
-              Customer information:
-            </div>
+            <ScrollTrigger onEnter={() => setIndexTab(4)}>
+              <div className='mt-[1rem] text-[0.875rem] font-semibold leading-[150%] mb-[0.5rem] max-md:mb-[1.6rem] max-md:text-[3.46rem]'>
+                Customer information:
+              </div>
+            </ScrollTrigger>
             <div className='grid grid-cols-2 gap-[0.75rem] max-md:gap-[3.2rem]'>
               <div className='col-span-2'>
                 <TextField.Input

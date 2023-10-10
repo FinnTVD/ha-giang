@@ -19,7 +19,7 @@ export function AccordionDemo({ className='', data }) {
                         >
                             <AccordionTrigger
                                 indexTab={indexTab}
-                                className={`${index===indexTab?'border-[#B34B1E]':''} border-b `}
+                                className={`${index===indexTab?'border-[#B34B1E] mb-[2rem]':''} border-b `}
                                 onClick={() => {
                                     if (index === indexTab) {
                                         setIndexTab(-1)
@@ -31,7 +31,7 @@ export function AccordionDemo({ className='', data }) {
                             >
                                 {e?.heading}
                             </AccordionTrigger>
-                            <AccordionContent index={index} className='pt-[2rem]'>{e?.description}</AccordionContent>
+                            <AccordionContent index={index} >{e?.description}</AccordionContent>
                         </AccordionItem>
                     ))}
                 </>

@@ -8,6 +8,8 @@ import IconMarker from '../icons/IconMarker'
 import IconHome from '../icons/IconHome'
 import IconBus from '../icons/IconBus'
 import IconMeal from '../icons/IconMeal'
+import ScrollTrigger from 'react-scroll-trigger'
+import useStore from '@/app/(store)/store'
 
 // From Hanoi
 // Noi Bai Airport
@@ -24,6 +26,7 @@ function AboutTour({ data }) {
   const [activeCate, setActiveCate] = useState(0)
   const [content, setContent] = useState(data?.listCheckin[0])
   const [isShow, setIsShow] = useState(false)
+  const setIndexTab = useStore((state) => state.setIndexTab)
 
   const handleCheckIcon = (category) => {
     if (!category) return
@@ -93,33 +96,35 @@ function AboutTour({ data }) {
         </div>
 
         {/* ------------content-right----------- */}
-        <div className='flex flex-col md:gap-[1rem] gap-[4.27rem] justify-start'>
-          <div className='flex md:gap-[0.75rem] gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[1rem] whitespace-nowrap slideCategory'>
-            {data?.listCheckin?.map((item, index) => (
-              <div
-                key={index}
-                className={`flex md:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-md items-center md:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[0.375rem] ${
-                  index === activeCate ? 'bg-[#FFF0EA]' : 'bg-[#fff]'
-                }`}
-                onClick={() => {
-                  setContent(data?.listCheckin[index])
-                  setActiveCate(index)
-                }}
-              >
-                <Image
-                  alt='icon'
-                  src={'/images/homeLocation.svg'}
-                  quality={100}
-                  width={30}
-                  height={30}
-                  className='md:w-[1rem] md:h-[1rem]'
-                />
-                <h5 className='md:text-[0.875rem] text-[3.73333rem] text-primary-70 md:font-[500] md:leading-[1.25rem] md:tracking-[0.00875rem] '>
-                  {item?.category}
-                </h5>
-              </div>
-            ))}
-          </div>
+        <div className='flex flex-col md:gap-[1rem] gap-[4.27rem] justify-start font-poppins'>
+          <ScrollTrigger onEnter={() => setIndexTab(3)}>
+            <div className='flex md:gap-[0.75rem] gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[1rem] whitespace-nowrap slideCategory'>
+              {data?.listCheckin?.map((item, index) => (
+                <div
+                  key={index}
+                  className={`flex md:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-md items-center md:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[0.375rem] ${
+                    index === activeCate ? 'bg-[#FFF0EA]' : 'bg-[#fff]'
+                  }`}
+                  onClick={() => {
+                    setContent(data?.listCheckin[index])
+                    setActiveCate(index)
+                  }}
+                >
+                  <Image
+                    alt='icon'
+                    src={'/images/homeLocation.svg'}
+                    quality={100}
+                    width={30}
+                    height={30}
+                    className='md:w-[1rem] md:h-[1rem]'
+                  />
+                  <h5 className='md:text-[0.875rem] text-[3.73333rem] text-primary-70 md:font-[500] md:leading-[1.25rem] md:tracking-[0.00875rem] '>
+                    {item?.category}
+                  </h5>
+                </div>
+              ))}
+            </div>
+          </ScrollTrigger>
 
           {/* slide image */}
           <div className='md:w-[54.95rem] max-md:px-[4.27rem]'>

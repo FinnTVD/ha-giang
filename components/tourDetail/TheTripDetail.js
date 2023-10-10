@@ -3,7 +3,7 @@ import { AccordionDemoV2 } from '../ui/AccordionDemoV2'
 
 export default function TheTripDetail({ data }) {
   return (
-    <section className='px-[6.25rem] mt-[6.25rem]'>
+    <section className='px-[6.25rem] mt-[6.25rem] font-poppins'>
       <SubTitle
         title={'THE TRIP'}
         subTitle={'FAQ ABOUT'}

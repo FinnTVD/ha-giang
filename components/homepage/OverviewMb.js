@@ -11,7 +11,9 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useMediaQuery } from 'react-responsive'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollTrigger as ScrollTrigger1 } from 'gsap/ScrollTrigger'
+import useStore from '@/app/(store)/store'
+import ScrollTrigger from 'react-scroll-trigger'
 
 const list = [
   { name: 'Information', id: 1, to: '#box-tab' },
@@ -20,19 +22,23 @@ const list = [
   { name: 'Book online', id: 4, to: '#bookingId' },
 ]
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger1)
 const OverviewMb = ({ data }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
   const param = useParams()
   const parentRef = useRef(null)
   const [isFixed, setIsFixed] = useState(false)
-  const [indexTab, setIndexTab] = useState(1)
+  const indexTab = useStore((state) => state.indexTab)
+  const setIndexTab = useStore((state) => state.setIndexTab)
   const [show, setShow] = useState(true)
   useEffect(() => {
     let ctx = gsap.context(() => {
       setTimeout(() => {
         gsap.matchMedia().add('(max-width: 767px)', () => {
           gsap.to('#box-tab', {
+            marginBottom: 0,
+            paddingBottom: 0,
+            paddingTop: 0,
             scrollTrigger: {
               trigger: parentRef.current,
               start: 'top top',
@@ -55,9 +61,9 @@ const OverviewMb = ({ data }) => {
   }, [])
   if (!isMobile) return
   return (
-    <div
+    <section
       ref={parentRef}
-      className='hidden max-md:flex flex-col ml-[3.62rem] z-10 mt-[23rem]'
+      className='hidden max-md:flex flex-col ml-[3.62rem] z-10 mt-[23rem] font-poppins'
     >
       <div
         id='box-tab'
@@ -74,11 +80,11 @@ const OverviewMb = ({ data }) => {
               className={`${
                 isFixed ? 'text-[4.46rem]' : 'text-[3.46rem]'
               } h-[6.4rem] pb-[1.6rem] w-[24.42rem] font-poppins text-center
-          ${
-            indexTab === item?.id
-              ? 'text-[#B34B1E] font-semibold border-b-[0.4rem] border-[#B34B1E]'
-              : 'font-normal text-[#898989]'
-          }`}
+            ${
+              indexTab === item?.id
+                ? 'text-[#B34B1E] font-semibold border-b-[0.4rem] border-[#B34B1E]'
+                : 'font-normal text-[#898989]'
+            }`}
               key={item.id}
             >
               {item?.name}
@@ -130,25 +136,27 @@ const OverviewMb = ({ data }) => {
             <span className='text-[#2E2E2E]  font-semibold text-[3.73rem]'>{data?.pickUpFrom}</span>
           </div>
         </div>
-        <div>
-          <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
-            <Image
-              src={includedImg}
-              alt='icon'
-            />
-            INCLUDED:
-          </h2>
-          <ul className='pl-[5.86rem] list-disc flex flex-col gap-[0.53rem] mb-[6.4rem]'>
-            {data?.included?.map((e, index) => (
-              <li
-                key={index}
-                className='text-[#2E2E2E]  font-semibold text-[3.73rem]'
-              >
-                {e?.item}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ScrollTrigger onEnter={() => setIndexTab(1)}>
+          <div>
+            <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
+              <Image
+                src={includedImg}
+                alt='icon'
+              />
+              INCLUDED:
+            </h2>
+            <ul className='pl-[5.86rem] list-disc flex flex-col gap-[0.53rem] mb-[6.4rem]'>
+              {data?.included?.map((e, index) => (
+                <li
+                  key={index}
+                  className='text-[#2E2E2E]  font-semibold text-[3.73rem]'
+                >
+                  {e?.item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </ScrollTrigger>
         <div>
           <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
             <Image
@@ -180,7 +188,7 @@ const OverviewMb = ({ data }) => {
           className={show ? '' : 'rotate-180'}
         />
       </button>
-    </div>
+    </section>
   )
 }
 

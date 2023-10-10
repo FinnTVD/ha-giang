@@ -1,10 +1,8 @@
-'use client'
-
 import Link from 'next/link'
 import IconMaskButton from '../icons/IconMaskButton'
 const stylePrimary = 'text-white bg-primary-70 border border-solid border-primary-70'
 
-const styleDefault = 'box-border border border-solid border-primary-70 text-primary-70 group/item hover:bg-primary-70'
+const styleDefault = 'box-border border border-solid border-primary-70 text-primary-70 hover:bg-primary-70'
 
 export default function Button({ href, className, type = 'button', primary, content, maskClass }) {
   return (
@@ -13,13 +11,13 @@ export default function Button({ href, className, type = 'button', primary, cont
         <Link
           className={`${className} ${
             primary ? stylePrimary : styleDefault
-          } relative rounded-[0.5rem] z-20 transition-all duration-300 uppercase py-[0.75rem] max-md:py-[3.2rem] max-md:px-[6.4rem] px-[1.5rem] text-[0.8125rem] font-bold leading-[1.54] max-md:rounded-[2.13rem] max-md:text-[3.467rem] max-md:font-bold max-md:leading-[1.53] text-center inline-block font-poppins`}
+          } relative group/item rounded-[0.5rem] z-20 transition-all duration-500 uppercase py-[0.75rem] max-md:py-[3.2rem] max-md:px-[6.4rem] px-[1.5rem] text-[0.8125rem] font-bold leading-[1.54] max-md:rounded-[2.13rem] max-md:text-[3.467rem] max-md:font-bold max-md:leading-[1.53] text-center inline-block font-poppins`}
           href={href || '/'}
         >
           <IconMaskButton
-            className={`${primary ? '' : 'opacity-0'} ${
+            className={`${
               maskClass ? maskClass : 'w-[6.31831rem]'
-            } absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-md:w-[33.62187rem] max-md:h-[8.07093rem] h-[1.99675rem] group-hover/item:opacity-100 `}
+            } absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-md:w-[33.62187rem] max-md:h-[8.07093rem] h-[1.99675rem] opacity-0 group-hover/item:opacity-100 `}
           />
           <span className='relative z-[1] group-hover/item:text-white'>{content}</span>
         </Link>
@@ -28,12 +26,12 @@ export default function Button({ href, className, type = 'button', primary, cont
           type={type}
           className={`${className} ${
             primary ? stylePrimary : styleDefault
-          } relative rounded-[0.5rem] z-20 transition-all duration-300 uppercase py-[0.75rem] max-md:py-[3.2rem] max-md:px-[6.4rem] px-[1.5rem] text-[0.8125rem] font-bold leading-[1.54] max-md:rounded-[2.13rem] max-md:text-[3.467rem] max-md:font-bold max-md:leading-[1.53] text-center inline-block font-poppins`}
+          } relative group/item rounded-[0.5rem] z-20 transition-all duration-500 uppercase py-[0.75rem] max-md:py-[3.2rem] max-md:px-[6.4rem] px-[1.5rem] text-[0.8125rem] font-bold leading-[1.54] max-md:rounded-[2.13rem] max-md:text-[3.467rem] max-md:font-bold max-md:leading-[1.53] text-center inline-block font-poppins`}
         >
           <IconMaskButton
-            className={`${primary ? '' : 'opacity-0'} ${
+            className={`${
               maskClass ? maskClass : 'w-[6.31831rem]'
-            } absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-md:w-[33.62187rem] max-md:h-[8.07093rem] h-[1.99675rem] group-hover/item:opacity-100`}
+            } absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-md:w-[33.62187rem] max-md:h-[8.07093rem] h-[1.99675rem] opacity-0 group-hover/item:opacity-100 `}
           />
           <span className='relative z-[1]'>{content}</span>
         </button>

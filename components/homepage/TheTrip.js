@@ -6,13 +6,13 @@ import { useMediaQuery } from 'react-responsive'
 import { AccordionDemo } from '../ui/AccordionDemo'
 import { PopupBookNow } from '../global/PopupBookNow'
 
-export default function TheTrip({ section8, allTourHG }) {
+export default function TheTrip({ section8, allTourHG, isOther = false }) {
   const [active, setActive] = useState(0)
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
 
   return (
     <section className='w-[87.5rem] max-md:w-[91.46667rem] mx-auto flex justify-between mt-[16rem] md:mt-[6.25rem] max-md:flex-col max-md:gap-[8rem] font-poppins'>
-      <div>
+      <div className={`${isOther ? 'hidden' : ''}`}>
         <SubTitle
           title={section8?.title}
           subTitle={section8?.subtitle}
@@ -27,7 +27,7 @@ export default function TheTrip({ section8, allTourHG }) {
           </div>
         </PopupBookNow>
       </div>
-      <div className='flex flex-col md:gap-[0.75rem] gap-[4.27rem]'>
+      <div className={`${isOther ? 'mx-auto' : ''} flex flex-col md:gap-[0.75rem] gap-[4.27rem]`}>
         <div className='flex md:gap-[5rem] max-md:justify-between'>
           {section8?.listCategory?.map((e, index) => (
             <div
@@ -35,7 +35,7 @@ export default function TheTrip({ section8, allTourHG }) {
               className='max-md:text-center max-md:w-[43.73333rem]'
             >
               <h3
-                className={`md:text-[1.625rem] md:w-[26.375rem] text-[4.26667rem] md:font-semibold font-bold md:leading-[1.23] leading-[6.4rem] max-md:tracking-[0.05333rem] font-poppins text-[#B7B7B7] md:text-gray-scale-80 max-md:pb-[1.07rem] ${
+                className={` md:text-[1.625rem] md:w-[26.375rem] text-[4.26667rem] md:font-semibold font-bold md:leading-[1.23] leading-[6.4rem] max-md:tracking-[0.05333rem] font-poppins text-[#B7B7B7] md:text-gray-scale-80 max-md:pb-[1.07rem] ${
                   isMobile && active === index ? '!text-[#B34B1E] border-b max-md:border-b-[2px] border-[#B34B1E] ' : ''
                 }`}
               >

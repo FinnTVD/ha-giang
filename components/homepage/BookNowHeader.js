@@ -1,9 +1,9 @@
 'use client'
-import Image from 'next/image'
 import IconMarker from '../icons/IconMarker'
 import { useState } from 'react'
 import { ComboboxV2 } from '../ui/ComboboxV2'
 import { PopupBookNow } from '../global/PopupBookNow'
+import IconPeople from '../icons/IconPeople'
 
 export default function BookNowHeader({ allTourHG }) {
   const [countSelf, setCountSelf] = useState(1)
@@ -17,6 +17,7 @@ export default function BookNowHeader({ allTourHG }) {
         </span>
         <div className='flex items-center'>
           <IconMarker className='w-[2rem] h-[2rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-md:mr-[2.06rem]' />
+
           <ComboboxV2
             setTour={setTour}
             allTourHG={allTourHG}
@@ -43,13 +44,7 @@ export default function BookNowHeader({ allTourHG }) {
           SELF - DRIVING
         </span>
         <div className='flex items-center'>
-          <Image
-            className='object-contain w-[2rem] h-[2rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-md:mr-[2.13rem]'
-            src={'/images/people.svg'}
-            alt='marker'
-            width={40}
-            height={40}
-          />
+          <IconPeople className='w-[2rem] h-[2rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-md:mr-[2.13rem]' />
           <div className='flex items-center ml-[0.5rem] justify-end max-md:w-full'>
             <span className='text-gray-scale-80 text-[1rem] font-bold leading-normal tracking-[0.005rem] max-md:text-[3.733rem] max-md:font-semibold max-md:leading-[1.57rem]'>
               {countSelf} pax
@@ -93,13 +88,7 @@ export default function BookNowHeader({ allTourHG }) {
           PRIVATE DRIVER
         </span>
         <div className='flex items-center'>
-          <Image
-            className='object-contain w-[2rem] h-[2rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-md:mr-[2.13rem]'
-            src={'/images/people.svg'}
-            alt='marker'
-            width={40}
-            height={40}
-          />
+          <IconPeople className='w-[2rem] h-[2rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-md:mr-[2.13rem]' />
           {/* <ComboboxDemo frameworks={frameworks2} /> */}
           <div className='flex items-center ml-[0.5rem] justify-end max-md:w-full'>
             <span className='text-gray-scale-80 text-[1rem] font-bold leading-normal tracking-[0.005rem] max-md:text-[3.733rem] max-md:font-semibold max-md:leading-[1.57rem]'>

@@ -42,14 +42,14 @@ export default function SlideTravelers({ section5 }) {
           swiperRef.current = swiper
         }}
         modules={[FreeMode]}
-        className='h-[14rem] mt-[2.5rem] max-md:mt-[5.33rem] max-md:h-[67.733rem]'
+        className='h-[15rem] mt-[2.5rem] max-md:mt-[5.33rem] max-md:h-[67.733rem]'
       >
         {section5?.listFeedback?.map((e, index) => (
           <SwiperSlide
             className='rounded-[1rem] max-md:!w-[76.267rem] max-md:rounded-[3.2rem] font-poppins'
             key={index}
           >
-            <div className='w-full max-md:rounded-[3.2rem] shadow-slideTrave h-full relative rounded-[1rem] overflow-hidden p-[1.56rem] max-md:p-[5.33rem] bg-white flex flex-col items-center justify-center'>
+            <div className='w-full max-md:rounded-[3.2rem] shadow-itemTrave h-[14rem] relative rounded-[1rem] overflow-hidden p-[1.56rem] max-md:p-[5.33rem] flex flex-col items-center justify-center md:bg-background-elevation-01 md:hover:bg-white transition-all duration-300 bg-white'>
               <p className='text-[0.875rem] font-normal max-md:line-clamp-[7] line-clamp-5 leading-[1.57] text-gray-scale-50 tracking-[0.00219rem] text-center max-md:text-[3.733rem] max-md:tracking-[0.00933rem]'>
                 {e?.description}
               </p>

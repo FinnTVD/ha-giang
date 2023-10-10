@@ -409,7 +409,9 @@ h5 {
 
 #boxMap {
     iframe {
-        width: 50.4273rem !important;
+        width: 75rem !important;
+        height: 50rem;
+        border-radius: 0.75rem;
         @media (min-width: "768px") and (max-width: "1023px") {
             width: 56.4273rem !important;
         }

@@ -1,63 +1,66 @@
 import IndexContact from '@/components/contact'
 import { GET_DATA_CONTACT, GET_META_CONTACT, GET_NAV_AND_FOOTER } from '@/graphql/contact/queries'
+import { GET_DATA_HOME } from '@/graphql/home/queries'
 import getData from '@/utils/getData'
 
 export async function generateMetadata() {
-    const data = await getData(GET_META_CONTACT)
-    if (!data) return
-    const { featuredImage, contact } = data?.data?.page
-    return {
-        title: contact?.meta?.metaTitle,
-        description: contact?.meta?.metaDescription,
-        applicationName: process.env.SITE_NAME,
-        openGraph: {
-            title: contact?.meta?.metaTitle,
-            description: contact?.meta?.metaDescription,
-            url: process.env.DOMAIN,
-            siteName: process.env.SITE_NAME,
-            images: [
-                {
-                    url: featuredImage?.node?.sourceUrl,
-                    alt: featuredImage?.node?.altText || featuredImage?.node?.title,
-                },
-            ],
-            locale: 'en_US',
-            type: 'website',
+  const data = await getData(GET_META_CONTACT)
+  if (!data) return
+  const { featuredImage, contact } = data?.data?.page
+  return {
+    title: contact?.meta?.metaTitle,
+    description: contact?.meta?.metaDescription,
+    applicationName: process.env.SITE_NAME,
+    openGraph: {
+      title: contact?.meta?.metaTitle,
+      description: contact?.meta?.metaDescription,
+      url: process.env.DOMAIN,
+      siteName: process.env.SITE_NAME,
+      images: [
+        {
+          url: featuredImage?.node?.sourceUrl,
+          alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
-        twitter: {
-            card: 'summary_large_image',
-            title: contact?.meta?.metaTitle,
-            description: contact?.meta?.metaDescription,
-            creator: process.env.SITE_NAME,
-            images: [
-                {
-                    url: featuredImage?.node?.sourceUrl,
-                    alt: featuredImage?.node?.altText || featuredImage?.node?.title,
-                },
-            ],
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: contact?.meta?.metaTitle,
+      description: contact?.meta?.metaDescription,
+      creator: process.env.SITE_NAME,
+      images: [
+        {
+          url: featuredImage?.node?.sourceUrl,
+          alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
-        robots: {
-            index: false,
-            follow: true,
-            nocache: true,
-            googleBot: {
-                index: true,
-                follow: false,
-                'max-video-preview': -1,
-                'max-image-preview': 'large',
-                'max-snippet': -1,
-            },
-        },
-    }
+      ],
+    },
+    robots: {
+      index: false,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  }
 }
 
 export default async function page() {
-    const data = await getData(GET_DATA_CONTACT)
-    const dataHome = await getData(GET_NAV_AND_FOOTER)
-    return (
-        <IndexContact
-            data={data?.data?.page?.contact}
-            dataHome={dataHome}
-        />
-    )
+  const data = await getData(GET_DATA_CONTACT)
+  const dataFooter = await getData(GET_NAV_AND_FOOTER)
+  const dataHome = await getData(GET_DATA_HOME)
+  return (
+    <IndexContact
+      data={data?.data?.page?.contact}
+      dataFooter={dataFooter}
+      dataHome={dataHome}
+    />
+  )
 }

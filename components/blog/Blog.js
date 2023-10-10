@@ -63,7 +63,7 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
   }, [isOpen])
 
   return (
-    <div className='relative'>
+    <div className='relative font-poppins'>
       <div className='absolute top-0 left-0 w-full'>
         <Nav
           setIsOpen={setIsOpen}
@@ -110,7 +110,7 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
                   className='w-max'
                   onChange={handleChange}
                 >
-                  <option value=''>Category</option>
+                  <option value=''>All</option>
                   {arrayCateInit?.map((item, index) => (
                     <option
                       value={item?.slug}

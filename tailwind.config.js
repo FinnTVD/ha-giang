@@ -71,11 +71,12 @@ module.exports = {
       boxShadow: {
         slideTrave: '0px 4px 6px 0px rgba(0, 0, 0, 0.06)',
         btnTravel: '0px 4px 16px 0px rgba(0, 0, 0, 0.06)',
-        itemCardTour: '0px 0px 20px 0px rgba(0, 0, 0, 0.12)',
         boxTour: '0px 4px 32px 0px rgba(0, 0, 0, 0.12)',
         btn: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
         navFixed: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
         itemTrave: '6px 6px 32px 0px rgba(0, 0, 0, 0.04), 0px 0px 12px 0px rgba(235, 255, 209, 0.10)',
+        itemCardTour:
+          '6px 6px 32px 0px rgba(0, 0, 0, 0.06), -16px -16px 32px 0px rgba(0, 0, 0, 0.08), 0px 0px 12px 0px rgba(235, 255, 209, 0.21)',
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],

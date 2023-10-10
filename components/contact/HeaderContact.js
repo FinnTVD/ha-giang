@@ -53,7 +53,7 @@ export default function HeaderContact({ dataHome, data }) {
           className='absolute bottom-0 left-0 w-full'
         />
         <div
-          className='relative text-center font-heavitas text-[11.625rem] uppercase leading-[1] max-md:text-[16.5rem]'
+          className='relative text-center font-heavitas text-[8.625rem] uppercase leading-[1] max-md:text-[16.5rem]'
           style={{
             backgroundImage: `url(${data?.backgroundPc?.sourceUrl})`,
             backgroundRepeat: 'repeat',

@@ -42,7 +42,7 @@ export default function FeaturesHeader({ header, allTourHG }) {
         />
       </svg>
       <PopupBookNow allTourHG={allTourHG}>
-        <div className='cursor-pointer w-[3.5rem] text-[0.75rem] font-black leading-[1.08] tracking-[0.03125rem] h-[3.5rem] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67rem] max-md:h-[10.67rem] max-md:text-[2.56rem] max-md:tracking-[0.10667rem] font-roboto'>
+        <div className='cursor-pointer w-[3.5rem] text-[0.75rem] font-black leading-[1.08] tracking-[0.03125rem] h-[3.5rem] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67rem] max-md:h-[10.67rem] max-md:text-[2.56rem] max-md:tracking-[0.10667rem] font-roboto animate-bounce'>
           BOOK NOW
         </div>
       </PopupBookNow>
