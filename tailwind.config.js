@@ -77,6 +77,8 @@ module.exports = {
         itemTrave: '6px 6px 32px 0px rgba(0, 0, 0, 0.04), 0px 0px 12px 0px rgba(235, 255, 209, 0.10)',
         itemCardTour:
           '6px 6px 32px 0px rgba(0, 0, 0, 0.06), -16px -16px 32px 0px rgba(0, 0, 0, 0.08), 0px 0px 12px 0px rgba(235, 255, 209, 0.21)',
+        itemDestination:
+          '6px 6px 40px 0px rgba(0, 0, 0, 0.06), -16px -16px 40px 0px rgba(0, 0, 0, 0.08), 0px 0px 24px 0px rgba(255, 235, 220, 0.50)',
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
