@@ -61,18 +61,18 @@ export default function ValueTowards({ valueTowards }) {
     }
   }
   return (
-    <section className='mt-[6.25rem] px-[6.25rem] max-md:px-0'>
+    <section className='mt-[6.25rem] px-[6.25rem] max-lg:px-0'>
       <div className='flex flex-col items-center'>
-        <h3 className='text-[#B34B1E] font-heavitas text-[1rem] leading-[1] max-md:text-[3.2rem]'>
+        <h3 className='text-[#B34B1E] font-heavitas text-[1rem] leading-[1] max-md:text-[3.2rem] max-lg:text-[2.08rem]'>
           {' '}
           {valueTowards?.topTitle}{' '}
         </h3>
-        <h2 className='text-[#B34B1E] font-heavitas text-[3rem] mt-[0.75rem] leading-[1] max-md:text-[6.4rem] max-md:mt-[2.1rem]'>
+        <h2 className='text-[#B34B1E] font-heavitas text-[3rem] mt-[0.75rem] leading-[1] max-md:text-[6.4rem] max-md:mt-[2.1rem] max-lg:text-[4.25rem]'>
           {' '}
           {valueTowards?.title}{' '}
         </h2>
       </div>
-      <div className='mt-[2.5rem] flex flex-col gap-[8.375rem] max-md:hidden'>
+      <div className='mt-[2.5rem] flex flex-col gap-[8.375rem] max-lg:hidden'>
         {valueTowards?.content.map((item, index) => (
           <div
             className={`${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} flex gap-[4.75rem]`}
@@ -146,7 +146,7 @@ export default function ValueTowards({ valueTowards }) {
           </div>
         ))}
       </div>
-      <div className='md:hidden mt-[5.3rem]'>
+      <div className='lg:hidden mt-[5.3rem]'>
         <Swiper
           loop
           onBeforeInit={(swiper) => {
@@ -203,7 +203,7 @@ export default function ValueTowards({ valueTowards }) {
                   className='w-auto h-[12.2rem] object-cover'
                 ></Image>
               </div>
-              <h3 className='text-[#05320C] text-[3.7rem] font-bold leading-[1.23] font-poppins mt-[-4rem] text-center relative z-[2]'>
+              <h3 className='text-[#05320C] text-[3.7rem] font-bold leading-[1.23] font-poppins mt-[-4rem] text-center relative z-[2] max-lg:text-[3.3rem]'>
                 {item?.title}
               </h3>
             </SwiperSlide>
@@ -222,7 +222,7 @@ export default function ValueTowards({ valueTowards }) {
               className='px-[2.5rem]'
               key={index}
             >
-              <p className='text-[#727272] text-[3.7rem] leading-[1.57] tracking-[0.035] font-poppins text-center'>
+              <p className='text-[#727272] text-[3.7rem] leading-[1.57] tracking-[0.035] font-poppins text-center max-lg:text-[1.8rem]'>
                 {item?.content}
               </p>
             </SwiperSlide>

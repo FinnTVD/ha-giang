@@ -18,7 +18,7 @@ function BlogItem({ data, params }) {
               width={1000}
               height={1000}
               alt='img'
-              className={`md:!h-[16.3125rem] h-[43.73rem] object-cover md:rounded-[0.5rem] rounded-[2.13333rem]`}
+              className={`lg:!h-[16.3125rem] h-[43.73rem] object-cover md:rounded-[0.5rem] rounded-[2.13333rem] md:!h-[28.5rem]`}
             />
           </div>
           {/* <span
@@ -34,17 +34,17 @@ function BlogItem({ data, params }) {
             width={100}
             height={100}
             alt='calendar'
-            className='md:w-[0.84375rem] opacity-60 w-[2.4rem] h-[2.66667rem] md:h-[0.9375rem] object-cover'
+            className='lg:w-[0.84375rem] opacity-60 w-[2.4rem] h-[2.66667rem] md:h-[0.9375rem] object-cover md:w-[1.5rem] md:h-[1.6vw]'
           />
-          <span className='md:text-[0.875rem] opacity-60 text-[2.66667rem] leading-none'>
+          <span className='lg:text-[0.875rem] opacity-60 text-[2.66667rem] leading-none md:text-[1.8rem]'>
             {moment(data?.date)?.format('DD MMMM YYYY')}
           </span>
         </div>
-        <h4 className='md:text-[1.25rem] text-[3.73333rem] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78rem] mt-[1.07rem] title'>
+        <h4 className='lg:text-[1.25rem] text-[3.73333rem] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78rem] mt-[1.07rem] title md:text-[1.95rem]'>
           {data?.title}
         </h4>
         <div
-          className='md:text-[0.875rem] text-ellipsis line-clamp-2 opacity-60 text-[2.66667rem] font-[500] desc leading-normal md:mt-[0.5rem] mt-[1.07rem]'
+          className='lg:text-[0.875rem] text-ellipsis line-clamp-2 opacity-60 text-[2.66667rem] font-[500] desc leading-normal md:mt-[0.5rem] mt-[1.07rem] md:text-[1.8rem]'
           dangerouslySetInnerHTML={{ __html: `${data?.excerpt}` }}
         ></div>
       </div>
