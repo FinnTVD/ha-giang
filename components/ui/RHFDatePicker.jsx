@@ -17,9 +17,9 @@ const RHFDatePicker = ({ selected, onChange, ...other }) => {
     }, [])
 
     return (
-        <div className='relative !cursor-pointer'>
+        <div id='date-booking' className='relative !cursor-pointer'>
             <DatePicker
-                className='bg-[#F2F2F2] w-full rounded-[0.5rem] h-[2.5rem] max-md:h-[10.66rem] text-[0.875rem] leading-[1.42] tracking-[0.00875rem] px-[1rem] py-[0.75rem] outline-0 max-md:rounded-[2.13rem] max-md:px-[4.26rem] !cursor-pointer max-md:w-full max-md:text-[3.467rem] font-normal max-md:leading-[1.38] text-gray-scale-20'
+                className='bg-[#F2F2F2] w-full rounded-[0.5rem] h-[2.5rem] max-md:h-[10.66rem] text-[0.875rem] leading-[1.42] tracking-[0.00875rem] px-[1rem] py-[0.75rem] outline-0 max-md:rounded-[2.13rem] max-md:px-[4.26rem] !cursor-pointer max-md:w-full max-md:text-[3.467rem] font-normal max-md:leading-[1.38] text-gray-scale-20 md:!text-[1.875rem] lg:!text-[0.875rem] max-lg:!h-fit'
                 selected={selected}
                 onChange={onChange}
                 placeholderText={formattedDate}
@@ -28,7 +28,7 @@ const RHFDatePicker = ({ selected, onChange, ...other }) => {
                 {...other}
             />
             <Image
-                className='absolute top-1/2 max-md:right-[4.26rem] right-[1rem] translate-y-[-50%] pointer-events-none'
+                className='absolute top-1/2 max-md:right-[4.26rem] right-[1rem] translate-y-[-50%] pointer-events-none max-lg:hidden max-md:block'
                 src={dateImg}
             />
         </div>

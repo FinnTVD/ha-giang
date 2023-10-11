@@ -70,7 +70,7 @@ export default function SlideGreatTrips({ allTourHG }) {
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper
           }}
-          className='lg:w-[87.1rem] !px-[3rem] max-md:h-fit max-md:!px-[4.27rem] lg:h-[40rem]'
+          className='lg:w-[87.1rem] !px-[3rem] max-md:h-fit max-md:!px-[4.27rem] lg:h-[40rem] md:h-[55rem]'
         >
           {allTourHG?.nodes?.map((e, index) => (
             <SwiperSlide
@@ -87,7 +87,7 @@ export default function SlideGreatTrips({ allTourHG }) {
       </div>
       {!isMobile ? (
         <Image
-          className='object-cover absolute top-0 left-0 w-full h-[38rem] z-[1]'
+          className='object-cover absolute top-0 left-0 w-full h-[38rem] max-lg:h-[52rem] z-[1]'
           src={'/images/mask-great-trips.png'}
           alt='great trips'
           width={1600}

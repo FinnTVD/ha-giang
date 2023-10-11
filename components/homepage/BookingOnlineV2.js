@@ -172,8 +172,10 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       id='bookingId'
     >
       <div className={`mb-[1rem] w-fit`}>
-        <div className={` uppercase text-primary-70 w-full relative z-[5] font-heavitas w-fit`}>
-          <h2 className={` text-[2rem] font-extrabold leading-[1] max-md:text-[6.4rem] max-md:leading-[1.17] w-fit`}>
+        <div className={` uppercase text-primary-70 relative z-[5] font-heavitas w-fit`}>
+          <h2
+            className={` text-[2rem] max-lg:text-[3rem] font-extrabold leading-[1] max-md:text-[6.4rem] max-md:leading-[1.17] w-fit`}
+          >
             BOOK TOUR
           </h2>
         </div>
@@ -182,12 +184,12 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
         onSubmit={handleSubmit(onSubmit)}
         {...methods}
       >
-        <div className='flex gap-x-[1.5rem] max-md:flex-col max-md:gap-y-[8rem]'>
-          <div className='w-fit max-md:w-full'>
-            <div className='flex gap-x-[0.75rem] max-md:flex-col'>
-              <div className='w-[21rem] max-md:w-full'>
+        <div className='flex gap-x-[1.5rem] max-lg:flex-col max-md:gap-y-[8rem]'>
+          <div className='w-fit max-lg:w-full'>
+            <div className='flex lg:gap-x-[0.75rem] md:gap-x-[1.75rem] max-md:flex-col'>
+              <div className='w-[21rem] max-lg:flex-1 max-md:w-full'>
                 <div className='mb-[1.88rem] max-md:mb-[4.27rem]'>
-                  <div className='truncate font-bold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem] text-gray-scale-50'>
+                  <div className='truncate font-bold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem] text-gray-scale-50'>
                     Tour
                   </div>
                   <Select.Root
@@ -205,7 +207,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     }}
                   >
                     <Select.Trigger
-                      className='w-full !p-[1rem] max-md:!px-[3.2rem] !h-[3.375rem] max-md:!h-[11.375rem] text-[0.875rem] font-bold leading-[1.57] text-gray-scale-80'
+                      className='w-full !p-[1rem] max-md:!px-[3.2rem] !h-[3.375rem] max-lg:!h-fit max-md:!h-[11.375rem] text-[0.875rem] max-lg:!text-[1.875rem] max-md:!text-[3.47rem] font-bold leading-[1.57] text-gray-scale-80'
                       style={isMobile ? inputMobileStyle : inputStyle}
                       variant='soft'
                       placeholder='Select tour…'
@@ -214,7 +216,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       {allTourHG?.nodes?.map((e, index) => (
                         <Select.Item
                           key={index}
-                          className='text-[0.875rem] font-bold leading-[1.57] cursor-pointer text-gray-scale-80'
+                          className='text-[0.875rem] font-bold leading-[1.57] cursor-pointer text-gray-scale-80 max-lg:!text-[1.875rem] max-md:!text-[3.47rem]'
                           value={e?.title}
                         >
                           {e?.title}
@@ -223,16 +225,19 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     </Select.Content>
                   </Select.Root>
                 </div>
-                <div className='text-[0.875rem] font-bold leading-[150%] mb-[0.5rem] max-md:text-[3.46rem] text-gray-scale-50'>
+                <div className='text-[0.875rem] font-bold leading-[150%] mb-[0.5rem] max-md:text-[3.46rem] max-lg:text-[1.875rem] text-gray-scale-50'>
                   Type of tour:
                 </div>
                 <div className='rounded-[0.5rem] bg-[#F2F2F2] p-[1rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[4.26rem]'>
                   <div className='flex items-center justify-between'>
-                    <span className='text-[0.75rem] font-medium leading-[1.33] text-gray-scale-50 uppercase max-md:text-[3.467rem] max-md:leading-[1.38]'>
+                    <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-50 uppercase max-md:text-[3.467rem] max-md:leading-[1.38]'>
                       self - driving
                     </span>
                     <div className='flex items-center'>
-                      <span className='text-[0.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'>
+                      <span
+                        className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] 
+                      max-lg:mr-[1.75rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'
+                      >
                         ${selfPrice}
                       </span>
                       <div
@@ -240,29 +245,32 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           if (selfDriving === 0) return
                           setSelfDriving(selfDriving - 1)
                         }}
-                        className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
+                        className='w-[2.25rem] h-[2.25rem] max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
                       >
                         -
                       </div>
-                      <span className='flex items-center mx-[0.5rem] text-[0.875rem] font-bold leading-[1.57] max-md:mx-[2.13rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem]'>
+                      <span className='flex items-center mx-[0.5rem] max-lg:mx-[1.5rem] text-[0.875rem] max-lg:text-[1.875rem] font-bold leading-[1.57] max-md:mx-[2.13rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem]'>
                         {selfDriving === 0 ? '00' : selfDriving > 9 ? selfDriving : '0' + selfDriving}
                       </span>
                       <div
                         onClick={() => {
                           setSelfDriving(selfDriving + 1)
                         }}
-                        className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
+                        className='w-[2.25rem] h-[2.25rem] max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 select-none shadow-btn rounded-full flex justify-center items-center'
                       >
                         +
                       </div>
                     </div>
                   </div>
-                  <div className='flex justify-between my-[0.75rem] h-[2.5rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
-                    <span className='text-[0.75rem] font-medium leading-[1.33] text-gray-scale-50 uppercase whitespace-nowrap max-md:text-[3.467rem] max-md:leading-[1.38]'>
+                  <div className='flex justify-between my-[0.75rem] h-[2.5rem] max-lg:h-fit max-lg:mt-[1.5rem] max-lg:mb-[2.75rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
+                    <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-50 uppercase whitespace-nowrap max-md:text-[3.467rem] max-md:leading-[1.38]'>
                       PRIVATE DRIVER
                     </span>
                     <div className='flex items-center'>
-                      <span className='text-[0.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'>
+                      <span
+                        className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] 
+                      max-lg:mr-[1.75rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'
+                      >
                         ${localPrice}
                       </span>
                       <div
@@ -270,18 +278,18 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           if (localDriver === 0) return
                           setLocalDriver(localDriver - 1)
                         }}
-                        className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                        className='w-[2.25rem] h-[2.25rem] max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                       >
                         -
                       </div>
-                      <span className='flex items-center mx-[0.5rem] text-[0.875rem] font-bold leading-[1.57] max-md:mx-[2.13rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem]'>
+                      <span className='flex items-center mx-[0.5rem] max-lg:mx-[1.5rem] text-[0.875rem] max-lg:text-[1.875rem] font-bold leading-[1.57] max-md:mx-[2.13rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem]'>
                         {localDriver === 0 ? '00' : localDriver > 9 ? localDriver : '0' + localDriver}
                       </span>
                       <div
                         onClick={() => {
                           setLocalDriver(localDriver + 1)
                         }}
-                        className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                        className='w-[2.25rem] h-[2.25rem] max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                       >
                         +
                       </div>
@@ -292,61 +300,41 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     size='4'
                     className='bg-[#d9d9d9] opacity-60 '
                   />
-                  <div className='flex justify-between items-center h-[2.5rem] max-md:h-[10.66rem] mt-[0.75rem]'>
-                    <div className='text-[#B34B1E] text-[1rem] font-semibold max-md:text-[4.26rem]'>Total: </div>
-                    <div
-                      className='text-[#B34B1E] font-bold text-center flex leading-[2.5rem] justify-center rounded-[0.5rem] text-[1.25rem] w-[12.1875rem] h-[2.5rem] bg-white max-md:text-[5.33rem] 
-                                max-md:rounded-[2.13rem] max-md:max-md:w-[30.13rem] max-md:h-[10.66rem] max-md:items-center'
-                    >
+                  <div className='flex justify-between items-center h-[2.5rem] max-lg:h-[4.5rem] max-md:h-[10.66rem] mt-[0.75rem]'>
+                    <div className='text-[#B34B1E] text-[1rem] max-lg:text-[2rem] font-semibold max-md:text-[4.26rem]'>
+                      Total:{' '}
+                    </div>
+                    <div className='text-[#B34B1E] font-bold text-center flex leading-[2.5rem] justify-center items-center rounded-[0.5rem] text-[1.25rem] max-lg:text-[2.25rem] w-[12.1875rem] h-[2.5rem] max-lg:h-[4.5rem] bg-white max-md:text-[5.33rem] max-md:rounded-[2.13rem] max-md:max-md:w-[30.13rem] max-md:h-[10.66rem] max-md:items-center'>
                       ${selfDriving * selfPrice + localDriver * localPrice || 0}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className='w-[21rem] max-md:w-full max-md:mt-[4.27rem]'>
-                <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem]'>
+              <div className='w-[21rem] max-lg:flex-1 max-md:w-full max-md:mt-[4.27rem]'>
+                <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
                   Customer information:
                 </div>
-                <div className='flex flex-col gap-[0.75rem] max-md:gap-[3.2rem]'>
+                <div className='flex flex-col lg:gap-[0.75rem] md:gap-[1.5rem] max-md:gap-[3.2rem]'>
                   <div className=''>
                     <TextField.Input
                       style={isMobile ? inputMobileStyle : inputStyle}
-                      className=' rounded-[0.5rem] px-[1rem] py-[0.75rem]'
+                      className=' rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                       {...register('name')}
                       variant='soft'
                       placeholder='Name *'
                     />
                   </div>
-                  {/* <div className='hidden max-md:block'>
-                                        <TextField.Input
-                                            {...register('email')}
-                                            style={isMobile ? inputMobileStyle : inputStyle}
-                                            className='rounded-[0.5rem] px-[1rem] py-[0.75rem] bg-[#B7B7B7]'
-                                            variant='soft'
-                                            placeholder='Email *'
-                                        />
-                                    </div>
-                                    <div className='hidden max-md:block'>
-                                        <TextField.Input
-                                            {...register('phone')}
-                                            style={isMobile ? inputMobileStyle : inputStyle}
-                                            className='rounded-[0.5rem] px-[1rem] py-[0.75rem]'
-                                            variant='soft'
-                                            placeholder='Phone(Whatsapp) *'
-                                        />
-                                    </div> */}
-
                   <TextField.Input
                     {...register('email')}
                     style={isMobile ? inputMobileStyle : inputStyle}
-                    className='rounded-[0.5rem] px-[1rem] py-[0.75rem]'
+                    className='rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     variant='soft'
                     placeholder='Email *'
                   />
                   <TextField.Input
                     {...register('phone')}
                     style={isMobile ? inputMobileStyle : inputStyle}
-                    className='rounded-[0.5rem] px-[1rem] py-[0.75rem]'
+                    className='rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     variant='soft'
                     placeholder='Phone (Whatsapp) *'
                   />
@@ -356,7 +344,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       style={
                         isMobile ? { ...inputMobileStyle, height: '24.5625rem' } : { ...inputStyle, height: '8.9rem' }
                       }
-                      className='rounded-[0.5rem] px-[1rem] py-[0.75rem]'
+                      className='rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-[14.7rem]'
                       variant='soft'
                       placeholder='Message *'
                     />
@@ -364,13 +352,15 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </div>
               </div>
             </div>
-            <div className='relative grid grid-cols-4 gap-[0.75rem] w-[42.75rem] max-md:w-full max-md:gap-[3.2rem] mt-[1rem] max-md:mt-[4.2rem]'>
-              <IconEnjoin className='absolute top-[4.5rem] left-0 max-md:hidden w-full' />
+            <div className='relative grid grid-cols-4 gap-[0.75rem] max-lg:gap-[1.75rem] w-[42.75rem] max-md:w-full max-lg:w-full max-md:gap-[3.2rem] mt-[1rem] max-lg:mt-[2rem] max-md:mt-[4.2rem]'>
+              <IconEnjoin className='absolute top-[4.5rem] max-lg:top-[9.5rem] left-0 max-md:hidden w-full' />
               <div className='max-md:col-span-2'>
-                <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem]'>Pick up</div>
+                <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
+                  Pick up
+                </div>
                 <Select.Root onValueChange={(value) => setValue('pickup', value)}>
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Pick up…'
@@ -380,7 +370,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                       >
                         {e?.province}
                       </Select.Item>
@@ -389,7 +379,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </Select.Root>
               </div>
               <div className='max-md:col-span-2 '>
-                <div className='truncate font-semibold text-[0.875rem] mb-[0.5rem] max-md:text-[3.46rem]'>
+                <div className='truncate font-semibold text-[0.875rem] max-lg:text-[1.875rem] mb-[0.5rem] max-md:text-[3.46rem] '>
                   Departure date
                 </div>
                 <RHFDatePicker
@@ -399,10 +389,12 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
-                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem]'>Address *</div>
+                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
+                  Address *
+                </div>
                 <Select.Root onValueChange={(value) => setValue('pickupAddress', value)}>
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Address *'
@@ -415,7 +407,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                           >
                             {e?.address}
                           </Select.Item>
@@ -429,25 +421,27 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
               alt='moto'
               className='my-[6.4rem] max-md:block hidden w-full'
             />
-            <div className='grid grid-cols-4 gap-[0.75rem] mt-[3.5rem] max-md:gap-[3.2rem] max-md:mt-[4.2rem] w-[42.75rem] max-md:w-full'>
+            <div className='grid grid-cols-4 gap-[0.75rem] max-lg:gap-[1.75rem] mt-[3.5rem] max-md:gap-[3.2rem] max-lg:mt-[9.5rem] max-md:mt-[4.2rem] w-[42.75rem] max-lg:w-full'>
               <div className='max-md:max-md:col-span-2'>
-                <div className='font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem]'>Droff</div>
+                <div className='font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
+                  Droff
+                </div>
                 <Select.Root
-                  className='w-full'
+                  className='w-full '
                   onValueChange={(value) => setValue('droff', value)}
                 >
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Droff…'
                   />
-                  <Select.Content className='z-[99999]'>
+                  <Select.Content className='z-[99999] '>
                     {droff?.map((e, index) => (
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                       >
                         {e?.province}
                       </Select.Item>
@@ -456,7 +450,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </Select.Root>
               </div>
               <div className='max-md:max-md:col-span-2'>
-                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem]'>End date</div>
+                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
+                  End date
+                </div>
                 <RHFDatePicker
                   style={isMobile ? inputMobileStyle : inputStyle}
                   minDate={values.departureDate}
@@ -465,10 +461,12 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
-                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem]'>Address *</div>
+                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
+                  Address *
+                </div>
                 <Select.Root onValueChange={(value) => setValue('droffAddress', value)}>
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Address *'
@@ -481,7 +479,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                           >
                             {e?.address}
                           </Select.Item>
@@ -491,15 +489,15 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
               </div>
             </div>
           </div>
-          <div className='flex-1'>
+          <div className='flex-1 max-lg:mt-[3rem] max-md:mt-0'>
             <div className='mt-[1.87rem] md:mt-0 max-md:mt-[8rem]'>
-              <div className='text-[1.25rem] mb-[0.75rem] font-semibold text-[#2E2E2E] max-md:mb-[2.1rem] max-md:text-[4.26rem]'>
+              <div className='text-[1.25rem] mb-[0.75rem] max-lg:text-[2.25rem] font-semibold text-[#2E2E2E] max-md:mb-[2.1rem] max-md:text-[4.26rem]'>
                 CONFIRMED TOUR BOOKING:
               </div>
               <div className='rounded-[0.5rem] text-[#2E2E2E] border-[#287c0023] border-[0.5px] bg-[#F8FDFF] max-md:rounded-[2.13rem]'>
-                <div className='flex h-[2.5rem] border-b border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
+                <div className='flex h-[2.5rem] max-lg:h-[4.5rem] border-b border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium text-[0.8125rem] py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium text-[0.8125rem] max-lg:text-[1.8125rem] py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
                   >
                     Type of tour
@@ -508,9 +506,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.typeTour || '...'}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
                   >
                     Name
@@ -519,9 +517,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.name || '...'}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[13.866rem]'>
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[13.866rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.866rem]'
                   >
                     Contact Info
@@ -530,9 +528,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.email || '...'} - {values.phone || '...'}
                   </div>
                 </div>
-                <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[23.46rem]'>
+                <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[23.46rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
                   >
                     Pick up
@@ -541,9 +539,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.departureDate && fDate(values.departureDate)} from {values.pickup} at {values.pickupAddress}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[9.06rem] max-md:text-[3.46rem]'
                   >
                     Tour duration
@@ -557,9 +555,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Days
                   </div>
                 </div>
-                <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[23.46rem]'>
+                <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[23.46rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
                   >
                     Droff off
@@ -568,9 +566,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.endDate && fDate(values.endDate)} from {values.droff} at {values.droffAddress}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
                   >
                     Self-driving
@@ -579,9 +577,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.selfDriving && `${values.selfDriving} x $169 (${fCurrency(selfCost) || 0} VND)`}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
                   >
                     Local driver
@@ -590,9 +588,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.localDriver && `${values.localDriver} x $199 (${fCurrency(localCose) || 0} VND)`}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[13.86rem]'>
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[13.86rem]'>
                   <div
-                    className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.86rem]'
                   >
                     {' '}
@@ -604,16 +602,16 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </div>
               </div>
 
-              <div className='px-[1rem] py-[0.75rem] bg-[#0F515D] rounded-[0.5rem] mt-[1rem] max-md:rounded-[2.13rem] max-md:p-[3.2rem] max-md:mt-[3.2rem]'>
-                <div className='flex justify-between mb-[0.5rem] max-md:mb-[2.1rem] h-[1.5rem] max-md:h-auto text-[#D9D9D9]'>
-                  <div className='text-[0.875rem] max-md:text-[3.46rem]'>Provisional:</div>
-                  <div className='text-[1rem] font-semibold max-md:text-[3.46rem]'>
+              <div className='px-[1rem] py-[0.75rem] max-lg:px-[2rem] max-lg:py-[1.75rem] bg-[#0F515D] rounded-[0.5rem] mt-[1rem] max-lg:mt-[2rem] max-md:rounded-[2.13rem] max-md:p-[3.2rem] max-md:mt-[3.2rem]'>
+                <div className='flex justify-between mb-[0.5rem] max-md:mb-[2.1rem] h-[1.5rem] max-lg:h-[3.5rem] max-md:h-auto text-[#D9D9D9]'>
+                  <div className='text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>Provisional:</div>
+                  <div className='text-[1rem] max-lg:text-[2rem] font-semibold max-md:text-[3.46rem]'>
                     {fCurrency(totalPrice) || 0} VND
                   </div>
                 </div>
-                <div className='flex justify-between h-[1.5rem] max-md:mb-[2.1rem] my-[0.5rem] max-md:h-auto text-[#D9D9D9]'>
-                  <div className='text-[0.875rem] max-md:text-[3.46rem]'>Service Charge 3%:</div>
-                  <div className='text-[1rem] font-semibold max-md:text-[3.46rem]'>
+                <div className='flex justify-between h-[1.5rem] max-lg:h-[3.5rem] max-md:mb-[2.1rem] my-[0.5rem] max-lg:my-[1.5rem] max-md:h-auto text-[#D9D9D9]'>
+                  <div className='text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>Service Charge 3%:</div>
+                  <div className='text-[1rem] max-lg:text-[2rem] font-semibold max-md:text-[3.46rem]'>
                     {fCurrency(totalPrice * 0.03) || 0} VND
                   </div>
                 </div>
@@ -622,9 +620,11 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   size='4'
                   color='mint'
                 />
-                <div className='flex justify-between items-center mt-[0.5rem] h-[2rem] max-md:h-auto text-white'>
-                  <div className='text-[1rem] font-bold mt-[0.75rem] max-md:text-[3.73rem]'>Total amount:</div>
-                  <h5 className='text-[1.625rem] font-bold max-md:text-[3.73rem]'>
+                <div className='flex justify-between items-center mt-[0.5rem] h-[2rem] max-md:h-auto text-white max-lg:mt-[2.5rem] max-lg:h-[5rem]'>
+                  <div className='text-[1rem] max-lg:text-[2rem] font-bold mt-[0.75rem] max-md:text-[3.73rem]'>
+                    Total amount:
+                  </div>
+                  <h5 className='text-[1.625rem] max-lg:text-[2.625rem] font-bold max-md:text-[3.73rem]'>
                     {fCurrency(totalPrice + servicePrice) || 0} VND
                   </h5>
                 </div>
@@ -632,24 +632,24 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
 
               <p>{errors.root?.message}</p>
 
-              <div className='flex items-center mt-[1rem] gap-[1.88rem] max-md:gap-[2.13rem] max-md:mt-[3.2rem] max-md:flex-col'>
+              <div className='flex items-center mt-[1rem] gap-[1.88rem] max-lg:mb-[2rem] max-md:mb-0 max-md:gap-[2.13rem] max-lg:mt-[2rem] max-md:mt-[3.2rem] max-md:flex-col max-lg:justify-end max-md:justify-start'>
                 <Button
-                  className='w-[12.1875rem] py-[1rem] px-[2rem] text-[0.8125rem] 
-                            font-bold max-md:text-[3.46rem] 
+                  className='w-[12.1875rem] max-lg:w-fit py-[1rem] px-[2rem] text-[0.8125rem] max-lg:text-[1.8125rem] 
+                            font-bold max-md:text-[3.46rem] whitespace-nowrap max-lg:py-[2rem] max-lg:px-[3rem]
                             max-md:w-full max-md:px-[8.52rem] max-md:py-[4.26rem] max-md:rounded-[2.1rem]'
                   primary={true}
                   content={'BOOK & PAY NOW'}
                   type='submit'
                 />
-                <div className='flex gap-[0.5rem] max-md:gap-[2.1rem]'>
+                <div className='flex gap-[0.5rem] max-lg:gap-[1.5rem] max-md:gap-[2.1rem]'>
                   <Image
-                    className='w-[2.28rem] h-[1.38rem] object-cover max-md:w-[9.3rem] max-md:h-[5.84rem]'
+                    className='w-[2.28rem] h-[1.38rem] max-lg:w-[4.28rem] max-lg:h-[3.38rem] object-cover max-md:w-[9.3rem] max-md:h-[5.84rem]'
                     src='/images/visa-card.svg'
                     width={80}
                     height={70}
                   />
                   <Image
-                    className='w-[2.28rem] h-[1.38rem] object-cover max-md:w-[9.3rem] max-md:h-[5.84rem]'
+                    className='w-[2.28rem] h-[1.38rem] max-lg:w-[4.28rem] max-lg:h-[3.38rem] object-cover max-md:w-[9.3rem] max-md:h-[5.84rem]'
                     src='/images/master-card.svg'
                     width={80}
                     height={70}

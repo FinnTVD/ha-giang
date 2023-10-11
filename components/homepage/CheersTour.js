@@ -8,7 +8,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
   return (
     <section
       id='cheers-tour'
-      className='mt-[6.25rem] max-md:mt-[16rem] lg:flex lg:justify-between lg:flex-row-reverse relative h-fit w-[87.5rem] max-md:w-full z-[10] font-poppins mx-auto'
+      className='mt-[6.25rem] max-md:mt-[16rem] max-lg:w-[95vw] lg:flex lg:justify-between lg:flex-row-reverse relative h-fit w-[87.5rem] max-md:w-full z-[10] font-poppins mx-auto'
     >
       {!isOther && (
         <SubTitle
@@ -27,12 +27,12 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
           quality={100}
         />
       </div>
-      <div className='lg:pt-[9.17rem] lg:w-fit max-md:mt-[2.33rem] max-md:overflow-hidden '>
-        <ul className='grid grid-cols-2 gap-[1.51rem] max-md:hidden'>
+      <div className='lg:pt-[9.17rem] lg:w-fit max-md:mt-[2.33rem] max-md:overflow-hidden max-lg:mt-[1.5rem]'>
+        <ul className='grid grid-cols-2 gap-[1.51rem] max-md:hidden max-lg:w-[80rem] max-md:w-full'>
           {section2?.listTitle?.map((e, index) => (
             <li
               key={index}
-              className='h-[5.13175rem] w-[20.60419rem] relative flex justify-center items-center'
+              className='h-[5.13175rem] w-[20.60419rem] max-lg:h-[13rem] max-lg:w-[36rem] relative flex justify-center items-center'
             >
               <Image
                 className='z-0 object-contain'
@@ -40,7 +40,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
                 fill
                 sizes='100rem'
               />
-              <span className='relative z-[1] text-[0.875rem] text-primary-5 font-bold leading-[1.375] tracking-[0.00219rem] line-clamp-1'>
+              <span className='relative z-[1] text-[0.875rem] max-lg:text-[1.5rem] text-primary-5 font-bold leading-[1.375] tracking-[0.00219rem] line-clamp-1'>
                 {e?.title}
               </span>
             </li>
@@ -48,12 +48,11 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
         </ul>
         <SlideCheersTour section2={section2} />
         <div
-          className='description lg:w-[43rem] mt-[2.39rem] max-md:mt-[5.33rem] max-md:text-justify max-md:px-[4.27rem] text-gray-scale-50 text-[0.875rem] 
-                font-normal leading-[1.375] tracking-[0.00219rem] max-md:text-[3.733rem] max-md:leading-[1.57] max-md:tracking-[0.00933rem]'
+          className='description lg:w-[43rem] mt-[2.39rem] max-md:mt-[5.33rem] max-md:text-justify max-md:px-[4.27rem] text-gray-scale-50 text-[0.875rem] max-lg:text-[1.875rem] font-normal leading-[1.375] tracking-[0.00219rem] max-md:text-[3.733rem] max-md:leading-[1.57] max-md:tracking-[0.00933rem]'
           dangerouslySetInnerHTML={{ __html: section2?.description }}
         />
 
-        <div className='flex gap-x-[1rem] max-md:gap-x-[3.2rem] mt-[1.87rem] max-md:mt-[5.33rem] max-md:px-[4.27rem]'>
+        <div className='flex gap-x-[1rem] max-lg:gap-x-[2.5rem] max-md:gap-x-[3.2rem] mt-[1.87rem] max-lg:mt-[2.5rem] max-md:mt-[5.33rem] max-md:px-[4.27rem]'>
           <PopupBookNow allTourHG={allTourHG}>
             <div className='max-md:flex-1'>
               <Button

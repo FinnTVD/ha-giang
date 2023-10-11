@@ -51,15 +51,15 @@ const listNav = [
 export default function Nav({ setIsOpen, header, allTourHG }) {
   return (
     <nav
-      className={`w-full relative pt-[1.5rem] max-md:pt-[5.8rem] transition-all duration-1000 z-[999] flex justify-center font-heavitas`}
+      className={`w-full relative pt-[1.5rem] max-lg:pt-[2.5rem] max-md:pt-[5.8rem] transition-all duration-1000 z-[999] flex justify-center font-heavitas`}
     >
-      <div className='w-[calc(100rem-12rem)] max-lg:w-[calc(100rem-8.54rem)] lg:bg-white rounded-[1rem] flex items-center justify-between h-fit lg:px-[1.88rem]'>
+      <div className='w-[calc(100rem-12rem)] max-lg:w-[95vw] max-md:w-[calc(100rem-8.54rem)] lg:bg-white rounded-[1rem] flex items-center justify-between h-fit lg:px-[1.88rem]'>
         <Link
           href={'/'}
           onClick={() => setIsOpen(false)}
         >
           <Image
-            className='w-[4.75rem] h-[4.16rem] max-md:w-[18.13333rem] max-md:h-[15.8976rem] object-cover lg:my-[0.913rem]'
+            className='w-[4.75rem] h-[4.16rem] max-md:w-[18.13333rem] max-md:h-[15.8976rem] object-cover lg:my-[0.913rem] max-lg:w-[8.75rem] max-lg:h-[8.16rem] max-lg:object-contain'
             src={header?.logo?.sourceUrl || '/images/logo.png'}
             alt={header?.logo?.altText || header?.logo?.title}
             width={80}
@@ -147,14 +147,14 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
           height='25'
           viewBox='0 0 24 25'
           fill='none'
-          className='lg:hidden max-md:w-[6.4rem] max-md:h-[6.4rem] cursor-pointer'
+          className='lg:hidden max-lg:w-[4vw] max-lg:h-[4vw] max-md:w-[6.4rem] max-md:h-[6.4rem] cursor-pointer'
           onClick={() => setIsOpen(true)}
         >
           <path
             fillRule='evenodd'
             clipRule='evenodd'
             d='M23 4.57031H0.999998C0.447714 4.57031 0 5.01803 0 5.57031C0 6.12259 0.447714 6.57031 0.999998 6.57031H23C23.5523 6.57031 24 6.12259 24 5.57031C24 5.01803 23.5523 4.57031 23 4.57031ZM23 11.5703H1.00001C0.447718 11.5703 0 12.018 0 12.5703C0 13.1226 0.447718 13.5703 1.00001 13.5703H23C23.5523 13.5703 24 13.1226 24 12.5703C24 12.018 23.5523 11.5703 23 11.5703ZM1.00001 18.5703H23C23.5523 18.5703 24 19.018 24 19.5703C24 20.1226 23.5523 20.5703 23 20.5703H1.00001C0.447718 20.5703 0 20.1226 0 19.5703C0 19.018 0.447718 18.5703 1.00001 18.5703Z'
-            fill='#B34B1E'
+            fill='white'
           />
         </svg>
       </div>

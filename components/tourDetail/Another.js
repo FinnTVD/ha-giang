@@ -21,6 +21,7 @@ export default function Another({ allTourHG, slug, data }) {
           ?.filter((e) => e?.slug !== slug)
           ?.map((e, index) => (
             <ItemCardTour
+              className='max-lg:w-[50rem] max-md:w-full'
               data={e}
               allTourHG={allTourHG}
               key={index}

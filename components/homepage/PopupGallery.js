@@ -12,7 +12,7 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
       <div
         className={`${
           isOpen ? 'translate-y-0' : 'translate-y-[110%]'
-        } fixed bottom-0 left-0 w-full max-md:h-[80vh] h-fit bg-white z-[999999] pt-[3.75rem] px-[6.25rem] pb-[4.6rem] rounded-tl-[1rem] rounded-tr-[1rem] transition-all duration-500 max-md:flex max-md:flex-col-reverse max-md:justify-end max-md:px-[4.27rem] max-md:pt-[20.8rem] max-md:mb-0 font-poppins`}
+        } fixed bottom-0 left-0 w-full max-md:h-[80vh] h-fit bg-white z-[999999] pt-[3.75rem] max-lg:pt-[5.75rem] px-[6.25rem] pb-[4.6rem] rounded-tl-[1rem] rounded-tr-[1rem] transition-all duration-500 max-md:flex max-md:flex-col-reverse max-md:justify-end max-md:px-[4.27rem] max-md:pt-[20.8rem] max-md:mb-0 font-poppins`}
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -32,15 +32,15 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
             fill='white'
           />
         </svg>
-        <ul className='flex justify-center gap-x-[2.25rem] mb-[1.5rem] max-md:order-1 max-md:my-[5.33rem] max-md:justify-between'>
+        <ul className='flex justify-center gap-x-[2.25rem] mb-[1.5rem] max-lg:gap-x-[4.25rem] max-lg:mb-[3.5rem] max-md:order-1 max-md:my-[5.33rem] max-md:justify-between'>
           {section4?.listGallery?.map((e, index) => (
             <li
               key={index}
               className={`${
                 indexTab === index
-                  ? 'border-b-[1.5px] border-solid border-primary-70 text-primary-70'
+                  ? 'border-b-[3px] border-solid border-primary-70 text-primary-70'
                   : 'text-gray-scale-20'
-              } text-[0.875rem] font-semibold max-md:text-[3.733rem] max-md:uppercase max-md:tracking-[0.03733rem] leading-[1.42] tracking-[0.00875rem] pb-[0.25rem] cursor-pointer relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:border-b before:border-den-2 before:scale-x-0 before:origin-right before:transition-transform before:duration-300 hover:before:scale-x-100 hover:before:origin-left`}
+              } text-[0.875rem] max-lg:text-[2.875rem] font-semibold max-md:text-[3.733rem] max-md:uppercase max-md:tracking-[0.03733rem] leading-[1.42] tracking-[0.00875rem] pb-[0.25rem] cursor-pointer relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:border-b-[3px] before:border-den-2 before:scale-x-0 before:origin-right before:transition-transform before:duration-300 hover:before:scale-x-100 hover:before:origin-left`}
               onClick={() => setIndexTab(index)}
             >
               {e?.category}
@@ -52,7 +52,7 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
           section4={section4}
           indexTab={indexTab}
         />
-        <ul className=' flex justify-center mt-[1.47rem] max-md:mt-0 gap-x-[0.75rem] max-md:order-2 max-md:gap-x-[3.2rem]'>
+        <ul className=' flex justify-center mt-[1.47rem] max-lg:mt-[3.47rem] max-lg:gap-x-[2.75rem] max-md:mt-0 gap-x-[0.75rem] max-md:order-2 max-md:gap-x-[3.2rem]'>
           {allTourHG?.nodes?.map((e, index) => (
             <li
               key={index}
@@ -60,17 +60,10 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
             >
               <Link
                 href={'/' + e?.slug}
-                className='py-[0.75rem] max-md:py-[3.2rem] max-md:flex max-md:justify-center px-[1.25rem] rounded-[0.5rem] max-md:rounded-[2.13rem] bg-primary-5 shadow-btnTravel flex items-center gap-x-[0.5rem] max-md:gap-x-[2.13rem]'
+                className='py-[0.75rem] max-lg:py-[1.75rem] max-lg:px-[3.25rem] max-md:py-[3.2rem] max-md:flex max-md:justify-center px-[1.25rem] rounded-[0.5rem] max-md:rounded-[2.13rem] bg-primary-5 shadow-btnTravel flex items-center gap-x-[0.5rem] max-md:gap-x-[2.13rem]'
               >
-                {/* <Image
-                                    className='object-cover max-md:w-[5.33rem] max-md:h-[5.33rem]'
-                                    src={'/images/motorV2.svg'}
-                                    alt='motor'
-                                    width={30}
-                                    height={30}
-                                /> */}
-                <IconMotor className={'max-md:w-[5.33rem] max-md:h-[5.33rem]'} />
-                <span className='text-primary-70 text-[0.875rem] font-semibold leading-[1.42] tracking-[0.00875rem] max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
+                <IconMotor className={'max-md:w-[5.33rem] max-md:h-[5.33rem] max-lg:w-[4rem] max-lg:h-[4rem]'} />
+                <span className='text-primary-70 text-[0.875rem] max-lg:text-[2.875rem] font-semibold leading-[1.42] tracking-[0.00875rem] max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
                   {index === 0 ? '4 DAYS TOUR' : '3 DAYS TOUR'}
                 </span>
               </Link>
@@ -79,9 +72,9 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
         </ul>
         <div
           onClick={() => setIsOpen(false)}
-          className='w-[3.5rem] h-[3.5rem] flex justify-center items-center absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white rounded-full shadow-slideTrave cursor-pointer max-md:hidden'
+          className='w-[3.5rem] h-[3.5rem] max-lg:w-[6rem] max-lg:h-[6rem] flex justify-center items-center absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white rounded-full shadow-slideTrave cursor-pointer max-md:hidden'
         >
-          <IconClose className='w-[1.75rem] h-[1.75rem]' />
+          <IconClose className='w-[1.75rem] h-[1.75rem] max-lg:h-[3.8rem] max-lg:w-[3.8rem]' />
         </div>
       </div>
       <div

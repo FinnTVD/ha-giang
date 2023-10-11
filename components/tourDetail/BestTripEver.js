@@ -12,7 +12,7 @@ import ScrollTrigger from 'react-scroll-trigger'
 import useStore from '@/app/(store)/store'
 
 export default function BestTripEver({ data }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const param = useParams()
   const setIndexTab = useStore((state) => state.setIndexTab)
 
@@ -37,7 +37,7 @@ export default function BestTripEver({ data }) {
 
   return (
     <section
-      className='mt-[6.25rem] px-[6.25rem] max-md:mt-[16rem] max-md:px-[4.27rem] flex justify-between max-md:flex-col bg-white'
+      className='mt-[6.25rem] max-lg:mt-[14.25rem] w-[87.5rem] max-lg:w-[95vw] mx-auto max-md:mt-[16rem] max-md:w-[91.46667rem] flex justify-between max-md:flex-col bg-white'
       id='mapId'
     >
       <div>
@@ -71,7 +71,7 @@ export default function BestTripEver({ data }) {
           </div>
         )}
         <ScrollTrigger onEnter={() => setIndexTab(2)}>
-          <div className='mt-[2.88rem] max-md:mt-[5.3rem] max-md:overflow-x-scroll'>
+          <div className='mt-[2.88rem] max-md:mt-[5.3rem] max-md:overflow-x-scroll font-poppins'>
             <div>
               <Image
                 style={{
@@ -79,7 +79,7 @@ export default function BestTripEver({ data }) {
                     (indexCurrent - 1) * 12.2 + (indexCurrent === data?.listDay?.length ? 1 : 0) + 'rem'
                   }) ${indexCurrent === data?.listDay?.length ? 'rotateY(180deg)' : ''}`,
                 }}
-                className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-md:hidden`}
+                className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-lg:hidden`}
                 src={'/images/motor.svg'}
                 alt='motor'
                 width={60}
@@ -92,7 +92,7 @@ export default function BestTripEver({ data }) {
                     indexMb === data?.listDay?.length - 1 ? 'rotateY(180deg)' : ''
                   }`,
                 }}
-                className={`md:hidden object-contain ml-[8.8rem] transition-all duration-300 w-[6.4rem] h-auto`}
+                className={`lg:hidden object-contain ml-[8.8rem] md:ml-[4.8rem] md:w-[7.4rem] transition-all duration-300 w-[6.4rem] h-auto`}
                 src={'/images/motor.svg'}
                 alt='motor'
                 width={60}
@@ -100,7 +100,7 @@ export default function BestTripEver({ data }) {
                 quality={100}
               />
             </div>
-            <div className='flex items-center ml-[12rem] gap-[3.2rem] md:hidden'>
+            <div className='flex items-center ml-[12rem] md:ml-[9rem] gap-[3.2rem] lg:hidden'>
               {data?.listDay?.slice(1)?.map((item, indx) => (
                 <div
                   key={indx}
@@ -172,6 +172,7 @@ export default function BestTripEver({ data }) {
                 height='8'
                 viewBox='0 0 8 8'
                 fill='none'
+                className={`${isMobile && data?.listDay?.length < 4 ? 'hidden' : ''}`}
               >
                 <circle
                   cx='4'
@@ -193,14 +194,14 @@ export default function BestTripEver({ data }) {
                   setIndexCurrent={setIndexCurrent}
                 />
               ))}
-              <div className='md:hidden mt-[5.3rem]'>
-                <div className='flex gap-[7.5rem]'>
+              <div className='lg:hidden mt-[5.3rem]'>
+                <div className='flex gap-[7.5rem] md:mx-auto'>
                   {data?.listDay?.map((e, index) => (
                     <div
                       onClick={() => setIndexMb(index)}
                       className={`${
                         index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
-                      } md:hidden w-[25.3rem] h-[15.46rem] rounded-[2rem] flex flex-col justify-center items-center`}
+                      } lg:hidden w-[25.3rem] h-[15.46rem] md:w-[22.3rem] md:h-[12.46rem] rounded-[2rem] flex flex-col justify-center items-center`}
                     >
                       <span
                         className={`${
@@ -219,7 +220,7 @@ export default function BestTripEver({ data }) {
                   {data?.listDay?.map((e, index) => (
                     <div className={`${index === indexMb ? 'block' : 'hidden'} flex gap-[2.1rem] flex-wrap`}>
                       {e?.listProvince?.map((item) => (
-                        <div className='w-[29rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'>
+                        <div className='w-[29rem] md:w-[22rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'>
                           {item.province}
                         </div>
                       ))}
@@ -238,7 +239,7 @@ export default function BestTripEver({ data }) {
                     setIndexCurrent(indexCurrent - 1)
                   }
                 }}
-                className='p-[0.75rem] absolute top-[1.8rem] left-0 -translate-x-full z-[5] max-md:hidden'
+                className='p-[0.75rem] absolute top-[1.8rem] left-0 -translate-x-full z-[5] max-lg:hidden'
               >
                 <IconBtnLeft className={'w-[1.82rem] h-[0.82rem]'} />
               </button>
@@ -252,18 +253,18 @@ export default function BestTripEver({ data }) {
                     setIndexCurrent(indexCurrent + 1)
                   }
                 }}
-                className='p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-md:hidden'
+                className='p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-lg:hidden'
               >
                 <IconBtnLeft className={'w-[1.82rem] h-[0.82rem] rotate-180'} />
               </button>
             </div>
           </div>
         </ScrollTrigger>
-        <div className='flex justify-center mt-[2.5rem] max-md:mt-[5.3rem]'>
+        <div className='flex justify-center mt-[2.5rem] max-lg:mt-[3.5rem] max-md:mt-[5.3rem]'>
           <Button
             primary={true}
             content={'book now'}
-            className={'px-[2rem] py-[1rem]'}
+            className={'px-[2rem] py-[1rem] max-lg:py-[2.5rem] max-lg:px-[3.5rem]'}
             href={`/${param.slug}#bookingId`}
           />
         </div>

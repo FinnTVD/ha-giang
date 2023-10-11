@@ -27,7 +27,7 @@ export function AccordionDemoV2({ className, data }) {
                                     }
                                 }}
                                 index={index}
-                                className={'max-md:mt-0'}
+                               className={`${index===indexTab?'border-[#B34B1E] mb-[2rem]':''} border-b `}
                             >
                                 {e?.question}
                             </AccordionTrigger>

@@ -4,6 +4,7 @@ import IconPhone from '../icons/IconPhone'
 import IconMail from '../icons/IconMail'
 import IconHome from '../icons/IconHome'
 import IconGlobal from '../icons/IconGlobal'
+import FormContact from './FormContact'
 
 export default function MapContact({ data, footer }) {
   if (!data) return
@@ -60,7 +61,7 @@ export default function MapContact({ data, footer }) {
             </div>
           </div>
         </div>
-        <form className='flex-1 h-auto bg-gray-scale-50'></form>
+        <FormContact />
       </div>
       <div
         id='boxMap'

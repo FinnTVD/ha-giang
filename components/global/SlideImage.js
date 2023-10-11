@@ -28,6 +28,10 @@ function SlideImage({ listImageSlide }) {
           },
           768: {
             slidesPerView: 2,
+            spaceBetween: 16,
+          },
+          1024: {
+            slidesPerView: 2,
             spaceBetween: 24,
           },
         }}
@@ -38,9 +42,12 @@ function SlideImage({ listImageSlide }) {
         modules={[FreeMode]}
       >
         {listImageSlide?.map((image, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide
+            key={index}
+            className=''
+          >
             <Image
-              className='md:w-[28.125rem] w-[91.73333rem] h-[63.73333rem] md:h-[19.5625rem] md:rounded-[1rem] rounded-[3.2rem]'
+              className='w-full h-[63.73333rem] md:h-[22.5625rem] lg:h-[19.5625rem] md:rounded-[1rem] rounded-[3.2rem]'
               src={image?.sourceUrl || '/images/imgSlide1.jpg'}
               alt={image?.altText || image?.title}
               width={600}
@@ -51,10 +58,10 @@ function SlideImage({ listImageSlide }) {
       </Swiper>
 
       {(listImageSlide?.length > 2 && !isMobile) || (listImageSlide?.length > 1 && isMobile) ? (
-        <div className='flex justify-between absolute w-full z-[1] top-[50%] md:px-[1rem] max-md:px-[7.2rem]'>
+        <div className='flex justify-between absolute w-full z-[1] top-[50%] md:pl-[1rem] lg:px-[1rem] max-md:px-[7.2rem]'>
           <button
             onClick={handlePrevSlide}
-            className='md:w-[1.8125rem] md:h-[0.81025rem]'
+            className='md:w-[4.8125rem] md:h-[3.81025rem] lg:w-[1.8125rem] lg:h-[0.81025rem]'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -80,7 +87,7 @@ function SlideImage({ listImageSlide }) {
 
           <button
             onClick={handleNextSlide}
-            className='md:w-[1.8125rem] md:h-[0.81025rem]'
+            className='md:w-[4.8125rem] md:h-[3.81025rem] lg:w-[1.8125rem] lg:h-[0.81025rem]'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'

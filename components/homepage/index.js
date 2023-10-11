@@ -17,6 +17,7 @@ export default function IndexHomePage({ data, allTourHG }) {
       <Header
         header={header}
         allTourHG={allTourHG}
+        isHome={true}
       />
 
       <main className='relative w-full overflow-x-hidden'>

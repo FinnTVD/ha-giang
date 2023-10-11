@@ -28,8 +28,8 @@ export default function SlidePopupGallery({ section4, indexTab }) {
             direction: 'vertical',
           },
           768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
+            slidesPerView: 2,
+            spaceBetween: 16,
           },
           1024: {
             slidesPerView: 2,
@@ -42,7 +42,7 @@ export default function SlidePopupGallery({ section4, indexTab }) {
           swiperRef.current = swiper
         }}
         modules={[FreeMode]}
-        className={`lg:h-[29.08975rem] w-full max-2xl:h-[26rem] max-md:h-[121rem] max-md:rounded-[4.267rem]`}
+        className={`lg:h-[29.08975rem] md:h-[34rem] w-full max-2xl:h-[26rem] max-md:h-[121rem] max-md:rounded-[4.267rem]`}
       >
         {section4?.listGallery[indexTab]?.slidesImage?.map((e, index) => (
           <SwiperSlide
@@ -63,10 +63,10 @@ export default function SlidePopupGallery({ section4, indexTab }) {
         <>
           <button
             onClick={handlePrevSlide}
-            className='p-[1.5rem] absolute left-[-4.5rem] top-1/2 -translate-y-1/2 z-[5]'
+            className='p-[1.5rem] absolute left-[-4.5rem] max-lg:left-[-6.5rem] top-1/2 -translate-y-1/2 z-[5]'
           >
             <Image
-              className='object-contain w-[1.82rem] h-[0.82rem]'
+              className='object-contain w-[1.82rem] h-[0.82rem] max-lg:w-[3.82rem] max-lg:h-[2.82rem]'
               src={'/images/btn-left.svg'}
               alt='btn-slide'
               width={36}
@@ -75,10 +75,10 @@ export default function SlidePopupGallery({ section4, indexTab }) {
           </button>
           <button
             onClick={handleNextSlide}
-            className='p-[1.5rem] absolute right-[-4.5rem] top-1/2 -translate-y-1/2 z-[5]'
+            className='p-[1.5rem] absolute right-[-4.5rem] max-lg:right-[-6.5rem] top-1/2 -translate-y-1/2 z-[5]'
           >
             <Image
-              className='object-contain w-[1.82rem] h-[0.82rem] rotate-180'
+              className='object-contain w-[1.82rem] h-[0.82rem] max-lg:w-[3.82rem] max-lg:h-[2.82rem] rotate-180'
               src={'/images/btn-left.svg'}
               alt='btn-slide'
               width={36}

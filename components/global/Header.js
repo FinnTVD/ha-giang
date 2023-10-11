@@ -9,8 +9,8 @@ import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import NavFixed from './NavFixed'
 
-export default function Header({ header, allTourHG }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+export default function Header({ header, allTourHG, isHome }) {
+  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -21,7 +21,7 @@ export default function Header({ header, allTourHG }) {
   }, [isOpen])
   return (
     <header className='relative w-full h-screen max-md:h-[90vh] overflow-hidden'>
-      <div className='max-md:h-[70vh] h-screen relative'>
+      <div className='max-md:h-[70vh] max-lg:h-[80vh] h-screen relative'>
         <Nav
           setIsOpen={setIsOpen}
           header={header}
@@ -57,6 +57,7 @@ export default function Header({ header, allTourHG }) {
         <FeaturesHeader
           header={header}
           allTourHG={allTourHG}
+          isHome={isHome}
         />
         <BookNowHeader allTourHG={allTourHG} />
       </div>
