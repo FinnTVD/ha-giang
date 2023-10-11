@@ -1,7 +1,7 @@
 'use client'
 export default function ItemLane({ data, indexCurrent, index, length, setIndexCurrent }) {
   return (
-    <div className='max-md:hidden'>
+    <div className='max-lg:hidden'>
       <div
         className={`${
           index + 1 <= indexCurrent ? 'bg-primary-70' : 'border border-solid border-primary-70'
@@ -61,7 +61,7 @@ export default function ItemLane({ data, indexCurrent, index, length, setIndexCu
                 height='35'
                 viewBox='0 0 9 35'
                 fill='none'
-                className='absolute bottom-[-0.25rem] -translate-x-1/2 translate-y-full left-1/2 max-md:hidden h-[2.5rem]'
+                className='absolute bottom-[-0.25rem] -translate-x-1/2 translate-y-full left-1/2 max-lg:hidden h-[2.5rem]'
               >
                 <path
                   d='M4.5 26.9102C2.29086 26.9102 0.500001 28.701 0.500001 30.9102C0.500001 33.1193 2.29086 34.9102 4.5 34.9102C6.70914 34.9102 8.5 33.1193 8.5 30.9102C8.5 28.701 6.70914 26.9102 4.5 26.9102ZM3.75 3.27835e-08L3.75 2.57585L5.25 2.57585L5.25 -3.27835e-08L3.75 3.27835e-08ZM3.75 7.72754L3.75 12.8792L5.25 12.8792L5.25 7.72754L3.75 7.72754ZM3.75 18.0309L3.75 23.1826L5.25 23.1826L5.25 18.0309L3.75 18.0309ZM3.75 28.3343L3.75 30.9102L5.25 30.9102L5.25 28.3343L3.75 28.3343Z'

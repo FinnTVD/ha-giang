@@ -18,7 +18,7 @@ export default function SlideTravelers({ section5 }) {
     swiperRef.current?.slidePrev()
   }
   return (
-    <div className='relative z-[5] w-[74.25rem] max-md:w-full mx-auto'>
+    <div className='relative z-[5] w-[74.25rem] max-lg:w-[84rem] max-md:w-full mx-auto'>
       <Swiper
         loop={true}
         breakpoints={{
@@ -28,8 +28,8 @@ export default function SlideTravelers({ section5 }) {
             centeredSlides: true,
           },
           768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
+            slidesPerView: 2,
+            spaceBetween: 16,
           },
           1024: {
             slidesPerView: 3,
@@ -42,26 +42,26 @@ export default function SlideTravelers({ section5 }) {
           swiperRef.current = swiper
         }}
         modules={[FreeMode]}
-        className='h-[15rem] mt-[2.5rem] max-md:mt-[5.33rem] max-md:h-[67.733rem]'
+        className='h-[15rem] max-lg:h-[30rem] mt-[2.5rem] max-md:mt-[5.33rem] max-md:h-[67.733rem]'
       >
         {section5?.listFeedback?.map((e, index) => (
           <SwiperSlide
-            className='rounded-[1rem] max-md:!w-[76.267rem] max-md:rounded-[3.2rem] font-poppins'
+            className='rounded-[1rem] max-lg:rounded-[1.5rem] max-md:!w-[76.267rem] max-md:rounded-[3.2rem] font-poppins'
             key={index}
           >
-            <div className='w-full max-md:rounded-[3.2rem] shadow-itemTrave h-[14rem] relative rounded-[1rem] overflow-hidden p-[1.56rem] max-md:p-[5.33rem] flex flex-col items-center justify-center md:bg-background-elevation-01 md:hover:bg-white transition-all duration-300 bg-white'>
-              <p className='text-[0.875rem] font-normal max-md:line-clamp-[7] line-clamp-5 leading-[1.57] text-gray-scale-50 tracking-[0.00219rem] text-center max-md:text-[3.733rem] max-md:tracking-[0.00933rem]'>
+            <div className='w-full max-md:rounded-[3.2rem] shadow-itemTrave h-[14rem] relative rounded-[1rem] overflow-hidden p-[1.56rem] max-md:p-[5.33rem] flex flex-col items-center justify-center lg:bg-background-elevation-01 lg:hover:bg-white transition-all duration-300 bg-white max-lg:h-[28rem] max-md:h-[65.733rem]'>
+              <p className='text-[0.875rem] font-normal max-md:line-clamp-[7] line-clamp-5 leading-[1.57] text-gray-scale-50 tracking-[0.00219rem] text-center max-lg:text-[1.875rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem]'>
                 {e?.description}
               </p>
               <div className='flex items-center gap-x-[0.25rem] mt-[1rem] max-md:mt-[4.27rem]'>
                 {star?.slice(0, Number(e?.rate))?.map((i, ind) => (
                   <IconStar
                     key={ind}
-                    className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+                    className='w-[1rem] h-[1rem] max-lg:w-[2rem] max-lg:h-[2rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
                   />
                 ))}
               </div>
-              <span className='text-[1rem] leading-normal font-semibold tracking-[0.0125rem] text-primary-70 mt-[0.5rem] max-md:mt-[2.13rem] max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
+              <span className='text-[1rem] leading-normal font-semibold tracking-[0.0125rem] text-primary-70 mt-[0.5rem] max-md:mt-[2.13rem] max-md:text-[3.733rem] max-lg:text-[2.5rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
                 {e?.name}
               </span>
             </div>
@@ -75,7 +75,7 @@ export default function SlideTravelers({ section5 }) {
             className='p-[1.5rem] absolute left-[-6rem] top-1/2 -translate-y-1/2 z-[5] max-md:hidden'
           >
             <Image
-              className='object-contain w-[1.82rem] h-[0.82rem]'
+              className='object-contain w-[1.82rem] h-[0.82rem] max-lg:w-[2.82rem] max-lg:h-[1.82rem]'
               src={'/images/btn-left.svg'}
               alt='btn-slide'
               width={36}
@@ -87,7 +87,7 @@ export default function SlideTravelers({ section5 }) {
             className='p-[1.5rem] absolute right-[-6rem] top-1/2 -translate-y-1/2 z-[5] max-md:hidden'
           >
             <Image
-              className='object-contain w-[1.82rem] h-[0.82rem] rotate-180'
+              className='object-contain w-[1.82rem] h-[0.82rem] max-lg:w-[2.82rem] max-lg:h-[1.82rem] rotate-180'
               src={'/images/btn-left.svg'}
               alt='btn-slide'
               width={36}

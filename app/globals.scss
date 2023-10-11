@@ -144,6 +144,10 @@ body {
         @media screen and (max-width: "767px") {
             font-size: 6.4rem;
         }
+        @media (min-width: "768px") and (max-width: "1023px") {
+            font-size: 8.4rem;
+        }
+
         strong {
             font-family: var(--font-tomatoes);
             font-size: 8rem;
@@ -156,6 +160,11 @@ body {
             @media screen and (max-width: "767px") {
                 font-size: 16rem;
                 left: 50%;
+            }
+            @media (min-width: "768px") and (max-width: "1023px") {
+                font-size: 12rem;
+                top: 64%;
+                left: 64%;
             }
         }
     }
@@ -209,6 +218,9 @@ canvas {
         @media screen and (max-width: "767px") {
             margin-top: 2.67rem;
         }
+        @media (min-width: "768px") and (max-width: "1023.9px") {
+            margin-top: 1.5rem;
+        }
         margin-top: 1rem;
     }
     p {
@@ -219,6 +231,9 @@ canvas {
         @media screen and (max-width: "767px") {
             font-size: 3.733rem;
             letter-spacing: 0.00933rem;
+        }
+        @media (min-width: "768px") and (max-width: "1023.9px") {
+            font-size: 1.5rem;
         }
         strong {
             color: var(--gray-scale-80);
@@ -431,4 +446,101 @@ h5 {
 
 nav .nav-tour:hover > svg .down {
     fill: #ee6529;
+}
+
+svg .pingCall {
+    transform-origin: center;
+    animation: pingCall 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pingCall {
+    75%,
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+#date-booking {
+    .react-datepicker__input-container {
+        input {
+            @media screen and (max-width: "767.9px") {
+                font-size: 3.46rem;
+                background-color: rgb(242, 242, 242);
+                border-radius: 2.1rem;
+                padding: 4.26rem 3.2rem;
+            }
+        }
+    }
+    .react-datepicker__current-month {
+        @media (min-width: "768px") and (max-width: "1023.9px") {
+            font-size: 1.875rem;
+        }
+        @media screen and (max-width: "767.9px") {
+            font-size: 4.27rem;
+        }
+    }
+    .react-datepicker__week {
+        @media (min-width: "768px") and (max-width: "1023.9px") {
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+        @media screen and (max-width: "767.9px") {
+            display: flex;
+            align-items: center;
+            height: fit-content;
+        }
+    }
+    .react-datepicker__day {
+        @media (min-width: "768px") and (max-width: "1023.9px") {
+            width: 3.7rem;
+            height: 3.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+        @media screen and (max-width: "767.9px") {
+            width: 8.7rem;
+            height: 8.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.733rem;
+        }
+    }
+    .react-datepicker__day.react-datepicker__day--today {
+        @media screen and (max-width: "1023.9px") {
+            background-color: #56a019;
+            border-radius: 50%;
+            color: white;
+        }
+    }
+    .react-datepicker__day-names {
+        @media (min-width: "768px") and (max-width: "1023.9px") {
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+        @media screen and (max-width: "767.9px") {
+            margin-bottom: 0;
+            margin-top: 2.13rem;
+        }
+    }
+    .react-datepicker__day-name {
+        @media (min-width: "768px") and (max-width: "1023.9px") {
+            width: 3.7rem;
+            font-size: 1.5rem;
+        }
+        @media screen and (max-width: "767.9px") {
+            width: 8.7rem;
+            font-size: 3.733rem;
+        }
+    }
+    .react-datepicker__navigation {
+        @media screen and (max-width: "767.9px") {
+            height: 42px;
+        }
+    }
 }

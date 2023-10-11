@@ -9,7 +9,7 @@ import MenuRes from '../global/MenuRes'
 import NavFixed from '../global/NavFixed'
 
 export default function HeaderDetail({ data, allTourHG, slug }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -25,13 +25,11 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
         setIsOpen={setIsOpen}
         allTourHG={allTourHG}
       />
-      {!isMobile && (
-        <NavFixed
-          setIsOpen={setIsOpen}
-          header={data?.data?.page?.homeHG?.header}
-          allTourHG={allTourHG}
-        />
-      )}
+      <NavFixed
+        setIsOpen={setIsOpen}
+        header={data?.data?.page?.homeHG?.header}
+        allTourHG={allTourHG}
+      />
       <Image
         className='z-0 object-cover'
         src={data?.data?.tourHG?.featuredImage?.node?.sourceUrl || '/images/header-detail.jpg'}
@@ -49,8 +47,8 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
         allTourHG={allTourHG}
         header={data?.data?.page?.homeHG?.header}
       />
-      <div className='flex gap-x-[1rem] absolute bottom-0 translate-y-1/2 lg:right-[6.27rem] max-md:left-[4.27rem] font-poppins'>
-        <div className='w-[11.88rem] h-[12.12rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center'>
+      <div className='flex gap-x-[1rem] absolute bottom-0 translate-y-1/2 lg:right-[6.27rem] max-lg:gap-x-[3rem] max-lg:left-[5vw] max-md:left-[4.27rem] font-poppins'>
+        <div className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center'>
           <Image
             className='z-0 object-cover animate-spin duration-7000'
             src={'/images/circle-orange.png'}
@@ -59,15 +57,15 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
             sizes='100rem'
           />
           <div className='relative z-[1] flex flex-col justify-center items-center'>
-            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
+            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
               SELF - DRIVING
             </span>
-            <span className='text-[3rem] font-bold leading-[1.08] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
+            <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
               ${data?.data?.tourHG?.tourHaGiangDetail?.price?.selfDriving}
             </span>
           </div>
         </div>
-        <div className='w-[11.88rem] h-[12.12rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center'>
+        <div className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center'>
           <Image
             className='z-0 object-cover animate-spin duration-7000'
             src={'/images/circle-orange.png'}
@@ -76,10 +74,10 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
             sizes='100rem'
           />
           <div className='relative z-[1] flex flex-col justify-center items-center'>
-            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
+            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
               PRIVATE DRIVER
             </span>
-            <span className='text-[3rem] font-bold leading-[1.08] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
+            <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
               ${data?.data?.tourHG?.tourHaGiangDetail?.price?.localDriver}
             </span>
           </div>

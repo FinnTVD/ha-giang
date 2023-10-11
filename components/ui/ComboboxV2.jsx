@@ -23,7 +23,7 @@ export function ComboboxV2({ allTourHG, setTour }) {
                     role='combobox'
                     aria-expanded={open}
                     title={value}
-                    className='w-[20rem] justify-between text-[1rem] font-poppins font-bold max-md:font-semibold leading-normal tracking-[0.005rem] text-gray-scale-80 border-none whitespace-nowrap line-clamp-1 py-[0.25rem] px-[0.5rem] max-md:text-[3.733rem] max-md:leading-[1.57] max-md:w-full uppercase max-md:h-fit max-md:px-[1.5rem] max-md:py-[1.25rem]'
+                    className='w-[20rem] justify-between text-[1rem] font-poppins font-bold max-lg:font-semibold leading-normal tracking-[0.005rem] text-gray-scale-80 border-none whitespace-nowrap line-clamp-1 py-[0.25rem] px-[0.5rem] max-md:text-[3.733rem] max-lg:text-[2.2rem] max-lg:leading-[1.57] max-lg:w-full uppercase max-lg:h-fit max-lg:px-[1.5rem] max-lg:py-[1.25rem]'
                 >
                     {value || 'Select tour...'}
                     <svg
@@ -40,11 +40,11 @@ export function ComboboxV2({ allTourHG, setTour }) {
                     </svg>
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className='p-0 w-[20rem] max-md:w-full font-poppins z-[9999]'>
+            <PopoverContent className='p-0 w-[20rem] max-lg:w-full font-poppins z-[9999]'>
                 <Command>
                     {/* <CommandInput placeholder='Search tour...' /> */}
                     {/* <CommandEmpty>No tour found.</CommandEmpty> */}
-                    <CommandGroup className='max-md:p-[1.25rem]'>
+                    <CommandGroup className='max-lg:p-[1.25rem]'>
                         {allTourHG?.nodes?.map((item, index) => (
                             <CommandItem
                                 key={index}
@@ -53,11 +53,11 @@ export function ComboboxV2({ allTourHG, setTour }) {
                                     setOpen(false)
                                     setTour(item)
                                 }}
-                                className='text-[1rem] font-poppins font-bold max-md:font-semibold leading-normal tracking-[0.005rem] line-clamp-2 max-md:text-[3.733rem] max-md:leading-[1.57] max-md:px-[1.5rem] max-md:py-[1.375rem]'
+                                className='text-[1rem] font-poppins font-bold max-lg:font-semibold leading-normal tracking-[0.005rem] line-clamp-2 max-md:text-[3.733rem] max-lg:text-[2.2rem] max-lg:leading-[1.57] max-lg:px-[1.5rem] max-lg:py-[1.375rem]'
                             >
                                 <Check
                                     className={cn(
-                                        'mr-2 h-4 w-4 max-md:w-[5rem] max-md:h-[4rem]',
+                                        'mr-2 h-4 w-4 max-lg:w-[5rem] max-lg:h-[4rem]',
                                         value?.toLowerCase() === item?.title?.toLowerCase()
                                             ? 'opacity-100'
                                             : 'opacity-0',

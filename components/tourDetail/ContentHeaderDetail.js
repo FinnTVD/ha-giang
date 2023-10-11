@@ -3,31 +3,31 @@ import TittleIcon from './TittleIcon'
 
 export default function ContentHeaderDetail({ data, slug }) {
   return (
-    <div className='relative z-[10] lg:pl-[6.25rem] lg:m-[2.31rem] max-md:absolute max-md:left-[4.27rem] max-md:bottom-[21rem]'>
-      <span className='text-white uppercase font-heavitas text-[1rem] font-normal leading-normal max-md:text-[3.2rem]'>
+    <div className='relative z-[10] w-[87.5rem] max-lg:top-1/2 max-lg:-translate-y-1/2 max-md:translate-y-0 max-lg:left-[5vw] lg:my-[2.31rem] max-lg:absolute max-md:left-[4.27rem] max-md:bottom-[21rem] mx-auto'>
+      <span className='text-white uppercase font-heavitas text-[1rem] max-lg:text-[2.5rem] font-normal leading-normal max-md:text-[3.2rem]'>
         {data?.subtitle}
       </span>
       <h1
         className={`${
-          slug === 'epic-motorbike-tour-4d4n' ? 'w-[40rem]' : 'w-[32.3125rem]'
-        } uppercase mt-[1rem] max-md:mt-[2.13rem] font-heavitas text-[4rem] font-normal leading-[1] text-white max-md:w-[59.51rem] max-md:text-[7.467rem] max-md:leading-[1]`}
+          slug === 'epic-motorbike-tour-4d4n' ? 'w-[40rem]' : 'w-[32.3125rem] max-lg:w-[52.3125rem]'
+        } uppercase mt-[1rem] max-md:mt-[2.13rem] font-heavitas text-[4rem] max-lg:text-[6rem] font-normal leading-[1] text-white max-md:w-[59.51rem] max-md:text-[7.467rem] max-md:leading-[1]`}
       >
         {data?.title}
       </h1>
-      <div className='w-[15.3125rem] h-[3.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins'>
+      <div className='w-[15.3125rem] h-[3.375rem] max-lg:w-[31.3125rem] max-lg:h-[7.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins max-lg:my-[2.5rem] max-md:my-0'>
         <Image
-          className='object-cover max-md:object-contain'
+          className='object-cover max-lg:object-contain'
           src={'/images/bg-time-detail.png'}
           fill
           sizes='100rem'
           priority
         />
-        <span className='relative text-[1rem] font-semibold leading-normal tracking-[0.0125rem] text-gray-scale-80 uppercase max-md:text-[3.467rem] max-md:leading-[1.38]'>
+        <span className='relative text-[1rem] max-lg:text-[2rem] font-semibold leading-normal tracking-[0.0125rem] text-gray-scale-80 uppercase max-md:text-[3.467rem] max-md:leading-[1.38]'>
           {data?.timeTour}
         </span>
       </div>
-      <div className='flex gap-x-[1.88rem] max-md:gap-x-[8.53rem] font-poppins'>
-        <div className='w-[18rem] max-md:hidden'>
+      <div className='flex gap-x-[1.88rem] max-lg:gap-x-[2.88rem] max-md:gap-x-[8.53rem] font-poppins'>
+        <div className='w-[18rem] max-lg:flex-1 max-md:hidden'>
           <TittleIcon title={'HIGHLIGHT'}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -35,7 +35,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               height='17'
               viewBox='0 0 14 17'
               fill='none'
-              className='w-[1rem] h-[1rem]'
+              className='w-[1rem] h-[1rem] max-lg:w-[2.5rem] max-lg:h-[2.5rem]'
             >
               <path
                 d='M11.6955 2.90109C9.09822 0.303804 4.90258 0.303804 2.3386 2.90109C-0.258699 5.49838 -0.258699 9.66068 2.3386 12.258L7.0004 16.9531L11.6622 12.2913C14.2595 9.69399 14.2595 5.49838 11.6955 2.90109Z'
@@ -61,14 +61,14 @@ export default function ContentHeaderDetail({ data, slug }) {
             {data?.highlight?.slice(0, 6)?.map((e, index) => (
               <li
                 key={index}
-                className='text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] text-white'
+                className='text-[0.875rem] font-bold leading-[1.57] max-lg:text-[1.875rem] max-lg:ml-[2.38rem] max-lg:mt-[1.13rem] tracking-[0.00219rem] text-white'
               >
                 {e?.title}
               </li>
             ))}
           </ul>
         </div>
-        <div className='w-[13.0625rem] max-md:w-fit flex flex-col gap-y-[1.44rem]'>
+        <div className='w-[13.0625rem] max-lg:flex-1 max-md:w-fit flex flex-col gap-y-[1.44rem]'>
           <div className='flex flex-col items-start'>
             <TittleIcon title={'DEPARTURE'}>
               <svg
@@ -77,7 +77,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                 height='17'
                 viewBox='0 0 16 17'
                 fill='none'
-                className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+                className='w-[1rem] h-[1rem] max-lg:w-[2.5rem] max-lg:h-[2.5rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
               >
                 <circle
                   cx='8'
@@ -96,7 +96,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               </svg>
             </TittleIcon>
             <span
-              className='text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] text-white mt-[0.13rem] max-md:mt-[0.53rem] ml-[1.38rem] max-md:text-[3.733rem] max-md:font-semibold max-md:ml-[5.8rem]'
+              className='text-[0.875rem] font-bold leading-[1.57] max-lg:text-[1.875rem] max-lg:ml-[2.38rem] max-lg:mt-[1.13rem] tracking-[0.00219rem] text-white mt-[0.13rem] max-md:mt-[0.53rem] ml-[1.38rem] max-md:text-[3.733rem] max-md:font-semibold max-md:ml-[5.8rem]'
               style={{
                 background:
                   'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px',
@@ -113,7 +113,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                 height='17'
                 viewBox='0 0 16 17'
                 fill='none'
-                className='w-[1rem] h-[1rem]'
+                className='w-[1rem] h-[1rem] max-lg:w-[2.5rem] max-lg:h-[2.5rem]'
               >
                 <g clip-path='url(#clip0_6258_8222)'>
                   <path
@@ -138,7 +138,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               </svg>
             </TittleIcon>
             <address
-              className='not-italic text-white text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] ml-[1.375rem]'
+              className='not-italic text-white text-[0.875rem] font-bold leading-[1.57] max-lg:text-[1.875rem] max-lg:ml-[2.38rem] max-lg:mt-[1.13rem] tracking-[0.00219rem] ml-[1.375rem]'
               style={{
                 background:
                   'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px',
@@ -148,7 +148,7 @@ export default function ContentHeaderDetail({ data, slug }) {
             </address>
           </div>
         </div>
-        <div className='w-[12.6875rem] flex flex-col gap-y-[1.44rem] max-md:w-fit'>
+        <div className='w-[12.6875rem] max-lg:flex-1 flex flex-col gap-y-[1.44rem] max-md:w-fit'>
           <div className='flex flex-col items-start'>
             <TittleIcon title={'GROUP SIZE'}>
               <svg
@@ -157,7 +157,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                 height='17'
                 viewBox='0 0 16 17'
                 fill='none'
-                className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+                className='w-[1rem] h-[1rem] max-lg:w-[2.5rem] max-lg:h-[2.5rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
               >
                 <circle
                   cx='8'
@@ -176,7 +176,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               </svg>
             </TittleIcon>
             <span
-              className='text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] text-white mt-[0.13rem] block max-md:mt-[0.53rem] max-md:text-[3.733rem] max-md:font-semibold ml-[1.375rem] max-md:ml-[5.8rem]'
+              className='text-[0.875rem] font-bold leading-[1.57] max-lg:text-[1.875rem] max-lg:ml-[2.38rem] max-lg:mt-[1.13rem] tracking-[0.00219rem] text-white mt-[0.13rem] block max-md:mt-[0.53rem] max-md:text-[3.733rem] max-md:font-semibold ml-[1.375rem] max-md:ml-[5.8rem]'
               style={{
                 background:
                   'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px',
@@ -193,7 +193,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                 height='17'
                 viewBox='0 0 16 17'
                 fill='none'
-                className='w-[1rem] h-[1rem]'
+                className='w-[1rem] h-[1rem] max-lg:w-[2.5rem] max-lg:h-[2.5rem]'
               >
                 <g clipPath='url(#clip0_6258_8199)'>
                   <rect
@@ -233,7 +233,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               </svg>
             </TittleIcon>
             <span
-              className='not-italic block text-white text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] ml-[1.375rem]'
+              className='not-italic block text-white text-[0.875rem] font-bold leading-[1.57] max-lg:text-[1.875rem] max-lg:ml-[2.38rem] max-lg:mt-[1.13rem] tracking-[0.00219rem] ml-[1.375rem]'
               style={{
                 background:
                   'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px',

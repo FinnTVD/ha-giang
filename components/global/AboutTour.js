@@ -22,10 +22,10 @@ import useStore from '@/app/(store)/store'
 // Transport
 // Accommondation
 
-function AboutTour({ data }) {
+function AboutTour({ data, index, isMobile }) {
   const [activeCate, setActiveCate] = useState(0)
   const [content, setContent] = useState(data?.listCheckin[0])
-  const [isShow, setIsShow] = useState(false)
+  const [isShow, setIsShow] = useState(isMobile ? (index === 0 ? false : true) : false)
   const setIndexTab = useStore((state) => state.setIndexTab)
 
   const handleCheckIcon = (category) => {
@@ -39,7 +39,7 @@ function AboutTour({ data }) {
     <section
       className={`${
         isShow ? 'h-[11rem] max-md:h-[15rem] overflow-hidden' : ''
-      } flex flex-col md:gap-[1rem] md:px-[6.31rem] about-tour relative transition-all duration-500`}
+      } flex flex-col md:gap-[1.5rem] lg:gap-[1rem] w-full about-tour relative transition-all duration-500`}
     >
       <div className='flex justify-between max-md:px-[4.27rem] items-center max-md:mb-[1.87rem]'>
         <div className='flex md:gap-[0.625rem] gap-[2.34rem] items-center max-md:flex-row-reverse'>
@@ -49,24 +49,49 @@ function AboutTour({ data }) {
             quality={100}
             className='md:w-[1.75rem] md:h-[1.75rem] w-[4.68384rem] h-[4.68384rem]'
           />
-          <h3 className='md:text-[2.125rem] text-[4.68384rem]  font-[600] leading-[2.5rem] tracking-[0.00531rem] font-poppins text-gray-scale-80'>
+          <h3 className='lg:text-[2.125rem] md:text-[3.125rem] text-[4.68384rem]  font-[600] leading-normal tracking-[0.00531rem] font-poppins text-gray-scale-80'>
             {data?.step}
           </h3>
         </div>
         <div
-          className='cursor-pointer relative z-[50]'
+          className='cursor-pointer relative relative z-[50] w-[5.33rem] h-[5.33rem] lg:w-[1.75rem] md:w-[2.75rem] lg:h-[1.75rem] md:h-[2.75rem] flex justify-center items-center bg-primary-70 rounded-full'
           onClick={() => setIsShow(!isShow)}
         >
-          <Image
-            alt='btn'
-            src={btn}
-            className='md:w-[1.75rem] md:h-[1.75rem]'
-          />
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='10'
+            height='2'
+            viewBox='0 0 10 2'
+            fill='none'
+            className={`${
+              isShow ? 'rotate-90' : ''
+            } absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-200`}
+          >
+            <path
+              d='M10 0.164062H0V1.83074H10V0.164062Z'
+              fill='white'
+            />
+          </svg>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='10'
+            height='2'
+            viewBox='0 0 10 2'
+            fill='none'
+          >
+            <path
+              d='M10 0.164062H0V1.83074H10V0.164062Z'
+              fill='white'
+            />
+          </svg>
         </div>
       </div>
+      <h4 className='md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
+        {data?.heading}
+      </h4>
 
       {/* info */}
-      <div className='flex gap-[4.27rem] max-md:flex-col'>
+      <div className='flex lg:gap-[4.27rem] md:gap-[2.27rem] max-md:flex-col-reverse'>
         {/* ------------content-left------------ */}
         <div className='relative flex'>
           <svg
@@ -83,26 +108,26 @@ function AboutTour({ data }) {
             />
           </svg>
           <div className='ml-[0.88rem] pr-[1.5rem] md:block hidden'></div>
-          <div className='flex flex-col md:w-[25.125rem] gap-[1rem] max-md:px-[4.27rem]'>
-            <h4 className='text-[1rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
+          <div className='flex flex-col md:w-[30rem] lg:w-[25.125rem] gap-[1rem] max-md:px-[4.27rem]'>
+            <h4 className='max-md:hidden text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
               {data?.heading}
             </h4>
             <div
               id='content-trip-details'
-              className='md:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375rem] leading-[5.15222rem] md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
+              className='md:text-[1.5rem] lg:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375] leading-normal md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
               dangerouslySetInnerHTML={{ __html: content?.content }}
             />
           </div>
         </div>
 
         {/* ------------content-right----------- */}
-        <div className='flex flex-col md:gap-[1rem] gap-[4.27rem] justify-start font-poppins'>
+        <div className='flex flex-col md:gap-[1.5rem] lg:gap-[1rem] gap-[4.27rem] justify-start font-poppins'>
           <ScrollTrigger onEnter={() => setIndexTab(3)}>
-            <div className='flex md:gap-[0.75rem] gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[1rem] whitespace-nowrap slideCategory'>
+            <div className='flex md:gap-[2rem] lg:gap-[0.75rem] gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[1rem] whitespace-nowrap slideCategory'>
               {data?.listCheckin?.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex md:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-md items-center md:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[0.375rem] ${
+                  className={`flex md:gap-[1rem] lg:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-md items-center md:px-[1.75rem] lg:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[1.375rem] lg:py-[0.375rem] ${
                     index === activeCate ? 'bg-[#FFF0EA]' : 'bg-[#fff]'
                   }`}
                   onClick={() => {
@@ -116,9 +141,9 @@ function AboutTour({ data }) {
                     quality={100}
                     width={30}
                     height={30}
-                    className='md:w-[1rem] md:h-[1rem]'
+                    className='lg:w-[1rem] lg:h-[1rem] md:w-[2rem] md:h-[2rem]'
                   />
-                  <h5 className='md:text-[0.875rem] text-[3.73333rem] text-primary-70 md:font-[500] md:leading-[1.25rem] md:tracking-[0.00875rem] '>
+                  <h5 className='lg:text-[0.875rem] md:text-[1.875rem] text-[3.73333rem] text-primary-70 font-medium md:leading-[1.25] md:tracking-[0.00875rem] '>
                     {item?.category}
                   </h5>
                 </div>
@@ -127,12 +152,12 @@ function AboutTour({ data }) {
           </ScrollTrigger>
 
           {/* slide image */}
-          <div className='md:w-[54.95rem] max-md:px-[4.27rem]'>
+          <div className='lg:w-[54.95rem] md:w-[59.95rem] max-md:px-[4.27rem]'>
             <SlideImage listImageSlide={content?.gallery} />
           </div>
           {/* sub description */}
-          <div className='flex md:px-[0.75rem] max-md:mb-[4.27rem] px-[3.2rem] max-md:mx-[4.27rem] md:py-[0.625rem] py-[2.66667rem] self-stretch md:rounded-[0.75rem] rounded-[3.2rem] bg-[#FFF0EA]'>
-            <h5 className='md:text-[0.875rem] text-[3.73333rem] font-[500] leading-[5.86667rem] md:leading-[1.375rem] tracking-[0.00933rem] text-[#6A2C12] md:tracking-[0.00219rem] '>
+          <div className='flex md:px-[1.75rem] lg:px-[0.75rem] max-md:mb-[4.27rem] px-[3.2rem] max-md:mx-[4.27rem] md:py-[1.625rem] lg:py-[0.625rem] py-[2.66667rem] self-stretch md:rounded-[0.75rem] rounded-[3.2rem] bg-[#FFF0EA]'>
+            <h5 className=' md:text-[1.875rem] lg:text-[0.875rem] text-[3.73333rem] font-[500] leading-normal md:leading-[1.375] tracking-[0.00933rem] text-[#6A2C12] md:tracking-[0.00219rem] '>
               {content?.slogan}
             </h5>
           </div>
@@ -140,9 +165,12 @@ function AboutTour({ data }) {
       </div>
       <div
         onClick={() => setIsShow(false)}
+        style={{
+          boxShadow: isShow && index !== 0 ? 'rgba(0, 0, 0, 0.24) 0px 3px 8px' : '',
+        }}
         className={`${
           isShow ? 'z-10 opacity-100' : 'z-[-1] opacity-0'
-        } w-full cursor-pointer h-[14rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes absolute bottom-0 left-0 transition-all duration-150`}
+        } w-full cursor-pointer h-[14rem] max-lg:h-[10.5rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes absolute bottom-[-2px] left-0 transition-all duration-150`}
       ></div>
     </section>
   )

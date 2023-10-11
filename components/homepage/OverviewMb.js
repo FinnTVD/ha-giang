@@ -39,6 +39,7 @@ const OverviewMb = ({ data }) => {
             marginBottom: 0,
             paddingBottom: 0,
             paddingTop: 0,
+            boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
             scrollTrigger: {
               trigger: parentRef.current,
               start: 'top top',
@@ -68,18 +69,17 @@ const OverviewMb = ({ data }) => {
       <div
         id='box-tab'
         className={`${
-          isFixed ? 'fixed left-0 top-0 bg-white px-[4.27rem] py-[2.13rem] w-full z-[99]' : ''
-        } overflow-auto mb-[4.26rem] transition-all duration-500`}
+          isFixed ? 'fixed left-0 top-0 bg-white px-[2.13em] py-[2.13rem] w-full z-[99]' : ''
+        } overflow-hidden mb-[4.26rem] transition-all duration-500 pl-[1rem]`}
       >
-        <div className='flex gap-[3.2rem] mb-[1.6rem] w-[100rem] whitespace-nowrap'>
+        s
+        <div className='flex mb-[1.6rem] w-[100rem] whitespace-nowrap'>
           {list?.map((item) => (
             <Link
               data-src={true}
               href={`/${param.slug}${item.to}`}
               onClick={() => setIndexTab(item?.id)}
-              className={`${
-                isFixed ? 'text-[4.46rem]' : 'text-[3.46rem]'
-              } h-[6.4rem] pb-[1.6rem] w-[24.42rem] font-poppins text-center
+              className={`text-[3.46rem] h-[6.4rem] pb-[1.6rem] w-[24.42rem] font-poppins text-center
             ${
               indexTab === item?.id
                 ? 'text-[#B34B1E] font-semibold border-b-[0.4rem] border-[#B34B1E]'

@@ -55,16 +55,18 @@ const inputMobileStyle = {
 
 export default function BookingOnline({ data, title }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
-  const [ip, setIp] = useState('')
-  const setIndexTab = useStore((state) => state.setIndexTab)
-
-  // const [selfDriving, setSelfDriving] = useState(0)
-  // const [localDriver, setLocalDriver] = useState(0)
   const router = useRouter()
 
+  const [ip, setIp] = useState('')
+  const setIndexTab = useStore((state) => state.setIndexTab)
+  const [selfDriving, setSelfDriving] = useState(0)
+  const [localDriver, setLocalDriver] = useState(0)
+  // const [pick, setPick] = useState(data?.pickUp)
+  // const [droff, setDroff] = useState(data?.droff)
+
   const BookingSchema = Yup.object({
-    selfDriving: Yup.number(),
-    localDriver: Yup.string(),
+    // selfDriving: Yup.number(),
+    // localDriver: Yup.string(),
     name: Yup.string().required(),
     email: Yup.string().required().email(),
     phone: Yup.string().required(),
@@ -93,12 +95,17 @@ export default function BookingOnline({ data, title }) {
   } = methods
 
   const values = watch()
-
-  const selfCost = values.selfDriving * data?.selfDriving * exchangeRate
-  const localCose = values.localDriver * data?.localDriver * exchangeRate
+  const selfCost = selfDriving * Number(data?.selfDriving) * exchangeRate
+  const localCose = localDriver * Number(data?.localDriver) * exchangeRate
   const totalPrice = selfCost + localCose
   const servicePrice = totalPrice * 0.03
   const totalAmount = totalPrice + servicePrice
+
+  // const selfCost = values.selfDriving * data?.selfDriving * exchangeRate
+  // const localCose = values.localDriver * data?.localDriver * exchangeRate
+  // const totalPrice = selfCost + localCose
+  // const servicePrice = totalPrice * 0.03
+  // const totalAmount = totalPrice + servicePrice
 
   const getIp = async () => {
     try {
@@ -154,8 +161,8 @@ export default function BookingOnline({ data, title }) {
       contactInfo: data?.email + ' - ' + data?.phone,
       pickUp: fDate(data.departureDate) + 'from' + data.pickup + ' at ' + data.pickupAddress,
       droffOf: fDate(data.endDate) + ' from ' + data.droff + 'at ' + data.droffAddress,
-      selfDriving: data.selfDriving + 'x $169 (' + fCurrency(selfCost) + ' VND)',
-      localDriver: data.localDriver + 'x $199 (' + fCurrency(localCose) + ' VND)',
+      selfDriving: selfDriving + ' x $169 (' + fCurrency(selfCost) + ' VND)',
+      localDriver: localDriver + ' x $199 (' + fCurrency(localCose) + ' VND)',
       message: data?.message,
       total: fCurrency(totalPrice + servicePrice) + ' VND',
     }
@@ -169,7 +176,7 @@ export default function BookingOnline({ data, title }) {
 
   return (
     <section
-      className={`pl-[6.25rem] pr-[6.31rem] mt-[6.25rem] font-poppins flex flex-col justify-between`}
+      className={`lg:w-[87.5rem] md:w-[95rem] w-[91.46667rem] mx-auto mt-[6.25rem] font-poppins flex flex-col justify-between`}
       id='bookingId'
     >
       <div className={`mb-[1.88rem] max-md:mb-[5.3rem]`}>
@@ -182,78 +189,70 @@ export default function BookingOnline({ data, title }) {
         onSubmit={handleSubmit(onSubmit)}
         {...methods}
       >
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-x-[4.49rem] font-poppins text-[#727272]'>
+        <div className='grid grid-cols-1 md:grid-cols-2 md:gap-x-[1.5rem] lg:gap-x-[4.49rem] font-poppins text-[#727272]'>
           <div>
-            <div className='text-[0.875rem] font-semibold leading-[150%] mb-[0.5rem] max-md:text-[3.46rem]'>
+            <div className='text-[0.875rem] font-bold leading-[150%] mb-[0.5rem] max-md:text-[3.46rem] max-lg:text-[1.875rem] text-gray-scale-50'>
               Type of tour:
             </div>
-            <div className='rounded-[0.5rem] bg-[#F2F2F2] px-[1rem] py-[0.75rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[4.26rem]'>
-              <div className='flex justify-between my-[0.75rem] h-[2.5rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
-                <div className='text-[0.875rem] font-normal leading-[150%] max-md:text-[3.46rem]'>
+            <div className='rounded-[0.5rem] bg-[#F2F2F2] p-[1rem] max-lg:p-[1.5rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[4.26rem]'>
+              <div className='flex items-center justify-between'>
+                <span className='text-[0.875rem] max-lg:text-[1.875rem] font-medium leading-[1.57] text-gray-scale-50 max-md:text-[3.467rem] max-md:leading-[1.38]'>
                   {data?.longTimeTourDay} days of self-driving
+                </span>
+                <div className='flex items-center'>
+                  <span className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-lg:mr-[1.75rem] max-md:mr-[3.2rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'>
+                    ${data?.selfDriving}
+                  </span>
+                  <div
+                    onClick={() => {
+                      if (selfDriving === 0) return
+                      setSelfDriving(selfDriving - 1)
+                    }}
+                    className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] max-lg:w-[3.5rem] max-lg:h-[3.5rem] max-lg:text-[2.5rem] select-none cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                  >
+                    -
+                  </div>
+                  <span className='flex items-center mx-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] font-bold leading-[1.57] max-lg:mx-[1.5rem] max-md:mx-[2.13rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem]'>
+                    {selfDriving === 0 ? '00' : selfDriving > 9 ? selfDriving : '0' + selfDriving}
+                  </span>
+                  <div
+                    onClick={() => {
+                      setSelfDriving(selfDriving + 1)
+                    }}
+                    className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] max-lg:w-[3.5rem] max-lg:h-[3.5rem] max-lg:text-[2.5rem] select-none cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                  >
+                    +
+                  </div>
                 </div>
-                {/* {!isMobile ? ( */}
-                <div
-                  className='w-[12.1875rem] rounded-[0.5rem] max-md:max-md:w-[30.13rem] px-[0.5rem]
-                                max-md:h-[10.66rem] bg-white max-md:rounded-[2.13rem] max-md:flex max-md:items-center max-md:py-[3.2rem] max-md:px-[4.26rem]'
-                >
-                  <TextField.Root className='bg-white rounded-[0.5rem]'>
-                    <TextField.Slot className='bg-white font-semibold text-[#727272] text-[0.875rem] rounded-l-md max-md:text-[3.73rem]'>
-                      ${data?.selfDriving}
-                    </TextField.Slot>
-                    <TextField.Input
-                      className='input-right !bg-white text-[#B7B7B7] text-[0.875rem] rounded-r-md'
-                      style={
-                        isMobile
-                          ? { color: '#B7B7B7', fontSize: '3.73rem' }
-                          : {
-                              color: '#B7B7B7',
-                              height: '2.5rem',
-                              fontSize: '0.875rem',
-                              paddingTop: '0rem',
-                            }
-                      }
-                      type='number'
-                      {...register('selfDriving')}
-                      variant='soft'
-                      placeholder='0'
-                      min={0}
-                    />
-                  </TextField.Root>
-                </div>
-                {/* )  */}
               </div>
-              <div className='flex justify-between my-[0.75rem] h-[2.5rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
-                <div className='text-[0.875rem] font-normal leading-[150%] max-md:text-[3.46rem]'>
+              <div className='flex justify-between my-[0.75rem] max-lg:mt-[0.75rem] max-lg:mb-[1.75rem] h-[2.5rem] max-lg:h-[5.5rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
+                <span className='text-[0.875rem] max-lg:text-[1.875rem] font-medium leading-[1.57] text-gray-scale-50 whitespace-nowrap max-md:text-[3.467rem] max-md:leading-[1.38]'>
                   {data?.longTimeTourDay} days with local driver
-                </div>
-                <div
-                  className='w-[12.1875rem] rounded-[0.5rem] max-md:max-md:w-[30.13rem] px-[0.5rem]
-                                max-md:h-[10.66rem] bg-white max-md:rounded-[2.13rem] max-md:flex max-md:items-center max-md:py-[3.2rem] max-md:px-[4.26rem]'
-                >
-                  <TextField.Root className='bg-white rounded-[0.5rem]'>
-                    <TextField.Slot className='bg-white font-semibold text-[#727272] text-[0.875rem] rounded-l-md max-md:text-[3.73rem]'>
-                      ${data?.localDriver}
-                    </TextField.Slot>
-                    <TextField.Input
-                      style={
-                        isMobile
-                          ? { color: '#B7B7B7', fontSize: '3.73rem' }
-                          : {
-                              color: '#B7B7B7',
-                              height: '2.5rem',
-                              fontSize: '0.875rem',
-                              paddingTop: '0rem',
-                            }
-                      }
-                      className='input-right !bg-white text-[#B7B7B7] text-[0.875rem] rounded-r-md'
-                      type='number'
-                      {...register('localDriver')}
-                      variant='soft'
-                      placeholder='0'
-                      min={0}
-                    />
-                  </TextField.Root>
+                </span>
+                <div className='flex items-center'>
+                  <span className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-lg:mr-[1.75rem] max-md:mr-[3.2rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'>
+                    ${data?.localDriver}
+                  </span>
+                  <div
+                    onClick={() => {
+                      if (localDriver === 0) return
+                      setLocalDriver(localDriver - 1)
+                    }}
+                    className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] max-lg:w-[3.5rem] max-lg:h-[3.5rem] max-lg:text-[2.5rem] select-none cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                  >
+                    -
+                  </div>
+                  <span className='flex items-center mx-[0.5rem] max-lg:mx-[1.5rem] text-[0.875rem] max-lg:text-[1.875rem] font-bold leading-[1.57] max-md:mx-[2.13rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem]'>
+                    {localDriver === 0 ? '00' : localDriver > 9 ? localDriver : '0' + localDriver}
+                  </span>
+                  <div
+                    onClick={() => {
+                      setLocalDriver(localDriver + 1)
+                    }}
+                    className='w-[2.25rem] h-[2.25rem] max-md:w-[9.6rem] max-lg:w-[3.5rem] max-lg:h-[3.5rem] max-lg:text-[2.5rem] select-none cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                  >
+                    +
+                  </div>
                 </div>
               </div>
               <Separator
@@ -261,19 +260,18 @@ export default function BookingOnline({ data, title }) {
                 size='4'
                 className='bg-[#d9d9d9] opacity-60 '
               />
-              <div className='flex justify-between items-center h-[2.5rem] max-md:h-[10.66rem]'>
-                <div className='text-[#B34B1E] text-[1rem] font-semibold max-md:text-[4.26rem]'>Total: </div>
-                <div
-                  className='text-[#B34B1E] font-bold text-center flex leading-[2.5rem] justify-center rounded-[0.5rem] text-[1.25rem] w-[12.1875rem] h-[2.5rem] bg-white max-md:text-[5.33rem] 
-                                max-md:rounded-[2.13rem] max-md:max-md:w-[30.13rem] max-md:h-[10.66rem] max-md:items-center'
-                >
-                  ${values.selfDriving * data?.selfDriving + values.localDriver * data?.localDriver || 0}
+              <div className='flex justify-between items-center h-[2.5rem] max-lg:h-[6.5rem] max-md:h-[10.66rem] mt-[0.75rem]'>
+                <div className='text-[#B34B1E] text-[1rem] max-lg:text-[2rem] font-semibold max-md:text-[4.26rem]'>
+                  Total:{' '}
+                </div>
+                <div className='text-[#B34B1E] font-bold text-center flex leading-[2.5rem] justify-center rounded-[0.5rem] text-[1.25rem] w-[12.1875rem] max-lg:w-[14.1875rem] h-[2.5rem] bg-white max-md:text-[5.33rem] max-lg:text-[2.25rem] max-lg:h-[5.5rem] items-center max-md:rounded-[2.13rem] max-md:max-md:w-[30.13rem] max-md:h-[10.66rem] max-md:items-center'>
+                  ${selfDriving * Number(data?.selfDriving) + localDriver * Number(data?.localDriver) || 0}
                 </div>
               </div>
             </div>
 
             <ScrollTrigger onEnter={() => setIndexTab(4)}>
-              <div className='mt-[1rem] text-[0.875rem] font-semibold leading-[150%] mb-[0.5rem] max-md:mb-[1.6rem] max-md:text-[3.46rem]'>
+              <div className='mt-[1rem] max-md:mt-[4.27rem] text-[0.875rem] max-lg:text-[1.875rem] font-semibold leading-[150%] mb-[0.5rem] max-md:mb-[1.6rem] max-md:text-[3.46rem]'>
                 Customer information:
               </div>
             </ScrollTrigger>
@@ -281,7 +279,7 @@ export default function BookingOnline({ data, title }) {
               <div className='col-span-2'>
                 <TextField.Input
                   style={isMobile ? inputMobileStyle : inputStyle}
-                  className='col-span-2 rounded-[0.5rem]'
+                  className='col-span-2 rounded-[0.5rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                   {...register('name')}
                   variant='soft'
                   placeholder='Name *'
@@ -291,7 +289,7 @@ export default function BookingOnline({ data, title }) {
                 <TextField.Input
                   {...register('email')}
                   style={isMobile ? inputMobileStyle : inputStyle}
-                  className='rounded-[0.5rem] max-md:col-span-2 px-[1rem] bg-[#B7B7B7]'
+                  className='rounded-[0.5rem] max-md:col-span-2 px-[1rem] bg-[#B7B7B7 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                   variant='soft'
                   placeholder='Email *'
                 />
@@ -300,7 +298,7 @@ export default function BookingOnline({ data, title }) {
                 <TextField.Input
                   {...register('phone')}
                   style={isMobile ? inputMobileStyle : inputStyle}
-                  className='rounded-[0.5rem]'
+                  className='rounded-[0.5rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                   variant='soft'
                   placeholder='Phone(Whatsapp) *'
                 />
@@ -309,7 +307,7 @@ export default function BookingOnline({ data, title }) {
                 <TextField.Input
                   {...register('email')}
                   style={isMobile ? { display: 'none' } : inputStyle}
-                  className='rounded-[0.5rem] px-[1rem] bg-[#B7B7B7]'
+                  className='rounded-[0.5rem] px-[1rem] bg-[#B7B7B7] md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                   variant='soft'
                   placeholder='Email *'
                 />
@@ -318,7 +316,7 @@ export default function BookingOnline({ data, title }) {
                 <TextField.Input
                   {...register('phone')}
                   style={isMobile ? { display: 'none' } : inputStyle}
-                  className='rounded-[0.5rem]'
+                  className='rounded-[0.5rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                   variant='soft'
                   placeholder='Phone(Whatsapp) *'
                 />
@@ -329,7 +327,7 @@ export default function BookingOnline({ data, title }) {
                   style={
                     isMobile ? { ...inputMobileStyle, height: '5.5625rem' } : { ...inputStyle, height: '5.5625rem' }
                   }
-                  className='rounded-[0.5rem]'
+                  className='rounded-[0.5rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-[12rem] max-md:!h-[30rem]'
                   variant='soft'
                   placeholder='Message *'
                 />
@@ -337,14 +335,16 @@ export default function BookingOnline({ data, title }) {
             </div>
             <div className='relative grid grid-cols-4 gap-[0.75rem] max-md:gap-[3.2rem] mt-[1rem] max-md:mt-[4.2rem]'>
               <LineTrip
-                className='absolute top-[3rem] -left-[1.5rem] max-md:hidden w-[108%]'
+                className='absolute top-[3rem] max-lg:top-[6rem] -left-[1.5rem] max-lg:w-[105%] max-md:hidden w-[108%]'
                 dayAmount={data?.longTimeTourDay + ' days'}
               />
               <div className='max-md:col-span-2'>
-                <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem]'>Pick up</div>
+                <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
+                  Pick up
+                </div>
                 <Select.Root onValueChange={(value) => setValue('pickup', value)}>
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Pick up…'
@@ -354,7 +354,7 @@ export default function BookingOnline({ data, title }) {
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                       >
                         {e?.province}
                       </Select.Item>
@@ -363,7 +363,7 @@ export default function BookingOnline({ data, title }) {
                 </Select.Root>
               </div>
               <div className='max-md:col-span-2 '>
-                <div className='truncate font-semibold text-[0.875rem] mb-[0.5rem] max-md:text-[3.46rem]'>
+                <div className='truncate font-semibold text-[0.875rem] mb-[0.5rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
                   Departure date
                 </div>
                 <RHFDatePicker
@@ -373,10 +373,12 @@ export default function BookingOnline({ data, title }) {
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
-                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem]'>Address *</div>
+                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
+                  Address *
+                </div>
                 <Select.Root onValueChange={(value) => setValue('pickupAddress', value)}>
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Address *'
@@ -389,7 +391,7 @@ export default function BookingOnline({ data, title }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                           >
                             {e?.address}
                           </Select.Item>
@@ -403,15 +405,17 @@ export default function BookingOnline({ data, title }) {
               alt='moto'
               className='my-[6.4rem] max-md:block hidden'
             />
-            <div className='grid grid-cols-4 gap-[0.75rem] mt-[3.5rem] max-md:gap-[3.2rem] max-md:mt-[4.2rem]'>
+            <div className='grid grid-cols-4 gap-[0.75rem] mt-[3.5rem] max-md:gap-[3.2rem] max-md:mt-[4.2rem] max-lg:mt-[7.5rem]'>
               <div className='max-md:max-md:col-span-2'>
-                <div className='font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem]'>Droff</div>
+                <div className='font-semibold mb-[0.5rem] max-lg:text-[1.875rem] text-[0.875rem] max-md:text-[3.46rem]'>
+                  Droff
+                </div>
                 <Select.Root
                   className='w-full'
                   onValueChange={(value) => setValue('droff', value)}
                 >
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Droff…'
@@ -421,7 +425,7 @@ export default function BookingOnline({ data, title }) {
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                       >
                         {e?.province}
                       </Select.Item>
@@ -430,7 +434,9 @@ export default function BookingOnline({ data, title }) {
                 </Select.Root>
               </div>
               <div className='max-md:max-md:col-span-2'>
-                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem]'>End date</div>
+                <div className='mb-[0.5rem] font-semibold max-lg:text-[1.875rem] text-[0.875rem] max-md:text-[3.46rem]'>
+                  End date
+                </div>
                 <RHFDatePicker
                   style={isMobile ? inputMobileStyle : inputStyle}
                   minDate={values.departureDate}
@@ -439,10 +445,12 @@ export default function BookingOnline({ data, title }) {
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
-                <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem]'>Address *</div>
+                <div className='mb-[0.5rem] font-semibold max-lg:text-[1.875rem] text-[0.875rem] max-md:text-[3.46rem]'>
+                  Address *
+                </div>
                 <Select.Root onValueChange={(value) => setValue('droffAddress', value)}>
                   <Select.Trigger
-                    className='w-full'
+                    className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
                     placeholder='Address *'
@@ -455,7 +463,7 @@ export default function BookingOnline({ data, title }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                           >
                             {e?.address}
                           </Select.Item>
@@ -466,116 +474,95 @@ export default function BookingOnline({ data, title }) {
             </div>
           </div>
           <div className='mt-[1.87rem] md:mt-0 max-md:mt-[8rem]'>
-            <div className='text-[1.25rem] mb-[0.75rem] font-semibold text-[#2E2E2E] max-md:mb-[2.1rem] max-md:text-[4.26rem]'>
+            <div className='text-[1.25rem] max-lg:text-[2.25rem] mb-[0.75rem] font-semibold text-[#2E2E2E] max-md:mb-[2.1rem] max-md:text-[4.26rem]'>
               CONFIRMED TOUR BOOKING:
             </div>
             <div className='rounded-[0.5rem] text-[#2E2E2E] border-[#287c0023] border-[0.5px] bg-[#F8FDFF] max-md:rounded-[2.13rem]'>
-              <div className='flex h-[2.5rem] border-b border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium text-[0.8125rem] py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
-                >
+              <div className='flex h-[2.5rem] max-lg:h-[5.5rem] border-b border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium text-[0.875rem] max-lg:text-[1.875rem] py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'>
                   Type of tour
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                  HA GIANG LOOP TOUR
+                <div className='py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
+                  {title}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
-                >
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'>
                   Name
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>{values.name}</div>
+                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
+                  {values.name}
+                </div>
               </div>
-              <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[13.866rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.866rem]'
-                >
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[13.866rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.866rem]'>
                   Contact Info
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
+                <div className='py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                   {values.email} - {values.phone}
                 </div>
               </div>
-              <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[23.46rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
-                >
+              <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[23.46rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'>
                   Pick up
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
+                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
                   {values.departureDate && fDate(values.departureDate)} from {values.pickup} at {values.pickupAddress}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[9.06rem] max-md:text-[3.46rem]'
-                >
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[9.06rem] max-md:text-[3.46rem]'>
                   Tour duration
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
+                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
                   {data?.longTimeTourDay} Days
                 </div>
               </div>
-              <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[23.46rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
-                >
+              <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[23.46rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'>
                   Droff off
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
+                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem] text-[0.875rem] max-lg:text-[1.875rem]'>
                   {values.endDate && fDate(values.endDate)} from {values.droff} at {values.droffAddress}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
-                >
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem] text-[0.875rem] max-lg:text-[1.875rem]'>
                   Self-driving
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                  {values.selfDriving && `${values.selfDriving} x $169 (${fCurrency(selfCost) || 0} VND)`}
+                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem] text-[0.875rem] max-lg:text-[1.875rem]'>
+                  {selfDriving && `${selfDriving} x $${data?.selfDriving} (${fCurrency(selfCost) || 0} VND)`}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[9.06rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
-                >
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem] text-[0.875rem] max-lg:text-[1.875rem]'>
                   Local driver
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                  {values.localDriver && `${values.localDriver} x $199 (${fCurrency(localCose) || 0} VND)`}
+                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem] text-[0.875rem] max-lg:text-[1.875rem]'>
+                  {localDriver && `${localDriver} x $${data?.localDriver} (${fCurrency(localCose) || 0} VND)`}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] border-[#EEE] items-center text-[0.8125rem] max-md:h-[13.86rem]'>
-                <div
-                  className='w-[12.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.86rem]'
-                >
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[13.86rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.86rem]'>
                   {' '}
                   Message
                 </div>
-                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>{values.message}</div>
+                <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
+                  {values.message}
+                </div>
               </div>
             </div>
 
-            <div className='px-[1rem] py-[0.75rem] bg-[#0F515D] rounded-[0.5rem] mt-[1rem] max-md:rounded-[2.13rem] max-md:p-[3.2rem] max-md:mt-[3.2rem]'>
-              <div className='flex justify-between mb-[0.5rem] max-md:mb-[2.1rem] h-[1.5rem] max-md:h-auto text-[#D9D9D9]'>
-                <div className='text-[0.875rem] max-md:text-[3.46rem]'>Provisional:</div>
-                <div className='text-[1rem] font-semibold max-md:text-[3.46rem]'>{fCurrency(totalPrice) || 0} VND</div>
+            <div className='px-[1rem] py-[0.75rem] max-lg:px-[2rem] max-lg:py-[1.75rem] bg-[#0F515D] rounded-[0.5rem] mt-[1rem] max-md:rounded-[2.13rem] max-md:p-[3.2rem] max-md:mt-[3.2rem]'>
+              <div className='flex justify-between mb-[0.5rem] max-md:mb-[2.1rem] h-[1.5rem] max-lg:h-[3.5rem] max-md:h-auto text-[#D9D9D9]'>
+                <div className='text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>Provisional:</div>
+                <div className='text-[1rem] max-lg:text-[2rem] font-semibold max-md:text-[3.46rem]'>
+                  {fCurrency(totalPrice) || 0} VND
+                </div>
               </div>
-              <div className='flex justify-between h-[1.5rem] max-md:mb-[2.1rem] my-[0.5rem] max-md:h-auto text-[#D9D9D9]'>
-                <div className='text-[0.875rem] max-md:text-[3.46rem]'>Service Charge 3%:</div>
-                <div className='text-[1rem] font-semibold max-md:text-[3.46rem]'>
+              <div className='flex justify-between h-[1.5rem] max-lg:h-[3.5rem] max-md:mb-[2.1rem] my-[0.5rem] max-md:h-auto text-[#D9D9D9]'>
+                <div className='text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>Service Charge 3%:</div>
+                <div className='text-[1rem] max-lg:text-[2rem] font-semibold max-md:text-[3.46rem]'>
                   {fCurrency(totalPrice * 0.03) || 0} VND
                 </div>
               </div>
@@ -584,9 +571,11 @@ export default function BookingOnline({ data, title }) {
                 size='4'
                 color='mint'
               />
-              <div className='flex justify-between items-center mt-[0.5rem] h-[2rem] max-md:h-auto text-white'>
-                <div className='text-[1rem] font-bold mt-[0.75rem] max-md:text-[3.73rem]'>Total amount:</div>
-                <h5 className='text-[1.625rem] font-bold max-md:text-[3.73rem]'>
+              <div className='flex justify-between items-center mt-[0.5rem] h-[2rem] max-md:h-auto text-white max-lg:h-[5rem] max-lg:mt-[1.5rem]'>
+                <div className='text-[1rem] max-lg:text-[2rem] font-bold mt-[0.75rem] max-md:text-[3.73rem]'>
+                  Total amount:
+                </div>
+                <h5 className='text-[1.625rem] max-lg:text-[3.625rem] font-bold max-md:text-[3.73rem]'>
                   {fCurrency(totalPrice + servicePrice) || 0} VND
                 </h5>
               </div>
@@ -596,22 +585,22 @@ export default function BookingOnline({ data, title }) {
 
             <div className='flex items-center mt-[1rem] gap-[1.88rem] max-md:gap-[2.13rem] max-md:mt-[3.2rem] max-md:flex-col'>
               <Button
-                className='w-[12.1875rem] py-[1rem] px-[2rem] text-[0.8125rem] 
+                className='lg:w-[12.1875rem] max-lg:w-[14.1875rem] md:w-fit py-[1rem] px-[2rem] text-[0.875rem] 
                             font-bold max-md:text-[3.46rem] 
-                            max-md:w-full max-md:px-[8.52rem] max-md:py-[4.26rem] max-md:rounded-[2.1rem]'
+                            max-md:w-full max-md:px-[8.52rem] max-md:py-[4.26rem] max-md:rounded-[2.1rem] whitespace-nowrap'
                 primary={true}
                 content={'BOOK & PAY NOW'}
                 type='submit'
               />
-              <div className='flex gap-[0.5rem] max-md:gap-[2.1rem]'>
+              <div className='flex lg:gap-[0.5rem] md:gap-[1.5rem] max-md:gap-[3.1rem]'>
                 <Image
-                  className='w-[2.28rem] h-[1.38rem] object-cover max-md:w-[9.3rem] max-md:h-[5.84rem]'
+                  className='w-[2.28rem] h-[1.38rem] max-lg:h-[3.38rem] max-lg:w-[4.38rem] object-cover max-md:w-[11.3rem] max-md:h-[7.84rem]'
                   src='/images/visa-card.svg'
                   width={80}
                   height={70}
                 />
                 <Image
-                  className='w-[2.28rem] h-[1.38rem] object-cover max-md:w-[9.3rem] max-md:h-[5.84rem]'
+                  className='w-[2.28rem] h-[1.38rem] max-lg:h-[3.38rem] max-lg:w-[4.38rem] object-cover max-md:w-[11.3rem] max-md:h-[7.84rem]'
                   src='/images/master-card.svg'
                   width={80}
                   height={70}

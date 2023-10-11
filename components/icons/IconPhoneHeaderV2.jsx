@@ -14,6 +14,15 @@ export default function IconPhoneHeaderV2({ className }) {
                 height='56'
                 rx='28'
                 fill='#CECECE'
+                className="pingCall"
+            />
+             <rect
+                y='7'
+                width='56'
+                height='56'
+                rx='28'
+                fill='#CECECE'
+                className="scale-90 origin-center"
             />
             <path
                 d='M8.90234 54.1105L11.5994 44.2747C9.93967 41.3985 9.06266 38.1262 9.06266 34.7878C9.06266 24.3202 17.5876 15.8047 28.0458 15.8047C33.1287 15.8047 37.891 17.785 41.4745 21.3686C45.058 24.9521 47.0289 29.7238 47.0289 34.7973C47.0289 45.2649 38.504 53.7804 28.0458 53.7804H28.0364C24.8584 53.7804 21.7369 52.9788 18.9644 51.47L8.90234 54.1105Z'
@@ -29,7 +38,7 @@ export default function IconPhoneHeaderV2({ className }) {
             />
             <g
                 filter='url(#filter0_d_4924_8358)'
-                className='transition-all duration-1000 animate-pulse'
+                className='animate-pulse'
             >
                 <circle
                     cx='50'
