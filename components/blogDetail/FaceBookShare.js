@@ -20,7 +20,7 @@ function FaceBookShare({ url, title }) {
         alt='fb'
         width={50}
         height={50}
-        className='w-[6.4rem] h-[6.4rem] object-contain md:w-[1.5rem] md:h-[1.5rem]'
+        className='w-[6.4rem] h-[6.4rem] object-contain md:w-[1.5rem] md:h-[1.5rem] md:w-[3rem] md:h-[3rem]'
       />
     </button>
   )

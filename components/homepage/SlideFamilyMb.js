@@ -19,7 +19,7 @@ export default function SlideFamilyMb({ section6, setTourLeader }) {
     swiperRef.current?.slidePrev()
   }
   return (
-    <div className='relative w-full h-fit md:hidden'>
+    <div className='relative w-full h-fit lg:hidden'>
       <Swiper
         loop={true}
         slidesPerView={1}
@@ -53,7 +53,7 @@ export default function SlideFamilyMb({ section6, setTourLeader }) {
             className='p-[1.5rem] absolute left-[1.5rem] top-1/2 -translate-y-1/2 z-[5] brightness-0 invert'
           >
             <Image
-              className='object-contain w-[8.53rem] h-[5.82rem]'
+              className='object-contain w-[8.53rem] h-[5.82rem] max-lg:w-[5vw] max-lg:h-[auto] max-md:w-[8.53rem] max-md:h-[5.82rem]'
               src={'/images/btn-left.svg'}
               alt='btn-slide'
               width={36}
@@ -65,7 +65,7 @@ export default function SlideFamilyMb({ section6, setTourLeader }) {
             className='p-[1.5rem] absolute right-[1.5rem] top-1/2 -translate-y-1/2 z-[5] brightness-0 invert'
           >
             <Image
-              className='object-contain w-[8.53rem] h-[5.82rem] rotate-180'
+              className='object-contain w-[8.53rem] h-[5.82rem] rotate-180 max-lg:w-[5rem] max-lg:h-[auto] max-md:w-[8.53rem] max-md:h-[5.82rem]'
               src={'/images/btn-left.svg'}
               alt='btn-slide'
               width={36}

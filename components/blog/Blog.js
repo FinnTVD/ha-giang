@@ -91,11 +91,11 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
             </h2> */}
           {/* Filter */}
           <div
-            className='mx-[8.12rem] max-md:mx-[4.27rem] flex filter-blog gap-[2.5rem]'
+            className='mx-[8.12rem] max-md:mx-[4.27rem] flex filter-blog gap-[2.5rem] max-lg:mx-[3.2rem]'
             ref={eleRef}
           >
             <div className='flex flex-col'>
-              <span className='text-[0.875rem] text-[#9B9B9B] uppercase font-[400] max-md:hidden'>Category</span>
+              <span className='text-[0.875rem] text-[#9B9B9B] uppercase font-[400] max-lg:hidden'>Category</span>
               <div className='flex items-center'>
                 {/* <Image
                                     src={icon}
@@ -103,7 +103,7 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
                                     height={20}
                                     className='w-[1.875rem] h-[1.875rem] max-md:w-[3.73rem] max-md:h-[3.73rem]'
                                 /> */}
-                <IconFilterDestination className='w-[1.875rem] h-[1.875rem] max-md:w-[3.73rem] max-md:h-[3.73rem]' />
+                <IconFilterDestination className='w-[1.875rem] h-[1.875rem] max-md:w-[3.73rem] max-md:h-[3.73rem] max-lg:w-[3rem] max-lg:h-[3rem]' />
                 <select
                   name=''
                   id=''
@@ -124,7 +124,7 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
             </div>
           </div>
           {/* List Blog */}
-          <div className='grid md:grid-cols-4 md:px-[8.06rem] px-[4.27rem] grid-cols-2 md:gap-x-[2.5rem] md:gap-y-[3rem] gap-x-[4.27rem] gap-y-[6.4rem] md:mt-[4rem] mt-[7.73rem]'>
+          <div className='grid lg:grid-cols-4 md:px-[8.06rem] px-[4.27rem] grid-cols-2 lg:gap-x-[2.5rem] md:gap-y-[3rem] gap-x-[4.27rem] gap-y-[6.4rem] md:mt-[4rem] mt-[7.73rem] md:px-[3.2rem]'>
             {allBlogData?.map((item, index) => (
               <BlogItem
                 params='blog'
@@ -138,14 +138,14 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
               <div
                 key={index}
                 onClick={() => handleChangePage(index + 1)}
-                className={`cursor-pointer md:w-[2.125rem] md:h-[2.125rem] w-[9.07rem] h-[9.07rem] rounded-[50%] flex justify-center items-center ${
+                className={`cursor-pointer lg:w-[2.125rem] lg:h-[2.125rem] w-[9.07rem] h-[9.07rem] rounded-[50%] flex justify-center items-center md:w-[4rem] md:h-[4rem] ${
                   activePage === index ? 'bg-primary-70 opacity-[1]' : 'bg-orange-400 opacity-[0.2]'
                 }`}
               >
                 <span
                   className={`${
                     activePage === index ? 'text-white' : 'text-[#171717]'
-                  } font-[500] text-[1rem] max-md:text-[4.26rem]`}
+                  } font-[500] text-[1rem] max-md:text-[4.26rem] max-lg:text-[2.5rem]`}
                 >
                   {index + 1}
                 </span>

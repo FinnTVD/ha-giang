@@ -1,7 +1,7 @@
 'use client'
 export default function ItemLane({ data, indexCurrent, index, length, setIndexCurrent }) {
   return (
-    <div className='max-md:hidden'>
+    <div className='max-lg:hidden'>
       <div
         className={`${
           index + 1 <= indexCurrent ? 'bg-primary-70' : 'border border-solid border-primary-70'

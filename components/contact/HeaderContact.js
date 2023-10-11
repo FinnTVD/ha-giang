@@ -36,7 +36,7 @@ export default function HeaderContact({ dataHome, data }) {
         header={dataHome?.data?.page?.homeHG?.header}
         allTourHG={dataHome?.data?.allTourHG}
       />
-      <div className='relative px-[6rem] pt-[11.25rem] pb-[4rem] max-md:px-0 max-md:pt-[49rem]'>
+      <div className='relative px-[6rem] pt-[11.25rem] pb-[4rem] max-md:px-0 max-md:pt-[49rem] max-lg:pt-[18rem] max-lg:pb-[12rem]'>
         <Image
           width={1600}
           height={567}

@@ -5,14 +5,10 @@ import { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 const style1 = { width: '35.625rem', transform: 'translateX(0)' }
-const style2 = { width: 'calc((50.5rem - 35.625rem - 48px) / 2)', transform: 'translateX(24px)' }
+const style2 = { width: 'calc((50.5rem - 35.625rem - 24px) / 1)', transform: 'translateX(24px)' }
 const style3 = {
-  width: 'calc((50.5rem - 35.625rem - 48px) / 2)',
-  transform: 'translateX(calc((16.8333rem - 7.4375rem) + 24px)',
-}
-const style4 = {
-  width: 'calc((50.5rem - 35.625rem - 48px) / 2)',
-  transform: 'translateX(calc((16.8333rem - 7.4375rem) * 2 + 24px)',
+  width: 'calc((50.5rem - 35.625rem - 24px) / 1)',
+  transform: 'translateX(calc((10.375rem + 24px)',
 }
 export default function SlideFamily({ section6, setTourLeader }) {
   const swiperRef = useRef(null)
@@ -45,27 +41,10 @@ export default function SlideFamily({ section6, setTourLeader }) {
           (indexSlider === slide.length - 1 && Number(slide[index].dataset.swiperSlideIndex) === 0) ||
           Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 1
         ) {
-          item.style.width = style4.width
-          item.style.transform = style4.transform
-        } else if (
-          (indexSlider === slide.length - 1 && Number(slide[index].dataset.swiperSlideIndex) === 1) ||
-          Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 2
-        ) {
           item.style.width = style3.width
           item.style.transform = style3.transform
-        } else if (
-          (indexSlider === slide.length - 2 && Number(slide[index].dataset.swiperSlideIndex) === slide.length - 1) ||
-          Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 2
-        ) {
-          item.style.width = style4.width
-          item.style.transform = style4.transform
-        } else if (
-          (indexSlider === slide.length - 2 && Number(slide[index].dataset.swiperSlideIndex) === 0) ||
-          Math.abs(indexSlider - Number(slide[index].dataset.swiperSlideIndex)) === 2
-        ) {
-          item.style.width = style3.width
-          item.style.transform = style3.transform
-        } else {
+        }
+        else {
           item.style.width = style2.width
           item.style.transform = style2.transform
         }
@@ -76,12 +55,12 @@ export default function SlideFamily({ section6, setTourLeader }) {
   return (
     <div
       id='box-slide-family'
-      className='relative w-fit h-fit max-md:hidden'
+      className='relative w-fit h-fit max-lg:hidden'
     >
       <Swiper
         loop={true}
         spaceBetween={0}
-        slidesPerView={3}
+        slidesPerView={2}
         grabCursor={true}
         speed={1000}
         onSlideChange={handleSlideChange}

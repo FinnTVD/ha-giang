@@ -3,18 +3,18 @@ import TittleIcon from './TittleIcon'
 
 export default function ContentHeaderDetail({ data, slug }) {
   return (
-    <div className='relative z-[10] lg:pl-[6.25rem] lg:m-[2.31rem] max-md:absolute max-md:left-[4.27rem] max-md:bottom-[21rem]'>
-      <span className='text-white uppercase font-heavitas text-[1rem] font-normal leading-normal max-md:text-[3.2rem]'>
+    <div className='relative z-[10] lg:pl-[6.25rem] lg:m-[2.31rem] max-lg:absolute max-md:left-[4.27rem] max-md:bottom-[21rem] max-lg:left-[3.2rem] max-lg:bottom-[15rem]'>
+      <span className='text-white uppercase font-heavitas text-[1rem] font-normal leading-normal max-md:text-[3.2rem] max-lg:text-[2.08rem]'>
         {data?.subtitle}
       </span>
       <h1
         className={`${
           slug === 'epic-motorbike-tour-4d4n' ? 'w-[40rem]' : 'w-[32.3125rem]'
-        } uppercase mt-[1rem] max-md:mt-[2.13rem] font-heavitas text-[4rem] font-normal leading-[1] text-white max-md:w-[59.51rem] max-md:text-[7.467rem] max-md:leading-[1]`}
+        } uppercase mt-[1rem] max-md:mt-[2.13rem] font-heavitas text-[4rem] font-normal leading-[1] text-white max-md:w-[59.51rem] max-md:text-[7.467rem] max-md:leading-[1] max-lg:text-[8.3rem] max-lg:w-[55rem]`}
       >
         {data?.title}
       </h1>
-      <div className='w-[15.3125rem] h-[3.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins'>
+      <div className='w-[15.3125rem] h-[3.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins max-lg:w-[25rem] max-lg:h-[5rem]'>
         <Image
           className='object-cover max-md:object-contain'
           src={'/images/bg-time-detail.png'}
@@ -22,12 +22,12 @@ export default function ContentHeaderDetail({ data, slug }) {
           sizes='100rem'
           priority
         />
-        <span className='relative text-[1rem] font-semibold leading-normal tracking-[0.0125rem] text-gray-scale-80 uppercase max-md:text-[3.467rem] max-md:leading-[1.38]'>
+        <span className='relative text-[1rem] font-semibold leading-normal tracking-[0.0125rem] text-gray-scale-80 uppercase max-md:text-[3.467rem] max-md:leading-[1.38] max-lg:text-[2.08rem]'>
           {data?.timeTour}
         </span>
       </div>
-      <div className='flex gap-x-[1.88rem] max-md:gap-x-[8.53rem] font-poppins'>
-        <div className='w-[18rem] max-md:hidden'>
+      <div className='flex gap-x-[1.88rem] max-md:gap-x-[8.53rem] font-poppins max-lg:mt-[1vw] max-md:mt-0'>
+        <div className='w-[18rem] max-lg:hidden'>
           <TittleIcon title={'HIGHLIGHT'}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -77,7 +77,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                 height='17'
                 viewBox='0 0 16 17'
                 fill='none'
-                className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+                className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem] max-lg:w-[2rem] max-lg:h-[2rem]'
               >
                 <circle
                   cx='8'
@@ -96,7 +96,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               </svg>
             </TittleIcon>
             <span
-              className='text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] text-white mt-[0.13rem] max-md:mt-[0.53rem] ml-[1.38rem] max-md:text-[3.733rem] max-md:font-semibold max-md:ml-[5.8rem]'
+              className='text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] text-white mt-[0.13rem] max-md:mt-[0.53rem] ml-[1.38rem] max-md:text-[3.733rem] max-md:font-semibold max-md:ml-[5.8rem] max-lg:text-[1.82rem]'
               style={{
                 background:
                   'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px',
@@ -105,7 +105,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               {data?.departure}
             </span>
           </div>
-          <div className='max-md:hidden'>
+          <div className='max-lg:hidden'>
             <TittleIcon title={'PICK UP FROM'}>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -148,7 +148,7 @@ export default function ContentHeaderDetail({ data, slug }) {
             </address>
           </div>
         </div>
-        <div className='w-[12.6875rem] flex flex-col gap-y-[1.44rem] max-md:w-fit'>
+        <div className='w-[12.6875rem] flex flex-col gap-y-[1.44rem] max-lg:w-fit'>
           <div className='flex flex-col items-start'>
             <TittleIcon title={'GROUP SIZE'}>
               <svg
@@ -157,7 +157,7 @@ export default function ContentHeaderDetail({ data, slug }) {
                 height='17'
                 viewBox='0 0 16 17'
                 fill='none'
-                className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+                className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem] max-lg:w-[2rem] max-lg:h-[2rem]'
               >
                 <circle
                   cx='8'
@@ -176,7 +176,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               </svg>
             </TittleIcon>
             <span
-              className='text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] text-white mt-[0.13rem] block max-md:mt-[0.53rem] max-md:text-[3.733rem] max-md:font-semibold ml-[1.375rem] max-md:ml-[5.8rem]'
+              className='text-[0.875rem] font-bold leading-[1.57] tracking-[0.00219rem] text-white mt-[0.13rem] block max-md:mt-[0.53rem] max-md:text-[3.733rem] max-md:font-semibold ml-[1.375rem] max-md:ml-[5.8rem] max-lg:text-[1.82rem]'
               style={{
                 background:
                   'linear-gradient(45deg, rgba(217,217,217,1) 0%, rgba(217,217,217,0) 100%) no-repeat top left/auto 1px',
@@ -185,7 +185,7 @@ export default function ContentHeaderDetail({ data, slug }) {
               {data?.groupSize}
             </span>
           </div>
-          <div className='max-md:hidden'>
+          <div className='max-lg:hidden'>
             <TittleIcon title={'TRANSPORT'}>
               <svg
                 xmlns='http://www.w3.org/2000/svg'

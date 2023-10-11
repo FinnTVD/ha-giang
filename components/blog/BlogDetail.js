@@ -44,7 +44,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
         allTourHG={allTourHG}
       />
 
-      <div className='relative pt-[11.25rem] pb-[4rem] max-md:px-0 max-md:pt-[49rem]'>
+      <div className='relative pt-[11.25rem] pb-[4rem] max-md:px-0 max-md:pt-[49rem] max-lg:pt-[18rem] max-lg:pb-[12rem]'>
         <Image
           width={1600}
           height={567}
@@ -92,7 +92,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
                 fill='#171717'
               />
             </svg>
-            <span className='md:ml-[0.66rem] ml-[1.067rem] text-[#171717] font-manrope md:text-[1rem] md:mr-[1.75rem] mr-[4.8rem] text-[3.2rem] leading-[130%] '>
+            <span className='md:ml-[0.66rem] ml-[1.067rem] text-[#171717] font-manrope lg:text-[1rem] md:mr-[1.75rem] mr-[4.8rem] text-[3.2rem] leading-[130%] md:text-[1.8rem]'>
               {moment(data?.date)?.format('DD MMMM YYYY')}
             </span>
             {/* <svg
@@ -113,7 +113,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
           </div>
           <div className='w-full md:mt-[1.31rem] mt-[5.067rem] h-[1px] bg-[#44444424]'></div>
         </div>
-        <div className='mx-[16.19rem] max-md:mx-[4.27rem]'>
+        <div className='mx-[16.19rem] max-md:mx-[4.27rem] max-lg:mx-[6.4rem]'>
           {/* <div className='flex md:gap-[0.5rem] gap-[2.13rem] md:mb-[1rem] max-md:my-[4.27rem] mt-[1.56rem] mb-[1rem]'>
             <div className='md:h-[1.875rem] md:px-[1rem] md:py-[0.25rem] py-[1.067rem] px-[4.27rem] flex items-center justify-center md:gap-[0.625rem] md:rounded-[0.25rem] rounded-[1.067rem] bg-[#FFD220]'>
               <span className='text-[#171717] text-center md:text-[0.75rem] text-[3.2rem] font-medium leading-[150%]'>
@@ -132,7 +132,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
           ></div>
           <div className='w-full md:mt-[1.31rem] mt-[5.067rem] md:mb-[1.62rem] mb-[3.73rem] h-[1px] bg-[#44444424]'></div>
           <div className='flex items-center justify-end'>
-            <span className='text-[#171717]  md:text-[0.875rem] text-[3.73rem] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81rem] mr-[3.47rem]'>
+            <span className='text-[#171717]  lg:text-[0.875rem] text-[3.73rem] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81rem] mr-[3.47rem] md:text-[1.8rem]'>
               share on it:
             </span>
             <div className='flex items-center'>

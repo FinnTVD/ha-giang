@@ -13,6 +13,7 @@ import useStore from '@/app/(store)/store'
 
 export default function BestTripEver({ data }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isTablet = useMediaQuery({ query: '(max-width: 1023px)' })
   const param = useParams()
   const setIndexTab = useStore((state) => state.setIndexTab)
 
@@ -37,7 +38,7 @@ export default function BestTripEver({ data }) {
 
   return (
     <section
-      className='mt-[6.25rem] px-[6.25rem] max-md:mt-[16rem] max-md:px-[4.27rem] flex justify-between max-md:flex-col bg-white'
+      className='mt-[6.25rem] px-[6.25rem] max-md:mt-[16rem] max-md:px-[4.27rem] flex justify-between max-md:flex-col bg-white max-lg:mt-[15rem]'
       id='mapId'
     >
       <div>
@@ -45,7 +46,7 @@ export default function BestTripEver({ data }) {
           title={data?.subtitle}
           subTitle={data?.title}
         />
-        {isMobile && (
+        {isTablet && (
           <div className='flex items-center mt-[5.3rem]'>
             <div class='boxMap relative h-[77.6rem] w-[91.4rem]'>
               <Image
@@ -79,7 +80,7 @@ export default function BestTripEver({ data }) {
                     (indexCurrent - 1) * 12.2 + (indexCurrent === data?.listDay?.length ? 1 : 0) + 'rem'
                   }) ${indexCurrent === data?.listDay?.length ? 'rotateY(180deg)' : ''}`,
                 }}
-                className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-md:hidden`}
+                className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-lg:hidden`}
                 src={'/images/motor.svg'}
                 alt='motor'
                 width={60}
@@ -92,7 +93,7 @@ export default function BestTripEver({ data }) {
                     indexMb === data?.listDay?.length - 1 ? 'rotateY(180deg)' : ''
                   }`,
                 }}
-                className={`md:hidden object-contain ml-[8.8rem] transition-all duration-300 w-[6.4rem] h-auto`}
+                className={`lg:hidden object-contain ml-[8.8rem] transition-all duration-300 w-[6.4rem] h-auto`}
                 src={'/images/motor.svg'}
                 alt='motor'
                 width={60}
@@ -100,14 +101,14 @@ export default function BestTripEver({ data }) {
                 quality={100}
               />
             </div>
-            <div className='flex items-center ml-[12rem] gap-[3.2rem] md:hidden'>
+            <div className='flex items-center ml-[12rem] gap-[3.2rem] lg:hidden'>
               {data?.listDay?.slice(1)?.map((item, indx) => (
                 <div
                   key={indx}
                   className='flex items-center gap-x-[1rem]'
                 >
                   <svg
-                    className='w-[2.1rem]'
+                    className='w-[2.1rem] h-auto'
                     xmlns='http://www.w3.org/2000/svg'
                     width='8'
                     height='8'
@@ -124,7 +125,7 @@ export default function BestTripEver({ data }) {
                   </svg>
                   <div className='relative overflow-hidden'>
                     <svg
-                      className='w-[26.5rem]'
+                      className='w-[26.5rem] h-auto'
                       xmlns='http://www.w3.org/2000/svg'
                       width='94'
                       height='3'
@@ -148,7 +149,7 @@ export default function BestTripEver({ data }) {
                   </div>
                   {indx === data?.listDay?.length - 2 && (
                     <svg
-                      className='w-[2.1rem]'
+                      className='w-[2.1rem] h-auto'
                       xmlns='http://www.w3.org/2000/svg'
                       width='8'
                       height='8'
@@ -193,14 +194,14 @@ export default function BestTripEver({ data }) {
                   setIndexCurrent={setIndexCurrent}
                 />
               ))}
-              <div className='md:hidden mt-[5.3rem]'>
+              <div className='lg:hidden mt-[5.3rem]'>
                 <div className='flex gap-[7.5rem]'>
                   {data?.listDay?.map((e, index) => (
                     <div
                       onClick={() => setIndexMb(index)}
                       className={`${
                         index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
-                      } md:hidden w-[25.3rem] h-[15.46rem] rounded-[2rem] flex flex-col justify-center items-center`}
+                      } lg:hidden w-[25.3rem] h-[15.46rem] rounded-[2rem] flex flex-col justify-center items-center`}
                     >
                       <span
                         className={`${
@@ -238,7 +239,7 @@ export default function BestTripEver({ data }) {
                     setIndexCurrent(indexCurrent - 1)
                   }
                 }}
-                className='p-[0.75rem] absolute top-[1.8rem] left-0 -translate-x-full z-[5] max-md:hidden'
+                className='p-[0.75rem] absolute top-[1.8rem] left-0 -translate-x-full z-[5] max-lg:hidden'
               >
                 <IconBtnLeft className={'w-[1.82rem] h-[0.82rem]'} />
               </button>
@@ -252,7 +253,7 @@ export default function BestTripEver({ data }) {
                     setIndexCurrent(indexCurrent + 1)
                   }
                 }}
-                className='p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-md:hidden'
+                className='p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-lg:hidden'
               >
                 <IconBtnLeft className={'w-[1.82rem] h-[0.82rem] rotate-180'} />
               </button>
@@ -268,7 +269,7 @@ export default function BestTripEver({ data }) {
           />
         </div>
       </div>
-      {!isMobile && (
+      {!isTablet && (
         <div className='flex items-center'>
           <div class='boxMap relative h-[45rem] w-[45rem]'>
             <Image

@@ -66,7 +66,7 @@ function AboutTour({ data }) {
       </div>
 
       {/* info */}
-      <div className='flex gap-[4.27rem] max-md:flex-col'>
+      <div className='flex gap-[4.27rem] max-lg:flex-col'>
         {/* ------------content-left------------ */}
         <div className='relative flex'>
           <svg
@@ -83,13 +83,13 @@ function AboutTour({ data }) {
             />
           </svg>
           <div className='ml-[0.88rem] pr-[1.5rem] md:block hidden'></div>
-          <div className='flex flex-col md:w-[25.125rem] gap-[1rem] max-md:px-[4.27rem]'>
-            <h4 className='text-[1rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
+          <div className='flex flex-col lg:w-[25.125rem] gap-[1rem] max-md:px-[4.27rem]'>
+            <h4 className='text-[1rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem] max-lg:text-[1.8rem]'>
               {data?.heading}
             </h4>
             <div
               id='content-trip-details'
-              className='md:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375rem] leading-[5.15222rem] md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
+              className='lg:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375rem] leading-[5.15222rem] md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50 md:text-[1.8rem]'
               dangerouslySetInnerHTML={{ __html: content?.content }}
             />
           </div>
