@@ -20,7 +20,7 @@ export default function Banner({ bannerData, title }) {
       ></Image>
       <div
         className={`${
-          title?.includes('destinations') ? 'max-md:text-[11.2rem]' : 'max-md:text-[16.5rem]'
+          title?.includes('Destination') ? 'max-md:text-[11.2rem]' : 'max-md:text-[16.5rem]'
         } relative text-center font-heavitas text-[8.625rem] uppercase leading-[1]`}
         style={{
           backgroundImage: `url(${bannerData?.textBackground?.sourceUrl || '/images/t11.jpg'})`,

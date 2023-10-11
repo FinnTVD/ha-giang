@@ -1,5 +1,5 @@
 import Destination from '@/components/destinations/Destination'
-import { DESTINATIONS, GET_META_DESTINATION } from '@/graphql/destinantion/queries'
+import { DESTINATIONS, GET_META_DESTINATION, GET_CONTENT_DESTINATIONS } from '@/graphql/destinantion/queries'
 import getData from '@/utils/getData'
 import React from 'react'
 import { GET_DATA_HOME, GET_DATA_ABOUT_US } from '@/graphql/home/queries'
@@ -54,26 +54,28 @@ export async function generateMetadata() {
 }
 
 async function page() {
-  const destinations = await getData(DESTINATIONS)
-  const arrayDesInit = []
-  const arrayDesSlug = []
-  destinations?.data?.allDestination?.nodes?.map((item) => {
-    arrayDesInit.push(item)
-  })
-  destinations?.data?.allDestination?.nodes?.map((item) => {
-    arrayDesSlug.push(item?.slug)
-  })
+  // const destinations = await getData(DESTINATIONS)
+  // const arrayDesInit = []
+  // const arrayDesSlug = []
+  // destinations?.data?.allDestination?.nodes?.map((item) => {
+  //   arrayDesInit.push(item)
+  // })
+  // destinations?.data?.allDestination?.nodes?.map((item) => {
+  //   arrayDesSlug.push(item?.slug)
+  // })
   const data = await getData(GET_DATA_HOME)
   const dataAboutUs = await getData(GET_DATA_ABOUT_US)
+  const dataDestination = await getData(GET_CONTENT_DESTINATIONS)
 
   return (
     <div>
       <Destination 
-        arrayDesInit={arrayDesInit}
-        arrayDesSlug={arrayDesSlug}
+        // arrayDesInit={arrayDesInit}
+        // arrayDesSlug={arrayDesSlug}
         dataHome={data?.data?.page?.homeHG}
         allTourHG={data?.data?.allTourHG}
         dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
+        dataDestination={dataDestination?.data?.page?.destination}
       />
     </div>
   )
