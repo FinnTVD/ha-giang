@@ -19,7 +19,7 @@ export default function Button({ href, className, type = 'button', primary, cont
               maskClass ? maskClass : 'w-[6.31831rem]'
             } absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-md:w-[33.62187rem] max-md:h-[8.07093rem] h-[1.99675rem] opacity-0 group-hover/item:opacity-100 `}
           />
-          <span className='relative z-[1] group-hover/item:text-white'>{content}</span>
+          <span className='relative z-[1] group-hover/item:text-white text-[0.8125rem] max-lg:text-[1.69rem] max-md:text-[3.46rem]'>{content}</span>
         </Link>
       ) : (
         <button
@@ -33,7 +33,7 @@ export default function Button({ href, className, type = 'button', primary, cont
               maskClass ? maskClass : 'w-[6.31831rem]'
             } absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 max-md:w-[33.62187rem] max-md:h-[8.07093rem] h-[1.99675rem] opacity-0 group-hover/item:opacity-100 `}
           />
-          <span className='relative z-[1]'>{content}</span>
+          <span className='relative z-[1] text-[0.8125rem] max-lg:text-[1.69rem] max-md:text-[3.46rem]'>{content}</span>
         </button>
       )}
     </>

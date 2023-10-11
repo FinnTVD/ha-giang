@@ -2,7 +2,7 @@ import './globals.scss'
 import '@radix-ui/themes/styles.css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
-import { Poppins, Roboto } from 'next/font/google'
+import { Poppins, Roboto, Kanit } from 'next/font/google'
 import localFont from 'next/font/local'
 // import Header from '@/components/global/Header'
 import { Theme } from '@radix-ui/themes'
@@ -41,6 +41,11 @@ const poppins = Poppins({
   subsets: ['latin'],
 })
 
+const kanit = Kanit({
+  weight: ['500'],
+  subsets: ['latin'],
+})
+
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
@@ -48,7 +53,7 @@ export default function RootLayout({ children }) {
         <Theme>
           <body
             suppressHydrationWarning={true}
-            className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full h-[100vh] overflow-y-scroll`}
+            className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} ${kanit.className} w-full h-[100vh] overflow-y-scroll`}
           >
             {children}
             <Footer />

@@ -104,4 +104,24 @@ allDestinations(
 }
 `
 
-export { DESTINATIONS, GET_ALL_DESTINATION, GET_DESTINATION_DETAIL, GET_META_DESTINATION, GET_OTHER_DESTINATIONS }
+const GET_CONTENT_DESTINATIONS = `
+{
+  page(id: "cG9zdDo0Mjg="){
+    destination{
+      content{
+        item{
+          title
+          distance
+          description
+          map
+          picture{
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+}
+`
+
+export { DESTINATIONS, GET_ALL_DESTINATION, GET_DESTINATION_DETAIL, GET_META_DESTINATION, GET_OTHER_DESTINATIONS, GET_CONTENT_DESTINATIONS }

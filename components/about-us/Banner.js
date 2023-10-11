@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Banner({ bannerData, title }) {
   return (
-    <section className='relative pt-[11.25rem] pb-[4rem] max-md:px-0 max-md:pt-[49rem]'>
+    <section className='relative pt-[11.25rem] pb-[4rem] max-md:px-0 max-md:pt-[49rem] max-lg:pt-[18rem] max-lg:pb-[12rem]'>
       <Image
         width={1600}
         height={567}
@@ -20,7 +20,7 @@ export default function Banner({ bannerData, title }) {
       ></Image>
       <div
         className={`${
-          title?.includes('destinations') ? 'max-md:text-[11.2rem]' : 'max-md:text-[16.5rem]'
+          title?.includes('Destination') ? 'max-md:text-[11.2rem]' : 'max-md:text-[16.5rem]'
         } relative text-center font-heavitas text-[8.625rem] uppercase leading-[1]`}
         style={{
           backgroundImage: `url(${bannerData?.textBackground?.sourceUrl || '/images/t11.jpg'})`,

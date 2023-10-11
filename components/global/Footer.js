@@ -29,8 +29,8 @@ export default async function Footer() {
         height={100}
         object-cover
       />
-      <div className='md:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem]'>
-        <div className='flex justify-between items-center w-full relative z-[1] max-md:px-[4.27rem] max-md:flex-col'>
+      <div className='lg:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem] max-lg:h-[130rem]'>
+        <div className='flex justify-between items-center w-full relative z-[1] max-md:px-[4.27rem] max-lg:flex-col'>
           <Link
             href='/'
             className='block w-fit h-fit'
@@ -43,9 +43,9 @@ export default async function Footer() {
               height={200}
             />
           </Link>
-          <div className='flex md:gap-x-[9.47rem] md:mt-[9.13rem] mt-[8rem] max-md:flex-col gap-[8rem] max-md:text-center'>
-            <div className='flex-col justify-center max-md:flex'>
-              <h2 className='md:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] '>
+          <div className='flex md:gap-x-[9.47rem] md:mt-[9.13rem] mt-[8rem] max-md:flex-col gap-[8rem] max-md:text-center flex-wrap'>
+            <div className='flex-col justify-center max-md:flex max-lg:w-[35rem] max-md:w-auto'>
+              <h2 className='lg:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] md:text-[1.8vw]'>
                 CONTACT US
               </h2>
               <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>
@@ -58,13 +58,13 @@ export default async function Footer() {
                   <Image
                     src={phoneIcon}
                     alt='icon'
-                    className='md:w-[1rem] md:h-[1rem] w-[3.73333rem] h-[3.73333rem] mt-[0.19rem] max-md:mt-[0.53rem]'
+                    className='lg:w-[1rem] lg:h-[1rem] w-[3.73333rem] h-[3.73333rem] mt-[0.19rem] max-md:mt-[0.53rem] md:w-[1.8rem] md:h-[1.8rem]'
                   />
                   <ul className='flex flex-col gap-y-[0.25rem] max-md:gap-y-[2.67rem]'>
                     {footer?.contactUs?.peopleContact?.map((e, index) => (
                       <li
                         key={index}
-                        className='text-[0.875rem] font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-50 max-md:text-[3.467rem] max-md:leading-[1.38]'
+                        className='text-[0.875rem] font-normal leading-[1.57] tracking-[0.00219rem] text-gray-scale-50 max-md:text-[3.467rem] max-md:leading-[1.38] max-lg:text-[1.82rem]'
                       >
                         {e?.numberPhone + ' (' + e?.name + ')'}
                       </li>
@@ -86,8 +86,8 @@ export default async function Footer() {
                 />
               </div>
             </div>
-            <div className='flex-col justify-center max-md:flex'>
-              <h2 className='md:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] '>
+            <div className='flex-col justify-center max-md:flex max-lg:w-[35rem] max-md:w-auto'>
+              <h2 className='lg:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] md:text-[1.8vw]'>
                 ALL TOUR
               </h2>
               <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>
@@ -100,8 +100,8 @@ export default async function Footer() {
                 ))}
               </div>
             </div>
-            <div className='flex-col justify-center max-md:flex'>
-              <h2 className='md:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] '>
+            <div className='flex-col justify-center max-md:flex max-lg:w-[35rem] max-md:w-auto'>
+              <h2 className='lg:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] md:text-[1.8vw]'>
                 CHEERS TOURS
               </h2>
               <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>

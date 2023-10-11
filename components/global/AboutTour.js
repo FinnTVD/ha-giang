@@ -110,11 +110,13 @@ function AboutTour({ data, index, isMobile }) {
           <div className='ml-[0.88rem] pr-[1.5rem] md:block hidden'></div>
           <div className='flex flex-col md:w-[30rem] lg:w-[25.125rem] gap-[1rem] max-md:px-[4.27rem]'>
             <h4 className='max-md:hidden text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
+
               {data?.heading}
             </h4>
             <div
               id='content-trip-details'
               className='md:text-[1.5rem] lg:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375] leading-normal md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
+
               dangerouslySetInnerHTML={{ __html: content?.content }}
             />
           </div>

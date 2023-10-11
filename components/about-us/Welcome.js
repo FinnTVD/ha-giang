@@ -12,12 +12,12 @@ const description =
   '<p>The 3 Days Epic Ha giang Loop Tour with easy rider organized by Vietnam Cheers Hostel is a must in Vietnam for any traveller. It is considered a highlight of South East Asia. <br> Explore <strong> Ma Pi Leng </strong>, one of The Big Four Passes in Vietnam, through thousands of conical limestone peaks as well as deep and meandering valleys. Party dinner, waterfall and local le at authentic Cheers Du Gia Homestay. will be the unique experience also. This is designed for adventure-seekers — those who want to experience the biggest challenge Vietnam has to offer in a safe environment with our experienced easy riders.</p>'
 export default function Welcome({ overview, video }) {
   return (
-    <section className='mt-[2.25rem] w-[40.625rem] my-0 mx-auto max-md:mt-[11.2rem] max-md:w-full'>
+    <section className='mt-[2.25rem] w-[40.625rem] my-0 mx-auto max-md:mt-[11.2rem] max-md:w-full max-lg:w-[65rem]'>
       <div className='flex flex-col items-center'>
-        <h3 className='text-[#B34B1E] font-heavitas text-[1rem] leading-[1] max-md:text-[3.2rem]'>
+        <h3 className='text-[#B34B1E] font-heavitas text-[1rem] leading-[1] max-md:text-[3.2rem] max-lg:text-[2.08rem]'>
           {overview?.topTitle}
         </h3>
-        <h2 className='text-[#B34B1E] font-heavitas text-[3rem] mt-[0.75rem] leading-[1] max-md:text-[6.4rem] max-md:mt-[2.1rem]'>
+        <h2 className='text-[#B34B1E] font-heavitas text-[3rem] mt-[0.75rem] leading-[1] max-md:text-[6.4rem] max-md:mt-[2.1rem] max-lg:text-[4.25rem]'>
           {overview?.title}
         </h2>
       </div>
