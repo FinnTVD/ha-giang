@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
         <Theme>
           <body
             suppressHydrationWarning={true}
-            className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full h-[100vh] overflow-y-scroll`}
+            className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}
           >
             {children}
             <Footer />
