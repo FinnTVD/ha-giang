@@ -52,7 +52,7 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
 
   const { header } = dataHome
   const { banner } = dataAboutUs
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
