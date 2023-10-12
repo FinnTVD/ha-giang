@@ -85,7 +85,6 @@ module.exports = {
         roboto: ['var(--font-roboto)'],
         tomatoes: ['var(--font-tomatoes)'],
         heavitas: ['var(--font-heavitas)'],
-        kanit: ['var(--font-kanit)'],
       },
       borderRadius: {
         lg: 'var(--radius)',
