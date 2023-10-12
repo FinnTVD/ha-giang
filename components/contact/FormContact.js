@@ -3,31 +3,36 @@ import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import SubTitle from '../global/SubTitle'
+import { useMutation } from '@apollo/client'
+import { FORM_GLOBAL } from '@/graphql/form/queries'
+import { ToastContainer } from 'react-toastify'
+import { notify, notifyError } from '@/utils'
 
 //-----------------------------
 
 const schema = yup
   .object({
-    name: yup.string().required('Vui lòng điền họ tên!'),
+    name: yup.string().required('Please enter your full name!'),
     phone: yup
       .string()
-      .test('is-number', 'Số điện thoại không hợp lệ!', (value) => {
+      .test('is-number', 'Invalid phone number!', (value) => {
         if (value && isNaN(value)) {
           return false
         }
         return true
       })
-      .required('Vui lòng điền số điện thoại!'),
+      .required('Please enter your phone number!'),
     email: yup
       .string()
-      .required('Vui lòng điền email!')
-      .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Email không hợp lệ!'),
-    message: yup.string().required(),
-    address: yup.string().required(),
+      .required('Please enter your email!')
+      .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Invalid email!'),
+    address: yup.string().required('Please enter your address!'),
+    message: yup.string(),
   })
   .required()
 
 export default function FormContact() {
+  const [mutate] = useMutation(FORM_GLOBAL)
   const {
     register,
     handleSubmit,
@@ -37,10 +42,48 @@ export default function FormContact() {
   } = useForm({
     resolver: yupResolver(schema),
   })
-  const name = watch('name')
 
-  const onSubmit = (data) => {
-    console.log('data form contact', data)
+  const onSubmit = (e) => {
+    mutate({
+      variables: {
+        input: {
+          id: 1,
+          fieldValues: [
+            {
+              id: 1,
+              value: e.name,
+            },
+            {
+              id: 4,
+              value: e.address,
+            },
+            {
+              id: 5,
+              value: e.phone,
+            },
+            {
+              id: 6,
+              emailValues: {
+                value: e.email,
+              },
+            },
+            {
+              id: 7,
+              value: e.message,
+            },
+          ],
+        },
+      },
+    }).then((res) => {
+      res?.data?.submitGfForm?.entry?.id ? notify() : notifyError()
+      reset({
+        name: '',
+        address: '',
+        email: '',
+        phone: '',
+        message: '',
+      })
+    })
   }
   return (
     <div className='flex-1 h-auto max-md:mt-[16rem]'>
@@ -83,7 +126,19 @@ export default function FormContact() {
           placeholder='Contact content'
           {...register('message')}
         ></textarea>
-        <button className='uppercase mt-[0.75rem] max-lg:mt-[2rem] max-lg:mb-[2rem] mb-[1.25rem] text-[0.8125rem] max-lg:text-[1.8125rem] font-bold leading-[1.53] flex justify-center items-center w-[11.125rem] max-lg:w-[14.125rem] max-lg:h-[5rem] h-[3rem] bg-primary-70 rounded-[0.5rem] text-white max-md:w-full max-md:py-[4.27rem] max-md:rounded-[2.13rem] max-md:text-[3.4667rem] max-md:h-fit max-md:my-[3rem]'>
+        <p className='text-red-500 text-[0.875rem] max-md:text-[3.46667rem] max-lg:text-[1.875rem] font-normal leading-normal font-poppins'>
+          {errors?.name?.message}
+        </p>
+        <p className='text-red-500 text-[0.875rem] max-md:text-[3.46667rem] max-lg:text-[1.875rem] font-normal leading-normal font-poppins'>
+          {errors?.address?.message}
+        </p>
+        <p className='text-red-500 text-[0.875rem] max-md:text-[3.46667rem] max-lg:text-[1.875rem] font-normal leading-normal font-poppins'>
+          {errors?.phone?.message}
+        </p>
+        <p className='text-red-500 text-[0.875rem] max-md:text-[3.46667rem] max-lg:text-[1.875rem] font-normal leading-normal font-poppins'>
+          {errors?.email?.message}
+        </p>
+        <button className='uppercase mt-[0.75rem] max-lg:mt-[2rem] max-lg:mb-[2rem] mb-[1.25rem] text-[0.8125rem] max-lg:text-[1.8125rem] font-bold leading-[1.53] flex justify-center items-center w-[11.125rem] max-lg:w-[14.125rem] max-lg:h-[5rem] h-[3rem] bg-primary-70 rounded-[0.5rem] text-white max-md:w-full max-md:py-[4.27rem] max-md:rounded-[2.13rem] max-md:text-[3.4667rem] max-md:h-fit max-md:my-[3rem] active:scale-95'>
           send
         </button>
       </form>
@@ -92,6 +147,7 @@ export default function FormContact() {
         contact us, our personalized consultant who is an expert of the region, will assist you by his/her well-trained
         skills for first-hand advice and suggestions
       </p>
+      <ToastContainer className='z-[999999]' />
     </div>
   )
 }

@@ -61,12 +61,8 @@ export default function BookingOnline({ data, title }) {
   const setIndexTab = useStore((state) => state.setIndexTab)
   const [selfDriving, setSelfDriving] = useState(0)
   const [localDriver, setLocalDriver] = useState(0)
-  // const [pick, setPick] = useState(data?.pickUp)
-  // const [droff, setDroff] = useState(data?.droff)
 
   const BookingSchema = Yup.object({
-    // selfDriving: Yup.number(),
-    // localDriver: Yup.string(),
     name: Yup.string().required(),
     email: Yup.string().required().email(),
     phone: Yup.string().required(),
@@ -100,12 +96,6 @@ export default function BookingOnline({ data, title }) {
   const totalPrice = selfCost + localCose
   const servicePrice = totalPrice * 0.03
   const totalAmount = totalPrice + servicePrice
-
-  // const selfCost = values.selfDriving * data?.selfDriving * exchangeRate
-  // const localCose = values.localDriver * data?.localDriver * exchangeRate
-  // const totalPrice = selfCost + localCose
-  // const servicePrice = totalPrice * 0.03
-  // const totalAmount = totalPrice + servicePrice
 
   const getIp = async () => {
     try {
@@ -148,7 +138,7 @@ export default function BookingOnline({ data, title }) {
     return convertStr2URL(reqParam)
   }
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (e) => {
     if (totalAmount <= 0) {
       setError('root', {
         message: 'Please choose at least a type of tour',
@@ -157,21 +147,25 @@ export default function BookingOnline({ data, title }) {
     }
     const formData = {
       nameTour: title,
-      name: data?.name,
-      contactInfo: data?.email + ' - ' + data?.phone,
-      pickUp: fDate(data.departureDate) + 'from' + data.pickup + ' at ' + data.pickupAddress,
-      droffOf: fDate(data.endDate) + ' from ' + data.droff + 'at ' + data.droffAddress,
+      name: e?.name + ' - ' + (selfDriving + localDriver) + ' pax',
+      contactInfo: e?.email + ' - ' + e?.phone,
+      pickUp: fDate(e.departureDate) + ' from ' + e.pickup + ' at ' + e.pickupAddress,
+      tourDuration: data?.longTimeTourDay + ' Days',
+      droffOf: fDate(e.endDate) + ' from ' + e.droff + ' at ' + e.droffAddress,
       selfDriving: selfDriving + ' x $169 (' + fCurrency(selfCost) + ' VND)',
       localDriver: localDriver + ' x $199 (' + fCurrency(localCose) + ' VND)',
-      message: data?.message,
+      message: e?.message,
+      provisional: fCurrency(totalPrice) + ' VND',
+      serviceCharge: fCurrency(totalPrice * 0.03) + ' VND',
       total: fCurrency(totalPrice + servicePrice) + ' VND',
     }
     localStorage.setItem('formDataPayment', JSON.stringify(formData))
-    const params = generateParams(data, true)
+
+    const params = generateParams(e, true)
     const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
     const hash = CryptoJS.HmacSHA256(params, secretWordArray)
     const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-    router.push(`${ONEPAY_HOST}?${generateParams(data)}&vpc_SecureHash=${vpc_SecureHash}`)
+    router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
   }
 
   return (
@@ -335,7 +329,7 @@ export default function BookingOnline({ data, title }) {
             </div>
             <div className='relative grid grid-cols-4 gap-[0.75rem] max-md:gap-[3.2rem] mt-[1rem] max-md:mt-[4.2rem]'>
               <LineTrip
-                className='absolute top-[3rem] max-lg:top-[6rem] -left-[1.5rem] max-lg:w-[105%] max-md:hidden w-[108%]'
+                className='absolute top-[3rem] max-lg:top-[6rem] -left-[1.5rem] max-lg:w-[105%] max-md:hidden w-[108%] z-[-1]'
                 dayAmount={data?.longTimeTourDay + ' days'}
               />
               <div className='max-md:col-span-2'>
@@ -369,7 +363,15 @@ export default function BookingOnline({ data, title }) {
                 <RHFDatePicker
                   selected={values.departureDate}
                   style={isMobile ? inputMobileStyle : inputStyle}
-                  onChange={(date) => setValue('departureDate', date)}
+                  onChange={(date) => {
+                    const originalDate = new Date(date)
+                    const day = data?.longTimeTourDay
+
+                    const updatedDate = new Date(originalDate.getTime() + (day + 1) * 24 * 60 * 60 * 1000)
+
+                    setValue('departureDate', date)
+                    setValue('endDate', updatedDate)
+                  }}
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
@@ -438,10 +440,20 @@ export default function BookingOnline({ data, title }) {
                   End date
                 </div>
                 <RHFDatePicker
+                  end={true}
+                  long={data?.longTimeTourDay}
                   style={isMobile ? inputMobileStyle : inputStyle}
                   minDate={values.departureDate}
                   selected={values.endDate}
-                  onChange={(date) => setValue('endDate', date)}
+                  onChange={(date) => {
+                    const originalDate = new Date(date)
+                    const day = data?.longTimeTourDay
+
+                    const updatedDate = new Date(originalDate.getTime() - (day + 1) * 24 * 60 * 60 * 1000)
+
+                    setValue('departureDate', updatedDate)
+                    setValue('endDate', date)
+                  }}
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
@@ -491,7 +503,7 @@ export default function BookingOnline({ data, title }) {
                   Name
                 </div>
                 <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
-                  {values.name}
+                  {values.name ? values.name + ' - ' + (selfDriving + localDriver) + ' pax' : ''}
                 </div>
               </div>
               <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[13.866rem]'>
@@ -596,12 +608,14 @@ export default function BookingOnline({ data, title }) {
                 <Image
                   className='w-[2.28rem] h-[1.38rem] max-lg:h-[3.38rem] max-lg:w-[4.38rem] object-cover max-md:w-[11.3rem] max-md:h-[7.84rem]'
                   src='/images/visa-card.svg'
+                  alt='visa card'
                   width={80}
                   height={70}
                 />
                 <Image
                   className='w-[2.28rem] h-[1.38rem] max-lg:h-[3.38rem] max-lg:w-[4.38rem] object-cover max-md:w-[11.3rem] max-md:h-[7.84rem]'
                   src='/images/master-card.svg'
+                  alt='master card'
                   width={80}
                   height={70}
                 />

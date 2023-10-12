@@ -1,6 +1,86 @@
+'use client'
 import Link from 'next/link'
-
+import { useMutation } from '@apollo/client'
+import { FORM_GLOBAL } from '@/graphql/form/queries'
+import { useEffect, useState } from 'react'
 const PaymentSuccessFulPage = ({ searchParams }) => {
+  const [mutate] = useMutation(FORM_GLOBAL)
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (searchParams?.vpc_TxnResponseCode === '0') {
+      const dataForm = JSON.parse(localStorage.getItem('formDataPayment'))
+      dataForm && setData(dataForm)
+    } else {
+      localStorage.removeItem('formDataPayment')
+    }
+  }, [])
+
+  useEffect(() => {
+    if (data) {
+      mutate({
+        variables: {
+          input: {
+            id: 2,
+            fieldValues: [
+              {
+                id: 1,
+                value: data.nameTour,
+              },
+              {
+                id: 3,
+                value: data.name,
+              },
+              {
+                id: 4,
+                value: data.contactInfo,
+              },
+              {
+                id: 5,
+                value: data.pickUp,
+              },
+              {
+                id: 6,
+                value: data.tourDuration,
+              },
+              {
+                id: 7,
+                value: data.droffOf,
+              },
+              {
+                id: 8,
+                value: data.selfDriving,
+              },
+              {
+                id: 9,
+                value: data.localDriver,
+              },
+              {
+                id: 10,
+                value: data.message,
+              },
+              {
+                id: 11,
+                value: data.provisional,
+              },
+              {
+                id: 12,
+                value: data.serviceCharge,
+              },
+              {
+                id: 13,
+                value: data.total,
+              },
+            ],
+          },
+        },
+      }).then((res) => {
+        res?.data?.submitGfForm?.entry?.id && localStorage.removeItem('formDataPayment')
+      })
+    }
+  }, [data])
+
   return (
     <div className='w-full h-screen flex justify-center items-center bg-primary-5'>
       <div className='w-[60%] h-[60%] flex flex-col justify-center items-center p-[1.5rem] bg-white shadow-btn rounded-[1.25rem] gap-y-[3rem]'>
