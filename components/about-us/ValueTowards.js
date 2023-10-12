@@ -222,7 +222,7 @@ export default function ValueTowards({ valueTowards }) {
               className='px-[2.5rem]'
               key={index}
             >
-              <p className='text-[#727272] text-[3.7rem] leading-[1.57] tracking-[0.035] font-poppins text-center max-lg:text-[1.8rem]'>
+              <p className='text-[#727272] text-[3.7rem] leading-[1.57] tracking-[0.035] font-poppins text-center max-lg:text-[1.8rem] max-md:text-[3.7rem]'>
                 {item?.content}
               </p>
             </SwiperSlide>
