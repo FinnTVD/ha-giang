@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SubTitle from '../global/SubTitle'
 import ItemLane from './ItemLane'
 import Image from 'next/image'
@@ -35,12 +35,26 @@ export default function BestTripEver({ data }) {
     dataArr = new Array(dataLength - 1).fill(0)
   }
 
+  const lineRef = useRef(null)
+  const dayRef = useRef(null)
+  const dayHandler = (index) => {
+    setIndexMb(index)
+    if(index>=2 && data?.listDay?.length>3){
+      lineRef.current.style.transform = 'translateX(-30.8rem)'
+      dayRef.current.style.transform = 'translateX(-32.8rem)'
+    }
+    if(index<=1 && data?.listDay?.length>3){
+      lineRef.current.style.transform = 'translateX(0)'
+      dayRef.current.style.transform = 'translateX(0)'
+    }
+  }
+
   return (
     <section
-      className='mt-[6.25rem] max-lg:mt-[14.25rem] w-[87.5rem] max-lg:w-[95vw] mx-auto max-md:mt-[16rem] max-md:w-[91.46667rem] flex justify-between max-md:flex-col bg-white'
+      className='mt-[6.25rem] max-lg:mt-[14.25rem] w-[87.5rem] max-lg:w-[95vw] mx-auto max-md:mt-[16rem] max-md:w-[91.46667rem] flex justify-between max-md:flex-col bg-white max-lg:overflow-hidden'
       id='mapId'
     >
-      <div>
+      <div className='max-lg:w-full'>
         <SubTitle
           title={data?.subtitle}
           subTitle={data?.title}
@@ -71,7 +85,8 @@ export default function BestTripEver({ data }) {
           </div>
         )}
         <ScrollTrigger onEnter={() => setIndexTab(2)}>
-          <div className='mt-[2.88rem] max-md:mt-[5.3rem] max-md:overflow-x-scroll font-poppins'>
+          <div className='mt-[2.88rem] max-md:mt-[5.3rem] font-poppins'>
+            <div ref={lineRef} className='transition-all duration-300'>
             <div>
               <Image
                 style={{
@@ -124,7 +139,7 @@ export default function BestTripEver({ data }) {
                   </svg>
                   <div className='relative overflow-hidden'>
                     <svg
-                      className='w-[26.5rem]'
+                      className='w-[26.5rem] h-auto'
                       xmlns='http://www.w3.org/2000/svg'
                       width='94'
                       height='3'
@@ -183,7 +198,8 @@ export default function BestTripEver({ data }) {
                 />
               </svg>
             </div>
-            <div className='flex gap-x-[5.13rem] relative w-fit'>
+            </div>
+            <div className='flex gap-x-[5.13rem] relative'>
               {data?.listDay?.map((e, index) => (
                 <ItemLane
                   indexCurrent={indexCurrent}
@@ -194,27 +210,29 @@ export default function BestTripEver({ data }) {
                   setIndexCurrent={setIndexCurrent}
                 />
               ))}
-              <div className='lg:hidden mt-[5.3rem]'>
-                <div className='flex gap-[7.5rem] md:mx-auto'>
-                  {data?.listDay?.map((e, index) => (
-                    <div
-                      onClick={() => setIndexMb(index)}
-                      className={`${
-                        index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
-                      } lg:hidden w-[25.3rem] h-[15.46rem] md:w-[22.3rem] md:h-[12.46rem] rounded-[2rem] flex flex-col justify-center items-center`}
-                    >
-                      <span
+              <div className='lg:hidden mt-[5.3rem] w-full'>
+                <div className='overflow-x-scroll w-full'>
+                  <div className='flex gap-[7.5rem] w-fit md:mx-auto transition-all duration-300' ref={dayRef}>
+                    {data?.listDay?.map((e, index) => (
+                      <div
+                        onClick={() => dayHandler(index)}
                         className={`${
-                          index === indexMb ? 'text-white' : 'text-[#898989]'
-                        } text-[3.7rem] leading-[1.42] gap-[1rem] font-bold`}
+                          index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
+                        } lg:hidden w-[25.3rem] h-[15.46rem] md:h-[12.46rem] rounded-[2rem] flex flex-col justify-center items-center flex-shrink-0`}
                       >
-                        DAY {index + 1}
-                      </span>
-                      <span className={`${index === indexMb ? 'text-white' : 'text-[#898989]'} text-[3.2rem]`}>
-                        {e?.distanceLength}
-                      </span>
-                    </div>
-                  ))}
+                        <span
+                          className={`${
+                            index === indexMb ? 'text-white' : 'text-[#898989]'
+                          } text-[3.7rem] leading-[1.42] gap-[1rem] font-bold`}
+                        >
+                          DAY {index + 1}
+                        </span>
+                        <span className={`${index === indexMb ? 'text-white' : 'text-[#898989]'} text-[3.2rem]`}>
+                          {e?.distanceLength}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className='mt-[3.7rem]'>
                   {data?.listDay?.map((e, index) => (
