@@ -3,7 +3,7 @@ import TittleIcon from './TittleIcon'
 
 export default function ContentHeaderDetail({ data, slug }) {
   return (
-    <div className='relative z-[10] w-[87.5rem] max-lg:top-1/2 max-lg:-translate-y-1/2 max-md:translate-y-0 max-lg:left-[5vw] lg:my-[2.31rem] max-lg:absolute max-md:left-[4.27rem] max-md:bottom-[21rem] mx-auto'>
+    <div className='relative z-[10] w-[87.5rem] max-lg:top-1/2 max-lg:-translate-y-1/2 max-lg:left-[5vw] lg:my-[2.31rem] max-lg:absolute max-md:left-[4.27rem] max-md:-translate-y-1/2 mx-auto'>
       <span className='text-white uppercase font-heavitas text-[1rem] max-lg:text-[2.5rem] font-normal leading-normal max-md:text-[3.2rem]'>
         {data?.subtitle}
       </span>
