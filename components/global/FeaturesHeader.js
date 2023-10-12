@@ -4,35 +4,24 @@ import { PopupBookNow } from './PopupBookNow'
 import IconPhoneHeaderV2 from '../icons/IconPhoneHeaderV2'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 
 gsap.registerPlugin(ScrollTrigger)
 export default function FeaturesHeader({ header, allTourHG, isHome }) {
-  useLayoutEffect(() => {
-    if (!isHome) return
-
-    let ctx = gsap.context(() => {
-      setTimeout(() => {
-        gsap.matchMedia().add('(max-width: 767px)', () => {
-          gsap.to(document.getElementById('feature-header'), {
-            display: 'flex',
-            scrollTrigger: {
-              trigger: document.getElementById('banner-home'),
-              start: 'top center',
-              end: 'bottom+=500 top',
-              scrub: 1,
-            },
-          })
-        })
-      }, [500])
-    })
-    return () => {
-      ctx.revert()
-    }
-  }, [])
+  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const [scrollY, setScrollY] = useState(0)
 
   const circleRef = useRef(null)
   useEffect(() => {
+    // Define a function to handle the scroll event
+    const handleScroll = () => {
+      // Update the state with the current scroll position
+      setScrollY(window.scrollY)
+    }
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll)
+
     gsap.to(circleRef.current, {
       scrollTrigger: {
         trigger: 'body',
@@ -42,6 +31,10 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
       },
       strokeDashoffset: '0',
     })
+    // Clean up by removing the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   const scrollToTop = () => {
@@ -52,7 +45,7 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
     <div
       id='feature-header'
       className={`${
-        isHome ? 'hidden' : 'flex'
+        isMobile && isHome ? (scrollY >= 250 ? 'flex' : 'hidden') : 'flex'
       } bottom-[10rem] flex-col gap-y-[1.37rem] max-md:gap-y-[5.33rem] items-center fixed right-[3rem] max-md:right-[4.27rem] z-[999]`}
     >
       {/* <svg
