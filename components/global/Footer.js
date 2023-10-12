@@ -16,10 +16,10 @@ export default async function Footer() {
   const { footer } = data?.data?.page?.homeHG
   if (!footer) return
   return (
-    <footer className='relative overflow-hidden font-poppins'>
+    <footer className='relative overflow-hidden font-poppins max-md:h-[80vh]'>
       <BgFooter className='w-full md:h-[58.5625rem] h-full absolute top-0 left-0 z-0 max-md:inset-0' />
       <Image
-        className='z-0 max-md:h-[153.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover'
+        className='z-0 max-md:h-[55.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover'
         alt={footer?.background?.altText || footer?.background?.title}
         src={footer?.background?.sourceUrl || '/images/bg-footer.png'}
         sizes='100rem'
@@ -36,7 +36,7 @@ export default async function Footer() {
             className='block w-fit h-fit'
           >
             <Image
-              className='md:w-[12.75rem] w-[34.67493rem] md:h-[12.05rem] h-[30.4rem] md:mt-[9.13rem] mt-[14rem] object-cover'
+              className='md:w-[12.75rem] w-[34.67493rem] md:h-[12.05rem] h-[30.4rem] md:mt-[9.13rem] mt-[6rem] object-cover'
               alt={footer?.logo?.altText || footer?.logo?.title}
               src={footer?.logo?.sourceUrl || '/images/logo-footer.png'}
               width={220}
