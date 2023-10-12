@@ -33,22 +33,15 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
 
   const circleRef = useRef(null)
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      setTimeout(() => {
-        gsap.to(circleRef.current, {
-          scrollTrigger: {
-            trigger: 'body',
-            scrub: true,
-            start: 'top top',
-            end: 'bottom bottom',
-          },
-          strokeDashoffset: '0',
-        })
-      }, [2000])
+    gsap.to(circleRef.current, {
+      scrollTrigger: {
+        trigger: 'body',
+        scrub: true,
+        start: 'top top',
+        end: 'bottom bottom',
+      },
+      strokeDashoffset: '0',
     })
-    return () => {
-      ctx.revert()
-    }
   }, [])
 
   const scrollToTop = () => {
@@ -58,7 +51,9 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
   return (
     <div
       id='feature-header'
-      className={`bottom-[10rem] hidden flex-col gap-y-[1.37rem] max-md:gap-y-[5.33rem] items-center fixed right-[3rem] max-md:right-[4.27rem] z-[999]`}
+      className={`${
+        isHome ? 'hidden' : 'flex'
+      } bottom-[10rem] flex-col gap-y-[1.37rem] max-md:gap-y-[5.33rem] items-center fixed right-[3rem] max-md:right-[4.27rem] z-[999]`}
     >
       {/* <svg
         xmlns='http://www.w3.org/2000/svg'
