@@ -51,6 +51,8 @@ const inputMobileStyle = {
 }
 
 export default function BookingOnlineV2({ tour = '', allTourHG }) {
+  console.log('🚀 ~ file: BookingOnlineV2.js:54 ~ BookingOnlineV2 ~ tour:', tour)
+  console.log('🚀 ~ file: BookingOnlineV2.js:54 ~ BookingOnlineV2 ~ allTourHG:', allTourHG)
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
   const [ip, setIp] = useState('')
   const [selfDriving, setSelfDriving] = useState(0)
@@ -106,6 +108,14 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
 
   const values = watch()
 
+  useEffect(() => {
+    if (!values.departureDate || !values.typeTour) return
+    const originalDate = new Date(values.departureDate)
+    const day = allTourHG?.nodes?.find((e) => e?.title === values.typeTour)?.tourHaGiangDetail?.price?.longTimeTourDay
+    const updatedDate = new Date(originalDate.getTime() + (day + 1) * 24 * 60 * 60 * 1000)
+    setValue('endDate', updatedDate)
+  }, [values.typeTour])
+
   const selfCost = selfDriving * selfPrice * exchangeRate
   const localCose = localDriver * localPrice * exchangeRate
   const totalPrice = selfCost + localCose
@@ -152,18 +162,37 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
     return convertStr2URL(reqParam)
   }
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (e) => {
     if (totalAmount <= 0) {
       setError('root', {
         message: 'Please choose at least a type of tour',
       })
       return
     }
-    const params = generateParams(data, true)
+    const formData = {
+      nameTour: values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title,
+      name: e?.name + ' - ' + (selfDriving + localDriver) + ' pax',
+      contactInfo: e?.email + ' - ' + e?.phone,
+      pickUp: fDate(e.departureDate) + ' from ' + e.pickup + ' at ' + e.pickupAddress,
+      tourDuration:
+        allTourHG?.nodes?.find((e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title))
+          ?.tourHaGiangDetail?.price?.longTimeTourDay + ' Days',
+      droffOf: fDate(e.endDate) + ' from ' + e.droff + ' at ' + e.droffAddress,
+      selfDriving: selfDriving + ' x $' + selfPrice + ' (' + fCurrency(selfCost) + ' VND)',
+      localDriver: localDriver + ' x $' + localPrice + ' (' + fCurrency(localCose) + ' VND)',
+      message: e?.message,
+      provisional: fCurrency(totalPrice) + ' VND',
+      serviceCharge: fCurrency(totalPrice * 0.03) + ' VND',
+      total: fCurrency(totalPrice + servicePrice) + ' VND',
+    }
+    localStorage.setItem('formDataPayment', JSON.stringify(formData))
+    console.log('🚀 ~ file: BookingOnlineV2.js:189 ~ onSubmit ~ formData:', formData)
+
+    const params = generateParams(e, true)
     const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
     const hash = CryptoJS.HmacSHA256(params, secretWordArray)
     const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-    router.push(`${ONEPAY_HOST}?${generateParams(data)}&vpc_SecureHash=${vpc_SecureHash}`)
+    router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
   }
 
   return (
@@ -278,7 +307,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           if (localDriver === 0) return
                           setLocalDriver(localDriver - 1)
                         }}
-                        className='w-[2.25rem] h-[2.25rem] max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                        className='w-[2.25rem] h-[2.25rem] select-none max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                       >
                         -
                       </div>
@@ -289,7 +318,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                         onClick={() => {
                           setLocalDriver(localDriver + 1)
                         }}
-                        className='w-[2.25rem] h-[2.25rem] max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
+                        className='w-[2.25rem] h-[2.25rem] select-none max-lg:w-[5.25rem] max-lg:h-[5.25rem] max-lg:text-[3.5rem] max-md:w-[9.6rem] cursor-pointer max-md:h-[9.6rem] max-md:text-[6.5rem] text-[1.5rem] active:scale-90 shadow-btn rounded-full flex justify-center items-center'
                       >
                         +
                       </div>
@@ -353,7 +382,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
               </div>
             </div>
             <div className='relative grid grid-cols-4 gap-[0.75rem] max-lg:gap-[1.75rem] w-[42.75rem] max-md:w-full max-lg:w-full max-md:gap-[3.2rem] mt-[1rem] max-lg:mt-[2rem] max-md:mt-[4.2rem]'>
-              <IconEnjoin className='absolute top-[4.5rem] max-lg:top-[9.5rem] left-0 max-md:hidden w-full' />
+              <IconEnjoin className='absolute top-[4.5rem] max-lg:top-[9.5rem] left-0 max-md:hidden w-full z-[-1]' />
               <div className='max-md:col-span-2'>
                 <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
                   Pick up
@@ -385,7 +414,17 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <RHFDatePicker
                   selected={values.departureDate}
                   style={isMobile ? inputMobileStyle : inputStyle}
-                  onChange={(date) => setValue('departureDate', date)}
+                  onChange={(date) => {
+                    const originalDate = new Date(date)
+                    const day = allTourHG?.nodes?.find(
+                      (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                    )?.tourHaGiangDetail?.price?.longTimeTourDay
+
+                    const updatedDate = new Date(originalDate.getTime() + (day + 1) * 24 * 60 * 60 * 1000)
+
+                    setValue('departureDate', date)
+                    setValue('endDate', updatedDate)
+                  }}
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
@@ -457,7 +496,17 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   style={isMobile ? inputMobileStyle : inputStyle}
                   minDate={values.departureDate}
                   selected={values.endDate}
-                  onChange={(date) => setValue('endDate', date)}
+                  onChange={(date) => {
+                    const originalDate = new Date(date)
+                    const day = allTourHG?.nodes?.find(
+                      (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                    )?.tourHaGiangDetail?.price?.longTimeTourDay
+
+                    const updatedDate = new Date(originalDate.getTime() - (day + 1) * 24 * 60 * 60 * 1000)
+
+                    setValue('departureDate', updatedDate)
+                    setValue('endDate', date)
+                  }}
                 />
               </div>
               <div className='col-span-2 max-md:col-span-4'>
@@ -503,7 +552,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Type of tour
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                    {values.typeTour || '...'}
+                    {values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title || '...'}
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
@@ -514,7 +563,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Name
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                    {values.name || '...'}
+                    {values.name ? values.name + ' - ' + (selfDriving + localDriver) + ' pax' : '...'}
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[13.866rem]'>
@@ -574,7 +623,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Self-driving
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                    {values.selfDriving && `${values.selfDriving} x $169 (${fCurrency(selfCost) || 0} VND)`}
+                    {selfDriving && `${selfDriving} x $${selfPrice} (${fCurrency(selfCost) || 0} VND)`}
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
@@ -585,7 +634,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Local driver
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                    {values.localDriver && `${values.localDriver} x $199 (${fCurrency(localCose) || 0} VND)`}
+                    {localDriver && `${localDriver} x $${localPrice} (${fCurrency(localCose) || 0} VND)`}
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[13.86rem]'>

@@ -558,12 +558,10 @@ svg .pingCall {
             font-size: 3.733rem;
         }
     }
-    .react-datepicker__day.react-datepicker__day--today {
-        @media screen and (max-width: "1023.9px") {
-            background-color: #56a019;
-            border-radius: 50%;
-            color: white;
-        }
+    .react-datepicker__day.react-datepicker__day--selected {
+        background-color: #56a019;
+        border-radius: 50%;
+        color: white;
     }
     .react-datepicker__day-names {
         @media (min-width: "768px") and (max-width: "1023.9px") {
