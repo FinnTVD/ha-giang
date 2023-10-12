@@ -57,6 +57,7 @@ export default function SlideFamily({ section6, setTourLeader }) {
       className='relative w-fit h-fit max-lg:hidden'
     >
       <Swiper
+        loop={true}
         spaceBetween={0}
         slidesPerView={2}
         grabCursor={true}
