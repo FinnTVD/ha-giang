@@ -471,11 +471,11 @@ h5 {
 
 #boxMap {
     iframe {
-        width: 75rem !important;
+        width: 100% !important;
         height: 50rem;
         border-radius: 0.75rem;
         @media (min-width: "768px") and (max-width: "1023px") {
-            width: 90rem !important;
+            width: 100% !important;
         }
         @media screen and (max-width: "767px") {
             width: 100% !important;
