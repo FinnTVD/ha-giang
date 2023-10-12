@@ -67,12 +67,12 @@ export default function MapContact({ data, footer }) {
         </div>
         <FormContact />
       </div>
-      <h2 className='uppercase text-primary-70 font-heavitas font-normal text-[1.5rem] leading-[1.33] mt-[6.25rem] mb-[1.87rem] max-lg:text-[2.5rem]'>
+      <h2 className='w-[38.0625rem] max-lg:w-[66rem] max-md:hidden uppercase text-primary-70 font-heavitas font-normal text-[1.5rem] leading-[1.33] mt-[6.25rem] mb-[1.87rem] max-lg:text-[2.5rem]'>
         JUST HO AHEAD TO OUR OFFICIAL BOOKING OFFICE AS BELOW IN HANOI:
       </h2>
       <div
         id='boxMap'
-        className='!w-full flex justify-center max-md:!h-[90vh] max-md:!w-full h-full rounded-[0.75rem] max-md:rounded-[4.267rem] overflow-hidden max-lg:!w-full'
+        className='!w-full flex justify-center max-md:!h-[90vh] max-md:!w-full h-full rounded-[0.75rem] max-md:rounded-[4.267rem] max-md:mt-[16rem] overflow-hidden max-lg:!w-full'
         dangerouslySetInnerHTML={{ __html: `${section1?.map}` }}
       />
     </section>
