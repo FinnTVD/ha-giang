@@ -122,6 +122,7 @@ export default function Banner({ section1 }) {
       <div className='h-[6.25rem] w-full max-lg:hidden'></div>
       <section
         ref={parentRef}
+        id='banner-home'
         className='h-screen relative z-[5] overflow-hidden max-lg:mt-[5.33rem]'
       >
         <div

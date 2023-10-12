@@ -69,7 +69,7 @@ const OverviewMb = ({ data }) => {
       <div
         id='box-tab'
         className={`${
-          isFixed ? 'fixed left-0 top-0 bg-white px-[2.13em] py-[2.13rem] w-full z-[99]' : ''
+          isFixed ? 'fixed left-0 top-0 bg-white px-[2.13em] py-[2.13rem] w-full z-[99]' : '!shadow-none'
         } overflow-hidden mb-[4.26rem] transition-all duration-500 pl-[1rem]`}
       >
         s
