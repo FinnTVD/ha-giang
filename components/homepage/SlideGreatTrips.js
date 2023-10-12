@@ -70,7 +70,7 @@ export default function SlideGreatTrips({ allTourHG }) {
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper
           }}
-          className='lg:w-[87.1rem] !px-[3rem] max-md:h-fit max-md:!px-[4.27rem] lg:h-[40rem] md:h-[55rem]'
+          className='lg:w-[87.1rem] !px-[3rem] max-md:h-[128rem] max-md:!px-[4.27rem] lg:h-[40rem] md:h-[55rem]'
         >
           {allTourHG?.nodes?.map((e, index) => (
             <SwiperSlide

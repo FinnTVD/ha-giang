@@ -11,6 +11,9 @@ export default function SlideWeather({ section7, month, setMonth }) {
         0: {
           slidesPerView: 'auto',
           spaceBetween: 8,
+          // centeredSlides: true,
+          centeredSlidesBounds: true,
+          loop: true,
         },
         768: {
           slidesPerView: 'auto',
