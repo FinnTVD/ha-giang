@@ -4,7 +4,7 @@ import { PopupBookNow } from './PopupBookNow'
 import IconPhoneHeaderV2 from '../icons/IconPhoneHeaderV2'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 export default function FeaturesHeader({ header, allTourHG, isHome }) {
@@ -30,6 +30,21 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
     }
   }, [])
 
+  const circleRef = useRef(null)
+  useEffect(() => {
+    console.log(circleRef.current.getTotalLength())
+    gsap.to(
+      circleRef.current,{
+      scrollTrigger: {
+          trigger: "body",
+          scrub: true,
+          start: "top top",
+          end: "bottom bottom",
+      },
+      strokeDashoffset: '0',
+    })
+  }, [])
+
   const scrollToTop = () => {
     if (typeof window === 'undefined') return
     window.scrollTo(0, 0, { behavior: 'smooth' })
@@ -41,7 +56,7 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
         isHome ? 'max-md:bottom-[45%]' : ''
       } flex flex-col gap-y-[1.37rem] max-md:gap-y-[5.33rem] items-center fixed bottom-[10rem] right-[3rem] max-md:right-[4.27rem] z-[999]`}
     >
-      <svg
+      {/* <svg
         xmlns='http://www.w3.org/2000/svg'
         width='34'
         height='49'
@@ -59,7 +74,7 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
           stroke='#EE6529'
           strokeWidth='2'
         />
-        <rect
+        <circle
           x='0.5'
           y='0.5'
           width='33'
@@ -67,6 +82,11 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
           rx='16.5'
           stroke='#EE6529'
         />
+      </svg> */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none" className='w-[3.5rem] h-[3.6rem] max-lg:w-[7.25rem] max-lg:h-[7.35rem] max-md:w-[10.5rem] max-md:h-[10.6rem] mb-[2vw] max-lg:mb-[4vw] max-md:mb-[3vw] cursor-pointer' onClick={scrollToTop}>
+          <path d="M19.8438 7.64502C19.5629 6.78499 18.4371 6.78499 18.1562 7.64502L14.0518 20.2088C13.8463 20.8378 14.2782 21.4973 14.8956 21.4973L23.1044 21.4973C23.7218 21.4973 24.1537 20.8378 23.9482 20.2088L19.8438 7.64502Z" fill="#FC692A"/>
+          <path d="M18.5795 29.7343C19.9327 29.7343 21.1589 28.5248 21.1589 26.8671C21.1589 25.2095 19.9327 24 18.5795 24C17.2263 24 16 25.2095 16 26.8671C16 28.5248 17.2263 29.7343 18.5795 29.7343Z" stroke="#FC692A" stroke-width="2"/>
+          <rect x="0.5" y="0.5" width="37" height="37" rx="18.5" stroke="#FC692A" strokeDasharray="116" strokeDashoffset="116" ref={circleRef}/>
       </svg>
       <PopupBookNow allTourHG={allTourHG}>
         <div className='cursor-pointer w-[3.5rem] text-[0.75rem] font-black leading-[1.08] tracking-[0.03125rem] h-[3.5rem] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67rem] max-lg:text-[1.75rem] max-lg:w-[7.5rem] max-lg:h-[7.5rem] max-md:h-[10.67rem] max-md:text-[2.56rem] max-md:tracking-[0.10667rem] font-roboto animate-bounce'>
