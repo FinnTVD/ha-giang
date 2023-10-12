@@ -11,7 +11,7 @@ import GreatTrips from '../homepage/GreatTrips'
 function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination }) {
   const header = dataHome?.header
   const banner = dataAboutUs?.banner
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -43,14 +43,12 @@ function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination }) {
         bannerData={banner}
         title={'Destination'}
       ></Banner>
-      <DestinationListItems
-        dataDestination={dataDestination?.content}
-      ></DestinationListItems>
+      <DestinationListItems dataDestination={dataDestination?.content}></DestinationListItems>
       <GreatTrips
         allTourHG={allTourHG}
         section3={{
-            subtitle: 'our',
-            title: 'great trips',
+          subtitle: 'our',
+          title: 'great trips',
         }}
       ></GreatTrips>
       {isMobile && (
