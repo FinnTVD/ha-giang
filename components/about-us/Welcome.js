@@ -25,7 +25,7 @@ export default function Welcome({ overview, video }) {
       <iframe
         width='375'
         height='210'
-        src={video?.video?.url_video || 'https://www.youtube.com/embed/2uBkJJmvots?si=Eil5E2TremgKtxo88'}
+        src={video?.video?.url_video || 'https://www.youtube.com/embed/Nj6IqVLoaUg?si=RMqLq4uUSDQRlV-Y'}
         title='YouTube video player'
         frameborder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
