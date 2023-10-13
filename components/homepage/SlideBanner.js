@@ -5,10 +5,13 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper/modules'
+import IconMuted from '../icons/IconMuted'
+import IconAudio from '../icons/IconAudio'
 
 let arrSlide = []
 export default function SlideBanner({ section1, isMobile }) {
   const swiperRef = useRef(null)
+  const [isMute, setIsMute] = useState(true)
   const [indexSlider, setIndexSlider] = useState(0)
   const handleSlideChange = (swiper) => {
     setIndexSlider(swiper.realIndex)
@@ -52,7 +55,7 @@ export default function SlideBanner({ section1, isMobile }) {
                 className='w-full h-full lg:rounded-[1rem] object-cover min-w-full min-h-full'
                 id={'videoBanner' + index}
                 playsInline
-                muted
+                muted={isMute}
               >
                 <source
                   type='video/mp4'
@@ -148,6 +151,16 @@ export default function SlideBanner({ section1, isMobile }) {
             </span>
           </div>
         </div>
+      </div>
+      <div
+        onClick={() => setIsMute(!isMute)}
+        className='absolute bottom-[3.75rem] right-[6.25rem] z-20 cursor-pointer max-md:right-[4.27rem] max-md:bottom-[5.23rem] max-lg:right-[6.25rem] max-lg:bottom-[6.75rem]'
+      >
+        {isMute ? (
+          <IconMuted className='lg:w-[2.5rem] lg:h-[2.5rem] max-md:w-[10.67rem] max-md:h-[10.67rem] max-lg:w-[8rem] max-lg:h-[8rem]' />
+        ) : (
+          <IconAudio className='lg:w-[2.5rem] lg:h-[2.5rem] max-md:w-[10.67rem] max-md:h-[10.67rem] max-lg:w-[8rem] max-lg:h-[8rem]' />
+        )}
       </div>
     </div>
   )

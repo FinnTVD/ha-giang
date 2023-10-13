@@ -48,7 +48,7 @@ function AboutTour({ data, index, isMobile }) {
               src={moon}
               alt='moon'
               quality={100}
-              className='md:w-[1.75rem] md:h-[1.75rem] w-[4.68384rem] h-[4.68384rem]'
+              className='md:w-[1.75rem] md:h-[1.75rem] w-[4.68384rem] h-[4.68384rem] max-md:hidden'
             />
             <h3 className='lg:text-[2.125rem] md:text-[3.125rem] text-[4.68384rem]  font-[600] leading-normal tracking-[0.00531rem] font-poppins text-gray-scale-80'>
               {data?.step}
