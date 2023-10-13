@@ -21,6 +21,7 @@ module.exports = {
           'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.76) 60.94%, #FFF 100%)',
         'gradient-detailTourRes':
           'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.50) 100%)',
+        'gradient-detailTourRes2': 'linear-gradient(180deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 1) 100%)',
       },
       colors: {
         'gray-scale-90': 'var(--gray-scale-90)',

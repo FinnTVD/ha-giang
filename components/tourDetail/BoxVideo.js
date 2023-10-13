@@ -1,6 +1,6 @@
 export default function BoxVideo({ data }) {
   return (
-    <section className='mx-auto md:w-[87.5rem] h-[47rem] mt-[6.25rem] max-md:px-0 max-md:mt-[5.3rem] max-md:h-[56rem] w-full'>
+    <section className='mx-auto lg:w-[66rem] lg:h-[37rem] md:w-[87.5rem] h-[47rem] mt-[6.25rem] max-md:px-0 max-md:mt-[5.3rem] max-md:h-[56rem] w-full'>
       <iframe
         width='560'
         height='315'

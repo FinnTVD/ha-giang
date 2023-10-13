@@ -1,8 +1,8 @@
-import calendar from '@/public/images/calendar_blogItem.svg'
 import img from '@/public/images/left-down.jpg'
 import moment from 'moment'
 import Image from 'next/image'
 import Link from 'next/link'
+import IconCalender from '../icons/IconCalender'
 
 function BlogItem({ data, params }) {
   return (
@@ -21,21 +21,9 @@ function BlogItem({ data, params }) {
               className={`lg:!h-[16.3125rem] h-[43.73rem] object-cover md:rounded-[0.5rem] rounded-[2.13333rem] md:!h-[28.5rem]`}
             />
           </div>
-          {/* <span
-                        className='absolute md:top-[1.62rem] top-[3.69rem] md:left-[-0.375rem] left-[-1.67rem] md:px-[1rem] md:py-[0.25rem] px-[4.27rem] py-[1.07rem] bg-[#FFD220] md:text-[0.75rem] 
-          text-[2.66667rem] font-[500] rounded-r-[0.25rem] tip-review'
-                    >
-                        Tip and Review
-                    </span> */}
         </div>
         <div className='flex items-center md:gap-x-[0.64rem] gap-x-[1.07rem] mt-[2.67rem] md:mt-[1rem] info'>
-          <Image
-            src={calendar}
-            width={100}
-            height={100}
-            alt='calendar'
-            className='lg:w-[0.84375rem] opacity-60 w-[2.4rem] h-[2.66667rem] md:h-[0.9375rem] object-cover md:w-[1.5rem] md:h-[1.6vw]'
-          />
+          <IconCalender className='lg:w-[1.5rem] opacity-60 w-[3.4rem] h-[3.66667rem] md:h-[2.6rem] md:w-[2.5rem] lg:h-[1.6vw]' />
           <span className='lg:text-[0.875rem] opacity-60 text-[2.66667rem] leading-none md:text-[1.8rem]'>
             {moment(data?.date)?.format('DD MMMM YYYY')}
           </span>
