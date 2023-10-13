@@ -103,7 +103,9 @@ function AboutTour({ data, index, isMobile }) {
           </div>
         </div>
         <h4
-          className={`text-gray-scale-80 md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins max-md:text-[3.5rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]`}
+          className={`${
+            isShow ? 'text-gray-scale-50' : 'text-gray-scale-80'
+          } md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins max-md:text-[3.5rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]`}
         >
           {data?.heading}
         </h4>
