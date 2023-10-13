@@ -2,12 +2,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import moon from '@/public/images/moon.svg'
-import btn from '@/public/images/btnEscape.svg'
 import SlideImage from './SlideImage'
-import IconMarker from '../icons/IconMarker'
-import IconHome from '../icons/IconHome'
-import IconBus from '../icons/IconBus'
-import IconMeal from '../icons/IconMeal'
 import ScrollTrigger from 'react-scroll-trigger'
 import useStore from '@/app/(store)/store'
 
@@ -25,44 +20,36 @@ import useStore from '@/app/(store)/store'
 const handleCheckIcon = (category) => {
   switch (category) {
     case 'From Hanoi':
-      return
+      return '/images/marker.svg'
     case 'Noi Bai Airport':
-      return
+      return '/images/bus.svg'
     case 'Sapa':
-      return
+      return '/images/homeLocation.svg'
     case 'Cat Ba Island':
-      return
+      return '/images/homeLocation.svg'
     case 'Ninh Binh':
-      return
+      return '/images/homeLocation.svg'
     case 'Ha Giang city':
-      return
+      return '/images/homeLocation.svg'
     case 'Highlight on loop':
-      return
+      return '/images/marker.svg'
     case 'Meal':
-      return
+      return '/images/meal.svg'
     case 'Transport':
-      return
+      return '/images/bus.svg'
     case 'Accommondation':
-      return
+      return '/images/homeLocation.svg'
     default:
       return '/images/homeLocation.svg'
   }
 }
 
 function AboutTour({ data, index, isMobile }) {
-  console.log('🚀 ~ file: AboutTour.js:30 ~ AboutTour ~ data:', data)
   const [activeCate, setActiveCate] = useState(0)
   const [content, setContent] = useState(data?.listCheckin[0])
   const [isShow, setIsShow] = useState(isMobile ? (index === 0 ? false : true) : false)
   const setIndexTab = useStore((state) => state.setIndexTab)
 
-  const handleCheckIcon = (category) => {
-    if (!category) return
-    if (category?.includes('From Hanoi')) return <IconMarker />
-    if (category?.includes('Noi Bai Airport')) return <IconBus />
-    if (category?.includes('Meal')) return <IconMeal />
-    return '/images/homeLocation.svg'
-  }
   return (
     <>
       <section
@@ -116,7 +103,7 @@ function AboutTour({ data, index, isMobile }) {
           </div>
         </div>
         <h4
-          className={`text-gray-scale-80 md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins max-md:text-[3.2rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]`}
+          className={`text-gray-scale-80 md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins max-md:text-[3.5rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]`}
         >
           {data?.heading}
         </h4>
@@ -168,7 +155,7 @@ function AboutTour({ data, index, isMobile }) {
                   >
                     <Image
                       alt='icon'
-                      src={'/images/homeLocation.svg'}
+                      src={handleCheckIcon(item?.category)}
                       quality={100}
                       width={30}
                       height={30}
@@ -204,7 +191,7 @@ function AboutTour({ data, index, isMobile }) {
           } w-full cursor-pointer h-[14rem] max-lg:h-[10.5rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes2 absolute bottom-[-2px] left-0 transition-all duration-150`}
         ></div>
       </section>
-      <div className='md:hidden border-t border-solid max-md:mb-[3.27vw] mx-auto max-md:w-[91.46667rem]'></div>
+      <div className='md:hidden border-t border-solid border-[#b34b1e52] max-md:mb-[3.27vw] mx-auto max-md:w-[91.46667rem]'></div>
     </>
   )
 }
