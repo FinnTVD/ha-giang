@@ -348,7 +348,7 @@ export default function BookingOnline({ data, title }) {
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[10rem]'
                       >
                         {e?.province}
                       </Select.Item>
@@ -393,7 +393,7 @@ export default function BookingOnline({ data, title }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[10rem]'
                           >
                             {e?.address}
                           </Select.Item>
@@ -427,7 +427,7 @@ export default function BookingOnline({ data, title }) {
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[10rem]'
                       >
                         {e?.province}
                       </Select.Item>
@@ -475,7 +475,7 @@ export default function BookingOnline({ data, title }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[10rem]'
                           >
                             {e?.address}
                           </Select.Item>
