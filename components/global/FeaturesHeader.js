@@ -46,7 +46,7 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
       id='feature-header'
       className={`${
         isMobile && isHome ? (scrollY >= 250 ? 'flex' : 'hidden') : 'flex'
-      } bottom-[10rem] max-md:bottom-[20rem] flex-col gap-y-[1.37rem] max-md:gap-y-[5.33rem] md:h-[40rem] md:w-[10rem] items-center fixed right-[3rem] max-md:right-[4.27rem] z-[999]`}
+      } bottom-[10rem] max-md:bottom-[20rem] lg:bottom-[3rem] lg:right-[1rem] lg:w-[6rem] lg:h-[15rem] flex-col gap-y-[1.37rem] max-md:gap-y-[5.33rem] md:h-[40rem] md:w-[10rem] items-center fixed right-[3rem] max-md:right-[4.27rem] z-[999]`}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
