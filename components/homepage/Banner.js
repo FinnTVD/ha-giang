@@ -157,10 +157,6 @@ export default function Banner({ section1 }) {
               section1={section1}
               isMobile={isMobile}
             />
-            <div
-              id='overlay'
-              className='absolute top-0 left-0 z-10 w-full h-0 opacity-50 bg-gradient-banner max-lg:h-full lg:rounded-[1rem]'
-            ></div>
           </div>
         </div>
         {!isMobile && (

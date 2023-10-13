@@ -37,6 +37,10 @@ export default function ItemVideo({ e, index, indexSlider }) {
           <IconAudio className='lg:w-[2.5rem] lg:h-[2.5rem] max-md:w-[10.67rem] max-md:h-[10.67rem] max-lg:w-[8rem] max-lg:h-[8rem]' />
         )}
       </div>
+      <div
+        id='overlay'
+        className='absolute top-0 left-0 z-10 w-full h-0 opacity-50 bg-gradient-banner max-lg:h-full lg:rounded-[1rem]'
+      ></div>
     </>
   )
 }
