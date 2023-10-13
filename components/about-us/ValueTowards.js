@@ -62,7 +62,6 @@ export default function ValueTowards({ valueTowards }) {
       })
     }
   }
-  console.log('🚀 ~ file: ValueTowards.js:58 ~ ValueTowards ~ dupData:', dupData)
   return (
     <section className='mt-[6.25rem] px-[6.25rem] max-lg:px-0'>
       <div className='flex flex-col items-center'>

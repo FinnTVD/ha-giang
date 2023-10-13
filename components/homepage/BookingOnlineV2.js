@@ -51,8 +51,6 @@ const inputMobileStyle = {
 }
 
 export default function BookingOnlineV2({ tour = '', allTourHG }) {
-  console.log('🚀 ~ file: BookingOnlineV2.js:54 ~ BookingOnlineV2 ~ tour:', tour)
-  console.log('🚀 ~ file: BookingOnlineV2.js:54 ~ BookingOnlineV2 ~ allTourHG:', allTourHG)
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
   const [ip, setIp] = useState('')
   const [selfDriving, setSelfDriving] = useState(0)
@@ -186,7 +184,6 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       total: fCurrency(totalPrice + servicePrice) + ' VND',
     }
     localStorage.setItem('formDataPayment', JSON.stringify(formData))
-    console.log('🚀 ~ file: BookingOnlineV2.js:189 ~ onSubmit ~ formData:', formData)
 
     const params = generateParams(e, true)
     const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)

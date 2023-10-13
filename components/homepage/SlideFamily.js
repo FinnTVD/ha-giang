@@ -15,7 +15,9 @@ export default function SlideFamily({ section6, setTourLeader }) {
   const [indexSlider, setIndexSlider] = useState(0)
 
   const handleSlideChange = (swiper) => {
-    setTourLeader(section6?.listCategory[0]?.listAddress[swiper.realIndex])
+    setTourLeader(
+      section6?.listCategory[0]?.listAddress[swiper.realIndex >= 5 ? swiper.realIndex - 5 : swiper.realIndex],
+    )
     setIndexSlider(swiper.realIndex)
   }
 

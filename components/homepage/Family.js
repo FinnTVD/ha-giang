@@ -10,14 +10,14 @@ import SlideFamilyMb from './SlideFamilyMb'
 import IconPeople from '../icons/IconPeople'
 import IconMotor from '../icons/IconMotor'
 import IconCheck from '../icons/IconCheck'
-import SlideFamilyV2 from './SlideFamilyV2'
 
 export default function Family({ section6 }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  console.log('🚀 ~ file: Family.js:15 ~ Family ~ section6:', section6)
   const isTablet = useMediaQuery({ query: '(max-width: 1023px)' })
   const contentRef = useRef(null)
   const [indexTab, setIndexTab] = useState(0)
   const [tourLeader, setTourLeader] = useState(section6?.listCategory[0]?.listAddress[0])
+  console.log('🚀 ~ file: Family.js:19 ~ Family ~ tourLeader:', tourLeader)
 
   useEffect(() => {
     if (typeof window === 'undefined' || !contentRef.current) return
@@ -105,10 +105,6 @@ export default function Family({ section6 }) {
               section6={section6}
             />
           ) : (
-            // <SlideFamilyV2
-            //   setTourLeader={setTourLeader}
-            //   section6={section6}
-            // />
             <SlideFamily
               setTourLeader={setTourLeader}
               section6={section6}
