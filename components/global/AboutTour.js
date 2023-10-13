@@ -87,7 +87,11 @@ function AboutTour({ data, index, isMobile }) {
             </svg>
           </div>
         </div>
-        <h4 className='md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins text-gray-scale-80 max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]'>
+        <h4
+          className={`${
+            isShow ? 'text-gray-scale-50' : 'text-gray-scale-80'
+          } md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]`}
+        >
           {data?.heading}
         </h4>
 
@@ -174,7 +178,7 @@ function AboutTour({ data, index, isMobile }) {
           } w-full cursor-pointer h-[14rem] max-lg:h-[10.5rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes2 absolute bottom-[-2px] left-0 transition-all duration-150`}
         ></div>
       </section>
-      <div className='md:hidden border-t border-solid border-[#c6c5c5] max-md:my-[4.27vw] mx-auto max-md:w-[91.46667rem]'></div>
+      <div className='md:hidden border-t border-solid max-md:mb-[4.27vw] mx-auto max-md:w-[91.46667rem]'></div>
     </>
   )
 }

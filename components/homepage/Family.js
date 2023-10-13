@@ -12,12 +12,10 @@ import IconMotor from '../icons/IconMotor'
 import IconCheck from '../icons/IconCheck'
 
 export default function Family({ section6 }) {
-  console.log('🚀 ~ file: Family.js:15 ~ Family ~ section6:', section6)
   const isTablet = useMediaQuery({ query: '(max-width: 1023px)' })
   const contentRef = useRef(null)
   const [indexTab, setIndexTab] = useState(0)
   const [tourLeader, setTourLeader] = useState(section6?.listCategory[0]?.listAddress[0])
-  console.log('🚀 ~ file: Family.js:19 ~ Family ~ tourLeader:', tourLeader)
 
   useEffect(() => {
     if (typeof window === 'undefined' || !contentRef.current) return
