@@ -245,7 +245,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       {allTourHG?.nodes?.map((e, index) => (
                         <Select.Item
                           key={index}
-                          className='text-[0.875rem] font-bold leading-[1.57] cursor-pointer text-gray-scale-80 max-lg:!text-[1.875rem] max-md:!text-[3.47rem]'
+                          className='text-[0.875rem] font-bold leading-[1.57] cursor-pointer text-gray-scale-80 max-lg:!text-[1.875rem] max-md:!text-[3.47rem] max-md:!h-[7rem]'
                           value={e?.title}
                         >
                           {e?.title}
@@ -399,7 +399,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
                       >
                         {e?.province}
                       </Select.Item>
@@ -446,7 +446,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
                           >
                             {e?.address}
                           </Select.Item>
@@ -480,7 +480,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       <Select.Item
                         key={index}
                         value={e?.province}
-                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
+                        className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
                       >
                         {e?.province}
                       </Select.Item>
@@ -528,7 +528,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           <Select.Item
                             key={index}
                             value={e?.address}
-                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
+                            className='cursor-pointer hover:bg-gray-scale-5 md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit max-md:!h-[7rem]'
                           >
                             {e?.address}
                           </Select.Item>
