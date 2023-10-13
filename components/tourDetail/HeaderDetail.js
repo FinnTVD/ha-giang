@@ -7,9 +7,11 @@ import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import NavFixed from '../global/NavFixed'
+import MenuDown from '../global/MenuDown'
 
 export default function HeaderDetail({ data, allTourHG, slug }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -89,6 +91,13 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
           isOpen={isOpen}
           header={data?.data?.page?.homeHG?.header}
           allTourHG={allTourHG}
+        />
+      )}
+      {isMobile2 && (
+        <MenuDown
+          allTourHG={allTourHG}
+          header={data?.data?.page?.homeHG?.header}
+          setIsOpen={setIsOpen}
         />
       )}
     </header>

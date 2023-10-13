@@ -498,15 +498,15 @@ nav .nav-tour:hover > svg .down {
     fill: #ee6529;
 }
 
-svg .pingCall {
-    transform-origin: center;
+.pingCall {
+    transform-origin: center center;
     animation: pingCall 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @keyframes pingCall {
     75%,
     100% {
-        transform: scale(1);
+        transform: scale(1.5);
         opacity: 0;
     }
 }

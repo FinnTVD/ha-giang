@@ -174,7 +174,7 @@ function AboutTour({ data, index, isMobile }) {
           } w-full cursor-pointer h-[14rem] max-lg:h-[10.5rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes2 absolute bottom-[-2px] left-0 transition-all duration-150`}
         ></div>
       </section>
-      <div className='md:hidden border-t border-solid border-[#D9D9D966] max-md:my-[4.27vw] mx-auto max-md:w-[91.46667rem]'></div>
+      <div className='md:hidden border-t border-solid border-[#c6c5c5] max-md:my-[4.27vw] mx-auto max-md:w-[91.46667rem]'></div>
     </>
   )
 }

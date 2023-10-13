@@ -14,6 +14,7 @@ import IconFilterDestination from '../icons/IconFilterDestination'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import { Skeleton } from '../ui/skeleton'
+import MenuDown from '../global/MenuDown'
 const arr = new Array(12).fill(0)
 
 function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }) {
@@ -56,6 +57,8 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
   const { header } = dataHome
   const { banner } = dataAboutUs
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -186,6 +189,13 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
           isOpen={isOpen}
           header={header}
           allTourHG={allTourHG}
+        />
+      )}
+      {isMobile2 && (
+        <MenuDown
+          allTourHG={allTourHG}
+          header={header}
+          setIsOpen={setIsOpen}
         />
       )}
     </div>

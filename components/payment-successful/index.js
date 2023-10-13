@@ -82,12 +82,12 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
   }, [data])
 
   return (
-    <div className='w-full h-screen flex justify-center items-center bg-primary-5'>
-      <div className='w-[60%] h-[60%] flex flex-col justify-center items-center p-[1.5rem] bg-white shadow-btn rounded-[1.25rem] gap-y-[3rem]'>
+    <div className='flex items-center justify-center w-full h-screen bg-primary-5'>
+      <div className='w-[60%] h-[60%] max-md:w-[91.46667rem] flex flex-col justify-center items-center p-[1.5rem] bg-white shadow-btn rounded-[1.25rem] gap-y-[3rem]'>
         <div
           className={`${
             searchParams?.vpc_TxnResponseCode === '0' ? 'bg-green-500' : 'bg-red-500'
-          } w-[5rem] h-[5rem] rounded-full flex items-center justify-center`}
+          } w-[5rem] h-[5rem] max-md:w-[16rem] max-md:h-[16rem] rounded-full flex items-center justify-center`}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -95,7 +95,7 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
             viewBox='0 0 24 24'
             strokeWidth='2.5'
             stroke='white'
-            class='w-[3.5rem] h-[3.5rem]'
+            className='w-[3.5rem] h-[3.5rem] max-md:w-[6.5rem] max-md:h-[6.5rem]'
           >
             <path
               strokeLinecap='round'
@@ -107,13 +107,13 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
         <h1
           className={`${
             searchParams?.vpc_TxnResponseCode === '0' ? 'text-secondary-green-600' : 'text-red-500'
-          } text-[2rem] font-heavitas leading-[1] font-normal`}
+          } text-[2rem] font-heavitas leading-[1] font-normal max-md:text-[4.5rem]`}
         >
           {searchParams?.vpc_TxnResponseCode === '0' ? 'Payment Successfully!' : 'Payment failed!'}
         </h1>
         <Link
           href={'/'}
-          className='text-[1.25rem] font-heavitas text-primary-70 font-normal leading-[1] w-fit px-[2rem] py-[1rem] flex justify-center rounded-[0.5rem] border border-solid border-primary-70 hover:bg-primary-70 hover:text-white transition-all duration-500 hover:scale-[1.1] active:scale-95'
+          className='text-[1.25rem] font-heavitas text-primary-70 font-normal leading-[1] w-fit px-[2rem] py-[1rem] flex justify-center rounded-[0.5rem] border border-solid border-primary-70 hover:bg-primary-70 max-md:text-[4.25rem] max-md:py-[4rem] max-md:px-[8rem] hover:text-white transition-all duration-500 hover:scale-[1.1] active:scale-95'
         >
           Back Home
         </Link>

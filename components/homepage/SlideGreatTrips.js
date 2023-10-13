@@ -95,7 +95,10 @@ export default function SlideGreatTrips({ allTourHG }) {
           quality={100}
         />
       ) : (
-        <div className='w-full h-fit max-md:top-[-10rem] absolute top-0 left-0 z-[1] '>
+        <div
+          id='great-trips-mb'
+          className='w-full h-fit max-md:top-[-10rem] absolute top-0 left-0 z-[1] '
+        >
           <Image
             className='object-fill w-full h-[58rem]'
             src={'/images/bg-great-trip.png'}

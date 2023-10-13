@@ -12,11 +12,14 @@ import Family from '../homepage/Family'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import CheersTour from '../homepage/CheersTour'
+import MenuDown from '../global/MenuDown'
 
 export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
   const { header, section6, section2 } = data
   const { banner, overview, valueTowards, textRun, video } = dataAboutUs
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -68,6 +71,13 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
           isOpen={isOpen}
           header={header}
           allTourHG={allTourHG}
+        />
+      )}
+      {isMobile2 && (
+        <MenuDown
+          allTourHG={allTourHG}
+          header={header}
+          setIsOpen={setIsOpen}
         />
       )}
     </div>

@@ -11,9 +11,12 @@ import { useState, useEffect } from 'react'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import Image from 'next/image'
+import MenuDown from '../global/MenuDown'
 
 function BlogDetail({ data, dataHome, allTourHG }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -159,6 +162,13 @@ function BlogDetail({ data, dataHome, allTourHG }) {
           isOpen={isOpen}
           header={dataHome?.header}
           allTourHG={allTourHG}
+        />
+      )}
+      {isMobile2 && (
+        <MenuDown
+          allTourHG={allTourHG}
+          header={header}
+          setIsOpen={setIsOpen}
         />
       )}
     </div>

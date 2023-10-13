@@ -10,6 +10,8 @@ import NavFixed from '../global/NavFixed'
 
 export default function HeaderContact({ dataHome, data }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -71,6 +73,13 @@ export default function HeaderContact({ dataHome, data }) {
           isOpen={isOpen}
           header={dataHome?.data?.page?.homeHG?.header}
           allTourHG={dataHome?.data?.allTourHG}
+        />
+      )}
+      {isMobile2 && (
+        <MenuDown
+          allTourHG={allTourHG}
+          header={header}
+          setIsOpen={setIsOpen}
         />
       )}
     </header>

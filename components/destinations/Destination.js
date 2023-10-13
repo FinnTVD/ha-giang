@@ -8,10 +8,13 @@ import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import DestinationListItems from './ListItems'
 import GreatTrips from '../homepage/GreatTrips'
+import MenuDown from '../global/MenuDown'
 function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination }) {
   const header = dataHome?.header
   const banner = dataAboutUs?.banner
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -57,6 +60,13 @@ function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination }) {
           isOpen={isOpen}
           header={header}
           allTourHG={allTourHG}
+        />
+      )}
+      {isMobile2 && (
+        <MenuDown
+          allTourHG={allTourHG}
+          header={header}
+          setIsOpen={setIsOpen}
         />
       )}
     </div>

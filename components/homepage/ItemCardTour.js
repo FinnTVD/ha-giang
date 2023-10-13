@@ -95,7 +95,7 @@ export default function ItemCardTour({ data, allTourHG, className = '' }) {
           content={'view tour'}
           maskClass={'w-[8.31831rem]'}
           className={
-            'my-[0.87rem] w-[9.4375rem] h-[3rem] max-lg:w-fit max-lg:h-fit max-md:rounded-[2.133rem] max-md:flex-1 max-md:h-[11.73rem]'
+            'my-[0.87rem] w-[9.4375rem] h-[3rem] max-lg:w-fit max-lg:h-fit max-md:rounded-[2.133rem] max-md:w-fit max-md:h-[11.73rem]'
           }
         />
       </div>

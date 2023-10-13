@@ -82,7 +82,7 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
       ref={navRef}
       className={`${
         isShow ? 'translate-y-0 opacity-100' : ''
-      } fixed left-1/2 top-0 -translate-x-1/2 transition-all duration-1000 z-[999] flex justify-center pt-[1.5rem] max-lg:mt-[2.5rem] max-md:pt-[5.8rem] font-heavitas -translate-y-[150%] opacity-0 lg:shadow-navFixed`}
+      } fixed left-1/2 top-0 -translate-x-1/2 transition-all duration-1000 z-[999] flex justify-center pt-[1.5rem] max-lg:mt-[2.5rem] max-md:pt-[5.8rem] font-heavitas -translate-y-[150%] opacity-0 lg:shadow-navFixed max-md:hidden`}
     >
       <div className='w-[calc(100rem-12rem)] max-lg:w-[calc(100rem-8.54rem)] lg:bg-white rounded-[1rem] flex items-center justify-between h-fit lg:px-[1.88rem]'>
         <Link href={'/'}>
