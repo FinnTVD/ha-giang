@@ -22,7 +22,35 @@ import useStore from '@/app/(store)/store'
 // Transport
 // Accommondation
 
+const handleCheckIcon = (category) => {
+  switch (category) {
+    case 'From Hanoi':
+      return
+    case 'Noi Bai Airport':
+      return
+    case 'Sapa':
+      return
+    case 'Cat Ba Island':
+      return
+    case 'Ninh Binh':
+      return
+    case 'Ha Giang city':
+      return
+    case 'Highlight on loop':
+      return
+    case 'Meal':
+      return
+    case 'Transport':
+      return
+    case 'Accommondation':
+      return
+    default:
+      return '/images/homeLocation.svg'
+  }
+}
+
 function AboutTour({ data, index, isMobile }) {
+  console.log('🚀 ~ file: AboutTour.js:30 ~ AboutTour ~ data:', data)
   const [activeCate, setActiveCate] = useState(0)
   const [content, setContent] = useState(data?.listCheckin[0])
   const [isShow, setIsShow] = useState(isMobile ? (index === 0 ? false : true) : false)
@@ -88,9 +116,7 @@ function AboutTour({ data, index, isMobile }) {
           </div>
         </div>
         <h4
-          className={`${
-            isShow ? 'text-gray-scale-50' : 'text-gray-scale-80'
-          } md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins max-md:text-[3.733rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]`}
+          className={`text-gray-scale-80 md:hidden px-[4.27rem] mb-[2.13rem] text-[1rem] max-lg:text-[1.875rem] leading-normal tracking-[0.0125rem] font-[600] font-poppins max-md:text-[3.2rem] max-md:leading-[1.42] max-md:tracking-[0.03733rem]`}
         >
           {data?.heading}
         </h4>
@@ -178,7 +204,7 @@ function AboutTour({ data, index, isMobile }) {
           } w-full cursor-pointer h-[14rem] max-lg:h-[10.5rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes2 absolute bottom-[-2px] left-0 transition-all duration-150`}
         ></div>
       </section>
-      <div className='md:hidden border-t border-solid max-md:mb-[4.27vw] mx-auto max-md:w-[91.46667rem]'></div>
+      <div className='md:hidden border-t border-solid max-md:mb-[3.27vw] mx-auto max-md:w-[91.46667rem]'></div>
     </>
   )
 }
