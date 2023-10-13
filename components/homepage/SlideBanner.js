@@ -137,7 +137,7 @@ export default function SlideBanner({ section1, isMobile }) {
         <div className='flex lg:flex-col max-lg:gap-x-[2.13rem] items-center lg:justify-center'>
           <Image
             className='object-contain w-[3rem] h-[3rem] max-lg:w-[8.533rem] max-lg:h-[8.533rem]'
-            src={'/images/bus.svg'}
+            src={'/images/buswhite.svg'}
             alt='bus'
             width={50}
             height={50}
