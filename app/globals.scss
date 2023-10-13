@@ -39,7 +39,8 @@
         --secondary: 210 40% 96.1%;
         --secondary-foreground: 222.2 47.4% 11.2%;
 
-        --muted: 210 40% 96.1%;
+        // --muted: 210 40% 96.1%;
+        --muted: 148 21% 69%;
         --muted-foreground: 215.4 16.3% 46.9%;
 
         --accent: 210 40% 96.1%;
@@ -471,11 +472,12 @@ h5 {
 
 #boxMap {
     iframe {
-        width: 100% !important;
-        height: 50rem;
+        width: 92% !important;
+        height: 36rem;
         border-radius: 0.75rem;
         @media (min-width: "768px") and (max-width: "1023px") {
             width: 100% !important;
+            height: 50rem;
         }
         @media screen and (max-width: "767px") {
             width: 100% !important;

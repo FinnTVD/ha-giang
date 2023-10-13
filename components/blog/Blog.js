@@ -13,6 +13,9 @@ import Banner from '../about-us/Banner'
 import IconFilterDestination from '../icons/IconFilterDestination'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
+import { Skeleton } from '../ui/skeleton'
+const arr = new Array(12).fill(0)
+
 function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }) {
   const [value, setValue] = useState(arrayCateSlug)
   const eleRef = useRef()
@@ -86,10 +89,6 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
       ></Banner>
       <div className='relative'>
         <div className='relative z-10'>
-          {/* <h2 className='md:pt-[9.755rem] pt-[23.53rem] md:mb-0 mb-[4.27rem] px-[8.12rem] max-md:px-[4.27rem] text-[4rem] font-[600] max-md:text-[5.86rem] capitalize'>
-              our blog
-            </h2> */}
-          {/* Filter */}
           <div
             className='mx-[8.12rem] max-md:mx-[4.27rem] flex filter-blog gap-[2.5rem] max-lg:mx-[3.2rem]'
             ref={eleRef}
@@ -97,12 +96,6 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
             <div className='flex flex-col'>
               <span className='text-[0.875rem] text-[#9B9B9B] uppercase font-[400] max-lg:hidden'>Category</span>
               <div className='flex items-center'>
-                {/* <Image
-                                    src={icon}
-                                    width={20}
-                                    height={20}
-                                    className='w-[1.875rem] h-[1.875rem] max-md:w-[3.73rem] max-md:h-[3.73rem]'
-                                /> */}
                 <IconFilterDestination className='w-[1.875rem] h-[1.875rem] max-md:w-[3.73rem] max-md:h-[3.73rem] max-lg:w-[3rem] max-lg:h-[3rem]' />
                 <select
                   name=''
@@ -124,14 +117,39 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
             </div>
           </div>
           {/* List Blog */}
-          <div className='grid lg:grid-cols-4 md:px-[8.06rem] px-[4.27rem] grid-cols-2 lg:gap-x-[2.5rem] md:gap-y-[3rem] gap-x-[4.27rem] gap-y-[6.4rem] md:mt-[4rem] mt-[7.73rem] md:px-[3.2rem]'>
-            {allBlogData?.map((item, index) => (
-              <BlogItem
-                params='blog'
-                data={item}
-                key={index}
-              />
-            ))}
+          <div className='grid lg:grid-cols-4 md:px-[8.06rem] px-[4.27rem] grid-cols-2 lg:gap-x-[2.5rem] md:gap-y-[3rem] gap-x-[4.27rem] gap-y-[6.4rem] md:mt-[4rem] mt-[7.73rem]'>
+            {allBlogData &&
+              allBlogData?.map((item, index) => (
+                <BlogItem
+                  params='blog'
+                  data={item}
+                  key={index}
+                />
+              ))}
+            {!allBlogData &&
+              arr?.map((e, index) => (
+                <div
+                  key={index}
+                  className='blog-item'
+                >
+                  <div className={`w-full font-poppins`}>
+                    <Skeleton
+                      className={
+                        'lg:!h-[16.3125rem] h-[43.73rem] md:rounded-[0.5rem] rounded-[2.13333rem] md:!h-[28.5rem]'
+                      }
+                    />
+                    <div className='mt-[2.67rem] md:mt-[1rem] '>
+                      <Skeleton className={'h-[1.5rem]'} />
+                    </div>
+                    <div className='md:mt-[0.78rem] mt-[1.07rem]'>
+                      <Skeleton className={' h-[3.25rem]'} />
+                    </div>
+                    <div className='md:mt-[0.5rem] mt-[1.07rem]'>
+                      <Skeleton className=' h-[2rem]' />
+                    </div>
+                  </div>
+                </div>
+              ))}
           </div>
           <div className='flex md:gap-[0.75rem] gap-[3.2rem] justify-center items-center relative md:mt-[4.5rem] mt-[8.53rem]'>
             {Array.from({ length: totalPage }, (_, index) => (
