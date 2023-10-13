@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useState } from 'react'
 import IconEmail from '../icons/IconEmail'
 import IconHome from '../icons/IconHome'
 import IconMenuV2 from '../icons/IconMenuV2'
@@ -6,9 +8,28 @@ import IconPhoneV2 from '../icons/IconPhoneV2'
 import ItemMenu from './ItemMenu'
 import { PopupBookNow } from './PopupBookNow'
 
-export default function MenuDown({ allTourHG, header, setIsOpen }) {
+export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    // Define a function to handle the scroll event
+    const handleScroll = () => {
+      // Update the state with the current scroll position
+      setScrollY(window.scrollY)
+    }
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   return (
-    <div className='fixed bottom-0 left-0 bg-background-elevation-01 w-full h-fit px-[4.27rem] py-[3.2rem] flex justify-between z-[999]'>
+    <div
+      className={`${
+        isHome ? (scrollY >= 250 ? 'flex' : 'hidden') : 'flex'
+      } fixed bottom-0 left-0 bg-background-elevation-01 w-full h-fit px-[4.27rem] py-[3.2rem] flex justify-between z-[999]`}
+    >
       <ItemMenu
         href='/'
         title={'Home'}

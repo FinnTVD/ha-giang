@@ -76,6 +76,7 @@ export default function Header({ header, allTourHG, isHome }) {
           allTourHG={allTourHG}
           header={header}
           setIsOpen={setIsOpen}
+          isHome={isHome}
         />
       )}
     </header>

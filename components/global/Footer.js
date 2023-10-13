@@ -16,10 +16,10 @@ export default async function Footer() {
   const { footer } = data?.data?.page?.homeHG
   if (!footer) return
   return (
-    <footer className='relative overflow-hidden font-poppins max-md:h-[85vh]'>
+    <footer className='relative overflow-hidden font-poppins max-md:h-[105vh]'>
       <BgFooter className='w-full md:h-[58.5625rem] h-full absolute top-0 left-0 z-0 max-md:inset-0' />
       <Image
-        className='z-0 max-md:h-[55.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover'
+        className='z-0 max-md:h-[70.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover'
         alt={footer?.background?.altText || footer?.background?.title}
         src={footer?.background?.sourceUrl || '/images/bg-footer.png'}
         sizes='100rem'
