@@ -79,7 +79,7 @@ export default function ItemCardTour({ data, allTourHG, className = '' }) {
           }}
           allTourHG={allTourHG}
         >
-          <div className='max-md:flex-1'>
+          <div className='max-md:w-fit'>
             <Button
               primary={true}
               content={'book now'}

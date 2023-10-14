@@ -42,14 +42,14 @@ export default function SlideTravelers({ section5 }) {
           swiperRef.current = swiper
         }}
         modules={[FreeMode]}
-        className='h-[15rem] max-lg:h-[30rem] mt-[2.5rem] max-md:mt-[5.33rem] max-md:h-[67.733rem]'
+        className='h-[15rem] max-lg:h-[30rem] mt-[2.5rem] max-md:mt-[1.33rem] max-md:h-[76.733rem]'
       >
         {section5?.listFeedback?.map((e, index) => (
           <SwiperSlide
-            className='rounded-[1rem] max-lg:rounded-[1.5rem] max-md:!w-[76.267rem] max-md:rounded-[3.2rem] font-poppins'
+            className='rounded-[1rem] max-lg:rounded-[1.5rem] max-md:!w-[76.267rem] max-md:rounded-[3.2rem] font-poppins !flex !justify-center !items-center'
             key={index}
           >
-            <div className='w-full max-md:rounded-[3.2rem] shadow-itemTrave h-[14rem] relative rounded-[1rem] overflow-hidden p-[1.56rem] max-md:p-[5.33rem] flex flex-col items-center justify-center lg:bg-background-elevation-01 lg:hover:bg-white transition-all duration-300 bg-white max-lg:h-[28rem] max-md:h-[65.733rem]'>
+            <div className='w-full max-md:rounded-[3.2rem] shadow-itemTrave h-[14rem] relative rounded-[1rem] overflow-hidden p-[1.56rem] max-md:p-[5.33rem] flex flex-col items-center justify-center lg:bg-background-elevation-01 lg:hover:bg-white transition-all duration-300 bg-white max-lg:h-[28rem] max-md:h-[67.733rem]'>
               <p className='text-[0.875rem] font-normal max-md:line-clamp-[7] line-clamp-5 leading-[1.57] text-gray-scale-50 tracking-[0.00219rem] text-center max-lg:text-[1.875rem] max-md:text-[3.733rem] max-md:tracking-[0.00933rem]'>
                 {e?.description}
               </p>

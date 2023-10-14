@@ -8,7 +8,7 @@ export default function TheGallery({ section4, allTourHG }) {
   const [isOpen, setIsOpen] = useState(false)
   const [indexTab, setIndexTab] = useState(0)
   return (
-    <section className='lg:w-[87.5rem] max-lg:w-[95vw] max-md:w-full mt-[6.25rem] max-md:mt-[16rem] mx-auto'>
+    <section className='lg:w-[87.5rem] max-lg:w-[95vw] max-md:w-full mt-[6.25rem] max-md:mt-[9rem] mx-auto'>
       <SubTitle
         subTitle={section4?.subtitle}
         title={section4?.title}

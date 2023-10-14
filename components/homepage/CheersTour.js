@@ -54,7 +54,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
 
         <div className='flex gap-x-[1rem] max-lg:gap-x-[2.5rem] max-md:gap-x-[3.2rem] mt-[1.87rem] max-lg:mt-[2.5rem] max-md:mt-[5.33rem] max-md:px-[4.27rem]'>
           <PopupBookNow allTourHG={allTourHG}>
-            <div className='max-md:flex-1'>
+            <div className='max-md:w-fit'>
               <Button
                 primary={true}
                 content={'book now'}
@@ -65,7 +65,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
           <Button
             href={'/about-us'}
             content={'read more'}
-            className={'max-md:h-[12.8rem] max-md:flex-1'}
+            className={'max-md:h-[12.8rem] max-md:w-fit'}
           />
         </div>
       </div>
