@@ -10,9 +10,12 @@ import { PopupBookNow } from './PopupBookNow'
 
 export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
   const [scrollY, setScrollY] = useState(0)
+  const [heightBanner, setHeightBanner] = useState(500)
 
   useEffect(() => {
     // Define a function to handle the scroll event
+    const heightBanner = document.querySelector('#banner-home')
+    setHeightBanner(heightBanner.clientHeight + 50)
     const handleScroll = () => {
       // Update the state with the current scroll position
       setScrollY(window.scrollY)
@@ -27,7 +30,7 @@ export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
   return (
     <div
       className={`${
-        isHome ? (scrollY >= 250 ? 'flex' : 'hidden') : 'flex'
+        isHome ? (scrollY >= heightBanner ? 'flex' : 'hidden') : 'flex'
       } fixed bottom-0 left-0 bg-background-elevation-01 w-full h-fit px-[4.27rem] py-[3.2rem] flex justify-between z-[999]`}
     >
       <ItemMenu
