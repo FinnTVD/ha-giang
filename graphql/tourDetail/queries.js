@@ -1,3 +1,24 @@
+const GET_META_TOUR_DETAIL = `
+query ($slug: ID!){
+  tourHG(id:$slug,idType:SLUG){
+    title
+    featuredImage {
+      node {
+        sourceUrl
+        altText
+        title
+      }
+    }
+    tourHaGiangDetail {
+      metaSeo {
+        metaTitle
+        metaDescription
+      }
+    }
+  }
+}
+`
+
 const GET_DETAIL_TOUR = `query ($slug: ID!){
   tourHG(id: $slug, idType: SLUG) {
     title
@@ -169,4 +190,4 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
   }
 }`
 
-export { GET_DETAIL_TOUR }
+export { GET_DETAIL_TOUR, GET_META_TOUR_DETAIL }

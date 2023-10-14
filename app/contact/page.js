@@ -11,6 +11,7 @@ export async function generateMetadata() {
     title: contact?.meta?.metaTitle,
     description: contact?.meta?.metaDescription,
     applicationName: process.env.SITE_NAME,
+    keywords: ['Cheers Tour', 'Ha Giang Tour', 'Ha Giang Loop', 'Cheers'],
     openGraph: {
       title: contact?.meta?.metaTitle,
       description: contact?.meta?.metaDescription,

@@ -12,6 +12,7 @@ export async function generateMetadata() {
     title: faq?.meta?.title,
     description: faq?.meta?.description,
     applicationName: process.env.SITE_NAME,
+    keywords: ['Cheers Tour', 'Ha Giang Tour', 'Ha Giang Loop', 'Cheers'],
     openGraph: {
       title: faq?.meta?.title,
       description: faq?.meta?.description,

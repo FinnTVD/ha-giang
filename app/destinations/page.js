@@ -9,47 +9,48 @@ export async function generateMetadata() {
   if (!data) return
   const { featuredImage, destination } = data?.data?.page
   return {
+    title: destination?.meta?.title,
+    description: destination?.meta?.description,
+    applicationName: process.env.SITE_NAME,
+    keywords: ['Cheers Tour', 'Ha Giang Tour', 'Ha Giang Loop', 'Cheers'],
+    openGraph: {
       title: destination?.meta?.title,
       description: destination?.meta?.description,
-      applicationName: process.env.SITE_NAME,
-      openGraph: {
-          title: destination?.meta?.title,
-          description: destination?.meta?.description,
-          url: process.env.DOMAIN,
-          siteName: process.env.SITE_NAME,
-          images: [
-              {
-                  url: featuredImage?.node?.sourceUrl,
-                  alt: featuredImage?.node?.altText || featuredImage?.node?.title,
-              },
-          ],
-          locale: 'en_US',
-          type: 'website',
+      url: process.env.DOMAIN,
+      siteName: process.env.SITE_NAME,
+      images: [
+        {
+          url: featuredImage?.node?.sourceUrl,
+          alt: featuredImage?.node?.altText || featuredImage?.node?.title,
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: destination?.meta?.title,
+      description: destination?.meta?.description,
+      creator: process.env.SITE_NAME,
+      images: [
+        {
+          url: featuredImage?.node?.sourceUrl,
+          alt: featuredImage?.node?.altText || featuredImage?.node?.title,
+        },
+      ],
+    },
+    robots: {
+      index: false,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
       },
-      twitter: {
-          card: 'summary_large_image',
-          title: destination?.meta?.title,
-          description: destination?.meta?.description,
-          creator: process.env.SITE_NAME,
-          images: [
-              {
-                  url: featuredImage?.node?.sourceUrl,
-                  alt: featuredImage?.node?.altText || featuredImage?.node?.title,
-              },
-          ],
-      },
-      robots: {
-          index: false,
-          follow: true,
-          nocache: true,
-          googleBot: {
-              index: true,
-              follow: false,
-              'max-video-preview': -1,
-              'max-image-preview': 'large',
-              'max-snippet': -1,
-          },
-      },
+    },
   }
 }
 
@@ -69,7 +70,7 @@ async function page() {
 
   return (
     <div>
-      <Destination 
+      <Destination
         // arrayDesInit={arrayDesInit}
         // arrayDesSlug={arrayDesSlug}
         dataHome={data?.data?.page?.homeHG}
