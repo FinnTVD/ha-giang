@@ -12,6 +12,7 @@ import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import Image from 'next/image'
 import MenuDown from '../global/MenuDown'
+import TableOfContent from './TableOfContent'
 
 function BlogDetail({ data, dataHome, allTourHG }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
@@ -27,7 +28,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
   }, [isOpen])
 
   return (
-    <div className='relative'>
+    <div className='relative overflow-x-hidden'>
       <div className='absolute top-0 left-0 w-full'>
         <Nav
           setIsOpen={setIsOpen}
@@ -78,7 +79,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
       </div>
 
       <div>
-        <div className='max-md:mx-[4.27rem] mx-[8.12rem] mt-[8rem]'>
+        <div className='max-md:mx-[4.27rem] mx-[8.12rem] mt-[8rem] font-poppins'>
           <h2 className=' text-[#171717] max-md:text-[5.867rem] text-[4rem] font-semibold capitalize md:leading-[110%] leading-[120%] '>
             {data?.title}
           </h2>
@@ -98,61 +99,38 @@ function BlogDetail({ data, dataHome, allTourHG }) {
             <span className='md:ml-[0.66rem] ml-[1.067rem] text-[#171717] font-manrope lg:text-[1rem] md:mr-[1.75rem] mr-[4.8rem] text-[3.2rem] leading-[130%] md:text-[1.8rem]'>
               {moment(data?.date)?.format('DD MMMM YYYY')}
             </span>
-            {/* <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            width='20'
-                            height='21'
-                            viewBox='0 0 20 21'
-                            fill='none'
-                        >
-                            <path
-                                d='M10.0007 10.4795C9.08398 10.4795 8.33398 10.1878 7.75065 9.60449C7.16732 9.02116 6.87565 8.27116 6.87565 7.35449C6.87565 6.43783 7.16732 5.68783 7.75065 5.10449C8.33398 4.52116 9.08398 4.22949 10.0007 4.22949C10.9173 4.22949 11.6673 4.52116 12.2507 5.10449C12.834 5.68783 13.1257 6.43783 13.1257 7.35449C13.1257 8.27116 12.834 9.02116 12.2507 9.60449C11.6673 10.1878 10.9173 10.4795 10.0007 10.4795ZM3.33398 17.167V15.2087C3.33398 14.6809 3.46593 14.2295 3.72982 13.8545C3.99371 13.4795 4.33398 13.1948 4.75065 13.0003C5.68121 12.5837 6.57357 12.2712 7.42773 12.0628C8.2819 11.8545 9.13954 11.7503 10.0007 11.7503C10.8618 11.7503 11.7159 11.858 12.5632 12.0732C13.4104 12.2885 14.2993 12.5975 15.2298 13.0003C15.6604 13.1948 16.0076 13.4795 16.2715 13.8545C16.5354 14.2295 16.6673 14.6809 16.6673 15.2087V17.167H3.33398Z'
-                                fill='#171717'
-                            />
-                        </svg>
-                        <span className='ml-[0.25rem]  text-[#171717] font-manrope md:text-[1rem] text-[3.2rem] leading-[130%] '>
-                            Trinh Tran
-                        </span> */}
           </div>
           <div className='w-full md:mt-[1.31rem] mt-[5.067rem] h-[1px] bg-[#44444424]'></div>
         </div>
-        <div className='mx-[16.19rem] max-md:mx-[4.27rem] max-lg:mx-[6.4rem]'>
-          {/* <div className='flex md:gap-[0.5rem] gap-[2.13rem] md:mb-[1rem] max-md:my-[4.27rem] mt-[1.56rem] mb-[1rem]'>
-            <div className='md:h-[1.875rem] md:px-[1rem] md:py-[0.25rem] py-[1.067rem] px-[4.27rem] flex items-center justify-center md:gap-[0.625rem] md:rounded-[0.25rem] rounded-[1.067rem] bg-[#FFD220]'>
-              <span className='text-[#171717] text-center md:text-[0.75rem] text-[3.2rem] font-medium leading-[150%]'>
-                Tip and Review
+        <div className='lg:mx-[8.12rem] max-lg:px-[2.5rem] flex gap-x-[1.5rem] max-lg:flex-col-reverse'>
+          <div className='max-md:mx-[4.27rem] flex-1'>
+            <div
+              id='content-detail-blog'
+              className='content-detail font-poppins'
+              dangerouslySetInnerHTML={{ __html: `${data?.content}` }}
+            ></div>
+            <div className='w-full md:mt-[1.31rem] mt-[5.067rem] md:mb-[1.62rem] mb-[3.73rem] h-[1px] bg-[#44444424]'></div>
+            <div className='flex items-center justify-end'>
+              <span className='text-[#171717]  lg:text-[0.875rem] text-[3.73rem] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81rem] mr-[3.47rem] md:text-[1.8rem]'>
+                share on it:
               </span>
-            </div>
-            <div className='md:h-[1.875rem] md:px-[1rem] md:py-[0.25rem] py-[1.067rem] px-[4.27rem] flex items-center justify-center md:gap-[0.625rem] md:rounded-[0.25rem] rounded-[1.067rem] bg-[#FFD220]'>
-              <span className='text-[#171717] text-center md:text-[0.75rem] text-[3.2rem] font-medium leading-[150%]'>
-                Travel
-              </span>
-            </div>
-          </div> */}
-          <div
-            className='content-detail'
-            dangerouslySetInnerHTML={{ __html: `${data?.content}` }}
-          ></div>
-          <div className='w-full md:mt-[1.31rem] mt-[5.067rem] md:mb-[1.62rem] mb-[3.73rem] h-[1px] bg-[#44444424]'></div>
-          <div className='flex items-center justify-end'>
-            <span className='text-[#171717]  lg:text-[0.875rem] text-[3.73rem] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81rem] mr-[3.47rem] md:text-[1.8rem]'>
-              share on it:
-            </span>
-            <div className='flex items-center'>
-              <TwitterShare
-                url={data?.link}
-                title={data?.title}
-              />
-              <FaceBookShare
-                url={data?.link}
-                title={data?.title}
-              />
-              <LinkedInShare
-                url={data?.link}
-                title={data?.title}
-              />
+              <div className='flex items-center'>
+                <TwitterShare
+                  url={data?.link}
+                  title={data?.title}
+                />
+                <FaceBookShare
+                  url={data?.link}
+                  title={data?.title}
+                />
+                <LinkedInShare
+                  url={data?.link}
+                  title={data?.title}
+                />
+              </div>
             </div>
           </div>
+          <TableOfContent />
         </div>
       </div>
 
@@ -167,7 +145,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
       {isMobile2 && (
         <MenuDown
           allTourHG={allTourHG}
-          header={header}
+          header={dataHome?.header}
           setIsOpen={setIsOpen}
         />
       )}
