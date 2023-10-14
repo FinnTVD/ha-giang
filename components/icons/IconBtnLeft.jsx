@@ -13,13 +13,6 @@ export default function IconBtnLeft({ className }) {
                 fill='#B34B1E'
                 stroke='#B34B1E'
             />
-            <circle
-                cx='24.3593'
-                cy='6.99995'
-                r='3.64057'
-                stroke='#B34B1E'
-                strokeWidth='2'
-            />
         </svg>
     )
 }

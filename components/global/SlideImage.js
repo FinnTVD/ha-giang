@@ -75,13 +75,6 @@ function SlideImage({ listImageSlide }) {
                 fill='#B34B1E'
                 stroke='#B34B1E'
               />
-              <circle
-                cx='24.3593'
-                cy='6.48432'
-                r='3.64057'
-                stroke='#B34B1E'
-                strokeWidth='2'
-              />
             </svg>
           </button>
 
@@ -100,14 +93,6 @@ function SlideImage({ listImageSlide }) {
                 d='M28.0596 7.68325C28.6468 7.47599 28.6468 6.6455 28.0596 6.43824L12.9831 1.11712C12.5536 0.965533 12.1032 1.28416 12.1032 1.73963L12.1032 12.3819C12.1032 12.8373 12.5536 13.156 12.9831 13.0044L28.0596 7.68325Z'
                 fill='#B34B1E'
                 stroke='#B34B1E'
-              />
-              <circle
-                cx='4.64057'
-                cy='4.64057'
-                r='3.64057'
-                transform='matrix(-1 0 0 1 9.28125 2.42188)'
-                stroke='#B34B1E'
-                strokeWidth='2'
               />
             </svg>
           </button>

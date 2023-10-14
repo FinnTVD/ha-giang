@@ -17,16 +17,16 @@ export default function BestTripEver({ data }) {
   const setIndexTab = useStore((state) => state.setIndexTab)
 
   const [count, setCount] = useState(0)
-  const [prev, setPrev] = useState(data?.listDay[count]?.router?.sourceUrl)
-  const [next, setNext] = useState(data?.listDay[count + 1]?.router?.sourceUrl)
+  // const [prev, setPrev] = useState(data?.listDay[count]?.router?.sourceUrl)
+  // const [next, setNext] = useState(data?.listDay[count + 1]?.router?.sourceUrl)
   // const [animation, setAnimation] = useState(null)
   const [indexCurrent, setIndexCurrent] = useState(1)
   const [indexMb, setIndexMb] = useState(0)
 
-  useEffect(() => {
-    setPrev(data?.listDay[count]?.router?.sourceUrl)
-    setNext(data?.listDay[count]?.router?.sourceUrl)
-  }, [count])
+  // useEffect(() => {
+  //   setPrev(data?.listDay[count]?.router?.sourceUrl)
+  //   setNext(data?.listDay[count]?.router?.sourceUrl)
+  // }, [count])
 
   let dataLength = 0
   let dataArr
@@ -39,11 +39,11 @@ export default function BestTripEver({ data }) {
   const dayRef = useRef(null)
   const dayHandler = (index) => {
     setIndexMb(index)
-    if(index>=2 && data?.listDay?.length>3){
+    if (index >= 2 && data?.listDay?.length > 3) {
       lineRef.current.style.transform = 'translateX(-30.8rem)'
       dayRef.current.style.transform = 'translateX(-32.8rem)'
     }
-    if(index<=1 && data?.listDay?.length>3){
+    if (index <= 1 && data?.listDay?.length > 3) {
       lineRef.current.style.transform = 'translateX(0)'
       dayRef.current.style.transform = 'translateX(0)'
     }
@@ -86,82 +86,44 @@ export default function BestTripEver({ data }) {
         )}
         <ScrollTrigger onEnter={() => setIndexTab(2)}>
           <div className='mt-[2.88rem] max-md:mt-[5.3rem] font-poppins'>
-            <div ref={lineRef} className='transition-all duration-300'>
-            <div>
-              <Image
-                style={{
-                  transform: `translateX(${
-                    (indexCurrent - 1) * 12.2 + (indexCurrent === data?.listDay?.length ? 1 : 0) + 'rem'
-                  }) ${indexCurrent === data?.listDay?.length ? 'rotateY(180deg)' : ''}`,
-                }}
-                className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-lg:hidden`}
-                src={'/images/motor.svg'}
-                alt='motor'
-                width={60}
-                height={40}
-                quality={100}
-              />
-              <Image
-                style={{
-                  transform: `translateX(${indexMb * 33.2 + 'rem'}) ${
-                    indexMb === data?.listDay?.length - 1 ? 'rotateY(180deg)' : ''
-                  }`,
-                }}
-                className={`lg:hidden object-contain ml-[8.8rem] md:ml-[4.8rem] md:w-[7.4rem] transition-all duration-300 w-[6.4rem] h-auto`}
-                src={'/images/motor.svg'}
-                alt='motor'
-                width={60}
-                height={40}
-                quality={100}
-              />
-            </div>
-            <div className='flex items-center ml-[12rem] md:ml-[9rem] gap-[3.2rem] lg:hidden'>
-              {data?.listDay?.slice(1)?.map((item, indx) => (
-                <div
-                  key={indx}
-                  className='flex items-center gap-x-[1rem]'
-                >
-                  <svg
-                    className='w-[2.1rem]'
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='8'
-                    height='8'
-                    viewBox='0 0 8 8'
-                    fill='none'
+            <div
+              ref={lineRef}
+              className='transition-all duration-300'
+            >
+              <div>
+                <Image
+                  style={{
+                    transform: `translateX(${
+                      (indexCurrent - 1) * 12.2 + (indexCurrent === data?.listDay?.length ? 1 : 0) + 'rem'
+                    }) ${indexCurrent === data?.listDay?.length ? 'rotateY(180deg)' : ''}`,
+                  }}
+                  className={` w-[3.37rem] h-[2.25rem] object-contain ml-[1.2rem] transition-all duration-300 max-md:w-[6.4rem] max-md:h-auto max-lg:hidden`}
+                  src={'/images/motor.svg'}
+                  alt='motor'
+                  width={60}
+                  height={40}
+                  quality={100}
+                />
+                <Image
+                  style={{
+                    transform: `translateX(${indexMb * 33.2 + 'rem'}) ${
+                      indexMb === data?.listDay?.length - 1 ? 'rotateY(180deg)' : ''
+                    }`,
+                  }}
+                  className={`lg:hidden object-contain ml-[8.8rem] md:ml-[4.8rem] md:w-[7.4rem] transition-all duration-300 w-[6.4rem] h-auto`}
+                  src={'/images/motor.svg'}
+                  alt='motor'
+                  width={60}
+                  height={40}
+                  quality={100}
+                />
+              </div>
+              <div className='flex items-center ml-[12rem] md:ml-[9rem] gap-[3.2rem] lg:hidden'>
+                {data?.listDay?.slice(1)?.map((item, indx) => (
+                  <div
+                    key={indx}
+                    className='flex items-center gap-x-[1rem]'
                   >
-                    <circle
-                      cx='4'
-                      cy='4'
-                      r='3'
-                      stroke='#B34B1E'
-                      stroke-width='2'
-                    />
-                  </svg>
-                  <div className='relative overflow-hidden'>
-                    <svg
-                      className='w-[26.5rem] h-auto'
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='94'
-                      height='3'
-                      viewBox='0 0 94 3'
-                      fill='none'
-                    >
-                      <path
-                        d='M1 1.07812H93'
-                        stroke='#B34B1E'
-                        stroke-opacity='0.26'
-                        stroke-width='2'
-                        stroke-linecap='round'
-                        stroke-dasharray='10 10'
-                      />
-                    </svg>
-                    <div
-                      className={`${
-                        indx <= indexMb - 1 ? 'translate-x-0' : 'translate-x-[-100%]'
-                      } absolute w-full h-[0.5rem] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}
-                    ></div>
-                  </div>
-                  {indx === data?.listDay?.length - 2 && (
                     <svg
                       className='w-[2.1rem]'
                       xmlns='http://www.w3.org/2000/svg'
@@ -178,26 +140,67 @@ export default function BestTripEver({ data }) {
                         stroke-width='2'
                       />
                     </svg>
-                  )}
-                </div>
-              ))}
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='8'
-                height='8'
-                viewBox='0 0 8 8'
-                fill='none'
-                className={`${isMobile && data?.listDay?.length < 4 ? 'hidden' : ''}`}
-              >
-                <circle
-                  cx='4'
-                  cy='4'
-                  r='3'
-                  stroke='#B34B1E'
-                  stroke-width='2'
-                />
-              </svg>
-            </div>
+                    <div className='relative overflow-hidden'>
+                      <svg
+                        className='w-[26.5rem] h-auto'
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='94'
+                        height='3'
+                        viewBox='0 0 94 3'
+                        fill='none'
+                      >
+                        <path
+                          d='M1 1.07812H93'
+                          stroke='#B34B1E'
+                          stroke-opacity='0.26'
+                          stroke-width='2'
+                          stroke-linecap='round'
+                          stroke-dasharray='10 10'
+                        />
+                      </svg>
+                      <div
+                        className={`${
+                          indx <= indexMb - 1 ? 'translate-x-0' : 'translate-x-[-100%]'
+                        } absolute w-full h-[0.5rem] top-0 left-0 bg-[#B34B1E] transition-all duration-300`}
+                      ></div>
+                    </div>
+                    {indx === data?.listDay?.length - 2 && (
+                      <svg
+                        className='w-[2.1rem]'
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='8'
+                        height='8'
+                        viewBox='0 0 8 8'
+                        fill='none'
+                      >
+                        <circle
+                          cx='4'
+                          cy='4'
+                          r='3'
+                          stroke='#B34B1E'
+                          stroke-width='2'
+                        />
+                      </svg>
+                    )}
+                  </div>
+                ))}
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='8'
+                  height='8'
+                  viewBox='0 0 8 8'
+                  fill='none'
+                  className={`${isMobile && data?.listDay?.length < 4 ? 'hidden' : ''}`}
+                >
+                  <circle
+                    cx='4'
+                    cy='4'
+                    r='3'
+                    stroke='#B34B1E'
+                    stroke-width='2'
+                  />
+                </svg>
+              </div>
             </div>
             <div className='flex gap-x-[5.13rem] relative'>
               {data?.listDay?.map((e, index) => (
@@ -211,8 +214,11 @@ export default function BestTripEver({ data }) {
                 />
               ))}
               <div className='lg:hidden mt-[5.3rem] w-full'>
-                <div className='overflow-x-scroll w-full'>
-                  <div className='flex gap-[7.5rem] w-fit md:mx-auto transition-all duration-300' ref={dayRef}>
+                <div className='w-full overflow-x-scroll'>
+                  <div
+                    className='flex gap-[7.5rem] w-fit md:mx-auto transition-all duration-300'
+                    ref={dayRef}
+                  >
                     {data?.listDay?.map((e, index) => (
                       <div
                         onClick={() => dayHandler(index)}
@@ -271,7 +277,9 @@ export default function BestTripEver({ data }) {
                     setIndexCurrent(indexCurrent + 1)
                   }
                 }}
-                className='p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-lg:hidden'
+                className={`${
+                  data?.listDay?.length === 3 ? 'lg:right-[9rem]' : ''
+                } p-[0.75rem] absolute top-[1.8rem] right-0 translate-x-full z-[5] max-lg:hidden`}
               >
                 <IconBtnLeft className={'w-[1.82rem] h-[0.82rem] rotate-180'} />
               </button>
