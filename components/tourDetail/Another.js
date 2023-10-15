@@ -16,7 +16,11 @@ export default function Another({ allTourHG, slug, data }) {
         title={data?.title || 'Great Trips'}
         boxClass={'flex flex-col text-center'}
       />
-      <div className='flex justify-center mt-[2.625rem] relative z-[1] gap-x-[1.5rem] max-md:mt-[8rem] max-md:px-[4.27rem]'>
+      <div
+        data-aos='fade-up'
+        data-aos-anchor-placement='top-bottom'
+        className='flex justify-center mt-[2.625rem] relative z-[1] gap-x-[1.5rem] max-md:mt-[8rem] max-md:px-[4.27rem]'
+      >
         {allTourHG?.nodes
           ?.filter((e) => e?.slug !== slug)
           ?.map((e, index) => (

@@ -1,5 +1,4 @@
 import BookingOnline from '../homepage/BookingOnline'
-import BookingOnlineV2 from '../homepage/BookingOnlineV2'
 import OverviewMb from '../homepage/OverviewMb'
 import Another from './Another'
 import BestTripEver from './BestTripEver'

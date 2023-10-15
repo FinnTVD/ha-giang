@@ -3,14 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function DestinationListItems({ dataDestination }) {
-  const item = dataDestination?.item
-
   return (
     <div className='grid grid-cols-4 gap-x-[1.5rem] gap-y-[2rem] px-[6.25rem] relative z-[4] bg-white mb-[8.25rem] max-md:grid-cols-1 max-md:px-[4.27rem] max-md:gap-x-[4.27rem] max-md:gap-y-[6.4rem] max-md:mb-[30rem] max-lg:grid-cols-2'>
-      {item?.map((itm, index) => (
+      {dataDestination?.item?.map((itm, index) => (
         <div
           key={index}
-          className='group relative overflow-hidden'
+          className='relative overflow-hidden group'
+          data-aos='fade-up'
+          data-aos-anchor-placement='top-bottom'
+          data-aos-delay={`${index * 150}`}
         >
           {/* <div className="flex flex-col items-center w-full"> */}
           <Image

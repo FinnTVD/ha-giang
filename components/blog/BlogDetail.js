@@ -65,6 +65,8 @@ function BlogDetail({ data, dataHome, allTourHG }) {
           className='absolute bottom-0 left-0 w-full'
         />
         <div
+          data-aos='fade-up'
+          data-aos-anchor-placement='top-bottom'
           className={`max-md:text-[16.5rem] relative text-center font-heavitas text-[8.625rem] uppercase leading-[1]`}
           style={{
             backgroundImage: `url(${data?.featuredImage?.node?.sourceUrl || '/images/t11.jpg'})`,

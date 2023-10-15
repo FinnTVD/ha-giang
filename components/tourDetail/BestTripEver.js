@@ -296,7 +296,10 @@ export default function BestTripEver({ data }) {
         </div>
       </div>
       {!isMobile && (
-        <div className='flex items-center'>
+        <div
+          data-aos='fade-left'
+          className='flex items-center'
+        >
           <div class='boxMap relative h-[45rem] w-[45rem]'>
             <Image
               src={data?.backgroundMap?.sourceUrl}

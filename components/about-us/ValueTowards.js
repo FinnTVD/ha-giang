@@ -1,38 +1,6 @@
 'use client'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-
-// const data = [
-//   {
-//     picture: '/images/value1.png',
-//     icon: '/icons/safe.svg',
-//     title: 'SAFE AND COMFORTABLE',
-//     description:
-//       'Nature cannot be overlooked when trekking, camping, or motorbike tours, which are tourism activities with many potential risks and challenges. What Travel Up always tries its best to do is to ensure maximum safety so that each trip can be fully experienced. That goal requires us to improve our knowledge every day, be meticulous in each program, as well as equip the tourists on the tour with not only necessary items but also a spirit of vigilance. and ready to conquer.',
-//   },
-//   {
-//     picture: '/images/value2.png',
-//     icon: '/icons/profess.svg',
-//     title: 'SAFE AND COMFORTABLE',
-//     description:
-//       'Nature cannot be overlooked when trekking, camping, or motorbike tours, which are tourism activities with many potential risks and challenges. What Travel Up always tries its best to do is to ensure maximum safety so that each trip can be fully experienced. That goal requires us to improve our knowledge every day, be meticulous in each program, as well as equip the tourists on the tour with not only necessary items but also a spirit of vigilance. and ready to conquer.',
-//   },
-//   {
-//     picture: '/images/value3.png',
-//     icon: '/icons/cloud.svg',
-//     title: 'SAFE AND COMFORTABLE',
-//     description:
-//       'Nature cannot be overlooked when trekking, camping, or motorbike tours, which are tourism activities with many potential risks and challenges. What Travel Up always tries its best to do is to ensure maximum safety so that each trip can be fully experienced. That goal requires us to improve our knowledge every day, be meticulous in each program, as well as equip the tourists on the tour with not only necessary items but also a spirit of vigilance. and ready to conquer.',
-//   },
-//   {
-//     picture: '/images/value4.png',
-//     icon: '/icons/connect.svg',
-//     title: 'SAFE AND COMFORTABLE',
-//     description:
-//       'Nature cannot be overlooked when trekking, camping, or motorbike tours, which are tourism activities with many potential risks and challenges. What Travel Up always tries its best to do is to ensure maximum safety so that each trip can be fully experienced. That goal requires us to improve our knowledge every day, be meticulous in each program, as well as equip the tourists on the tour with not only necessary items but also a spirit of vigilance. and ready to conquer.',
-//   },
-// ]
 
 const data = new Array(4).fill(0)
 export default function ValueTowards({ valueTowards }) {
@@ -63,13 +31,20 @@ export default function ValueTowards({ valueTowards }) {
     }
   }
   return (
-    <section className='mt-[6.25rem] px-[6.25rem] max-lg:px-0'>
+    <section className='mt-[6.25rem] px-[6.25rem] max-lg:px-0 overflow-hidden'>
       <div className='flex flex-col items-center'>
-        <h3 className='text-[#B34B1E] font-heavitas text-[1rem] leading-[1] max-md:text-[3.2rem] max-lg:text-[2.08rem]'>
+        <h3
+          data-aos='fade-up'
+          className='text-[#B34B1E] font-heavitas text-[1rem] leading-[1] max-md:text-[3.2rem] max-lg:text-[2.08rem]'
+        >
           {' '}
           {valueTowards?.topTitle}{' '}
         </h3>
-        <h2 className='text-[#B34B1E] font-heavitas text-[3rem] mt-[0.75rem] leading-[1] max-md:text-[6.4rem] max-md:mt-[2.1rem] max-lg:text-[4.25rem]'>
+        <h2
+          data-aos='fade-up'
+          data-aos-delay='200'
+          className='text-[#B34B1E] font-heavitas text-[3rem] mt-[0.75rem] leading-[1] max-md:text-[6.4rem] max-md:mt-[2.1rem] max-lg:text-[4.25rem]'
+        >
           {' '}
           {valueTowards?.title}{' '}
         </h2>
@@ -81,6 +56,7 @@ export default function ValueTowards({ valueTowards }) {
             key={index}
           >
             <Image
+              data-aos={index % 2 == 0 ? 'fade-right' : 'fade-left'}
               alt='value-towards-picture'
               src={item?.image?.sourceUrl}
               width={688}
@@ -104,7 +80,10 @@ export default function ValueTowards({ valueTowards }) {
                   className='h-[6.25rem] w-auto'
                 ></Image>
               </div>
-              <div className='pt-[5rem] ml-[-2rem] relative z-[2]'>
+              <div
+                data-aos={index % 2 == 0 ? 'fade-left' : 'fade-right'}
+                className='pt-[5rem] ml-[-2rem] relative z-[2]'
+              >
                 <h3 className='text-[#05320C] text-[1.625rem] font-bold leading-[1.23] font-poppins'>{item?.title}</h3>
                 <p className='mt-[1.25rem] text-[#727272] text-[0.875rem] leading-[1.57] tracking-[0.035] font-poppins'>
                   {item?.content}

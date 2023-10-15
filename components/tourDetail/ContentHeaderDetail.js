@@ -4,17 +4,25 @@ import TittleIcon from './TittleIcon'
 export default function ContentHeaderDetail({ data, slug }) {
   return (
     <div className='relative z-[10] w-[87.5rem] max-lg:top-1/2 max-lg:-translate-y-1/2 max-lg:left-[5vw] lg:my-[2.31rem] max-lg:absolute max-md:left-[4.27rem] max-md:-translate-y-1/2 mx-auto'>
-      <span className='text-white uppercase font-heavitas text-[1rem] max-lg:text-[2.5rem] font-normal leading-normal max-md:text-[3.2rem]'>
+      <span
+        data-aos='fade-right'
+        className='text-white uppercase font-heavitas text-[1rem] max-lg:text-[2.5rem] font-normal leading-normal max-md:text-[3.2rem]'
+      >
         {data?.subtitle}
       </span>
       <h1
+        data-aos='fade-right'
         className={`${
           slug === 'epic-motorbike-tour-4d4n' ? 'w-[40rem]' : 'w-[32.3125rem] max-lg:w-[52.3125rem]'
         } uppercase mt-[1rem] max-md:mt-[2.13rem] font-heavitas text-[4rem] max-lg:text-[6rem] font-normal leading-[1] text-white max-md:w-[59.51rem] max-md:text-[7.467rem] max-md:leading-[1]`}
       >
         {data?.title}
       </h1>
-      <div className='w-[15.3125rem] h-[3.375rem] max-lg:w-[31.3125rem] max-lg:h-[7.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins max-lg:my-[2.5rem] max-md:my-0'>
+      <div
+        data-aos='fade-right'
+        data-aos-delay='50'
+        className='w-[15.3125rem] h-[3.375rem] max-lg:w-[31.3125rem] max-lg:h-[7.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins max-lg:my-[2.5rem] max-md:my-0'
+      >
         <Image
           className='object-cover max-lg:object-contain'
           src={'/images/bg-time-detail.png'}
@@ -27,7 +35,11 @@ export default function ContentHeaderDetail({ data, slug }) {
         </span>
       </div>
       <div className='flex gap-x-[1.88rem] max-lg:gap-x-[2.88rem] max-md:gap-x-[8.53rem] font-poppins'>
-        <div className='w-[18rem] max-lg:flex-1 max-md:hidden'>
+        <div
+          data-aos='fade-right'
+          data-aos-delay='100'
+          className='w-[18rem] max-lg:flex-1 max-md:hidden'
+        >
           <TittleIcon title={'HIGHLIGHT'}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -68,7 +80,11 @@ export default function ContentHeaderDetail({ data, slug }) {
             ))}
           </ul>
         </div>
-        <div className='w-[13.0625rem] max-lg:flex-1 max-md:w-fit flex flex-col gap-y-[1.44rem]'>
+        <div
+          data-aos='fade-right'
+          data-aos-delay='150'
+          className='w-[13.0625rem] max-lg:flex-1 max-md:w-fit flex flex-col gap-y-[1.44rem]'
+        >
           <div className='flex flex-col items-start'>
             <TittleIcon title={'DEPARTURE'}>
               <svg
@@ -148,7 +164,11 @@ export default function ContentHeaderDetail({ data, slug }) {
             </address>
           </div>
         </div>
-        <div className='w-[12.6875rem] max-lg:flex-1 flex flex-col gap-y-[1.44rem] max-md:w-fit'>
+        <div
+          data-aos='fade-right'
+          data-aos-delay='200'
+          className='w-[12.6875rem] max-lg:flex-1 flex flex-col gap-y-[1.44rem] max-md:w-fit'
+        >
           <div className='flex flex-col items-start'>
             <TittleIcon title={'GROUP SIZE'}>
               <svg

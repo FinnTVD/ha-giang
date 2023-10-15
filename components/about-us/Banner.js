@@ -19,6 +19,8 @@ export default function Banner({ bannerData, title }) {
         className='absolute bottom-0 left-0 w-full'
       ></Image>
       <div
+        data-aos='fade-up'
+        data-aos-anchor-placement='top-bottom'
         className={`${
           title?.includes('Destination') ? 'max-md:text-[11.2rem]' : 'max-md:text-[16.5rem]'
         } relative text-center font-heavitas text-[8.625rem] uppercase leading-[1]`}

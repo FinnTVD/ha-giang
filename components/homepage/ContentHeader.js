@@ -1,5 +1,3 @@
-import IconTextHeader from '../icons/IconTextHeader'
-
 export default function ContentHeader({ header }) {
   return (
     <div

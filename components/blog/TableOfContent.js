@@ -57,7 +57,11 @@ export default function TableOfContent() {
     setTableOfContents(arr)
   }, [])
   return (
-    <div className='max-md:mx-[4.27rem] w-[20.75rem] h-fit lg:mt-[1.5rem] md:mt-[2.5rem] max-lg:w-full max-md:w-fit max-md:mt-[4.27rem]'>
+    <div
+      data-aos='fade-left'
+      data-aos-delay='100'
+      className='max-md:mx-[4.27rem] w-[20.75rem] h-fit lg:mt-[1.5rem] md:mt-[2.5rem] max-lg:w-full max-md:w-fit max-md:mt-[4.27rem]'
+    >
       <div
         ref={parentRef}
         style={{
