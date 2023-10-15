@@ -1,43 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-// import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useLayoutEffect, useState } from 'react'
 
-// gsap.registerPlugin(ScrollTrigger)
-
-export default function TableOfContent() {
+export default function TableOfContent({ isActive }) {
   const [tableOfContents, setTableOfContents] = useState([])
-  const [isActive, setIsActive] = useState(false)
-  const parentRef = useRef(null)
   const [idx, setIdx] = useState(0)
-  // useEffect(() => {
-  //   let ctx = gsap.context(() => {
-  //     setTimeout(() => {
-  //       gsap.matchMedia().add('(min-width: 1024px)', () => {
-  //         gsap.to(parentRef.current, {
-  //           scrollTrigger: {
-  //             trigger: parentRef.current,
-  //             start: 'top top',
-  //             end: 'bottom top',
-  //             markers: true,
-  //             onToggle: (self) => {
-  //               if (self.isActive) {
-  //                 setIsActive(true)
-  //               } else {
-  //                 setIsActive(false)
-  //               }
-  //             },
-  //           },
-  //         })
-  //       })
-  //     }, 500)
-  //   }, parentRef)
-  //   return () => {
-  //     ctx.revert()
-  //   }
-  // }, [])
+
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return
     const all = document.querySelector('#content-detail-blog')
@@ -57,13 +26,10 @@ export default function TableOfContent() {
     setTableOfContents(arr)
   }, [])
   return (
-    <div
-      data-aos='fade-left'
-      data-aos-delay='100'
-      className='max-md:mx-[4.27rem] w-[20.75rem] h-fit lg:mt-[1.5rem] md:mt-[2.5rem] max-lg:w-full max-md:w-fit max-md:mt-[4.27rem]'
-    >
+    <div className='max-md:mx-[4.27rem] w-[20.75rem] h-fit lg:mt-[1.5rem] md:mt-[2.5rem] max-lg:w-full max-md:w-fit max-md:mt-[4.27rem]'>
       <div
-        ref={parentRef}
+        data-aos='fade-left'
+        data-aos-delay='100'
         style={{
           boxShadow: '6px 6px 32px 0px rgba(0, 0, 0, 0.04), -16px -16px 32px 0px rgba(0, 0, 0, 0.04)',
         }}

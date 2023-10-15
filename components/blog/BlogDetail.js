@@ -7,16 +7,20 @@ import moment from 'moment'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import Image from 'next/image'
 import MenuDown from '../global/MenuDown'
 import TableOfContent from './TableOfContent'
-
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 function BlogDetail({ data, dataHome, allTourHG }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const parentRef = useRef(null)
+  const [isActive, setIsActive] = useState(false)
 
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -26,6 +30,32 @@ function BlogDetail({ data, dataHome, allTourHG }) {
       document.body.style.overflow = 'hidden'
     }
   }, [isOpen])
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      setTimeout(() => {
+        gsap.matchMedia().add('(min-width: 1024px)', () => {
+          gsap.to(parentRef.current, {
+            scrollTrigger: {
+              trigger: '#blog-content-detail',
+              start: 'top top',
+              end: 'bottom center',
+              onToggle: (self) => {
+                if (self.isActive) {
+                  setIsActive(true)
+                } else {
+                  setIsActive(false)
+                }
+              },
+            },
+          })
+        })
+      }, 500)
+    }, parentRef)
+    return () => {
+      ctx.revert()
+    }
+  }, [])
 
   return (
     <div className='relative overflow-x-hidden'>
@@ -80,7 +110,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
         </div>
       </div>
 
-      <div>
+      <div ref={parentRef}>
         <div className='max-md:mx-[4.27rem] mx-[8.12rem] mt-[8rem] font-poppins'>
           <h2 className=' text-[#171717] max-md:text-[5.867rem] text-[4rem] font-semibold capitalize md:leading-[110%] leading-[120%] '>
             {data?.title}
@@ -105,7 +135,10 @@ function BlogDetail({ data, dataHome, allTourHG }) {
           <div className='w-full md:mt-[1.31rem] mt-[5.067rem] h-[1px] bg-[#44444424]'></div>
         </div>
         <div className='lg:mx-[8.12rem] max-lg:px-[2.5rem] flex gap-x-[1.5rem] max-lg:flex-col-reverse'>
-          <div className='max-md:mx-[4.27rem] flex-1'>
+          <div
+            id='blog-content-detail'
+            className='max-md:mx-[4.27rem] flex-1'
+          >
             <div
               id='content-detail-blog'
               className='content-detail font-poppins'
@@ -132,7 +165,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
               </div>
             </div>
           </div>
-          <TableOfContent />
+          <TableOfContent isActive={isActive} />
         </div>
       </div>
 
