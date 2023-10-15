@@ -1,14 +1,17 @@
-import './globals.scss'
 import '@radix-ui/themes/styles.css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'react-toastify/dist/ReactToastify.css'
+import 'aos/dist/aos.css'
+import './globals.scss'
+
 import { Poppins, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
 // import Header from '@/components/global/Header'
 import { Theme } from '@radix-ui/themes'
 import Footer from '@/components/global/Footer'
 import ApolloWrapper from '@/components/global/ApolloWrapper'
+import AosInit from '@/components/global/AosInit'
 
 const heavitas = localFont({
   src: [
@@ -56,6 +59,7 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning={true}
             className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}
           >
+            <AosInit />
             {children}
             <Footer />
           </body>

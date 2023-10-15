@@ -4,7 +4,7 @@ import { GET_DETAIL_TOUR, GET_META_TOUR_DETAIL } from '@/graphql/tourDetail/quer
 import getData from '@/utils/getData'
 
 export async function generateMetadata({ params }) {
-  const data = await getData(GET_META_TOUR_DETAIL,{ slug: params?.slug })
+  const data = await getData(GET_META_TOUR_DETAIL, { slug: params?.slug })
   if (!data) return
   const { featuredImage, tourHaGiangDetail, title } = data?.data?.tourHG
   return {
@@ -44,18 +44,6 @@ export async function generateMetadata({ params }) {
           alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
       ],
-    },
-    robots: {
-      index: false,
-      follow: true,
-      nocache: true,
-      googleBot: {
-        index: true,
-        follow: false,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
     },
   }
 }

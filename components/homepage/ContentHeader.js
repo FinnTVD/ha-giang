@@ -10,6 +10,7 @@ export default function ContentHeader({ header }) {
         id='box-slogan'
         className='relative flex flex-col text-white'
         dangerouslySetInnerHTML={{ __html: header?.slogan }}
+        data-aos='zoom-in-up'
       />
       {/* <h2 className='text-[4rem] font-heavitas text-white font-normal leading-normal max-md:text-[6.4rem] max-xl:hidden max-lg:text-[6rem]'>
         BACKPACK UP

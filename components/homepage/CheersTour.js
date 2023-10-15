@@ -17,7 +17,10 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
           title={section2?.title}
         />
       )}
-      <div className='max-md:px-[4.27rem] relative w-[35.4375rem] max-md:mt-[6rem] max-md:w-[86.4rem] max-md:h-[104.83733rem] lg:h-auto lg:mr-[5.69rem] max-md:mx-auto'>
+      <div
+        data-aos='fade-left'
+        className='max-md:px-[4.27rem] relative w-[35.4375rem] max-md:mt-[6rem] max-md:w-[86.4rem] max-md:h-[104.83733rem] lg:h-auto lg:mr-[5.69rem] max-md:mx-auto'
+      >
         <Image
           className=' max-md:object-contain lg:object-fill z-[0]'
           src={section2?.map?.sourceUrl || '/images/mapvn.png'}
