@@ -13,7 +13,7 @@ const description =
 export default function Welcome({ overview, video }) {
   return (
     <section className='mt-[2.25rem] w-[40.625rem] my-0 mx-auto max-md:mt-[11.2rem] max-md:w-full max-lg:w-[65rem]'>
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col items-center max-md:hidden'>
         <h3 className='text-[#B34B1E] font-heavitas text-[1rem] leading-[1] max-md:text-[3.2rem] max-lg:text-[2.08rem]'>
           {overview?.topTitle}
         </h3>

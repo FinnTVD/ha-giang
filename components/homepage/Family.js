@@ -44,7 +44,10 @@ export default function Family({ section6 }) {
       </div>
       {indexTab === 0 ? (
         <div className='flex gap-x-[1.44rem] max-lg:flex-col-reverse max-md:gap-y-[5.33rem] max-lg:gap-y-[2.5rem]'>
-          <div className='relative flex-1'>
+          <div
+            data-aos='fade-right'
+            className='relative flex-1'
+          >
             <h2 className='mb-[0.5rem] max-md:mb-[1.07rem] text-[1.625rem] font-semibold leading-[1.23] text-gray-scale-50 uppercase max-md:text-[5.33rem] max-md:leading-[1.2] max-md:tracking-[0.0008rem] max-lg:text-[3.38rem]'>
               {tourLeader?.title}
             </h2>

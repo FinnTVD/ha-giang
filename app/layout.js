@@ -54,16 +54,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <ApolloWrapper>
-        <Theme>
-          <body
-            suppressHydrationWarning={true}
-            className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}
-          >
+        <body
+          suppressHydrationWarning={true}
+          className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}
+        >
+          <Theme>
             <AosInit />
             {children}
             <Footer />
-          </body>
-        </Theme>
+          </Theme>
+        </body>
       </ApolloWrapper>
     </html>
   )

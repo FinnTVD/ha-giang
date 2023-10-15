@@ -35,6 +35,8 @@ export default function TheTrip({ section8, allTourHG, isOther = false }) {
               className='max-md:text-center max-md:w-[43.73333rem] max-lg:flex-1'
             >
               <h3
+                data-aos='fade-left'
+                data-aos-delay={`${index * 500}`}
                 className={` lg:text-[1.625rem] md:text-[2.625rem] md:w-[26.375rem] text-[4.26667rem] md:font-semibold font-bold md:leading-[1.23] leading-[6.4rem] max-md:tracking-[0.05333rem] font-poppins text-[#B7B7B7] md:text-gray-scale-80 max-md:pb-[1.07rem] ${
                   isMobile && active === index ? '!text-[#B34B1E] border-b max-md:border-b-[2px] border-[#B34B1E] ' : ''
                 }`}
@@ -52,7 +54,11 @@ export default function TheTrip({ section8, allTourHG, isOther = false }) {
                 (isMobile && active === index) || !isMobile ? '' : 'hidden'
               } md:flex-1 lg:w-[26.375rem] w-full`}
             >
-              <p className='md:text-[1.875rem] lg:text-[0.875rem] text-[3.73333rem] font-normal leading-[1.57] md:leading-[1.57] md:mb-[1.5rem] tracking-[0.00933rem] text-gray-scale-50'>
+              <p
+                data-aos='fade-left'
+                data-aos-delay={`${index * 500}`}
+                className='md:text-[1.875rem] lg:text-[0.875rem] text-[3.73333rem] font-normal leading-[1.57] md:leading-[1.57] md:mb-[1.5rem] tracking-[0.00933rem] text-gray-scale-50'
+              >
                 {e?.description}
               </p>
               <AccordionDemo data={e?.listInfo} />
