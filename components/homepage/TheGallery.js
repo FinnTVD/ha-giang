@@ -14,11 +14,13 @@ export default function TheGallery({ section4, allTourHG }) {
         title={section4?.title}
         boxClass='max-md:px-[4.27rem]'
       />
-      <SlideGallery
-        section4={section4}
-        setIndexTab={setIndexTab}
-        setIsOpen={setIsOpen}
-      />
+      <div data-aos='zoom-in-up'>
+        <SlideGallery
+          section4={section4}
+          setIndexTab={setIndexTab}
+          setIsOpen={setIsOpen}
+        />
+      </div>
       <PopupGallery
         section4={section4}
         indexTab={indexTab}

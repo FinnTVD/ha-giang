@@ -30,7 +30,10 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
           quality={100}
         />
       </div>
-      <div className='lg:pt-[9.17rem] lg:w-fit max-md:mt-[2.33rem] max-md:overflow-hidden max-lg:mt-[1.5rem]'>
+      <div
+        data-aos='fade-up'
+        className='lg:pt-[9.17rem] lg:w-fit max-md:mt-[2.33rem] max-md:overflow-hidden max-lg:mt-[1.5rem]'
+      >
         <ul className='grid grid-cols-2 gap-[1.51rem] max-md:hidden max-lg:w-[80rem] max-md:w-full'>
           {section2?.listTitle?.map((e, index) => (
             <li
@@ -51,6 +54,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
         </ul>
         <SlideCheersTour section2={section2} />
         <div
+          data-aos='fade-up'
           className='description lg:w-[43rem] mt-[2.39rem] max-md:mt-[5.33rem] max-md:text-justify max-md:px-[4.27rem] text-gray-scale-50 text-[0.875rem] max-lg:text-[1.875rem] font-normal leading-[1.375] tracking-[0.00219rem] max-md:text-[3.733rem] max-md:leading-[1.57] max-md:tracking-[0.00933rem]'
           dangerouslySetInnerHTML={{ __html: section2?.description }}
         />

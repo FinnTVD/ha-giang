@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode } from 'swiper/modules'
+import { Autoplay, FreeMode } from 'swiper/modules'
 import IconStar from '../icons/IconStar'
 
 const star = new Array(5).fill(0)
@@ -38,10 +38,15 @@ export default function SlideTravelers({ section5 }) {
         }}
         freeMode={true}
         grabCursor={true}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        speed={1000}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
-        modules={[FreeMode]}
+        modules={[FreeMode, Autoplay]}
         className='h-[15rem] max-lg:h-[30rem] mt-[2.5rem] max-md:mt-[1.33rem] max-md:h-[76.733rem]'
       >
         {section5?.listFeedback?.map((e, index) => (
