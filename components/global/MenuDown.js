@@ -1,16 +1,17 @@
 'use client'
 import { useEffect, useState } from 'react'
 import IconEmail from '../icons/IconEmail'
-import IconHome from '../icons/IconHome'
 import IconMenuV2 from '../icons/IconMenuV2'
-import IconMotor from '../icons/IconMotor'
 import IconPhoneV2 from '../icons/IconPhoneV2'
 import ItemMenu from './ItemMenu'
 import { PopupBookNow } from './PopupBookNow'
+import IconMotorV2 from '../icons/IconMotorV2'
+import IconHomeV2 from '../icons/IconHomeV2.'
 
 export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
   const [scrollY, setScrollY] = useState(0)
   const [heightBanner, setHeightBanner] = useState(500)
+  const [indexActive, setIndexActive] = useState(isHome ? 1 : 0)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -38,31 +39,60 @@ export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
       <ItemMenu
         href='/'
         title={'Home'}
+        isActive={indexActive === 1}
+        onClick={() => setIndexActive(1)}
       >
-        <IconHome className='w-[4.733rem] h-[4.733rem]' />
+        <IconHomeV2
+          isActive={indexActive === 1}
+          className='w-[4.733rem] h-[4.733rem]'
+        />
       </ItemMenu>
       <ItemMenu
+        isActive={indexActive === 2}
         href='/#great-trips-mb'
         title={'Tour'}
+        onClick={() => setIndexActive(2)}
       >
-        <IconMotor className='w-[4.733rem] h-[4.733rem]' />
+        <IconMotorV2
+          isActive={indexActive === 2}
+          className='w-[4.733rem] h-[4.733rem]'
+        />
       </ItemMenu>
       <ItemMenu
         href={`tel:${header?.phoneNumber}`}
         title={'WhatsApp'}
+        isActive={indexActive === 3}
+        onClick={() => setIndexActive(3)}
       >
-        <IconPhoneV2 className='w-[4.733rem] h-[4.733rem]' />
+        <IconPhoneV2
+          isActive={indexActive === 3}
+          className='w-[4.733rem] h-[4.733rem]'
+        />
       </ItemMenu>
       <PopupBookNow allTourHG={allTourHG}>
-        <ItemMenu title={'Book Now'}>
-          <IconEmail className='w-[4.733rem] h-[4.733rem]' />
+        <ItemMenu
+          isActive={indexActive === 4}
+          title={'Book Now'}
+          onClick={() => setIndexActive(4)}
+        >
+          <IconEmail
+            isActive={indexActive === 4}
+            className='w-[4.733rem] h-[4.733rem]'
+          />
         </ItemMenu>
       </PopupBookNow>
       <ItemMenu
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => {
+          setIsOpen((prev) => !prev)
+          setIndexActive(5)
+        }}
         title={'Menu'}
+        isActive={indexActive === 5}
       >
-        <IconMenuV2 className='w-[4.733rem] h-[4.733rem]' />
+        <IconMenuV2
+          isActive={indexActive === 5}
+          className='w-[4.733rem] h-[4.733rem]'
+        />
       </ItemMenu>
     </div>
   )

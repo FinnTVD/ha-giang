@@ -35,6 +35,7 @@ module.exports = {
         'primary-5': 'var(--primary-5)',
         'secondary-green-600': 'var(--secondary-green-600)',
         'background-elevation-01': 'var(--background-elevation-01)',
+        'secondary-green-900': 'var(--secondary-green-900)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
