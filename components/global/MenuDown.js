@@ -18,7 +18,7 @@ export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
     // Define a function to handle the scroll event
     const heightBanner = document.querySelector('#banner-home')
     if (!heightBanner) return
-    setHeightBanner(heightBanner?.clientHeight + 50)
+    setHeightBanner(heightBanner?.clientHeight + 300)
     const handleScroll = () => {
       // Update the state with the current scroll position
       setScrollY(window.scrollY)
