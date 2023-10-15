@@ -84,6 +84,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
             <li
               key={index}
               className='w-fit h-fit'
+              onClick={() => setIsOpen(false)}
             >
               <Link
                 className='uppercase font-heavitas text-[5.33rem] md:text-[3.5rem] font-normal leading-[1] text-gray-scale-80 block text-center'

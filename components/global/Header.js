@@ -35,10 +35,16 @@ export default function Header({ header, allTourHG, isHome }) {
           allTourHG={allTourHG}
         />
         <Image
-          className='z-0 object-cover'
-          src={
-            isMobile ? header?.backgroundMobile?.sourceUrl : header?.background?.sourceUrl || '/images/bg-header.jpg'
-          }
+          className='z-0 object-cover max-md:hidden'
+          src={header?.background?.sourceUrl || '/images/bg-header.jpg'}
+          alt={'background cheer tour'}
+          fill
+          sizes='100rem'
+          priority
+        />
+        <Image
+          className='z-0 object-cover md:hidden'
+          src={header?.backgroundMobile?.sourceUrl || '/images/bg-header.jpg'}
           alt={'background cheer tour'}
           fill
           sizes='100rem'
