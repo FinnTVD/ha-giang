@@ -78,8 +78,8 @@ export default function HeaderContact({ dataHome, data }) {
       )}
       {isMobile2 && (
         <MenuDown
-          allTourHG={allTourHG}
-          header={header}
+          allTourHG={dataHome?.data?.allTourHG}
+          header={dataHome?.data?.page?.homeHG?.header}
           setIsOpen={setIsOpen}
         />
       )}
