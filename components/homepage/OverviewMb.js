@@ -24,7 +24,6 @@ const list = [
 
 gsap.registerPlugin(ScrollTrigger1)
 const OverviewMb = ({ data }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
   const param = useParams()
   const parentRef = useRef(null)
   const [isFixed, setIsFixed] = useState(false)
@@ -60,11 +59,10 @@ const OverviewMb = ({ data }) => {
       ctx.revert()
     }
   }, [])
-  if (!isMobile) return
   return (
     <section
       ref={parentRef}
-      className='hidden max-md:flex flex-col ml-[3.62rem] z-10 mt-[23rem] font-poppins'
+      className='hidden max-md:flex flex-col ml-[3.62rem] z-10 mt-[23rem] font-poppins md:hidden'
     >
       <div
         id='box-tab'
@@ -72,7 +70,6 @@ const OverviewMb = ({ data }) => {
           isFixed ? 'fixed left-0 top-0 bg-white px-[2.13em] py-[2.13rem] w-full z-[99]' : '!shadow-none'
         } overflow-hidden mb-[4.26rem] transition-all duration-500 pl-[1rem]`}
       >
-        s
         <div className='flex mb-[1.6rem] w-[100rem] whitespace-nowrap'>
           {list?.map((item) => (
             <Link
