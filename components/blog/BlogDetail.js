@@ -15,12 +15,15 @@ import MenuDown from '../global/MenuDown'
 import TableOfContent from './TableOfContent'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import TableContentRes from './TableContentRes'
+
 gsap.registerPlugin(ScrollTrigger)
 function BlogDetail({ data, dataHome, allTourHG }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
   const parentRef = useRef(null)
   const [isActive, setIsActive] = useState(false)
+  const [isTable, setIsTable] = useState(false)
 
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -45,6 +48,22 @@ function BlogDetail({ data, dataHome, allTourHG }) {
                   setIsActive(true)
                 } else {
                   setIsActive(false)
+                }
+              },
+            },
+          })
+        })
+        gsap.matchMedia().add('(max-width: 1023px)', () => {
+          gsap.to('#icon-table-content', {
+            scrollTrigger: {
+              trigger: '#blog-content-detail',
+              start: 'top top',
+              end: 'bottom center',
+              onToggle: (self) => {
+                if (self.isActive) {
+                  setIsTable(true)
+                } else {
+                  setIsTable(false)
                 }
               },
             },
@@ -134,6 +153,8 @@ function BlogDetail({ data, dataHome, allTourHG }) {
           </div>
           <div className='w-full md:mt-[1.31rem] mt-[5.067rem] h-[1px] bg-[#44444424]'></div>
         </div>
+
+        <TableContentRes isTable={isTable} />
         <div className='lg:mx-[8.12rem] max-lg:px-[2.5rem] flex gap-x-[1.5rem] max-lg:flex-col-reverse'>
           <div
             id='blog-content-detail'
