@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cheers.okhub.tech',
+        hostname: 'cheers-cms.okhub.tech',
       },
     ],
   },
