@@ -8,7 +8,9 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
   return (
     <section
       id='cheers-tour'
-      className='mt-[6.25rem] max-md:mt-[16rem] max-lg:w-[95vw] lg:flex lg:justify-between lg:flex-row-reverse relative h-fit w-[87.5rem] max-md:w-full z-[10] font-poppins mx-auto'
+      className={`${
+        isOther ? 'md:!hidden max-md:!overflow-hidden' : ''
+      } mt-[6.25rem] max-md:mt-[16rem] max-lg:w-[95vw] lg:flex lg:justify-between lg:flex-row-reverse relative h-fit w-[87.5rem] max-md:w-full z-[10] font-poppins mx-auto`}
     >
       {!isOther && (
         <SubTitle

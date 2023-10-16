@@ -54,13 +54,11 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
         overview={overview}
         video={video}
       ></Welcome>
-      {isMobile && (
-        <CheersTour
-          section2={section2}
-          allTourHG={allTourHG}
-          isOther={true}
-        />
-      )}
+      <CheersTour
+        section2={section2}
+        allTourHG={allTourHG}
+        isOther={true}
+      />
       <ValueTowards valueTowards={valueTowards}></ValueTowards>
       <TextInfinite textRun={textRun}></TextInfinite>
       <Video video={video}></Video>
