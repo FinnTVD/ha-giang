@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import twitter from '../../public/images/twitter.svg'
 import Image from 'next/image'
 function TwitterShare({ url, title }) {

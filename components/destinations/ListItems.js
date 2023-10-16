@@ -127,7 +127,7 @@ export default function DestinationListItems({ dataDestination }) {
               {itm?.description}
             </p>
             <Link
-              href={itm?.map}
+              href={itm?.map || '/'}
               target='_blank'
               className='p-[0.75rem] flex items-center gap-[0.5rem] bg-white rounded-[1rem] max-md:p-[1.5rem] max-md:rounded-[2rem] max-md:gap-[2.5rem] max-lg:gap-[1rem]'
               style={{

@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import linkdin from '../../public/images/linkedinBlog.svg'
 import Image from 'next/image'
 

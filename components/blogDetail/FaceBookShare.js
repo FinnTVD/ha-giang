@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import facebook from '../../public/images/facebookBlog.svg'
 import Image from 'next/image'
 function FaceBookShare({ url, title }) {

@@ -82,7 +82,7 @@ export default function SlidePeople({ section6, indexTab }) {
               <h2 className='text-[1rem] font-semibold leading-normal tracking-[0.005rem] text-primary-50 text-center line-clamp-1 max-md:text-[6rem] max-lg:text-[2rem]'>
                 {e?.name}
               </h2>
-              <div className='text-[0.875rem] max-md:text-[3.875rem] mt-[0.25rem] leading-[1.57] font-normal tracking-[0.00219rem] text-white flex items-center justify-center line-clamp-2 max-lg:text-[1.8rem]'>
+              <div className='text-[0.875rem] max-md:text-[3.875rem] mt-[0.25rem] leading-[1.57] font-normal tracking-[0.00219rem] text-white flex items-center justify-center line-clamp-2 max-lg:text-[1.8rem] whitespace-nowrap'>
                 {e?.job}
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
