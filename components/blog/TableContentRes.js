@@ -67,8 +67,8 @@ export default function TableContentRes({ isTable }) {
         <h2 className='text-[1rem] text-gray-scale-80 font-heavitas max-lg:text-[3rem] leading-[1.37] font-bold tracking-[0.0025rem] max-md:text-[4.5rem] max-lg:font-semibold max-lg:capitalize'>
           Table of contents
         </h2>
-        <div className='border-t border-solid border-gray-scale-80 lg:my-[0.75rem] md:my-[1.25rem] max-md:mb-[4.27rem] max-md:mt-[2.27rem]'></div>
-        <ul className='flex flex-col gap-y-[0.75rem] max-md:gap-y-[2.13rem] max-lg:gap-y-[1.25rem] max-md:px-[2.13rem]'>
+        <div className='border-t border-solid border-gray-scale-80 lg:my-[0.75rem] md:my-[2.25rem] max-md:mb-[4.27rem] max-md:mt-[2.27rem]'></div>
+        <ul className='flex flex-col gap-y-[0.75rem] max-md:gap-y-[2.13rem] max-lg:gap-y-[2.25rem] max-md:px-[2.13rem]'>
           {tableOfContents
             ?.filter((e) => e?.title)
             ?.map((item, index) => (
