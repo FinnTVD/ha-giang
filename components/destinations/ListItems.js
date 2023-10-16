@@ -76,7 +76,7 @@ export default function DestinationListItems({ dataDestination }) {
               <h2 className='text-[#f78826] font-poppins text-[1rem] font-bold leading-[1.5] tracking-[0.08px] uppercase line-clamp-1 max-md:text-[4.67rem] max-lg:text-[2.08rem]'>
                 {itm.title}
               </h2>
-              <div className='flex gap-[0.5rem] max-md:gap-[1rem] items-center max-md:gap-[2.5rem] max-lg:gap-[1rem]'>
+              <div className='flex gap-[0.5rem] max-md:gap-[1rem] items-center max-lg:gap-[1rem]'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='16'
