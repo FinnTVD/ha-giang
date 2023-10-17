@@ -1,9 +1,8 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import dateImg from '@/public/images/date.svg'
 
-import 'react-datepicker/dist/react-datepicker.css'
 import Image from 'next/image'
 
 
@@ -27,6 +26,12 @@ const RHFDatePicker = ({ selected, onChange,end,long,details=false, ...other }) 
         
     }, [])
 
+    const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+        <p className="example-custom-input" onClick={onClick} ref={ref}>
+        {value || formattedDate}
+        </p>
+    ));
+
     return (
         <div id='date-booking' className='relative !cursor-pointer'>
             <DatePicker
@@ -36,7 +41,7 @@ const RHFDatePicker = ({ selected, onChange,end,long,details=false, ...other }) 
                 placeholderText={formattedDate}
                 dateFormat="dd/MM/yyyy"
                 defaultValue={formattedDate}
-                customInput={<p>{formattedDate}</p>}
+                customInput={<ExampleCustomInput/>}
                 {...other}
             />
             <Image

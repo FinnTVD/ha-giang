@@ -44,10 +44,10 @@ const handleCheckIcon = (category) => {
   }
 }
 
-function AboutTour({ data, index, isMobile }) {
+function AboutTour({ data, isMobile }) {
   const [activeCate, setActiveCate] = useState(0)
   const [content, setContent] = useState(data?.listCheckin[0])
-  const [isShow, setIsShow] = useState(isMobile ? (index === 0 ? false : true) : false)
+  const [isShow, setIsShow] = useState(isMobile ? true : false)
   const setIndexTab = useStore((state) => state.setIndexTab)
 
   return (

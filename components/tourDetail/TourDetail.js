@@ -21,7 +21,6 @@ function TourDetail({ data }) {
             key={index}
             data={e}
             isMobile={isMobile}
-            index={index}
           />
         ))}
       </div>
