@@ -3,6 +3,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'react-toastify/dist/ReactToastify.css'
 import 'aos/dist/aos.css'
+
 import './globals.scss'
 
 import { Poppins, Roboto } from 'next/font/google'
@@ -58,10 +59,10 @@ export default function RootLayout({ children }) {
           suppressHydrationWarning={true}
           className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}
         >
+          <AosInit />
           <Theme>
             {children}
             <Footer />
-            <AosInit />
           </Theme>
         </body>
       </ApolloWrapper>
