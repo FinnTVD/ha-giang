@@ -59,9 +59,9 @@ export default function RootLayout({ children }) {
           className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}
         >
           <Theme>
-            <AosInit />
             {children}
             <Footer />
+            <AosInit />
           </Theme>
         </body>
       </ApolloWrapper>
