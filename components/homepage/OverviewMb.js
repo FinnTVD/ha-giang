@@ -61,7 +61,7 @@ const OverviewMb = ({ data }) => {
   return (
     <section
       ref={parentRef}
-      className='hidden max-md:flex flex-col ml-[3.62rem] z-10 mt-[23rem] font-poppins md:hidden'
+      className='max-md:flex flex-col ml-[3.62rem] z-10 mt-[23rem] font-poppins md:hidden'
     >
       <div
         id='box-tab'
@@ -90,7 +90,7 @@ const OverviewMb = ({ data }) => {
           ))}
         </div>
       </div>
-      <div className={`${show ? '' : 'h-[40rem] overflow-hidden'}`}>
+      <div className={`${show ? '' : 'h-[40rem] overflow-hidden'} pr-[4.27rem]`}>
         <div>
           <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
             <Image
