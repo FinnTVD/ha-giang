@@ -32,8 +32,9 @@ const RHFDatePicker = ({ selected, onChange,end,long,details=false, ...other }) 
                 selected={selected}
                 onChange={onChange}
                 placeholderText={formattedDate}
-                // dateFormat="dd/MM/yyyy"
+                dateFormat="dd/MM/yyyy"
                 defaultValue={formattedDate}
+                customInput={<button>{formattedDate}</button>}
                 {...other}
             />
             <Image

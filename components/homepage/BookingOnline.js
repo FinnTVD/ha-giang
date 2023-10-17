@@ -541,7 +541,7 @@ export default function BookingOnline({ data, title }) {
                   Droff off
                 </div>
                 <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem] text-[0.875rem] max-lg:text-[1.875rem]'>
-                  {values.endDate && fDate(values.endDate)} from {values.droff} at {values.droffAddress}
+                  {values.endDate && fDate(values.endDate)} to {values.droff} at {values.droffAddress}
                 </div>
               </div>
               <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>

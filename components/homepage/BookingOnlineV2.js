@@ -610,7 +610,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Droff off
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                    {values.endDate && fDate(values.endDate)} from {values.droff} at {values.droffAddress}
+                    {values.endDate && fDate(values.endDate)} to {values.droff} at {values.droffAddress}
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
