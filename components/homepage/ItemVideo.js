@@ -39,7 +39,7 @@ export default function ItemVideo({ e, index, indexSlider }) {
       </div>
       <div
         id='overlay'
-        className='absolute top-0 left-0 z-10 w-full h-0 opacity-50 bg-gradient-banner max-lg:h-full lg:rounded-[1rem]'
+        className='absolute top-0 left-0 z-10 w-full h-0 opacity-50 bg-gradient-banner max-lg:h-full lg:rounded-[1rem] pointer-events-none'
       ></div>
     </>
   )
