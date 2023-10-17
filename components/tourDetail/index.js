@@ -17,7 +17,7 @@ export default function IndexTourDetail({ data, allTourHG, slug }) {
       />
       <main>
         <OverviewMb data={data?.data?.tourHG?.tourHaGiangDetail?.header} />
-        <div className='max-md:flex max-md:flex-col-reverse lg:overflow-hidden'>
+        <div className='max-md:flex max-md:flex-col-reverse overflow-hidden'>
           <BestTripEver data={data?.data?.tourHG?.tourHaGiangDetail?.section1} />
           <BoxVideo data={data?.data?.tourHG?.tourHaGiangDetail?.section1} />
         </div>

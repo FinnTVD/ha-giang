@@ -54,11 +54,11 @@ export default function SlidePeople({ section6, indexTab }) {
               width={400}
               height={500}
             />
-            <div className='absolute group-hover:opacity-0 transition-all duration-200 z-10 bottom-[1.5rem] left-1/2 -translate-x-1/2 w-[17.75rem] max-md:w-[70.75rem] max-md:h-fit max-md:rounded-[2.13rem] h-[4.9375rem] rounded-[1rem] opacity-90 bg-primary-70 pt-[0.94rem] px-[0.87rem] max-md:px-[1.87rem] max-md:pb-[2.87rem] max-md:pt-[1.94rem] pb-[0.87rem] max-md:bottom-[5.5rem] max-lg:h-[7.5rem] max-lg:w-[40rem]'>
+            <div className='absolute group-hover:opacity-0 transition-all duration-200 z-10 bottom-[1.5rem] left-1/2 -translate-x-1/2 w-[17.75rem] max-md:w-[70.75rem] max-md:h-fit max-md:rounded-[2.13rem] h-[4.9375rem] rounded-[1rem] opacity-90 bg-primary-70 pt-[0.94rem] px-[0.87rem] max-md:px-[1.87rem] max-md:pb-[2.87rem] max-md:pt-[1.94rem] pb-[0.87rem] max-md:bottom-[5.5rem] max-lg:h-[7.5rem] max-lg:w-[40rem] '>
               <h2 className='text-[1rem] font-semibold leading-normal tracking-[0.005rem] text-white text-center line-clamp-1 max-md:text-[4.67rem] max-lg:text-[2.08rem]'>
                 {e?.name}
               </h2>
-              <div className='text-[0.875rem] max-md:text-[3.875rem] mt-[0.25rem] leading-[1.57] font-normal tracking-[0.00219rem] text-white flex items-center justify-center line-clamp-2 max-lg:text-[1.8rem]'>
+              <div className='text-[0.875rem] max-md:text-[3.875rem] mt-[0.25rem] leading-[1.57] font-normal tracking-[0.00219rem] text-white flex items-center justify-center  max-lg:text-[1.8rem] flex-nowrap whitespace-nowrap'>
                 {e?.job}
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -66,7 +66,7 @@ export default function SlidePeople({ section6, indexTab }) {
                   height='4'
                   viewBox='0 0 5 4'
                   fill='none'
-                  className='mx-[0.59rem] w-[0.3rem] h-[0.3rem]'
+                  className='mx-[0.2rem] w-[0.3rem] h-[0.3rem]'
                 >
                   <circle
                     cx='2.5'
@@ -82,7 +82,7 @@ export default function SlidePeople({ section6, indexTab }) {
               <h2 className='text-[1rem] font-semibold leading-normal tracking-[0.005rem] text-primary-50 text-center line-clamp-1 max-md:text-[6rem] max-lg:text-[2rem]'>
                 {e?.name}
               </h2>
-              <div className='text-[0.875rem] max-md:text-[3.875rem] mt-[0.25rem] leading-[1.57] font-normal tracking-[0.00219rem] text-white flex items-center justify-center line-clamp-1 max-lg:text-[1.8rem] whitespace-nowrap'>
+              <div className='text-[0.875rem] max-md:text-[3.875rem] mt-[0.25rem] leading-[1.57] font-normal tracking-[0.00219rem] text-white flex items-center justify-center line-clamp-2 max-lg:text-[1.8rem] whitespace-nowrap'>
                 {e?.job}
                 <svg
                   xmlns='http://www.w3.org/2000/svg'

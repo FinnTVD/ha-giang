@@ -9,7 +9,6 @@ import Image from 'next/image'
 import rowUpImg from '@/public/icons/rowUp.svg'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useMediaQuery } from 'react-responsive'
 import { gsap } from 'gsap'
 import { ScrollTrigger as ScrollTrigger1 } from 'gsap/ScrollTrigger'
 import useStore from '@/app/(store)/store'
@@ -67,10 +66,12 @@ const OverviewMb = ({ data }) => {
       <div
         id='box-tab'
         className={`${
-          isFixed ? 'fixed left-0 top-0 bg-white px-[2.13em] py-[2.13rem] w-full z-[99]' : '!shadow-none'
-        } overflow-hidden mb-[4.26rem] transition-all duration-500 pl-[1rem]`}
+          isFixed
+            ? 'fixed left-0 top-0 bg-white pl-[2.13rem] pr-[2.13rem] py-[2.13rem] w-full z-[99]'
+            : '!shadow-none pl-[1rem]'
+        } overflow-hidden mb-[4.26rem] transition-all duration-500 `}
       >
-        <div className='flex mb-[1.6rem] w-[100rem] whitespace-nowrap'>
+        <div className={`${isFixed ? '' : 'pr-[4.27rem]'} flex mb-[1.6rem] w-full whitespace-nowrap`}>
           {list?.map((item) => (
             <Link
               data-src={true}

@@ -24,6 +24,8 @@ export default function SlideGreatTrips({ allTourHG }) {
     swiperRef.current?.slideNext()
   }
 
+  const listTour = [...allTourHG?.nodes].reverse()
+
   return (
     <>
       {isMobile && (
@@ -42,7 +44,7 @@ export default function SlideGreatTrips({ allTourHG }) {
                   indexTab === index ? 'text-primary-70' : 'text-gray-scale-80'
                 } text-[3.733rem] font-semibold leading-[1.42] tracking-[0.03733rem] py-[3.2rem]`}
               >
-                {index === 0 ? '4 DAYS TOUR' : '3 DAYS TOUR'}
+                {index === 0 ? '3 DAYS TOUR' : '4 DAYS TOUR'}
               </span>
             </div>
           ))}
@@ -75,7 +77,7 @@ export default function SlideGreatTrips({ allTourHG }) {
           }}
           className='lg:w-[87.1rem] !px-[3rem] max-md:h-[128rem] max-md:!px-[4.27rem] lg:h-[40rem] md:h-[55rem]'
         >
-          {allTourHG?.nodes?.map((e, index) => (
+          {listTour?.map((e, index) => (
             <SwiperSlide
               key={index}
               className='relative rounded-[1.5rem] max-md:rounded-[4.267rem] !flex items-center'
