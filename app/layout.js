@@ -3,6 +3,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'react-toastify/dist/ReactToastify.css'
 import 'aos/dist/aos.css'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import './globals.scss'
 

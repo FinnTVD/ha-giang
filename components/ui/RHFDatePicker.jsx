@@ -6,6 +6,8 @@ import dateImg from '@/public/images/date.svg'
 import 'react-datepicker/dist/react-datepicker.css'
 import Image from 'next/image'
 
+
+
 const RHFDatePicker = ({ selected, onChange,end,long,details=false, ...other }) => {
     const [formattedDate, setFormattedDate] = useState()
     useEffect(() => {
@@ -34,7 +36,7 @@ const RHFDatePicker = ({ selected, onChange,end,long,details=false, ...other }) 
                 placeholderText={formattedDate}
                 dateFormat="dd/MM/yyyy"
                 defaultValue={formattedDate}
-                customInput={<button>{formattedDate}</button>}
+                customInput={<p>{formattedDate}</p>}
                 {...other}
             />
             <Image
