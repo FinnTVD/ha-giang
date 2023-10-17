@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import required modules
-import { FreeMode } from 'swiper/modules'
+import { Autoplay, FreeMode } from 'swiper/modules'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 function SlideImage({ listImageSlide }) {
@@ -36,10 +36,15 @@ function SlideImage({ listImageSlide }) {
           },
         }}
         grabCursor={true}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        speed={1000}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
-        modules={[FreeMode]}
+        modules={[FreeMode, Autoplay]}
       >
         {listImageSlide?.map((image, index) => (
           <SwiperSlide
