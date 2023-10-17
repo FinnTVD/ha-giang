@@ -21,7 +21,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
       )}
       <div
         data-aos='fade-left'
-        className='max-md:px-[4.27rem] relative w-[35.4375rem] max-md:mt-[6rem] max-md:w-[86.4rem] max-md:h-[104.83733rem] lg:h-auto lg:mr-[5.69rem] max-md:mx-auto'
+        className='max-md:px-[4.27rem] relative w-[35.4375rem] max-md:mt-[6rem] max-md:w-[86.4rem] md:mt-[4rem] md:h-[57rem] md:w-[51rem] max-md:h-[104.83733rem] lg:h-auto lg:mr-[5.69rem] max-lg:mx-auto'
       >
         <Image
           className=' max-md:object-contain lg:object-fill z-[0]'
@@ -36,7 +36,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
         data-aos='fade-up'
         className='lg:pt-[9.17rem] lg:w-fit max-md:mt-[2.33rem] max-md:overflow-hidden max-lg:mt-[1.5rem]'
       >
-        <ul className='grid grid-cols-2 gap-[1.51rem] max-md:hidden max-lg:w-[80rem] max-md:w-full'>
+        <ul className='grid grid-cols-2 gap-[1.51rem] max-md:hidden max-lg:w-[80rem] max-md:w-full md:mx-auto lg:mx-0'>
           {section2?.listTitle?.map((e, index) => (
             <li
               key={index}

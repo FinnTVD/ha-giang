@@ -6,12 +6,12 @@ import dateImg from '@/public/images/date.svg'
 import 'react-datepicker/dist/react-datepicker.css'
 import Image from 'next/image'
 
-const RHFDatePicker = ({ selected, onChange,end,long, ...other }) => {
+const RHFDatePicker = ({ selected, onChange,end,long,details=false, ...other }) => {
     const [formattedDate, setFormattedDate] = useState()
     useEffect(() => {
         const currentDate = new Date()
         if (end && long) {
-            const updatedDate = new Date(currentDate.getTime() + (Number(long) + 1) * 24 * 60 * 60 * 1000)
+            const updatedDate = new Date(currentDate.getTime() + Number(long) * 24 * 60 * 60 * 1000)
             const day = String(updatedDate.getDate()).padStart(2, '0') // Ensure two digits for the day
             const month = String(updatedDate.getMonth() + 1).padStart(2, '0') // Months are 0-based, so add 1 and ensure two digits
             const year = updatedDate.getFullYear()
@@ -28,7 +28,7 @@ const RHFDatePicker = ({ selected, onChange,end,long, ...other }) => {
     return (
         <div id='date-booking' className='relative !cursor-pointer'>
             <DatePicker
-                className={`${selected ?'text-gray-scale-80':'text-gray-scale-20'} bg-[#F2F2F2] w-full rounded-[0.5rem] !h-fit max-md:!h-fit text-[0.875rem] leading-[1.42] tracking-[0.00875rem] px-[1rem] py-[0.75rem] outline-0 max-md:rounded-[2.13rem] max-md:px-[4.26rem] !cursor-pointer max-md:w-full max-md:text-[3.467rem] font-normal max-md:leading-[1.38] md:!text-[1.875rem] lg:!text-[0.875rem] max-lg:!h-fit`}
+                className={`${selected ?'text-gray-scale-80':'text-gray-scale-20'} ${details?'py-[1rem]':'py-[0.75rem]'} bg-[#F2F2F2] w-full rounded-[0.5rem] !h-fit max-md:!h-fit text-[0.875rem] leading-[1.42] tracking-[0.00875rem] px-[1rem] outline-0 max-md:rounded-[2.13rem] max-md:px-[4.26rem] !cursor-pointer max-md:w-full max-md:text-[3.467rem] font-normal max-md:leading-[1.38] md:!text-[1.875rem] lg:!text-[0.875rem] max-lg:!h-fit`}
                 selected={selected}
                 onChange={onChange}
                 placeholderText={formattedDate}

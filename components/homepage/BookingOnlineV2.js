@@ -110,7 +110,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
     if (!values.departureDate || !values.typeTour) return
     const originalDate = new Date(values.departureDate)
     const day = allTourHG?.nodes?.find((e) => e?.title === values.typeTour)?.tourHaGiangDetail?.price?.longTimeTourDay
-    const updatedDate = new Date(originalDate.getTime() + (day + 1) * 24 * 60 * 60 * 1000)
+    const updatedDate = new Date(originalDate.getTime() + day * 24 * 60 * 60 * 1000)
     setValue('endDate', updatedDate)
   }, [values.typeTour])
 
@@ -411,13 +411,14 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <RHFDatePicker
                   selected={values.departureDate}
                   style={isMobile ? inputMobileStyle : inputStyle}
+                  minDate={new Date()}
                   onChange={(date) => {
                     const originalDate = new Date(date)
                     const day = allTourHG?.nodes?.find(
                       (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
                     )?.tourHaGiangDetail?.price?.longTimeTourDay
 
-                    const updatedDate = new Date(originalDate.getTime() + (day + 1) * 24 * 60 * 60 * 1000)
+                    const updatedDate = new Date(originalDate.getTime() + day * 24 * 60 * 60 * 1000)
 
                     setValue('departureDate', date)
                     setValue('endDate', updatedDate)
@@ -485,7 +486,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   </Select.Content>
                 </Select.Root>
               </div>
-              <div className='max-md:max-md:col-span-2'>
+              <div className='max-md:max-md:col-span-2 pointer-events-none'>
                 <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
                   End date
                 </div>
@@ -499,7 +500,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
                     )?.tourHaGiangDetail?.price?.longTimeTourDay
 
-                    const updatedDate = new Date(originalDate.getTime() - (day + 1) * 24 * 60 * 60 * 1000)
+                    const updatedDate = new Date(originalDate.getTime() - day * 24 * 60 * 60 * 1000)
 
                     setValue('departureDate', updatedDate)
                     setValue('endDate', date)
