@@ -29,55 +29,62 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
     }
   }, [isOpen])
   return (
-    <div className='relative'>
-      <div className='absolute top-0 left-0 w-full'>
-        <Nav
+    <>
+      <header className='relative'>
+        <div className='absolute top-0 left-0 w-full'>
+          <Nav
+            setIsOpen={setIsOpen}
+            header={header}
+            allTourHG={allTourHG}
+          />
+        </div>
+        <NavFixed
           setIsOpen={setIsOpen}
           header={header}
           allTourHG={allTourHG}
         />
-      </div>
-      <NavFixed
-        setIsOpen={setIsOpen}
-        header={header}
-        allTourHG={allTourHG}
-      />
-      <FeaturesHeader
-        header={header}
-        allTourHG={allTourHG}
-      />
-      <Banner
-        bannerData={banner}
-        title={banner?.heading}
-      ></Banner>
-      <Welcome
-        overview={overview}
-        video={video}
-      ></Welcome>
-      <CheersTour
-        section2={section2}
-        allTourHG={allTourHG}
-        isOther={true}
-      />
-      <ValueTowards valueTowards={valueTowards}></ValueTowards>
-      <TextInfinite textRun={textRun}></TextInfinite>
-      <Video video={video}></Video>
-      <Family section6={section6} />
-      {isMobile && (
-        <MenuRes
-          setIsOpen={setIsOpen}
-          isOpen={isOpen}
+        <FeaturesHeader
           header={header}
           allTourHG={allTourHG}
         />
-      )}
-      {isMobile2 && (
-        <MenuDown
+        <Banner
+          bannerData={banner}
+          title={banner?.heading}
+        ></Banner>
+        {isMobile && (
+          <MenuRes
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+            header={header}
+            allTourHG={allTourHG}
+          />
+        )}
+
+        {isMobile2 && (
+          <MenuDown
+            allTourHG={allTourHG}
+            header={header}
+            setIsOpen={setIsOpen}
+          />
+        )}
+      </header>
+      <main>
+        <Welcome
+          overview={overview}
+          video={video}
+        ></Welcome>
+
+        <CheersTour
+          section2={section2}
           allTourHG={allTourHG}
-          header={header}
-          setIsOpen={setIsOpen}
+          isOther={true}
         />
-      )}
-    </div>
+
+        <ValueTowards valueTowards={valueTowards}></ValueTowards>
+        <TextInfinite textRun={textRun}></TextInfinite>
+        <Video video={video}></Video>
+        <Family section6={section6} />
+      </main>
+    </>
   )
 }

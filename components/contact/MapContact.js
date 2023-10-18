@@ -8,7 +8,6 @@ import FormContact from './FormContact'
 
 export default function MapContact({ data, footer }) {
   if (!data) return
-  const { section1 } = data
 
   return (
     <section className='w-[87.5rem] max-lg:w-[95rem] mx-auto h-fit mb-[6.25rem] max-md:w-[91.46667rem] max-md:gap-y-[8rem] max-md:mt-[13rem] font-poppins'>
@@ -16,8 +15,8 @@ export default function MapContact({ data, footer }) {
         <div className='w-[35.5625rem] max-md:w-full'>
           <SubTitle
             boxClass={'flex flex-col-reverse gap-y-[1rem] max-md:gap-y-[3.27rem] max-md:text-center'}
-            title={section1?.title}
-            subTitle={section1?.subtitle}
+            title={data?.section1?.title}
+            subTitle={data?.section1?.subtitle}
           />
           <div className='mt-[1.75rem] max-md:mt-[6rem]'>
             <div className='flex gap-x-[0.5rem] max-md:flex-col max-md:items-center max-md:gap-y-[2.13rem]'>
@@ -68,12 +67,12 @@ export default function MapContact({ data, footer }) {
         <FormContact />
       </div>
       <h2 className='w-[38.0625rem] max-lg:w-[66rem] max-md:hidden uppercase text-primary-70 font-heavitas font-normal text-[1.5rem] leading-[1.33] mt-[6.25rem] mb-[1.87rem] max-lg:text-[2.5rem]'>
-        JUST HO AHEAD TO OUR OFFICIAL BOOKING OFFICE AS BELOW IN HANOI:
+        {data?.section1?.heading}
       </h2>
       <div
         id='boxMap'
         className='!w-full flex justify-center max-md:!h-[90vh] max-md:!w-full h-full rounded-[0.75rem] max-md:rounded-[4.267rem] max-md:mt-[16rem] overflow-hidden max-lg:!w-full'
-        dangerouslySetInnerHTML={{ __html: `${section1?.map}` }}
+        dangerouslySetInnerHTML={{ __html: `${data?.section1?.map}` }}
       />
     </section>
   )

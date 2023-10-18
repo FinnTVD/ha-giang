@@ -38,6 +38,7 @@ const GET_DATA_CONTACT = `
       section1{
         subtitle
         title
+        heading
         map
       }
     }

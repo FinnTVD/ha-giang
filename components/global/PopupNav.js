@@ -3,7 +3,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card'
 
 export function PopupNav({ children, allTourHG }) {
   return (
-    <HoverCard openDelay={300}>
+    <HoverCard openDelay={100}>
       <HoverCardTrigger asChild>{children}</HoverCardTrigger>
       <HoverCardContent className='w-fit flex flex-col'>
         {allTourHG?.nodes?.map((e, index) => (

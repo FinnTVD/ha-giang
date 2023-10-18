@@ -1,27 +1,7 @@
-'use client'
 import Image from 'next/image'
-import { useRef, useState } from 'react'
 
 const data = new Array(4).fill(0)
 export default function ValueTowards({ valueTowards }) {
-  const swiper1 = useRef()
-  const swiper2 = useRef()
-  const swiper3 = useRef()
-  const [indexSlider, setIndexSlider] = useState(0)
-  const handleSlideChange = (swiper) => {
-    const index = swiper.realIndex
-    setIndexSlider(swiper.realIndex)
-    swiper1.current.slideToLoop(index)
-    swiper2.current.slideToLoop(index)
-    swiper3.current.slideToLoop(index)
-  }
-
-  const handleClick = (index) => {
-    if (index === indexSlider) return
-    swiper1.current.slideNext()
-    swiper2.current.slideNext()
-    swiper3.current.slideNext()
-  }
   let dupData = []
   if (valueTowards) {
     for (let i = 0; i < 2; i++) {
@@ -31,7 +11,7 @@ export default function ValueTowards({ valueTowards }) {
     }
   }
   return (
-    <section className='mt-[6.25rem] px-[6.25rem] max-lg:px-0 overflow-hidden'>
+    <section className='mt-[6.25rem] px-[6.25rem] max-lg:px-0 overflow-hidden max-md:mt-[16rem]'>
       <div className='flex flex-col items-center'>
         <h3
           data-aos='fade-up'
@@ -168,89 +148,6 @@ export default function ValueTowards({ valueTowards }) {
           </div>
         ))}
       </div>
-      {/* <div className='lg:hidden mt-[5.3rem]'>
-        <Swiper
-          loop
-          onBeforeInit={(swiper) => {
-            swiper1.current = swiper
-          }}
-          onSlideChange={handleSlideChange}
-          className='h-[57.3rem]'
-        >
-          {dupData?.map((item, index) => (
-            <SwiperSlide
-              className='px-[2.5rem]'
-              key={index}
-            >
-              <Image
-                src={item?.image?.sourceUrl}
-                alt='cheers tour'
-                width={343}
-                height={215}
-                className='w-full h-full object-cover rounded-[2rem]'
-              ></Image>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Swiper
-          loop
-          onBeforeInit={(swiper) => {
-            swiper2.current = swiper
-          }}
-          onSlideChange={handleSlideChange}
-          slidesPerView={2.2}
-          spaceBetween={20}
-          className='!pl-[2.5rem] mt-[5.3rem]'
-        >
-          {dupData?.map((item, index) => (
-            <SwiperSlide
-              onClick={() => handleClick(index)}
-              className='!flex flex-col items-center'
-              key={index}
-            >
-              <div
-                className='flex justify-center items-center w-[34rem] h-[34rem] rounded-[50%]'
-                style={{
-                  background:
-                    index === indexSlider &&
-                    'linear-gradient(180deg, rgba(246, 185, 0, 0.60) 7.88%, rgba(255, 255, 255, 0.00) 98.49%)',
-                  backdropFilter: 'blur(6.9rem)',
-                }}
-              >
-                <Image
-                  src={item?.icon?.sourceUrl}
-                  alt='cheer tour'
-                  width={128}
-                  height={128}
-                  className='w-auto h-[12.2rem] object-cover'
-                ></Image>
-              </div>
-              <h3 className='text-[#05320C] text-[3.7rem] font-bold leading-[1.23] font-poppins mt-[-4rem] text-center relative z-[2] max-lg:text-[3.3rem]'>
-                {item?.title}
-              </h3>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Swiper
-          loop
-          onBeforeInit={(swiper) => {
-            swiper3.current = swiper
-          }}
-          onSlideChange={handleSlideChange}
-          className='mt-[5.3rem]'
-        >
-          {dupData.map((item, index) => (
-            <SwiperSlide
-              className='px-[2.5rem]'
-              key={index}
-            >
-              <p className='text-[#727272] text-[3.7rem] leading-[1.57] tracking-[0.035] font-poppins text-center max-lg:text-[1.8rem] max-md:text-[3.7rem]'>
-                {item?.content}
-              </p>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div> */}
     </section>
   )
 }

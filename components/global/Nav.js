@@ -3,8 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { PopupNav } from './PopupNav'
 
-// import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuTrigger } from '../ui/navigation-menu'
-
 const listNav = [
   {
     id: 1,

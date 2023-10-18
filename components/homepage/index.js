@@ -1,4 +1,3 @@
-// import { Suspense } from 'react'
 import Image from 'next/image'
 import CheersTour from './CheersTour'
 import TheGallery from './TheGallery'
@@ -21,8 +20,6 @@ export default function IndexHomePage({ data, allTourHG }) {
       />
 
       <main className='relative w-full overflow-x-hidden'>
-        {/* <Suspense fallback={<div>Loading ...</div>}>
-                </Suspense> */}
         <Banner section1={section1} />
         <Image
           className='!h-[220vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
