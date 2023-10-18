@@ -37,7 +37,7 @@ export default function Welcome({ overview, video }) {
         playsinline
         width='100%'
         height='100%'
-        className='item-video-v2  w-full h-[56rem] mt-[5.3rem] md:hidden'
+        className='item-video-v2 w-full !h-[56rem] mt-[5.3rem] md:hidden'
       />
       <div
         data-aos='fade-up'
