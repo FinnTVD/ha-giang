@@ -1,8 +1,5 @@
 'use client'
 
-import TwitterShare from '../blogDetail/TwitterShare'
-import FaceBookShare from '../blogDetail/FaceBookShare'
-import LinkedInShare from '../blogDetail/LinkedInShare'
 import moment from 'moment'
 import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
@@ -16,6 +13,7 @@ import TableOfContent from './TableOfContent'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import TableContentRes from './TableContentRes'
+import ContentBlogDetail from './ContentBlogDetail'
 
 gsap.registerPlugin(ScrollTrigger)
 function BlogDetail({ data, dataHome, allTourHG }) {
@@ -38,34 +36,30 @@ function BlogDetail({ data, dataHome, allTourHG }) {
     let ctx = gsap.context(() => {
       setTimeout(() => {
         gsap.matchMedia().add('(min-width: 1024px)', () => {
-          gsap.to(parentRef.current, {
-            scrollTrigger: {
-              trigger: '#blog-content-detail',
-              start: 'top top',
-              end: 'bottom center',
-              onToggle: (self) => {
-                if (self.isActive) {
-                  setIsActive(true)
-                } else {
-                  setIsActive(false)
-                }
-              },
+          ScrollTrigger.create({
+            trigger: '#blog-content-detail',
+            start: 'top top',
+            end: 'bottom center',
+            onToggle: (self) => {
+              if (self.isActive) {
+                setIsActive(true)
+              } else {
+                setIsActive(false)
+              }
             },
           })
         })
         gsap.matchMedia().add('(max-width: 1023px)', () => {
-          gsap.to('#icon-table-content', {
-            scrollTrigger: {
-              trigger: '#blog-content-detail',
-              start: 'top top',
-              end: 'bottom center',
-              onToggle: (self) => {
-                if (self.isActive) {
-                  setIsTable(true)
-                } else {
-                  setIsTable(false)
-                }
-              },
+          ScrollTrigger.create({
+            trigger: '#blog-content-detail',
+            start: 'top top',
+            end: 'bottom center',
+            onToggle: (self) => {
+              if (self.isActive) {
+                setIsTable(true)
+              } else {
+                setIsTable(false)
+              }
             },
           })
         })
@@ -156,36 +150,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
 
         <TableContentRes isTable={isTable} />
         <div className='lg:mx-[8.12rem] max-lg:px-[2.5rem] flex gap-x-[1.5rem] max-lg:flex-col-reverse'>
-          <div
-            id='blog-content-detail'
-            className='max-md:mx-[4.27rem] flex-1'
-          >
-            <div
-              id='content-detail-blog'
-              className='content-detail font-poppins'
-              dangerouslySetInnerHTML={{ __html: `${data?.content}` }}
-            ></div>
-            <div className='w-full md:mt-[1.31rem] mt-[5.067rem] md:mb-[1.62rem] mb-[3.73rem] h-[1px] bg-[#44444424]'></div>
-            <div className='flex items-center justify-end'>
-              <span className='text-[#171717]  lg:text-[0.875rem] text-[3.73rem] font-bold md:leading-[1.25] leading-[1.42] uppercase md:mr-[0.81rem] mr-[3.47rem] md:text-[1.8rem]'>
-                share on it:
-              </span>
-              <div className='flex items-center'>
-                <TwitterShare
-                  url={data?.link}
-                  title={data?.title}
-                />
-                <FaceBookShare
-                  url={data?.link}
-                  title={data?.title}
-                />
-                <LinkedInShare
-                  url={data?.link}
-                  title={data?.title}
-                />
-              </div>
-            </div>
-          </div>
+          <ContentBlogDetail data={data} />
           <TableOfContent isActive={isActive} />
         </div>
       </div>

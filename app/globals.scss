@@ -639,3 +639,7 @@ nav .nav-tour:hover > svg .down {
         height: 32rem;
     }
 }
+
+.item-video-v2 video {
+    object-fit: cover !important;
+}

@@ -5,10 +5,10 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper/modules'
-import ItemVideo from './ItemVideo'
+import ItemVideoV2 from './ItemVideoV2'
 
 let arrSlide = []
-export default function SlideBanner({ section1, isMobile }) {
+export default function SlideBanner({ section1, isMobile, isActive }) {
   const swiperRef = useRef(null)
   const [indexSlider, setIndexSlider] = useState(0)
   const handleSlideChange = (swiper) => {
@@ -49,10 +49,11 @@ export default function SlideBanner({ section1, isMobile }) {
               key={index}
               className='relative'
             >
-              <ItemVideo
+              <ItemVideoV2
                 e={e}
                 index={index}
                 indexSlider={indexSlider}
+                isActive={isActive}
               />
             </SwiperSlide>
           ))}

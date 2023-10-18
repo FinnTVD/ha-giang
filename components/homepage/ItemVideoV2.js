@@ -1,20 +1,21 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import IconMuted from '../icons/IconMuted'
 import IconAudio from '../icons/IconAudio'
-import useStore from '@/app/(store)/store'
+import ReactPlayer from 'react-player'
 
-export default function ItemVideo({ e, index, indexSlider }) {
-  const indexVideo = useStore((state) => state.indexVideo)
+export default function ItemVideoV2({ e, index, indexSlider, isActive }) {
   const [isMute, setIsMute] = useState(true)
+  const [isPlay, setIsPlay] = useState()
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
-    const video = document.getElementById(`videoBanner${indexVideo}`)
-    if (video && Number(index) !== Number(indexVideo)) {
-      video.pause()
+    if (indexSlider !== index || !isActive) {
+      setIsPlay(false)
     }
-  }, [indexVideo])
+    if (isActive && indexSlider === index) {
+      setIsPlay(true)
+    }
+  }, [indexSlider, isActive])
 
   useEffect(() => {
     setIsMute(true)
@@ -22,23 +23,17 @@ export default function ItemVideo({ e, index, indexSlider }) {
 
   return (
     <>
-      <video
-        // autoPlay
-        // controls
-        preload='none'
-        poster='/images/bannervn.jpg'
-        // loop
-        className='w-full h-full lg:rounded-[1rem] object-cover min-w-full min-h-full'
-        id={'videoBanner' + index}
-        // playsInline
-        // muted={isMute}
-      >
-        <source
-          type='video/mp4'
-          src={e?.linkVideo?.url || '/images/video1.mp4'}
-        ></source>
-        Your browser does not support HTML5 video.
-      </video>
+      <ReactPlayer
+        url={e?.linkVideo?.url || '/images/video1.mp4'}
+        loop
+        muted={isMute}
+        playing={isPlay}
+        playsinline
+        width='100%'
+        height='100%'
+        className='item-video-v2 w-full h-full lg:rounded-[1rem] min-w-full min-h-full'
+      />
+
       <div
         onClick={() => setIsMute(!isMute)}
         className='absolute bottom-[3.75rem] right-[6.25rem] z-[99] cursor-pointer max-md:right-[4.27rem] max-md:bottom-[5.23rem] max-lg:right-[6.25rem] max-lg:bottom-[6.75rem]'

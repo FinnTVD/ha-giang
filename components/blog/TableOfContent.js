@@ -26,10 +26,12 @@ export default function TableOfContent({ isActive }) {
     setTableOfContents(arr)
   }, [])
   return (
-    <div className='max-md:mx-[4.27rem] w-[20.75rem] h-fit lg:mt-[1.5rem] md:mt-[2.5rem] max-lg:w-full max-md:w-fit max-md:mt-[4.27rem]'>
+    <div
+      data-aos='fade-left'
+      data-aos-delay='100'
+      className='max-md:mx-[4.27rem] w-[20.75rem] h-fit lg:mt-[1.5rem] md:mt-[2.5rem] max-lg:w-full max-md:w-fit max-md:mt-[4.27rem]'
+    >
       <div
-        data-aos='fade-left'
-        data-aos-delay='100'
         style={{
           boxShadow: '6px 6px 32px 0px rgba(0, 0, 0, 0.04), -16px -16px 32px 0px rgba(0, 0, 0, 0.04)',
         }}

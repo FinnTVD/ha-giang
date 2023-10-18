@@ -4,16 +4,29 @@ import Image from 'next/image'
 import SlideBanner from './SlideBanner'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 gsap.registerPlugin(ScrollTrigger)
 export default function Banner({ section1 }) {
   const parentRef = useRef(null)
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const [isActive, setIsActive] = useState(false)
   useEffect(() => {
     let ctx = gsap.context(() => {
       setTimeout(() => {
+        ScrollTrigger.create({
+          trigger: parentRef.current,
+          start: 'top center',
+          end: 'bottom center',
+          onToggle: (self) => {
+            if (self.isActive) {
+              setIsActive(true)
+            } else {
+              setIsActive(false)
+            }
+          },
+        })
         gsap.matchMedia().add('(min-width: 1024px)', () => {
           gsap.to('#subtitle', {
             color: '#fff',
@@ -156,6 +169,7 @@ export default function Banner({ section1 }) {
             <SlideBanner
               section1={section1}
               isMobile={isMobile}
+              isActive={isActive}
             />
           </div>
         </div>
