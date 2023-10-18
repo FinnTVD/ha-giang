@@ -10,7 +10,14 @@ export async function generateMetadata() {
     title: aboutUs?.meta?.title,
     description: aboutUs?.meta?.description,
     applicationName: process.env.SITE_NAME,
-    keywords: ['Cheers Tour', 'Ha Giang Tour', 'Ha Giang Loop', 'Cheers'],
+    keywords: [
+      'Cheers Tour',
+      'Ha Giang Tour',
+      'Ha Giang Loop',
+      'Cheers',
+      'Cheers Hostel Official Site',
+      'Cheers Hostel',
+    ],
     openGraph: {
       title: aboutUs?.meta?.title,
       description: aboutUs?.meta?.description,

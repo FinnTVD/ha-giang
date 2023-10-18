@@ -11,7 +11,14 @@ export async function generateMetadata() {
     title: contact?.meta?.metaTitle,
     description: contact?.meta?.metaDescription,
     applicationName: process.env.SITE_NAME,
-    keywords: ['Cheers Tour', 'Ha Giang Tour', 'Ha Giang Loop', 'Cheers'],
+    keywords: [
+      'Cheers Tour',
+      'Ha Giang Tour',
+      'Ha Giang Loop',
+      'Cheers',
+      'Cheers Hostel Official Site',
+      'Cheers Hostel',
+    ],
     openGraph: {
       title: contact?.meta?.metaTitle,
       description: contact?.meta?.metaDescription,

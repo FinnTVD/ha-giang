@@ -58,6 +58,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <ApolloWrapper>
+        <head>
+          <meta
+            name='DC.title'
+            content='Vietnam Cheers Hostel Official Site'
+          />
+          <meta
+            name='geo.region'
+            content='VN-HN'
+          />
+          <meta
+            name='geo.placename'
+            content='H&agrave; Nội'
+          />
+          <meta
+            name='geo.position'
+            content='21.028530680620868;105.84580487600834'
+          />
+          <meta
+            name='ICBM'
+            content='21.028530680620868, 105.84580487600834'
+          />
+        </head>
         <body
           suppressHydrationWarning={true}
           className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}

@@ -16,7 +16,14 @@ export async function generateMetadata({ params: { slug } }) {
     title: dataTour?.title,
     description: dataTour?.excerpt,
     applicationName: process.env.SITE_NAME,
-    keywords: ['Cheers Tour', 'Ha Giang Tour', 'Ha Giang Loop', 'Cheers'],
+    keywords: [
+      'Cheers Tour',
+      'Ha Giang Tour',
+      'Ha Giang Loop',
+      'Cheers',
+      'Cheers Hostel Official Site',
+      'Cheers Hostel',
+    ],
     openGraph: {
       title: dataTour?.title,
       description: dataTour?.excerpt,
