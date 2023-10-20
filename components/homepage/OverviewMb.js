@@ -92,7 +92,7 @@ const OverviewMb = ({ data }) => {
       </div>
       <div className={`${show ? '' : 'h-[40rem] overflow-hidden'} pr-[4.27rem] relative`}>
         <div
-          style={{ backgroundImage: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)' }}
+          style={{ backgroundImage: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)' }}
           className={`${show ? 'hidden' : ''} absolute bottom-[-1rem] left-0 w-full h-[6.27rem] z-[5]`}
         ></div>
         <div>
