@@ -8,6 +8,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cheers.okhub.tech',
       },
+      {
+        protocol: 'https',
+        hostname: 'ha-giang-tour.s3-accelerate.amazonaws.com',
+      },
     ],
   },
 }
