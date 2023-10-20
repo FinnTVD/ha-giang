@@ -90,7 +90,11 @@ const OverviewMb = ({ data }) => {
           ))}
         </div>
       </div>
-      <div className={`${show ? '' : 'h-[40rem] overflow-hidden'} pr-[4.27rem]`}>
+      <div className={`${show ? '' : 'h-[40rem] overflow-hidden'} pr-[4.27rem] relative`}>
+        <div
+          style={{ backgroundImage: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)' }}
+          className={`${show ? 'hidden' : ''} absolute bottom-[-1rem] left-0 w-full h-[6.27rem] z-[5]`}
+        ></div>
         <div>
           <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
             <Image
@@ -177,7 +181,7 @@ const OverviewMb = ({ data }) => {
       </div>
       <button
         onClick={() => setShow((pre) => !pre)}
-        className='uppercase flex mx-auto items-center gap-[1.3rem] text-[#B34B1E] font-poppins font-medium text-[3.73rem]'
+        className='uppercase flex mx-auto relative z-10 items-center gap-[1.3rem] text-[#B34B1E] font-poppins font-medium text-[3.73rem]'
       >
         {show ? 'See less' : 'See more'}
         <Image

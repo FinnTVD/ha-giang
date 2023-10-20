@@ -2,8 +2,10 @@
 
 import twitter from '../../public/images/twitter.svg'
 import Image from 'next/image'
+
 function TwitterShare({ url, title }) {
   const handleClick = () => {
+    if (typeof window === 'undefined') return
     const twitterUrl = 'https://twitter.com/intent/tweet?'
     const params = new URLSearchParams({
       url: url,

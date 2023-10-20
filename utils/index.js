@@ -25,5 +25,6 @@ const notifyError = () =>
   })
 
 const exchangeRate = 24500
+const sizeBlog = 12
 
-export { exchangeRate, notify, notifyError }
+export { exchangeRate, notify, notifyError, sizeBlog }

@@ -1,3 +1,4 @@
+import { sizeBlog } from '@/utils'
 import { gql } from '@apollo/client'
 
 const CATEGORIES = `
@@ -11,12 +12,42 @@ query {
 }`
 
 const GET_ALL_BLOG = gql`
-    query GetAllPost($offset: Int!, $size: Int!, $categorySlug: [String!]) {
-        posts(
+  query GetAllPost($offset: Int!, $size: Int!, $categorySlug: [String!]) {
+    posts(
+      where: {
+        offsetPagination: { offset: $offset, size: $size }
+        orderby: { field: DATE, order: DESC }
+        taxQuery: { taxArray: [{ taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG }] }
+      }
+    ) {
+      nodes {
+        id
+        excerpt
+        title
+        slug
+        date
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+      }
+      pageInfo {
+        offsetPagination {
+          total
+        }
+      }
+    }
+  }
+`
+const GET_ALL_BLOG_V2 = (offset = 0, listSlug = []) => {
+  return `
+        {posts(
             where: {
-                offsetPagination: { offset: $offset, size: $size }
+                offsetPagination: { offset: ${offset}, size: ${sizeBlog} }
                 orderby: { field: DATE, order: DESC }
-                taxQuery: { taxArray: [{ taxonomy: CATEGORY, operator: IN, terms: $categorySlug, field: SLUG }] }
+                taxQuery: { taxArray: [{ taxonomy: CATEGORY, operator: IN, terms: ${listSlug}, field: SLUG }] }
             }
         ) {
             nodes {
@@ -40,6 +71,7 @@ const GET_ALL_BLOG = gql`
         }
     }
 `
+}
 
 const GET_BLOG_DETAIL = `
 query GetBlogDetail($slug: ID!) {
@@ -106,4 +138,4 @@ const GET_OTHER_POST = `
 
 `
 
-export { CATEGORIES, GET_ALL_BLOG, GET_BLOG_DETAIL, GET_META_BLOG, GET_OTHER_POST }
+export { CATEGORIES, GET_ALL_BLOG, GET_BLOG_DETAIL, GET_META_BLOG, GET_OTHER_POST, GET_ALL_BLOG_V2 }

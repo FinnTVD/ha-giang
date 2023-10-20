@@ -26,48 +26,52 @@ export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
   }, [isOpen])
 
   return (
-    <div className='relative'>
-      <div className='absolute top-0 left-0 w-full'>
-        <Nav
+    <>
+      <header className='relative'>
+        <div className='absolute top-0 left-0 w-full'>
+          <Nav
+            setIsOpen={setIsOpen}
+            header={header}
+            allTourHG={allTourHG}
+          />
+        </div>
+        <NavFixed
           setIsOpen={setIsOpen}
           header={header}
           allTourHG={allTourHG}
         />
-      </div>
-      <NavFixed
-        setIsOpen={setIsOpen}
-        header={header}
-        allTourHG={allTourHG}
-      />
-      <FeaturesHeader
-        header={header}
-        allTourHG={allTourHG}
-      />
-      <Banner
-        bannerData={banner}
-        title={'FAQ'}
-      ></Banner>
-      <TheTrip
-        section8={section8}
-        allTourHG={data?.data?.allTourHG}
-        isOther={true}
-      />
-      <Family section6={section6} />
-      {isMobile && (
-        <MenuRes
-          setIsOpen={setIsOpen}
-          isOpen={isOpen}
+        <FeaturesHeader
           header={header}
           allTourHG={allTourHG}
         />
-      )}
-      {isMobile2 && (
-        <MenuDown
-          allTourHG={allTourHG}
-          header={header}
-          setIsOpen={setIsOpen}
+        <Banner
+          bannerData={banner}
+          title={'FAQ'}
         />
-      )}
-    </div>
+        {isMobile && (
+          <MenuRes
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+            header={header}
+            allTourHG={allTourHG}
+          />
+        )}
+        {isMobile2 && (
+          <MenuDown
+            allTourHG={allTourHG}
+            header={header}
+            setIsOpen={setIsOpen}
+          />
+        )}
+      </header>
+      <main>
+        <TheTrip
+          section8={section8}
+          allTourHG={data?.data?.allTourHG}
+          isOther={true}
+        />
+        <Family section6={section6} />
+      </main>
+    </>
   )
 }

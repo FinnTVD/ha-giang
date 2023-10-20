@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,7 +12,6 @@ export default function DestinationListItems({ dataDestination }) {
           data-aos-anchor-placement='top-bottom'
           data-aos-delay={`${index * 150}`}
         >
-          {/* <div className="flex flex-col items-center w-full"> */}
           <Image
             width={332}
             height={414}
@@ -147,7 +145,6 @@ export default function DestinationListItems({ dataDestination }) {
               </span>
             </Link>
           </div>
-          {/* </div> */}
         </div>
       ))}
     </div>

@@ -1,7 +1,6 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import BlogItem from './BlogItem'
-import icon from '../../public/images/route-square.svg'
 import bgBlog from '../../public/images/bg-blog.jpg'
 import Image from 'next/image'
 import { useQuery } from '@apollo/client'
@@ -69,28 +68,45 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
   }, [isOpen])
 
   return (
-    <div className='relative font-poppins'>
-      <div className='absolute top-0 left-0 w-full'>
-        <Nav
+    <>
+      <header className='relative font-poppins'>
+        <div className='absolute top-0 left-0 w-full'>
+          <Nav
+            setIsOpen={setIsOpen}
+            header={header}
+            allTourHG={allTourHG}
+          />
+        </div>
+        <NavFixed
           setIsOpen={setIsOpen}
           header={header}
           allTourHG={allTourHG}
         />
-      </div>
-      <NavFixed
-        setIsOpen={setIsOpen}
-        header={header}
-        allTourHG={allTourHG}
-      />
-      <FeaturesHeader
-        header={header}
-        allTourHG={allTourHG}
-      />
-      <Banner
-        bannerData={banner}
-        title={'Our blog'}
-      ></Banner>
-      <div className='relative'>
+        <FeaturesHeader
+          header={header}
+          allTourHG={allTourHG}
+        />
+        <Banner
+          bannerData={banner}
+          title={'Our blog'}
+        />
+        {isMobile && (
+          <MenuRes
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+            header={header}
+            allTourHG={allTourHG}
+          />
+        )}
+        {isMobile2 && (
+          <MenuDown
+            allTourHG={allTourHG}
+            header={header}
+            setIsOpen={setIsOpen}
+          />
+        )}
+      </header>
+      <main className='relative'>
         <div className='relative z-10'>
           <div
             className='mx-[8.12rem] max-md:mx-[4.27rem] flex filter-blog gap-[2.5rem] max-lg:mx-[3.2rem]'
@@ -176,29 +192,15 @@ function Blog({ arrayCateInit, arrayCateSlug, dataHome, dataAboutUs, allTourHG }
         </div>
         <div className='absolute inset-0 max-md:hidden'>
           <Image
-            src={bgBlog}
+            src={bgBlog || '/images/abtextbanner.png'}
             width={1000}
             height={1000}
             className='w-full h-full'
+            alt='bg-blog'
           />
         </div>
-      </div>
-      {isMobile && (
-        <MenuRes
-          setIsOpen={setIsOpen}
-          isOpen={isOpen}
-          header={header}
-          allTourHG={allTourHG}
-        />
-      )}
-      {isMobile2 && (
-        <MenuDown
-          allTourHG={allTourHG}
-          header={header}
-          setIsOpen={setIsOpen}
-        />
-      )}
-    </div>
+      </main>
+    </>
   )
 }
 

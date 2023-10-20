@@ -1,8 +1,10 @@
 import Blog from '@/components/blog/Blog'
-import { CATEGORIES, GET_META_BLOG } from '@/graphql/blog/queries'
+import { CATEGORIES, GET_ALL_BLOG_V2, GET_META_BLOG } from '@/graphql/blog/queries'
 import getData from '@/utils/getData'
 import React from 'react'
 import { GET_DATA_HOME, GET_DATA_ABOUT_US } from '@/graphql/home/queries'
+import IndexBlog from '@/components/blog'
+import { sizeBlog } from '@/utils'
 
 export async function generateMetadata() {
   const data = await getData(GET_META_BLOG)
@@ -48,27 +50,35 @@ export async function generateMetadata() {
     },
   }
 }
-async function page() {
-  const categories = await getData(CATEGORIES)
 
-  const arrayCateInit = []
-  const arrayCateSlug = []
-  categories?.data?.categories?.nodes?.map((item) => {
-    arrayCateInit.push(item)
-  })
-  categories?.data?.categories?.nodes?.map((item) => {
-    arrayCateSlug.push(item?.slug)
-  })
+async function page({ params, searchParams }) {
+  const categories = await getData(CATEGORIES)
   const data = await getData(GET_DATA_HOME)
-  const dataAboutUs = await getData(GET_DATA_ABOUT_US)
+
+  const offset = searchParams?.page ? (Number(searchParams?.page) - 1) * sizeBlog : 0
+  const listSlugCategories = []
+  if (searchParams?.category) {
+    listSlugCategories.push(searchParams?.category)
+  } else {
+    categories?.data?.categories?.nodes?.map((e) => listSlugCategories.push(e?.slug))
+  }
+
+  const blogs = await getData(GET_ALL_BLOG_V2(offset, JSON.stringify(listSlugCategories)))
+  // const dataAboutUs = await getData(GET_DATA_ABOUT_US)
 
   return (
-    <Blog
-      arrayCateInit={arrayCateInit}
-      arrayCateSlug={arrayCateSlug}
+    // <Blog
+    //   arrayCateInit={arrayCateInit}
+    //   arrayCateSlug={arrayCateSlug}
+    //   dataHome={data?.data?.page?.homeHG}
+    //   allTourHG={data?.data?.allTourHG}
+    //   dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
+    // />
+    <IndexBlog
       dataHome={data?.data?.page?.homeHG}
       allTourHG={data?.data?.allTourHG}
-      dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
+      categories={categories?.data?.categories?.nodes}
+      blogs={blogs?.data?.posts}
     />
   )
 }

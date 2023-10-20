@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 function LinkedInShare({ url, title }) {
   const handleClick = () => {
+    if (typeof window === 'undefined') return
     const linkedInUrl = 'https://www.linkedin.com/sharing/share-offsite/?'
     const params = new URLSearchParams({
       url: url,

@@ -21,7 +21,13 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
     }
   }, [isOpen])
   return (
-    <header className='relative w-full h-[85vh] max-md:h-[70vh]'>
+    <header
+      style={{
+        background:
+          ' linear-gradient(245deg, rgba(204,237,199,0.8155637254901961) 0%, rgba(191,224,186,1) 0%, rgba(75,114,69,1) 77%, rgba(58,98,51,1) 100%)',
+      }}
+      className='relative w-full h-[85vh] max-md:h-[70vh]'
+    >
       <Nav
         header={data?.data?.page?.homeHG?.header}
         setIsOpen={setIsOpen}
@@ -33,14 +39,14 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
         allTourHG={allTourHG}
       />
       <Image
-        className='z-0 object-cover'
+        className='z-0 object-cover bg-header'
         src={data?.data?.tourHG?.featuredImage?.node?.sourceUrl || '/images/header-detail.jpg'}
         alt={data?.data?.tourHG?.featuredImage?.node?.altText || data?.data?.tourHG?.featuredImage?.node?.title}
         fill
         sizes='100rem'
         priority
       />
-      <div className='absolute top-0 left-0 z-0 w-full h-full bg-gradient-header-detail'></div>
+      <div className='absolute top-0 left-0 z-0 w-full h-full bg-gradient-header-detail bg-overlay'></div>
       <ContentHeaderDetail
         data={data?.data?.tourHG?.tourHaGiangDetail?.header}
         slug={slug}

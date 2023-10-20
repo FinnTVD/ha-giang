@@ -2,8 +2,10 @@
 
 import facebook from '../../public/images/facebookBlog.svg'
 import Image from 'next/image'
+
 function FaceBookShare({ url, title }) {
   const handleClick = () => {
+    if (typeof window === 'undefined') return
     const facebookUrl = 'https://www.facebook.com/sharer/sharer.php?'
     const params = new URLSearchParams({
       url: url,

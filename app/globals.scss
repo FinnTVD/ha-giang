@@ -643,3 +643,31 @@ nav .nav-tour:hover > svg .down {
 .item-video-v2 video {
     object-fit: cover !important;
 }
+
+header .bg-header {
+    animation: blurContentNavBranch 1s linear forwards;
+}
+header .bg-overlay {
+    animation: blurContentNavBranch2 2s linear forwards;
+}
+
+@keyframes blurContentNavBranch {
+    from {
+        filter: blur(10px);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+@keyframes blurContentNavBranch2 {
+    from {
+        filter: blur(20px);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}

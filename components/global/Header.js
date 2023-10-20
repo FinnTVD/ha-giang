@@ -25,7 +25,12 @@ export default function Header({ header, allTourHG, isHome }) {
 
   return (
     <header className='relative w-full h-screen max-md:h-[90vh] overflow-hidden'>
-      <div className='max-md:h-[70vh] max-lg:h-[80vh] h-screen relative'>
+      <div
+        style={{
+          background: 'linear-gradient(13deg, rgba(39,36,55,0.8155637254901961) 0%, rgba(48,46,58,1) 100',
+        }}
+        className='max-md:h-[70vh] max-lg:h-[80vh] h-screen relative'
+      >
         <Nav
           setIsOpen={setIsOpen}
           header={header}
