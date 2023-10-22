@@ -12,6 +12,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'ha-giang-tour.s3-accelerate.amazonaws.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'ha-giang-tour.s3.ap-southeast-1.amazonaws.com',
+      },
     ],
   },
 }
