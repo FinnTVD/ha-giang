@@ -5,7 +5,7 @@ const arr = new Array(12).fill(0)
 
 export default function ListBlog({ children, blogs }) {
   return (
-    <section className='relative z-10 mt-[10rem]'>
+    <section className='relative z-10 max-lg:mt-[10rem]'>
       {children}
       {/* List Blog */}
       <div className='grid lg:grid-cols-4 md:px-[8.06rem] px-[4.27rem] grid-cols-2 lg:gap-x-[2.5rem] md:gap-y-[3rem] gap-x-[4.27rem] gap-y-[6.4rem] md:mt-[4rem] mt-[7.73rem]'>

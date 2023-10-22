@@ -27,7 +27,8 @@ export default function Header({ header, allTourHG, isHome }) {
     <header className='relative w-full h-screen max-md:h-[90vh] overflow-hidden'>
       <div
         style={{
-          background: 'linear-gradient(13deg, rgba(39,36,55,0.8155637254901961) 0%, rgba(48,46,58,1) 100',
+          background:
+            'linear-gradient(245deg, rgba(204, 237, 199, 0.816) 0%, rgb(112 132 109) 0%, rgb(58 68 56) 77%, rgb(62 74 60) 100%)',
         }}
         className='max-md:h-[70vh] max-lg:h-[80vh] h-screen relative'
       >
@@ -42,7 +43,7 @@ export default function Header({ header, allTourHG, isHome }) {
           allTourHG={allTourHG}
         />
         <Image
-          className='z-0 object-cover max-md:hidden'
+          className='z-0 object-cover max-md:hidden bg-header'
           src={header?.background?.sourceUrl || '/images/bg-header.jpg'}
           alt={'background cheer tour'}
           fill
@@ -50,7 +51,7 @@ export default function Header({ header, allTourHG, isHome }) {
           priority
         />
         <Image
-          className='z-0 object-cover md:hidden'
+          className='z-0 object-cover md:hidden bg-header'
           src={header?.backgroundMobile?.sourceUrl || '/images/bg-header.jpg'}
           alt={'background cheer tour'}
           fill
@@ -59,7 +60,7 @@ export default function Header({ header, allTourHG, isHome }) {
         />
         <h1 className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[-1] text-white'>Ha Giang Tour</h1>
         <Image
-          className='absolute bottom-[-0.5rem] left-0 z-0 object-cover w-full lg:hidden'
+          className='absolute bottom-[-0.5rem] left-0 z-0 object-cover w-full lg:hidden bg-overlay'
           src='/images/linear-res.png'
           alt='linear res'
           width={600}
