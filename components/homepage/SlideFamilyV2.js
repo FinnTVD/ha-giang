@@ -26,7 +26,7 @@ export default function SlideFamilyV2({ section6, setTourLeader }) {
   return (
     <div
       id='box-slide-family'
-      className='relative w-fit h-fit max-lg:hidden'
+      className='relative w-fit h-fit max-lg:hidden rounded-[1rem] overflow-hidden'
     >
       <Swiper
         loop={true}
