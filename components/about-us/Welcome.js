@@ -21,27 +21,29 @@ export default function Welcome({ overview, video }) {
         </h2>
       </div>
 
-      <ReactPlayer
-        url={video?.video?.url_video || 'https://youtu.be/Nj6IqVLoaUg?si=0FhW12hycc5Tyzxx'}
-        controls
-        playsinline
-        width='100%'
-        height='100%'
-        className='item-video-v2 w-full !h-[56rem] mt-[5.3rem] md:hidden'
-      />
-      <div className='max-lg:hidden'>
-        <div
-          data-aos='fade-up'
-          data-aos-delay='200'
-          className={classes['welcome-description']}
-          dangerouslySetInnerHTML={{ __html: overview?.contentTop }}
-        ></div>
-        <div
-          data-aos='fade-up'
-          data-aos-delay='210'
-          className={classes['welcome-description']}
-          dangerouslySetInnerHTML={{ __html: overview?.contentBottom }}
-        ></div>
+      <div className='max-md:flex max-md:flex-col-reverse'>
+        <ReactPlayer
+          url={video?.video?.url_video || 'https://youtu.be/Nj6IqVLoaUg?si=0FhW12hycc5Tyzxx'}
+          controls
+          playsinline
+          width='100%'
+          height='100%'
+          className='item-video-v2 w-full !h-[56rem] mt-[5.3rem] md:hidden'
+        />
+        <div className=''>
+          <div
+            data-aos='fade-up'
+            data-aos-delay='200'
+            className={classes['welcome-description']}
+            dangerouslySetInnerHTML={{ __html: overview?.contentTop }}
+          ></div>
+          <div
+            data-aos='fade-up'
+            data-aos-delay='210'
+            className={classes['welcome-description']}
+            dangerouslySetInnerHTML={{ __html: overview?.contentBottom }}
+          ></div>
+        </div>
       </div>
     </section>
   )
