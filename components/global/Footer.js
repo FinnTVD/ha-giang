@@ -39,7 +39,7 @@ export default async function Footer() {
             className='block w-fit h-fit'
           >
             <Image
-              className='md:w-[12.75rem] w-[34.67493rem] md:h-[12.05rem] h-[30.4rem] md:mt-[9.13rem] mt-[6rem] object-cover'
+              className='md:w-[14.75rem] w-[34.67493rem] md:h-[14.05rem] h-[30.4rem] md:mt-[9.13rem] mt-[6rem] object-contain'
               alt={footer?.logo?.altText || footer?.logo?.title}
               src={footer?.logo?.sourceUrl || '/images/logo-footer.png'}
               width={220}
