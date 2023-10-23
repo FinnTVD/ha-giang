@@ -11,7 +11,10 @@ export default function ValueTowards({ valueTowards }) {
     }
   }
   return (
-    <section className='mt-[6.25rem] px-[6.25rem] max-lg:px-0 overflow-hidden max-md:mt-[16rem]'>
+    <section
+      id='value-toward'
+      className='mt-[6.25rem] px-[6.25rem] max-lg:px-0 overflow-hidden max-md:mt-[16rem]'
+    >
       <div className='flex flex-col items-center'>
         <h3
           data-aos='fade-up'
@@ -71,7 +74,7 @@ export default function ValueTowards({ valueTowards }) {
               </div>
               {index + 1 <= data.length - 1 && index % 2 === 0 && (
                 <svg
-                  className='absolute top-[13.625rem] right-[33.8rem] h-auto w-[46rem]'
+                  className='absolute top-[13.625rem] right-[33.8rem] h-auto w-[46rem] line-value-about line-value-about-right'
                   xmlns='http://www.w3.org/2000/svg'
                   width='777'
                   height='360'
@@ -88,7 +91,7 @@ export default function ValueTowards({ valueTowards }) {
               )}
               {index + 1 <= data.length - 1 && index % 2 !== 0 && (
                 <svg
-                  className='absolute top-[13.625rem] left-[6.6125rem] h-auto w-[46rem]'
+                  className='absolute top-[13.625rem] left-[6.6125rem] h-auto w-[46rem] line-value-about'
                   xmlns='http://www.w3.org/2000/svg'
                   width='777'
                   height='360'

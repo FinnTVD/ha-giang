@@ -671,6 +671,24 @@ header .bg-overlay {
         opacity: 1;
     }
 }
+#value-toward {
+    .line-value-about {
+        @media (min-width: "1800px") and (max-width: "1899px") {
+            width: 50rem;
+        }
+        @media screen and (min-width: "1900px") {
+            width: 52rem;
+        }
+    }
+    .line-value-about-right {
+        @media (min-width: "1800px") and (max-width: "1899px") {
+            right: 36.8rem;
+        }
+        @media screen and (min-width: "1900px") {
+            right: 40.8rem;
+        }
+    }
+}
 
 // #swiper-testv2 {
 //     .card.active {
