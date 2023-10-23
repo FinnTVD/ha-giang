@@ -30,7 +30,7 @@ export default function ValueTowards({ valueTowards }) {
         </h2>
       </div>
       <div className='mt-[2.5rem] flex flex-col gap-[8.375rem] max-lg:hidden'>
-        {valueTowards?.content.map((item, index) => (
+        {valueTowards?.content?.map((item, index) => (
           <div
             className={`${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} flex gap-[4.75rem]`}
             key={index}
@@ -108,7 +108,7 @@ export default function ValueTowards({ valueTowards }) {
         ))}
       </div>
       <div className='lg:hidden max-md:w-[91.46667rem] max-lg:w-[95rem] mx-auto'>
-        {dupData?.map((item, index) => (
+        {valueTowards?.content?.map((item, index) => (
           <div key={index}>
             <div className='h-[57.3rem] w-full mt-[5.3rem] '>
               <Image
