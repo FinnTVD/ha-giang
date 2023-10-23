@@ -1,8 +1,7 @@
 #!/bin/bash
 
 git pull
-
-yarn build
+npm run build
 
 pm2 reload hagiang
 
