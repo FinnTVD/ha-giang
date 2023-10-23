@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import SlidePopupGallery from './SlidePopupGallery'
-import Image from 'next/image'
 import IconClose from '../icons/IconClose'
 import IconMotor from '../icons/IconMotor'
 

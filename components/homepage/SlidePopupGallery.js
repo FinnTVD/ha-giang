@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { useRef } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { FreeMode } from 'swiper/modules'
+import { Autoplay, FreeMode } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export default function SlidePopupGallery({ section4, indexTab }) {
@@ -36,12 +36,17 @@ export default function SlidePopupGallery({ section4, indexTab }) {
             spaceBetween: 24,
           },
         }}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        speed={1000}
         grabCursor={true}
         freeMode={true}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
-        modules={[FreeMode]}
+        modules={[FreeMode, Autoplay]}
         className={`lg:h-[29.08975rem] md:h-[34rem] w-full max-2xl:h-[26rem] max-md:h-[121rem] max-md:rounded-[4.267rem]`}
       >
         {section4?.listGallery[indexTab]?.slidesImage?.map((e, index) => (

@@ -2,10 +2,10 @@
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-// import required modules
 import { Autoplay, FreeMode } from 'swiper/modules'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
+
 function SlideImage({ listImageSlide }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
 
@@ -24,7 +24,7 @@ function SlideImage({ listImageSlide }) {
         breakpoints={{
           0: {
             slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 16,
           },
           768: {
             slidesPerView: 2,
@@ -39,8 +39,10 @@ function SlideImage({ listImageSlide }) {
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
         speed={1000}
+        freeMode={true}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}

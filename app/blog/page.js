@@ -1,8 +1,6 @@
-import Blog from '@/components/blog/Blog'
 import { CATEGORIES, GET_ALL_BLOG_V2, GET_META_BLOG } from '@/graphql/blog/queries'
 import getData from '@/utils/getData'
-import React from 'react'
-import { GET_DATA_HOME, GET_DATA_ABOUT_US } from '@/graphql/home/queries'
+import { GET_DATA_HOME } from '@/graphql/home/queries'
 import IndexBlog from '@/components/blog'
 import { sizeBlog } from '@/utils'
 
@@ -67,13 +65,6 @@ async function page({ params, searchParams }) {
   // const dataAboutUs = await getData(GET_DATA_ABOUT_US)
 
   return (
-    // <Blog
-    //   arrayCateInit={arrayCateInit}
-    //   arrayCateSlug={arrayCateSlug}
-    //   dataHome={data?.data?.page?.homeHG}
-    //   allTourHG={data?.data?.allTourHG}
-    //   dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
-    // />
     <IndexBlog
       dataHome={data?.data?.page?.homeHG}
       allTourHG={data?.data?.allTourHG}

@@ -6,17 +6,6 @@ import SlideImage from './SlideImage'
 import ScrollTrigger from 'react-scroll-trigger'
 import useStore from '@/app/(store)/store'
 
-// From Hanoi
-// Noi Bai Airport
-// Sapa
-// Cat Ba Island
-// Ninh Binh
-// Ha Giang city
-// Highlight on loop
-// Meal
-// Transport
-// Accommondation
-
 const handleCheckIcon = (category) => {
   switch (category) {
     case 'From Hanoi':
@@ -156,9 +145,12 @@ function AboutTour({ data, isMobile }) {
                 {data?.listCheckin?.map((item, index) => (
                   <div
                     key={index}
-                    className={`flex md:gap-[1rem] lg:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-md items-center md:px-[1.75rem] lg:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[1.375rem] lg:py-[0.375rem] ${
+                    className={`flex md:gap-[1rem] lg:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-md items-center md:px-[1.75rem] lg:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[1.375rem] lg:py-[0.375rem] transition-all duration-200 ${
                       index === activeCate ? 'bg-[#FFF0EA]' : 'bg-[#fff]'
                     }`}
+                    style={{
+                      marginLeft: isMobile && index === 0 && `${activeCate * -25}rem`,
+                    }}
                     onClick={() => {
                       setContent(data?.listCheckin[index])
                       setActiveCate(index)
@@ -194,9 +186,6 @@ function AboutTour({ data, isMobile }) {
         </div>
         <div
           onClick={() => setIsShow(false)}
-          // style={{
-          //   boxShadow: isShow && index !== 0 ? 'rgba(0, 0, 0, 0.24) 0px 3px 8px' : '',
-          // }}
           className={`${
             isShow ? 'z-10 opacity-100' : 'z-[-1] opacity-0'
           } w-full cursor-pointer h-[14rem] max-lg:h-[10.5rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes2 absolute bottom-[-2px] left-0 transition-all duration-150`}

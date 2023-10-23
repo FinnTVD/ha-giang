@@ -9,7 +9,6 @@ import './globals.scss'
 
 import { Poppins, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
-// import Header from '@/components/global/Header'
 import { Theme } from '@radix-ui/themes'
 import Footer from '@/components/global/Footer'
 import ApolloWrapper from '@/components/global/ApolloWrapper'
@@ -47,10 +46,6 @@ const poppins = Poppins({
   subsets: ['latin'],
 })
 
-// const kanit = Kanit({
-//   weight: ['500'],
-//   subsets: ['latin'],
-// })
 export const metadata = {
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1', // <-- now here
 }
