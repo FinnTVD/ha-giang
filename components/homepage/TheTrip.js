@@ -31,12 +31,12 @@ export default function TheTrip({ section8, allTourHG, isOther = false }) {
         <div className='flex md:gap-[5rem] max-md:justify-between'>
           {section8?.listCategory?.map((e, index) => (
             <div
+              data-aos='fade-left'
+              data-aos-delay={`${index * 500}`}
               onClick={() => setActive(index)}
               className='max-md:text-center max-md:w-[43.73333rem] max-lg:flex-1'
             >
               <h3
-                data-aos='fade-left'
-                data-aos-delay={`${index * 500}`}
                 className={` lg:text-[1.625rem] md:text-[2.625rem] md:w-[26.375rem] text-[4.26667rem] md:font-semibold font-bold md:leading-[1.23] leading-[6.4rem] max-md:tracking-[0.05333rem] font-poppins text-[#B7B7B7] md:text-gray-scale-80 max-md:pb-[1.07rem] ${
                   isMobile && active === index ? '!text-[#B34B1E] border-b max-md:border-b-[2px] border-[#B34B1E] ' : ''
                 }`}
