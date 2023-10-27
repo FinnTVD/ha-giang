@@ -15,12 +15,10 @@ import SubTitle from '../global/SubTitle'
 import LineTrip from '../icons/LineTrip'
 import RHFDatePicker from '../ui/RHFDatePicker'
 import { useMediaQuery } from 'react-responsive'
-import motoImg from '@/public/images/motobikeMobile.svg'
 import { exchangeRate } from '@/utils'
 import useStore from '@/app/(store)/store'
 import ScrollTrigger from 'react-scroll-trigger'
 import LineLeftPayMent from '../icons/LineLeftPayMent'
-import IconMotorV2 from '../icons/IconMotorV2'
 import LineRightPayMent from '../icons/LineRightPayMent'
 import IconMotorMbPayment from '../icons/IconMotorMbPayment'
 
@@ -143,6 +141,7 @@ export default function BookingOnline({ data, title }) {
   }
 
   const onSubmit = async (e) => {
+    if (typeof window === 'undefined') return
     if (totalAmount <= 0) {
       setError('root', {
         message: 'Please choose at least a type of tour',
@@ -163,7 +162,7 @@ export default function BookingOnline({ data, title }) {
       serviceCharge: fCurrency(totalPrice * 0.03) + ' VND',
       total: fCurrency(totalPrice + servicePrice) + ' VND',
     }
-    localStorage.setItem('formDataPayment', JSON.stringify(formData))
+    window.localStorage.setItem('formDataPayment', JSON.stringify(formData))
 
     const params = generateParams(e, true)
     const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)

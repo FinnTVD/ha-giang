@@ -161,6 +161,8 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
   }
 
   const onSubmit = async (e) => {
+    console.log('totalAmount', totalAmount)
+    if (typeof window === 'undefined') return
     if (totalAmount <= 0) {
       setError('root', {
         message: 'Please choose at least a type of tour',
@@ -183,7 +185,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       serviceCharge: fCurrency(totalPrice * 0.03) + ' VND',
       total: fCurrency(totalPrice + servicePrice) + ' VND',
     }
-    localStorage.setItem('formDataPayment', JSON.stringify(formData))
+    window.localStorage.setItem('formDataPayment', JSON.stringify(formData))
 
     const params = generateParams(e, true)
     const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
@@ -375,7 +377,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       style={
                         isMobile ? { ...inputMobileStyle, height: '24.5625rem' } : { ...inputStyle, height: '8.9rem' }
                       }
-                      className='rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-[8rem]'
+                      className='rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-[8rem] max-md:!h-[24.56rem]'
                       variant='soft'
                       placeholder='Message *'
                     />
@@ -516,7 +518,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
                   Address *
                 </div>
-                <Select.Root onValueChange={(value) => setValue('dropAddress', value)}>
+                <Select.Root onValueChange={(value) => setValue('droffAddress', value)}>
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}

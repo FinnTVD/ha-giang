@@ -38,7 +38,7 @@ const RHFDatePicker = ({ selected, onChange, end, long, details = false, ...othe
       id='date-booking'
       className={`${selected ? 'text-gray-scale-80' : 'text-gray-scale-20'} ${
         details ? 'lg:py-[1rem] xl:py-[0.75rem]' : 'py-[0.75rem]'
-      } bg-[#F2F2F2] w-full rounded-[0.5rem] !h-fit max-md:!h-fit text-[0.875rem] leading-[1.42] tracking-[0.00875rem] px-[1rem] outline-0 max-md:rounded-[2.13rem] max-md:px-[4.26rem] !cursor-pointer max-md:w-full max-md:text-[3.467rem] font-normal max-md:leading-[1.38] md:!text-[1.875rem] lg:!text-[0.875rem] max-lg:!h-fit relative lg:py-0 md:py-[0.75rem]`}
+      } bg-[#F2F2F2] w-full rounded-[0.5rem] !h-fit max-md:!h-fit text-[0.875rem] leading-[1.42] tracking-[0.00875rem] px-[1rem] outline-0 max-md:rounded-[2.13rem] max-md:px-[4.26rem] !cursor-pointer max-md:w-full max-md:text-[3.467rem] font-normal max-md:leading-[1.38] md:!text-[1.875rem] lg:!text-[0.875rem] max-lg:!h-fit relative md:py-[0.75rem]`}
     >
       <DatePicker
         className={`${selected ? 'text-gray-scale-80' : 'text-gray-scale-20'} ${
