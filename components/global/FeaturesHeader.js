@@ -80,7 +80,8 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
         </div>
       </PopupBookNow>
       <Link
-        href={`tel:${header?.phoneNumber}`}
+        href={`https://api.whatsapp.com/send?phone=${header?.phoneNumber}`}
+        target='_blank'
         className='relative block cursor-pointer max-md:hidden'
       >
         {/* <div className='box-phone absolute bottom-0 left-0 z-0 w-[2.5rem] h-[2.5rem] rounded-full'></div> */}

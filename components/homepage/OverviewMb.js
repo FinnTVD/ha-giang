@@ -71,7 +71,7 @@ const OverviewMb = ({ data }) => {
             : '!shadow-none pl-[1rem]'
         } overflow-hidden mb-[4.26rem] transition-all duration-500 `}
       >
-        <div className={`${isFixed ? '' : 'pr-[4.27rem]'} flex mb-[1.6rem] w-full whitespace-nowrap`}>
+        <div className={`${isFixed ? '' : 'pr-[4.27rem]'} flex mb-[1.6rem] w-full whitespace-nowrap mt-[1rem]`}>
           {list?.map((item) => (
             <Link
               data-src={true}

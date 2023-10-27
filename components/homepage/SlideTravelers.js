@@ -41,6 +41,7 @@ export default function SlideTravelers({ section5 }) {
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
         speed={1000}
         onBeforeInit={(swiper) => {

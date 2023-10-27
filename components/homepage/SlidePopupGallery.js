@@ -39,6 +39,7 @@ export default function SlidePopupGallery({ section4, indexTab }) {
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
         speed={1000}
         grabCursor={true}

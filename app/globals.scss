@@ -175,6 +175,12 @@ body {
 
 // ----------cheers tour----------------
 
+#content-header-detail-tour {
+    @media (max-width: "767px") and (max-height: "740px") {
+        top: 60%;
+    }
+}
+
 #cheers-tour {
     .description {
         p + p {
@@ -633,10 +639,10 @@ nav .nav-tour:hover > svg .down {
         height: 32.8rem;
     }
     @media (min-width: "1281px") and (max-width: "1600px") {
-        height: 32.1rem;
+        height: 25.8rem;
     }
     @media screen and (min-width: "1601px") {
-        height: 32rem;
+        height: 26rem;
     }
 }
 

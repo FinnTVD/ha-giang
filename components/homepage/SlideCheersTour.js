@@ -13,6 +13,7 @@ export default function SlideCheersTour({ section2 }) {
       autoplay={{
         delay: 3500,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       }}
       speed={1500}
       modules={[FreeMode, Autoplay]}

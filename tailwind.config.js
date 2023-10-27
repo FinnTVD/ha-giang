@@ -36,6 +36,7 @@ module.exports = {
         'secondary-green-600': 'var(--secondary-green-600)',
         'background-elevation-01': 'var(--background-elevation-01)',
         'secondary-green-900': 'var(--secondary-green-900)',
+        blackPayMent: '#2E2E2E',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -81,6 +82,7 @@ module.exports = {
         itemDestination:
           '6px 6px 40px 0px rgba(0, 0, 0, 0.06), -16px -16px 40px 0px rgba(0, 0, 0, 0.08), 0px 0px 24px 0px rgba(255, 235, 220, 0.50)',
         menuDown: '0px 0px 16px 0px rgba(0, 0, 0, 0.08)',
+        itemTripDetail: '0px 4px 16px 0px rgba(0, 0, 0, 0.06)',
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],

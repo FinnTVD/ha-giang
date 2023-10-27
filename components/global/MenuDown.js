@@ -59,7 +59,8 @@ export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
         />
       </ItemMenu>
       <ItemMenu
-        href={`tel:${header?.phoneNumber}`}
+        href={`https://api.whatsapp.com/send?phone=${header?.phoneNumber}`}
+        target='_blank'
         title={'WhatsApp'}
         isActive={indexActive === 3}
         onClick={() => setIndexActive(3)}

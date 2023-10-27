@@ -3,7 +3,10 @@ import TittleIcon from './TittleIcon'
 
 export default function ContentHeaderDetail({ data, slug }) {
   return (
-    <div className='relative z-[10] w-[87.5rem] max-lg:top-1/2 max-lg:-translate-y-1/2 max-lg:left-[5vw] lg:my-[2.31rem] max-lg:absolute max-md:left-[4.27rem] max-md:-translate-y-1/2 mx-auto'>
+    <div
+      id='content-header-detail-tour'
+      className='relative z-[10] w-[87.5rem] max-lg:top-1/2 max-md:top-[68%] max-md:top max-lg:-translate-y-1/2 max-lg:left-[5vw] lg:my-[2.31rem] max-lg:absolute max-md:left-[4.27rem] max-md:-translate-y-1/2 mx-auto'
+    >
       <span
         data-aos='fade-right'
         className='text-white uppercase font-heavitas text-[1rem] max-lg:text-[2.5rem] font-normal leading-normal max-md:text-[3.2rem]'
@@ -21,7 +24,7 @@ export default function ContentHeaderDetail({ data, slug }) {
       <div
         data-aos='fade-right'
         data-aos-delay='50'
-        className='w-[15.3125rem] h-[3.375rem] max-lg:w-[31.3125rem] max-lg:h-[7.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins max-lg:my-[2.5rem] max-md:my-0'
+        className='w-[15.3125rem] h-[3.375rem] max-lg:w-[31.3125rem] max-lg:h-[7.375rem] max-md:w-[44.039rem] max-md:h-[11.8264rem] relative flex justify-center items-center lg:mt-[1.75rem] 2xl:mt-[2.75rem] max-md:my-[4.27rem] lg:mb-[1.5rem] 2xl:mb-[2.5rem] font-poppins max-lg:my-[2.5rem]'
       >
         <Image
           className='object-cover max-lg:object-contain'

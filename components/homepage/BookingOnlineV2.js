@@ -215,7 +215,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
             <div className='flex lg:gap-x-[0.75rem] md:gap-x-[1.75rem] max-md:flex-col'>
               <div className='w-[21rem] max-lg:flex-1 max-md:w-full'>
                 <div className='mb-[1.88rem] max-md:mb-[4.27rem]'>
-                  <div className='truncate font-bold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem] text-gray-scale-50'>
+                  <div className='truncate font-bold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem] text-gray-scale-80'>
                     Tour
                   </div>
                   <Select.Root
@@ -251,17 +251,22 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     </Select.Content>
                   </Select.Root>
                 </div>
-                <div className='text-[0.875rem] font-bold leading-[150%] mb-[0.5rem] max-md:text-[3.46rem] max-lg:text-[1.875rem] text-gray-scale-50'>
-                  Type of tour:
+                <div className='text-[0.875rem] font-bold leading-[150%] mb-[0.5rem] max-md:text-[3.46rem] max-lg:text-[1.875rem] text-gray-scale-80'>
+                  {
+                    allTourHG?.nodes?.find(
+                      (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                    )?.tourHaGiangDetail?.price?.longTimeTourDay
+                  }{' '}
+                  Days Motorbike Tour:
                 </div>
                 <div className='rounded-[0.5rem] bg-[#F2F2F2] p-[1rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[4.26rem]'>
                   <div className='flex items-center justify-between'>
-                    <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-50 uppercase max-md:text-[3.467rem] max-md:leading-[1.38]'>
-                      self - driving
+                    <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-80 max-md:text-[3.467rem] max-md:leading-[1.38]'>
+                      Easy rider
                     </span>
                     <div className='flex items-center'>
                       <span
-                        className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] 
+                        className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-80 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] 
                       max-lg:mr-[1.75rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'
                       >
                         ${selfPrice}
@@ -289,12 +294,12 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     </div>
                   </div>
                   <div className='flex justify-between my-[0.75rem] h-[2.5rem] max-lg:h-fit max-lg:mt-[1.5rem] max-lg:mb-[2.75rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
-                    <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-50 uppercase whitespace-nowrap max-md:text-[3.467rem] max-md:leading-[1.38]'>
-                      PRIVATE DRIVER
+                    <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-80 whitespace-nowrap max-md:text-[3.467rem] max-md:leading-[1.38]'>
+                      Easy rider + big bike
                     </span>
                     <div className='flex items-center'>
                       <span
-                        className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-50 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] 
+                        className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-80 font-semibold lading-[1.57] max-md:text-[3.733rem] max-md:mr-[3.2rem] 
                       max-lg:mr-[1.75rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'
                       >
                         ${localPrice}
@@ -370,7 +375,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       style={
                         isMobile ? { ...inputMobileStyle, height: '24.5625rem' } : { ...inputStyle, height: '8.9rem' }
                       }
-                      className='rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-[14.7rem]'
+                      className='rounded-[0.5rem] px-[1rem] py-[0.75rem] md:!text-[1.875rem] lg:!text-[0.875rem] !h-[8rem]'
                       variant='soft'
                       placeholder='Message *'
                     />
@@ -461,7 +466,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
             <div className='grid grid-cols-4 gap-[0.75rem] max-lg:gap-[1.75rem] mt-[3.5rem] max-md:gap-[3.2rem] max-lg:mt-[9.5rem] max-md:mt-[4.2rem] w-[42.75rem] max-lg:w-full'>
               <div className='max-md:max-md:col-span-2'>
                 <div className='font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
-                  Droff
+                  Drop
                 </div>
                 <Select.Root
                   className='w-full '
@@ -471,7 +476,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
                     variant='soft'
-                    placeholder='Droff…'
+                    placeholder='Drop…'
                   />
                   <Select.Content className='z-[99999] '>
                     {droff?.map((e, index) => (
@@ -486,7 +491,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   </Select.Content>
                 </Select.Root>
               </div>
-              <div className='max-md:max-md:col-span-2 pointer-events-none'>
+              <div className='pointer-events-none max-md:max-md:col-span-2'>
                 <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
                   End date
                 </div>
@@ -511,7 +516,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
                   Address *
                 </div>
-                <Select.Root onValueChange={(value) => setValue('droffAddress', value)}>
+                <Select.Root onValueChange={(value) => setValue('dropAddress', value)}>
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
@@ -538,7 +543,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
           </div>
           <div className='flex-1 max-lg:mt-[3rem] max-md:mt-0'>
             <div className='mt-[1.87rem] md:mt-0 max-md:mt-[8rem]'>
-              <div className='text-[1.25rem] mb-[0.75rem] max-lg:text-[2.25rem] font-semibold text-[#2E2E2E] max-md:mb-[2.1rem] max-md:text-[4.26rem]'>
+              <div className='text-[1.25rem] max-lg:text-[2.25rem] font-semibold text-[#2E2E2E] max-md:mb-[2.1rem] max-md:text-[4.26rem]'>
                 CONFIRMED TOUR BOOKING:
               </div>
               <div className='rounded-[0.5rem] text-[#2E2E2E] border-[#287c0023] border-[0.5px] bg-[#F8FDFF] max-md:rounded-[2.13rem]'>
@@ -607,7 +612,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
                   >
-                    Droff off
+                    Drop off
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                     {values.endDate && fDate(values.endDate)} to {values.droff} at {values.droffAddress}
@@ -618,7 +623,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
                   >
-                    Self-driving
+                    Easy rider
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                     {selfDriving && `${selfDriving} x $${selfPrice} (${fCurrency(selfCost) || 0} VND)`}
@@ -629,7 +634,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
                                 max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
                   >
-                    Local driver
+                    Easy Rider with big bike
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                     {localDriver && `${localDriver} x $${localPrice} (${fCurrency(localCose) || 0} VND)`}

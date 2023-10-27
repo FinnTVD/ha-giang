@@ -145,7 +145,7 @@ function AboutTour({ data, isMobile }) {
                 {data?.listCheckin?.map((item, index) => (
                   <div
                     key={index}
-                    className={`flex md:gap-[1rem] lg:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-md items-center md:px-[1.75rem] lg:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[1.375rem] lg:py-[0.375rem] transition-all duration-200 ${
+                    className={`flex md:gap-[1rem] lg:gap-[0.5rem] gap-[2.13rem] cursor-pointer flex-shrink-0 md:rounded-[0.5rem] rounded-[2.13rem] shadow-itemTripDetail items-center md:px-[1.75rem] lg:px-[0.75rem] px-[3.2rem] py-[1.6rem] md:py-[1.375rem] lg:py-[0.375rem] transition-all duration-200 ${
                       index === activeCate ? 'bg-[#FFF0EA]' : 'bg-[#fff]'
                     }`}
                     style={{
