@@ -52,7 +52,7 @@ export default function SlideGreatTrips({ allTourHG }) {
       )}
       <div
         data-aos='zoom-in-up'
-        className='flex justify-center items-end gap-x-[1.5rem] relative z-10 h-fit mt-[1.88rem]'
+        className='flex justify-center items-end gap-x-[1.5rem] relative z-10 h-fit mt-[0.5rem] max-md:mt-[-5.5rem]'
       >
         <Swiper
           loop={true}

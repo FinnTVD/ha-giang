@@ -7,7 +7,8 @@ import { sizeBlog } from '@/utils'
 export async function generateMetadata() {
   const data = await getData(GET_META_BLOG)
   if (!data) return
-  const { featuredImage, blog } = data?.data?.page
+  const featuredImage = data?.data?.page?.featuredImage
+  const blog = data?.data?.page?.blog
   return {
     title: blog?.meta?.title,
     description: blog?.meta?.description,

@@ -129,7 +129,7 @@ export default function BookNowHeader({ allTourHG }) {
             0
               ? 'bg-gray-scale-5 pointer-events-none'
               : 'bg-primary-70'
-          } text-white flex max-lg:justify-between max-lg:items-center lg:flex-col gap-y-[0.25rem] py-[0.75rem] px-[1.5rem] rounded-[0.5rem] max-md:w-full max-lg:w-[70%] max-lg:mt-[4.6rem] max-md:mt-[6.4rem] max-lg:p-[2rem] max-lg:mx-auto max-md:p-[3.2rem] max-lg:rounded-[2.13rem] `}
+          } text-white flex max-lg:justify-between max-lg:items-center lg:flex-col gap-y-[0.25rem] py-[0.75rem] px-[1.5rem] rounded-[0.5rem] max-md:w-full max-lg:w-full max-lg:mt-[4.6rem] max-md:mt-[6.4rem] max-lg:p-[2rem] max-lg:mx-auto max-md:p-[3.2rem] max-lg:rounded-[2.13rem] `}
         >
           <span className='lg:text-center max-lg:w-fit text-[1.625rem] font-bold leading-[1.23] block w-full max-lg:text-[5.33rem] max-lg:leading-[1.2] max-lg:tracking-[0.008rem]'>
             $

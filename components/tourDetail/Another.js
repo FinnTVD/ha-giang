@@ -27,7 +27,7 @@ export default function Another({ allTourHG, slug, data }) {
           ))}
       </div>
       <Image
-        className='object-cover absolute top-0 left-0 w-full h-[38rem] z-0 max-md:h-[120rem] '
+        className='object-cover absolute top-0 left-0 w-full h-[38rem] z-0 max-md:h-[90rem]'
         src={'/images/anTrip.png'}
         alt='great trips'
         width={1600}

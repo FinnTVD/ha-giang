@@ -46,17 +46,12 @@ export default async function Footer() {
               height={200}
             />
           </Link>
-          <div className='flex md:gap-x-[9.47rem] md:mt-[9.13rem] mt-[8rem] max-md:flex-col gap-[8rem] max-md:text-center flex-wrap'>
+          <div className='flex md:gap-x-[9.47rem] lg:gap-x-[4rem] md:mt-[9.13rem] mt-[10rem] max-md:flex-col gap-[8rem] max-md:text-center flex-wrap'>
             <div className='flex-col justify-center max-md:flex max-lg:w-[35rem] max-md:w-auto'>
               <h2 className='lg:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] md:text-[1.8vw]'>
                 CONTACT US
               </h2>
               <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>
-                {/* <InfoFooter
-                                    icon={phoneIcon}
-                                    text={'+84 98 3333 986 (Miss. Linette)'}
-                                    subText={'+84 989 655 995 (Mr. Chinh)'}
-                                /> */}
                 <div className='flex gap-x-[0.5rem] max-md:gap-x-[2.13rem]'>
                   <Image
                     src={phoneIcon}

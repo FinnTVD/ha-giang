@@ -5,7 +5,8 @@ import { GET_DATA_ABOUT_US, GET_DATA_HOME } from '@/graphql/home/queries'
 export async function generateMetadata() {
   const data = await getData(GET_DATA_ABOUT_US)
   if (!data) return
-  const { featuredImage, aboutUs } = data?.data?.page
+  const featuredImage = data?.data?.page?.featuredImage
+  const aboutUs = data?.data?.page?.aboutUs
   return {
     title: aboutUs?.meta?.title,
     description: aboutUs?.meta?.description,

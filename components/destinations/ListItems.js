@@ -13,8 +13,8 @@ export default function DestinationListItems({ dataDestination }) {
           data-aos-delay={`${index * 150}`}
         >
           <Image
-            width={332}
-            height={414}
+            width={500}
+            height={600}
             src={itm?.picture?.sourceUrl}
             className='w-full h-[25.875rem] object-cover rounded-[1rem] max-md:rounded-[2rem] max-md:h-[113rem] max-lg:h-[50.5rem]'
           ></Image>

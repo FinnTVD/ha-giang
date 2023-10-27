@@ -78,7 +78,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
       >
         <IconClose className={'w-[8.53rem] h-[8.53rem] md:w-[6.53rem] md:h-[6.53rem]'} />
       </div>
-      <div className='relative z-10 w-full'>
+      <div className='relative z-10 w-full max-md:mt-[9rem]'>
         <ul className='flex flex-col items-center gap-y-[6.4rem]'>
           {listNav?.map((e, index) => (
             <li

@@ -4,7 +4,8 @@ import getData from '@/utils/getData'
 export async function generateMetadata() {
   const data = await getData(GET_META_HOME)
   if (!data) return
-  const { featuredImage, homeHG } = data?.data?.page
+  const featuredImage = data?.data?.page?.featuredImage
+  const homeHG = data?.data?.page?.homeHG
   return {
     title: homeHG?.meta?.metaTitle,
     description: homeHG?.meta?.metaDescription,

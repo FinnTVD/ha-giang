@@ -7,7 +7,8 @@ import React from 'react'
 export async function generateMetadata() {
   const data = await getData(GET_META_FAQ)
   if (!data) return
-  const { featuredImage, faq } = data?.data?.page
+  const faq = data?.data?.page?.faq
+  const featuredImage = data?.data?.page?.featuredImage
   return {
     title: faq?.meta?.title,
     description: faq?.meta?.description,

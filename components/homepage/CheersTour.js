@@ -21,7 +21,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
       )}
       <div
         data-aos='fade-left'
-        className='max-md:px-[4.27rem] relative lg:w-[35.4375rem] max-md:mt-[6rem] max-md:w-[86.4rem] md:mt-[4rem] md:h-[57rem] md:w-[51rem] max-md:h-[104.83733rem] lg:h-auto lg:mr-0 max-lg:mx-auto'
+        className='max-md:px-[4.27rem] relative lg:w-[35.4375rem] max-md:mt-[6rem] max-md:w-[86.4rem] max-lg:mt-[4rem] md:h-[57rem] md:w-[51rem] max-md:h-[104.83733rem] lg:h-auto lg:mr-0 max-lg:mx-auto'
       >
         <Image
           className=' max-md:object-contain lg:object-fill z-[0]'
@@ -63,7 +63,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
 
         <div className='flex gap-x-[1rem] max-lg:gap-x-[2.5rem] max-md:gap-x-[3.2rem] mt-[1.87rem] max-lg:mt-[2.5rem] max-md:mt-[5.33rem] max-md:px-[4.27rem]'>
           <PopupBookNow allTourHG={allTourHG}>
-            <div className='max-md:w-fit'>
+            <div className='max-md:w-[calc(50%-1.6rem)]'>
               <Button
                 primary={true}
                 content={'book now'}
@@ -74,7 +74,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
           <Button
             href={'/about-us'}
             content={'read more'}
-            className={'max-md:h-[12.8rem] max-md:w-fit'}
+            className={'max-md:h-[12.8rem] max-md:w-[calc(50%-1.6rem)]'}
           />
         </div>
       </div>

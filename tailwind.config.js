@@ -18,7 +18,7 @@ module.exports = {
         'gradient-header-detail': 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 38.46%, #000 98.99%)',
         'gradient-banner': 'linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.00) 50.35%, #000 91.33%)',
         'gradient-greatTrips':
-          'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.76) 60.94%, #FFF 100%)',
+          'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.9) 60.94%, #FFF 100%)',
         'gradient-detailTourRes':
           'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.50) 100%)',
         'gradient-detailTourRes2': 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)',
@@ -76,11 +76,11 @@ module.exports = {
         boxTour: '0px 4px 32px 0px rgba(0, 0, 0, 0.12)',
         btn: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
         navFixed: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
-        itemTrave: '6px 6px 32px 0px rgba(0, 0, 0, 0.04), 0px 0px 12px 0px rgba(235, 255, 209, 0.10)',
-        itemCardTour:
-          '6px 6px 32px 0px rgba(0, 0, 0, 0.06), -16px -16px 32px 0px rgba(0, 0, 0, 0.08), 0px 0px 12px 0px rgba(235, 255, 209, 0.21)',
+        itemTrave: '4px 4px 20px 0px rgba(0, 0, 0, 0.04), 0px 0px 12px 0px rgba(235, 255, 209, 0.10)',
+        itemCardTour: '6px 6px 32px 0px rgba(0, 0, 0, 0.04), -16px -16px 32px 0px rgba(0, 0, 0, 0.04)',
         itemDestination:
           '6px 6px 40px 0px rgba(0, 0, 0, 0.06), -16px -16px 40px 0px rgba(0, 0, 0, 0.08), 0px 0px 24px 0px rgba(255, 235, 220, 0.50)',
+        menuDown: '0px 0px 16px 0px rgba(0, 0, 0, 0.08)',
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
