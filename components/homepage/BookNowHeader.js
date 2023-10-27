@@ -40,8 +40,8 @@ export default function BookNowHeader({ allTourHG }) {
         />
       </svg>
       <div className='max-lg:w-1/2 max-lg:pr-[3.2rem] max-lg:inline-flex max-lg:flex-col'>
-        <span className='text-[0.875rem] block mb-[0.5rem] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] max-md:text-[3.2rem] max-lg:text-[2.2rem] max-lg:font-medium max-lg:leading-[1.33rem] whitespace-nowrap max-lg:mb-[2.13rem]'>
-          SELF - DRIVING
+        <span className='text-[0.875rem] block mb-[0.5rem] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] max-md:text-[3.2rem] max-lg:text-[2.2rem] max-lg:font-medium max-lg:leading-[1.33rem] whitespace-nowrap max-lg:mb-[2.13rem] uppercase'>
+          With Easy Rider
         </span>
         <div className='flex items-center'>
           <IconPeople className='w-[2rem] h-[2rem] max-lg:w-[4.33rem] max-lg:h-[4.33rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-lg:mr-[2.13rem]' />
@@ -51,12 +51,6 @@ export default function BookNowHeader({ allTourHG }) {
             </span>
             <div className=' flex gap-x-[0.75rem] ml-[1rem] max-lg:ml-auto max-lg:gap-x-[3.13rem]'>
               <button
-                onClick={() => setCountSelf(countSelf + 1)}
-                className='w-[2.25rem] h-[2.25rem] max-md:w-[8.25rem] max-lg:h-[6.25rem] max-lg:w-[6.25rem] max-md:h-[8.25rem] max-lg:text-[4.5rem] rounded-full select-none text-[1.5rem] active:scale-90 shadow-btn bg-white flex items-center justify-center'
-              >
-                +
-              </button>
-              <button
                 onClick={() => {
                   if (countSelf === 0) return
                   setCountSelf(countSelf - 1)
@@ -64,6 +58,12 @@ export default function BookNowHeader({ allTourHG }) {
                 className='w-[2.25rem] h-[2.25rem] max-md:w-[8.25rem] max-lg:h-[6.25rem] max-lg:w-[6.25rem] max-md:h-[8.25rem] max-lg:text-[4.5rem] rounded-full select-none text-[1.5rem] active:scale-90 shadow-btn bg-white flex items-center justify-center'
               >
                 -
+              </button>
+              <button
+                onClick={() => setCountSelf(countSelf + 1)}
+                className='w-[2.25rem] h-[2.25rem] max-md:w-[8.25rem] max-lg:h-[6.25rem] max-lg:w-[6.25rem] max-md:h-[8.25rem] max-lg:text-[4.5rem] rounded-full select-none text-[1.5rem] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+              >
+                +
               </button>
             </div>
           </div>
@@ -84,8 +84,8 @@ export default function BookNowHeader({ allTourHG }) {
         />
       </svg>
       <div className='max-lg:w-1/2 max-lg:pl-[3.2rem] max-lg:inline-flex max-lg:flex-col'>
-        <span className='text-[0.875rem] block mb-[0.5rem] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] max-md:text-[3.2rem] max-lg:text-[2.2rem] max-lg:font-medium max-lg:leading-[1.33rem] whitespace-nowrap max-lg:mb-[2.13rem]'>
-          PRIVATE DRIVER
+        <span className='text-[0.875rem] block mb-[0.5rem] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] max-md:text-[3.2rem] max-lg:text-[2.2rem] max-lg:font-medium max-lg:leading-[1.33rem] whitespace-nowrap max-lg:mb-[2.13rem] uppercase'>
+          Easy Rider - Big Bike
         </span>
         <div className='flex items-center'>
           <IconPeople className='w-[2rem] h-[2rem] max-lg:w-[4.33rem] max-lg:h-[4.33rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-lg:mr-[2.13rem]' />
@@ -96,12 +96,6 @@ export default function BookNowHeader({ allTourHG }) {
             </span>
             <div className=' flex gap-x-[0.75rem] ml-[1rem] max-lg:ml-auto max-lg:gap-x-[3.13rem]'>
               <button
-                onClick={() => setCountDriver(countDriver + 1)}
-                className='w-[2.25rem] h-[2.25rem] max-md:w-[8.25rem] max-lg:h-[6.25rem] max-lg:w-[6.25rem] max-md:h-[8.25rem] max-lg:text-[4.5rem] rounded-full select-none text-[1.5rem] active:scale-90 shadow-btn bg-white flex items-center justify-center'
-              >
-                +
-              </button>
-              <button
                 onClick={() => {
                   if (countDriver === 0) return
                   setCountDriver(countDriver - 1)
@@ -109,6 +103,12 @@ export default function BookNowHeader({ allTourHG }) {
                 className='w-[2.25rem] h-[2.25rem] max-md:w-[8.25rem] max-lg:h-[6.25rem] max-lg:w-[6.25rem] max-md:h-[8.25rem] max-lg:text-[4.5rem] rounded-full select-none text-[1.5rem] active:scale-90 shadow-btn bg-white flex items-center justify-center'
               >
                 -
+              </button>
+              <button
+                onClick={() => setCountDriver(countDriver + 1)}
+                className='w-[2.25rem] h-[2.25rem] max-md:w-[8.25rem] max-lg:h-[6.25rem] max-lg:w-[6.25rem] max-md:h-[8.25rem] max-lg:text-[4.5rem] rounded-full select-none text-[1.5rem] active:scale-90 shadow-btn bg-white flex items-center justify-center'
+              >
+                +
               </button>
             </div>
           </div>

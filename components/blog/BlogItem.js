@@ -4,10 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import IconCalender from '../icons/IconCalender'
 
-function BlogItem({ data, params }) {
+function BlogItem({ data }) {
   return (
     <Link
-      href={`${params}/${encodeURIComponent(data?.slug)}`}
+      href={`/blog/${encodeURIComponent(data?.slug)}`}
       className='blog-item'
     >
       <div className={`w-full font-poppins`}>
