@@ -6,8 +6,8 @@ export default function Price({ price }) {
           ${price?.selfDriving}
         </span>
         <div className='flex w-fit flex-col'>
-          <span className='text-[0.875rem] max-lg:text-[1.5rem] font-bold leading-[1.428] tracking-[0.00875rem] text-gray-scale-5 max-md:text-[3.467rem] max-md:leading-[1.38]'>
-            SELF - DRIVING
+          <span className='text-[0.875rem] max-lg:text-[1.5rem] font-bold leading-[1.428] tracking-[0.00875rem] uppercase text-gray-scale-5 max-md:text-[3.467rem] max-md:leading-[1.38]'>
+            With Easy Rider
           </span>
           <div className='w-full mt-[0.25rem] max-md:mt-[1.07rem] border-t border-white border-solid opacity-50 max-md:opacity-80'></div>
         </div>
@@ -17,8 +17,8 @@ export default function Price({ price }) {
           ${price?.localDriver}
         </span>
         <div className='flex w-fit flex-col'>
-          <span className='text-[0.875rem] max-lg:text-[1.5rem] font-bold leading-[1.428] tracking-[0.00875rem] text-gray-scale-5 max-md:text-[3.467rem] max-md:leading-[1.38]'>
-            LOCAL DRIVER
+          <span className='text-[0.875rem] max-lg:text-[1.5rem] font-bold leading-[1.428] tracking-[0.00875rem] uppercase text-gray-scale-5 max-md:text-[3.467rem] max-md:leading-[1.38]'>
+            Easy Rider - Big Bike
           </span>
           <div className='w-full mt-[0.25rem] max-md:mt-[1.07rem] border-t border-white border-solid opacity-50 max-md:opacity-80'></div>
         </div>
