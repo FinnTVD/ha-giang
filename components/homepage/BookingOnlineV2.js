@@ -18,6 +18,10 @@ import IconEnjoin from '../icons/IconEnjoin'
 import { exchangeRate } from '@/utils'
 import { FORM_GLOBAL } from '@/graphql/form/queries'
 import { useMutation } from '@apollo/client'
+import LineLeftPayMent from '../icons/LineLeftPayMent'
+import IconMotorMbPayment from '../icons/IconMotorMbPayment'
+import LineRightPayMent from '../icons/LineRightPayMent'
+import LineTrip from '../icons/LineTrip'
 
 const defaultValues = {
   selfDriving: 0,
@@ -281,6 +285,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       <Form
         onSubmit={handleSubmit(onSubmit)}
         {...methods}
+        className='max-md:w-[85rem]'
       >
         <div className='flex gap-x-[1.5rem] max-lg:flex-col max-md:gap-y-[8rem]'>
           <div className='w-fit max-lg:w-full'>
@@ -456,7 +461,15 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
               </div>
             </div>
             <div className='relative grid grid-cols-4 gap-[0.75rem] max-lg:gap-[1.75rem] w-[42.75rem] max-md:w-full max-lg:w-full max-md:gap-[3.2rem] mt-[1rem] max-lg:mt-[2rem] max-md:mt-[4.2rem]'>
-              <IconEnjoin className='absolute top-[4.5rem] max-lg:top-[9.5rem] left-0 max-md:hidden w-full z-[-1]' />
+              {/* <IconEnjoin className='absolute top-[4.5rem] max-lg:top-[9.5rem] left-0 max-md:hidden w-full z-[-1]' /> */}
+              <LineTrip
+                className='absolute top-[3rem] max-lg:top-[6rem] -left-[1rem] max-lg:w-[105%] max-md:hidden w-[105%] z-[-1]'
+                dayAmount={
+                  allTourHG?.nodes?.find(
+                    (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                  )?.tourHaGiangDetail?.price?.longTimeTourDay
+                }
+              />
               <div className='max-md:col-span-2'>
                 <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
                   Pick up
@@ -530,11 +543,25 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </Select.Root>
               </div>
             </div>
-            <Image
+            {/* <Image
               src={motoImg}
               alt='moto'
               className='my-[6.4rem] max-md:block hidden w-full'
-            />
+            /> */}
+            <div className='flex items-center max-md:my-[6.4vw] md:hidden'>
+              <LineLeftPayMent />
+              <IconMotorMbPayment className={'w-[9.57rem] h-[6.4rem] flex-shrink-0'} />
+              <span className='font-poppins text-primary-70 text-[3.733rem] font-semibold leading-[1.57] ml-[3.2rem] whitespace-nowrap'>
+                Enjoy{' '}
+                {
+                  allTourHG?.nodes?.find(
+                    (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                  )?.tourHaGiangDetail?.price?.longTimeTourDay
+                }{' '}
+                Days in Ha Giang Loop
+              </span>
+              <LineRightPayMent />
+            </div>
             <div className='grid grid-cols-4 gap-[0.75rem] max-lg:gap-[1.75rem] mt-[3.5rem] max-md:gap-[3.2rem] max-lg:mt-[9.5rem] max-md:mt-[4.2rem] w-[42.75rem] max-lg:w-full'>
               <div className='max-md:max-md:col-span-2'>
                 <div className='font-semibold mb-[0.5rem] text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>

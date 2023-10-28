@@ -5,7 +5,6 @@ import getData from '@/utils/getData'
 
 export async function generateMetadata({ params }) {
   const data = await getData(GET_META_TOUR_DETAIL, { slug: params?.slug })
-  if (!data) return
   const featuredImage = data?.data?.tourHG?.featuredImage
   const title = data?.data?.tourHG?.title
   const tourHaGiangDetail = data?.data?.tourHG?.tourHaGiangDetail
