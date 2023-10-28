@@ -4,12 +4,14 @@ export default function ContentHeader({ header }) {
       id='slogan-header'
       className='absolute top-1/3 left-[30%] max-md:left-[18%] max-lg:left-[18%]'
     >
-      <div
-        id='box-slogan'
-        className='relative flex flex-col text-white'
-        dangerouslySetInnerHTML={{ __html: header?.slogan }}
-        data-aos='zoom-in-up'
-      />
+      {header?.slogan && (
+        <div
+          id='box-slogan'
+          className='relative flex flex-col text-white'
+          dangerouslySetInnerHTML={{ __html: header?.slogan }}
+          data-aos='zoom-in-up'
+        />
+      )}
       {/* <h2 className='text-[4rem] font-heavitas text-white font-normal leading-normal max-md:text-[6.4rem] max-xl:hidden max-lg:text-[6rem]'>
         BACKPACK UP
       </h2>

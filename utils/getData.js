@@ -16,8 +16,8 @@ export default async function getData(query, variables = {}) {
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    console.log('Failed to fetch data!')
-    throw new Error('Failed to fetch data')
+    // throw new Error('Failed to fetch data')
+    return null
   }
 
   return res.json()

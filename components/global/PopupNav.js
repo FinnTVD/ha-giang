@@ -6,15 +6,16 @@ export function PopupNav({ children, allTourHG }) {
     <HoverCard openDelay={100}>
       <HoverCardTrigger asChild>{children}</HoverCardTrigger>
       <HoverCardContent className='flex flex-col w-fit'>
-        {allTourHG?.nodes?.map((e, index) => (
-          <Link
-            key={index}
-            href={e?.slug ? '/' + e?.slug : '/'}
-            className='py-[0.3rem] relative hover:text-primary-70 transition-all duration-200'
-          >
-            {e?.title}
-          </Link>
-        ))}
+        {Array.isArray(allTourHG?.nodes) &&
+          allTourHG?.nodes?.map((e, index) => (
+            <Link
+              key={index}
+              href={e?.slug ? '/' + e?.slug : '/'}
+              className='py-[0.3rem] relative hover:text-primary-70 transition-all duration-200'
+            >
+              {e?.title}
+            </Link>
+          ))}
       </HoverCardContent>
     </HoverCard>
   )

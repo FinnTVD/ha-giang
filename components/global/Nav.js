@@ -93,7 +93,7 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
             ) : (
               <div key={e?.id}>
                 <Link
-                  href={e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href || '/'}
+                  href={(e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href) || '/'}
                   className='text-[0.875rem] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25rem] block hover:-translate-y-[0.5rem] hover:text-primary-50'
                 >
                   {e?.title}

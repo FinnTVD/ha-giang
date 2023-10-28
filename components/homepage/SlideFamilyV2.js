@@ -39,20 +39,22 @@ export default function SlideFamilyV2({ section6, setTourLeader }) {
         }}
         className='h-[25.825rem] w-[50.5rem]'
       >
-        {[...section6?.listCategory[0]?.listAddress, ...section6?.listCategory[0]?.listAddress]?.map((e, index) => (
-          <SwiperSlide
-            className='!h-full rounded-[1rem] select-none transition-all duration-1000 relative '
-            key={index}
-          >
-            <Image
-              className='w-full object-cover h-full rounded-[1rem] absolute top-0 left-0 transition-all duration-1000'
-              src={e?.image?.sourceUrl || '/images/item-tour.jpg'}
-              alt={e?.image?.altText || e?.image?.title}
-              width={800}
-              height={600}
-            />
-          </SwiperSlide>
-        ))}
+        {section6?.listCategory[0]?.listAddress &&
+          Array.isArray(section6?.listCategory[0]?.listAddress) &&
+          [...section6?.listCategory[0]?.listAddress, ...section6?.listCategory[0]?.listAddress]?.map((e, index) => (
+            <SwiperSlide
+              className='!h-full rounded-[1rem] select-none transition-all duration-1000 relative '
+              key={index}
+            >
+              <Image
+                className='w-full object-cover h-full rounded-[1rem] absolute top-0 left-0 transition-all duration-1000'
+                src={e?.image?.sourceUrl || '/images/item-tour.jpg'}
+                alt={e?.image?.altText || e?.image?.title}
+                width={800}
+                height={600}
+              />
+            </SwiperSlide>
+          ))}
       </Swiper>
       {section6?.listCategory[0]?.listAddress?.length > 1 && (
         <>

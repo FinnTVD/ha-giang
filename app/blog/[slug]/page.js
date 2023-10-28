@@ -10,6 +10,7 @@ import IndexNotFound from '@/components/not-found'
 
 export async function generateMetadata({ params: { slug } }) {
   const data = await getDataDetail(GET_BLOG_DETAIL, slug)
+  if (!data) return
   const dataTour = data?.data?.post
   return {
     title: dataTour?.title,

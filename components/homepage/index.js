@@ -10,7 +10,16 @@ import Header from '../global/Header'
 import Banner from './Banner'
 
 export default function IndexHomePage({ data, allTourHG }) {
-  const { header, section1, section2, section3, section4, section5, section6, section7, section8 } = data
+  const header = data?.header
+  const section1 = data?.section1
+  const section2 = data?.section2
+  const section3 = data?.section3
+  const section4 = data?.section4
+  const section5 = data?.section5
+  const section6 = data?.section6
+  const section7 = data?.section7
+  const section8 = data?.section8
+
   return (
     <>
       <Header
@@ -18,7 +27,6 @@ export default function IndexHomePage({ data, allTourHG }) {
         allTourHG={allTourHG}
         isHome={true}
       />
-
       <main className='relative w-full overflow-x-hidden'>
         <Banner section1={section1} />
         <Image

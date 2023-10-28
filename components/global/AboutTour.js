@@ -128,13 +128,15 @@ function AboutTour({ data, isMobile }) {
               >
                 {data?.heading}
               </h4>
-              <div
-                data-aos='fade-right'
-                data-aos-delay='100'
-                id='content-trip-details'
-                className='md:text-[1.5rem] lg:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375] leading-normal md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
-                dangerouslySetInnerHTML={{ __html: content?.content }}
-              />
+              {content?.content && (
+                <div
+                  data-aos='fade-right'
+                  data-aos-delay='100'
+                  id='content-trip-details'
+                  className='md:text-[1.5rem] lg:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375] leading-normal md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
+                  dangerouslySetInnerHTML={{ __html: content?.content }}
+                />
+              )}
             </div>
           </div>
 

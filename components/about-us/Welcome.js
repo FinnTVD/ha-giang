@@ -31,18 +31,22 @@ export default function Welcome({ overview, video }) {
           className='item-video-v2 w-full !h-[56rem] mt-[5.3rem] md:hidden'
         />
         <div className=''>
-          <div
-            data-aos='fade-up'
-            data-aos-delay='200'
-            className={classes['welcome-description']}
-            dangerouslySetInnerHTML={{ __html: overview?.contentTop }}
-          ></div>
-          <div
-            data-aos='fade-up'
-            data-aos-delay='210'
-            className={classes['welcome-description']}
-            dangerouslySetInnerHTML={{ __html: overview?.contentBottom }}
-          ></div>
+          {overview?.contentTop && (
+            <div
+              data-aos='fade-up'
+              data-aos-delay='200'
+              className={classes['welcome-description']}
+              dangerouslySetInnerHTML={{ __html: overview?.contentTop }}
+            />
+          )}
+          {overview?.contentBottom && (
+            <div
+              data-aos='fade-up'
+              data-aos-delay='210'
+              className={classes['welcome-description']}
+              dangerouslySetInnerHTML={{ __html: overview?.contentBottom }}
+            />
+          )}
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import ItemCardTour from './ItemCardTour'
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import IconMotor from '../icons/IconMotor'
+import { isArray } from 'lodash'
 
 const arr = new Array(2).fill(0)
 
@@ -24,7 +25,7 @@ export default function SlideGreatTrips({ allTourHG }) {
     swiperRef.current?.slideNext()
   }
 
-  const listTour = [...allTourHG?.nodes].reverse()
+  const listTour = Array.isArray(allTourHG?.nodes) ? [...allTourHG?.nodes].reverse() : {}
 
   return (
     <>
@@ -77,17 +78,18 @@ export default function SlideGreatTrips({ allTourHG }) {
           }}
           className='lg:w-[87.1rem] !px-[3rem] max-md:h-[128rem] max-md:!px-[4.27rem] lg:h-[40rem] md:h-[55rem]'
         >
-          {listTour?.map((e, index) => (
-            <SwiperSlide
-              key={index}
-              className='relative rounded-[1.5rem] max-md:rounded-[4.267rem] !flex items-center'
-            >
-              <ItemCardTour
-                data={e}
-                allTourHG={allTourHG}
-              />
-            </SwiperSlide>
-          ))}
+          {Array.isArray(listTour) &&
+            listTour?.map((e, index) => (
+              <SwiperSlide
+                key={index}
+                className='relative rounded-[1.5rem] max-md:rounded-[4.267rem] !flex items-center'
+              >
+                <ItemCardTour
+                  data={e}
+                  allTourHG={allTourHG}
+                />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
       {!isMobile ? (

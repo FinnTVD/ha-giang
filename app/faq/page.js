@@ -6,6 +6,7 @@ import React from 'react'
 
 export async function generateMetadata() {
   const data = await getData(GET_META_FAQ)
+  if (!data) return
   const faq = data?.data?.page?.faq
   const featuredImage = data?.data?.page?.featuredImage
   return {
@@ -27,7 +28,7 @@ export async function generateMetadata() {
       siteName: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
+          url: featuredImage?.node?.sourceUrl || '/images/bg-header.jpg',
           alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
       ],
@@ -41,7 +42,7 @@ export async function generateMetadata() {
       creator: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
+          url: featuredImage?.node?.sourceUrl || '/images/bg-header.jpg',
           alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
       ],

@@ -88,7 +88,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
             >
               <Link
                 className='uppercase font-heavitas text-[5.33rem] md:text-[3.5rem] font-normal leading-[1] text-gray-scale-80 block text-center'
-                href={e?.id === 9 ? header?.vietnamCheersHostel?.url : e?.href || '/'}
+                href={(e?.id === 9 ? header?.vietnamCheersHostel?.url : e?.href) || '/'}
               >
                 {e?.title}
               </Link>

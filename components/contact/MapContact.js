@@ -67,11 +67,13 @@ export default function MapContact({ data, footer }) {
       <h2 className='w-[38.0625rem] max-lg:w-[66rem] max-md:hidden uppercase text-primary-70 font-heavitas font-normal text-[1.5rem] leading-[1.33] mt-[6.25rem] mb-[1.87rem] max-lg:text-[2.5rem]'>
         {data?.section1?.heading}
       </h2>
-      <div
-        id='boxMap'
-        className='!w-full flex justify-center max-md:!h-[90vh] max-md:!w-full h-full rounded-[0.75rem] max-md:rounded-[4.267rem] max-md:mt-[16rem] overflow-hidden max-lg:!w-full'
-        dangerouslySetInnerHTML={{ __html: `${data?.section1?.map}` }}
-      />
+      {data?.section1?.map && (
+        <div
+          id='boxMap'
+          className='!w-full flex justify-center max-md:!h-[90vh] max-md:!w-full h-full rounded-[0.75rem] max-md:rounded-[4.267rem] max-md:mt-[16rem] overflow-hidden max-lg:!w-full'
+          dangerouslySetInnerHTML={{ __html: `${data?.section1?.map}` }}
+        />
+      )}
     </section>
   )
 }

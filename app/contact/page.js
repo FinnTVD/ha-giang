@@ -5,6 +5,7 @@ import getData from '@/utils/getData'
 
 export async function generateMetadata() {
   const data = await getData(GET_META_CONTACT)
+  if (!data) return
   const contact = data?.data?.page?.contact
   const featuredImage = data?.data?.page?.featuredImage
 
@@ -27,7 +28,7 @@ export async function generateMetadata() {
       siteName: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
+          url: featuredImage?.node?.sourceUrl || '/images/bg-header.jpg',
           alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
       ],
@@ -41,7 +42,7 @@ export async function generateMetadata() {
       creator: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
+          url: featuredImage?.node?.sourceUrl || '/images/bg-header.jpg',
           alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
       ],

@@ -5,6 +5,7 @@ import getData from '@/utils/getData'
 
 export async function generateMetadata({ params }) {
   const data = await getData(GET_META_TOUR_DETAIL, { slug: params?.slug })
+  if (!data) return
   const featuredImage = data?.data?.tourHG?.featuredImage
   const title = data?.data?.tourHG?.title
   const tourHaGiangDetail = data?.data?.tourHG?.tourHaGiangDetail
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }) {
       siteName: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
+          url: featuredImage?.node?.sourceUrl || '/images/bg-header.jpg',
           alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
       ],
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }) {
       creator: process.env.SITE_NAME,
       images: [
         {
-          url: featuredImage?.node?.sourceUrl,
+          url: featuredImage?.node?.sourceUrl || '/images/bg-header.jpg',
           alt: featuredImage?.node?.altText || featuredImage?.node?.title,
         },
       ],

@@ -31,10 +31,12 @@ function BlogItem({ data }) {
         <h4 className='lg:text-[1.25rem] text-[3.73333rem] line-clamp-2 font-[700] leading-[1.4] md:mt-[0.78rem] mt-[1.07rem] title md:text-[1.95rem]'>
           {data?.title}
         </h4>
-        <div
-          className='lg:text-[0.875rem] text-ellipsis line-clamp-2 opacity-60 text-[2.66667rem] font-[500] desc leading-normal md:mt-[0.5rem] mt-[1.07rem] md:text-[1.8rem]'
-          dangerouslySetInnerHTML={{ __html: `${data?.excerpt}` }}
-        ></div>
+        {data?.excerpt && (
+          <div
+            className='lg:text-[0.875rem] text-ellipsis line-clamp-2 opacity-60 text-[2.66667rem] font-[500] desc leading-normal md:mt-[0.5rem] mt-[1.07rem] md:text-[1.8rem]'
+            dangerouslySetInnerHTML={{ __html: `${data?.excerpt}` }}
+          ></div>
+        )}
       </div>
     </Link>
   )
