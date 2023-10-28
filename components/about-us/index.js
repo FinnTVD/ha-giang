@@ -15,8 +15,15 @@ import CheersTour from '../homepage/CheersTour'
 import MenuDown from '../global/MenuDown'
 
 export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
-  const { header, section6, section2 } = data
-  const { banner, overview, valueTowards, textRun, video } = dataAboutUs
+  const header = data?.header
+  const section6 = data?.section6
+  const section2 = data?.section2
+  const banner = dataAboutUs?.banner
+  const overview = dataAboutUs?.overview
+  const valueTowards = dataAboutUs?.valueTowards
+  const textRun = dataAboutUs?.textRun
+  const video = dataAboutUs?.video
+
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
 

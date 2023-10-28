@@ -9,16 +9,14 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    if (searchParams?.vpc_TxnResponseCode === '0') {
-      const dataForm = JSON.parse(localStorage.getItem('formDataPayment'))
-      dataForm && setData(dataForm)
-    } else {
-      localStorage.removeItem('formDataPayment')
-    }
+    const dataForm = JSON.parse(localStorage.getItem('formDataPayment'))
+    dataForm && setData(dataForm)
+    return () => localStorage.removeItem('formDataPayment')
   }, [])
 
   useEffect(() => {
-    if (data) {
+    // nếu thánh toán thành công sẽ đẩy data về form thành công
+    if (data && searchParams?.vpc_TxnResponseCode === '0') {
       mutate({
         variables: {
           input: {
@@ -26,56 +24,125 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
             fieldValues: [
               {
                 id: 1,
-                value: data.nameTour,
+                value: data?.nameTour,
               },
               {
                 id: 3,
-                value: data.name,
+                value: data?.name,
               },
               {
                 id: 4,
-                value: data.contactInfo,
+                value: data?.contactInfo,
               },
               {
                 id: 5,
-                value: data.pickUp,
+                value: data?.pickUp,
               },
               {
                 id: 6,
-                value: data.tourDuration,
+                value: data?.tourDuration,
               },
               {
                 id: 7,
-                value: data.droffOf,
+                value: data?.droffOf,
               },
               {
                 id: 8,
-                value: data.selfDriving,
+                value: data?.selfDriving,
               },
               {
                 id: 9,
-                value: data.localDriver,
+                value: data?.localDriver,
               },
               {
                 id: 10,
-                value: data.message,
+                value: data?.message,
               },
               {
                 id: 11,
-                value: data.provisional,
+                value: data?.provisional,
               },
               {
                 id: 12,
-                value: data.serviceCharge,
+                value: data?.serviceCharge,
               },
               {
                 id: 13,
-                value: data.total,
+                value: data?.total,
               },
               {
                 id: 16,
                 emailValues: {
-                  value: data.email,
+                  value: data?.email,
+                },
+              },
+            ],
+          },
+        },
+      }).then((res) => {
+        res?.data?.submitGfForm?.entry?.id && localStorage.removeItem('formDataPayment')
+      })
+    }
+
+    // nếu thánh toán thất bại sẽ đẩy data về form thất bại
+    if (data && searchParams?.vpc_TxnResponseCode !== '0') {
+      mutate({
+        variables: {
+          input: {
+            id: 3,
+            fieldValues: [
+              {
+                id: 1,
+                value: data?.nameTour,
+              },
+              {
+                id: 3,
+                value: data?.name,
+              },
+              {
+                id: 4,
+                value: data?.contactInfo,
+              },
+              {
+                id: 5,
+                value: data?.pickUp,
+              },
+              {
+                id: 6,
+                value: data?.tourDuration,
+              },
+              {
+                id: 7,
+                value: data?.droffOf,
+              },
+              {
+                id: 8,
+                value: data?.selfDriving,
+              },
+              {
+                id: 9,
+                value: data?.localDriver,
+              },
+              {
+                id: 10,
+                value: data?.message,
+              },
+              {
+                id: 11,
+                value: data?.provisional,
+              },
+              {
+                id: 12,
+                value: data?.serviceCharge,
+              },
+              {
+                id: 13,
+                value: data?.total,
+              },
+              {
+                id: 14,
+                emailValues: {
+                  value: data?.email,
                 },
               },
             ],

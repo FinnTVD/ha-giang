@@ -7,8 +7,6 @@ import IconGlobal from '../icons/IconGlobal'
 import FormContact from './FormContact'
 
 export default function MapContact({ data, footer }) {
-  if (!data) return
-
   return (
     <section className='w-[87.5rem] max-lg:w-[95rem] mx-auto h-fit mb-[6.25rem] max-md:w-[91.46667rem] max-md:gap-y-[8rem] max-md:mt-[13rem] font-poppins'>
       <div className='md:flex w-full h-fit gap-x-[8.94rem] max-lg:gap-x-[4.94rem]'>

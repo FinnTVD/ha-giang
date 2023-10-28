@@ -16,6 +16,8 @@ import { useMediaQuery } from 'react-responsive'
 import motoImg from '@/public/images/motobikeMobile.svg'
 import IconEnjoin from '../icons/IconEnjoin'
 import { exchangeRate } from '@/utils'
+import { FORM_GLOBAL } from '@/graphql/form/queries'
+import { useMutation } from '@apollo/client'
 
 const defaultValues = {
   selfDriving: 0,
@@ -53,6 +55,8 @@ const inputMobileStyle = {
 export default function BookingOnlineV2({ tour = '', allTourHG }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
   const [ip, setIp] = useState('')
+  const [mutate] = useMutation(FORM_GLOBAL)
+
   const [selfDriving, setSelfDriving] = useState(0)
   const [localDriver, setLocalDriver] = useState(0)
   const [pick, setPick] = useState(
@@ -172,6 +176,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
     const formData = {
       nameTour: values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title,
       name: e?.name + ' - ' + (selfDriving + localDriver) + ' pax',
+      email: e?.email,
       contactInfo: e?.email + ' - ' + e?.phone,
       pickUp: fDate(e.departureDate) + ' from ' + e.pickup + ' at ' + e.pickupAddress,
       tourDuration:
@@ -184,6 +189,71 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       provisional: fCurrency(totalPrice) + ' VND',
       serviceCharge: fCurrency(totalPrice * 0.03) + ' VND',
       total: fCurrency(totalPrice + servicePrice) + ' VND',
+    }
+    if (formData) {
+      mutate({
+        variables: {
+          input: {
+            id: 4,
+            fieldValues: [
+              {
+                id: 1,
+                value: formData?.nameTour,
+              },
+              {
+                id: 3,
+                value: formData?.name,
+              },
+              {
+                id: 4,
+                value: formData?.contactInfo,
+              },
+              {
+                id: 5,
+                value: formData?.pickUp,
+              },
+              {
+                id: 6,
+                value: formData?.tourDuration,
+              },
+              {
+                id: 7,
+                value: formData?.droffOf,
+              },
+              {
+                id: 8,
+                value: formData?.selfDriving,
+              },
+              {
+                id: 9,
+                value: formData?.localDriver,
+              },
+              {
+                id: 10,
+                value: formData?.message,
+              },
+              {
+                id: 11,
+                value: formData?.provisional,
+              },
+              {
+                id: 12,
+                value: formData?.serviceCharge,
+              },
+              {
+                id: 13,
+                value: formData?.total,
+              },
+              {
+                id: 14,
+                emailValues: {
+                  value: formData?.email,
+                },
+              },
+            ],
+          },
+        },
+      })
     }
     window.localStorage.setItem('formDataPayment', JSON.stringify(formData))
 

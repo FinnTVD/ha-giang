@@ -21,6 +21,8 @@ import ScrollTrigger from 'react-scroll-trigger'
 import LineLeftPayMent from '../icons/LineLeftPayMent'
 import LineRightPayMent from '../icons/LineRightPayMent'
 import IconMotorMbPayment from '../icons/IconMotorMbPayment'
+import { FORM_GLOBAL } from '@/graphql/form/queries'
+import { useMutation } from '@apollo/client'
 
 const defaultValues = {
   selfDriving: 0,
@@ -58,6 +60,7 @@ const inputMobileStyle = {
 export default function BookingOnline({ data, title }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
   const router = useRouter()
+  const [mutate] = useMutation(FORM_GLOBAL)
 
   const [ip, setIp] = useState('')
   const setIndexTab = useStore((state) => state.setIndexTab)
@@ -162,6 +165,71 @@ export default function BookingOnline({ data, title }) {
       provisional: fCurrency(totalPrice) + ' VND',
       serviceCharge: fCurrency(totalPrice * 0.03) + ' VND',
       total: fCurrency(totalPrice + servicePrice) + ' VND',
+    }
+    if (formData) {
+      mutate({
+        variables: {
+          input: {
+            id: 4,
+            fieldValues: [
+              {
+                id: 1,
+                value: formData?.nameTour,
+              },
+              {
+                id: 3,
+                value: formData?.name,
+              },
+              {
+                id: 4,
+                value: formData?.contactInfo,
+              },
+              {
+                id: 5,
+                value: formData?.pickUp,
+              },
+              {
+                id: 6,
+                value: formData?.tourDuration,
+              },
+              {
+                id: 7,
+                value: formData?.droffOf,
+              },
+              {
+                id: 8,
+                value: formData?.selfDriving,
+              },
+              {
+                id: 9,
+                value: formData?.localDriver,
+              },
+              {
+                id: 10,
+                value: formData?.message,
+              },
+              {
+                id: 11,
+                value: formData?.provisional,
+              },
+              {
+                id: 12,
+                value: formData?.serviceCharge,
+              },
+              {
+                id: 13,
+                value: formData?.total,
+              },
+              {
+                id: 14,
+                emailValues: {
+                  value: formData?.email,
+                },
+              },
+            ],
+          },
+        },
+      })
     }
     window.localStorage.setItem('formDataPayment', JSON.stringify(formData))
 

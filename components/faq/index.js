@@ -11,8 +11,10 @@ import NavFixed from '../global/NavFixed'
 import MenuDown from '../global/MenuDown'
 
 export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
-  const { header, section6, section8 } = data
-  const { banner } = dataAboutUs
+  const header = data?.header
+  const section6 = data?.section6
+  const section8 = data?.section8
+  const banner = dataAboutUs?.banner
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
 

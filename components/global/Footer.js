@@ -13,8 +13,7 @@ import BgFooter from '../icons/BgFooter'
 
 export default async function Footer() {
   const data = await getData(GET_DATA_FOOTER)
-  const { footer } = data?.data?.page?.homeHG
-  if (!footer) return
+  const footer = data?.data?.page?.homeHG?.footer
   return (
     <footer
       id='footer'
