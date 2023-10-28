@@ -72,6 +72,12 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
                 id: 13,
                 value: data.total,
               },
+              {
+                id: 16,
+                emailValues: {
+                  value: data.email,
+                },
+              },
             ],
           },
         },

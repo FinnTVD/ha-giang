@@ -151,6 +151,7 @@ export default function BookingOnline({ data, title }) {
     const formData = {
       nameTour: title,
       name: e?.name + ' - ' + (selfDriving + localDriver) + ' pax',
+      email: e?.email,
       contactInfo: e?.email + ' - ' + e?.phone,
       pickUp: fDate(e.departureDate) + ' from ' + e.pickup + ' at ' + e.pickupAddress,
       tourDuration: data?.longTimeTourDay + ' Days',
