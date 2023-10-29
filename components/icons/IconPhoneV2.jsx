@@ -2,7 +2,7 @@
 export default function IconPhoneV2({className,isActive}) {
   return (
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" className={className}>
-  <g clip-path="url(#clip0_7744_9584)">
+  <g clipPath="url(#clip0_7744_9584)">
         <mask id="mask0_7744_9584" style={{
       maskType:'luminance'
     }} maskUnits="userSpaceOnUse" x="0" y="0" width="14" height="14">

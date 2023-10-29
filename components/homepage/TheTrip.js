@@ -31,6 +31,7 @@ export default function TheTrip({ section8, allTourHG, isOther = false }) {
         <div className='flex md:gap-[5rem] max-md:justify-between'>
           {section8?.listCategory?.map((e, index) => (
             <div
+              key={index}
               data-aos='fade-left'
               data-aos-delay={`${index * 500}`}
               onClick={() => setActive(index)}
