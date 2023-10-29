@@ -10,6 +10,7 @@ export async function generateMetadata() {
   const faq = data?.data?.page?.faq
   const featuredImage = data?.data?.page?.featuredImage
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
     title: faq?.meta?.title,
     description: faq?.meta?.description,
     applicationName: process.env.SITE_NAME,

@@ -13,6 +13,7 @@ export async function generateMetadata({ params: { slug } }) {
   if (!data) return
   const dataTour = data?.data?.post
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
     title: dataTour?.title,
     description: dataTour?.excerpt,
     applicationName: process.env.SITE_NAME,
