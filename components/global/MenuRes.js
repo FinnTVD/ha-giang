@@ -62,7 +62,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
         src={'/images/bg-nav-res.png'}
         alt='background res'
         fill
-        sizes='100rem'
+        sizes='100vw'
       />
       {/* <Image
                 onClick={() => setIsOpen(false)}

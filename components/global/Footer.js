@@ -24,7 +24,7 @@ export default async function Footer() {
         className='z-0 max-md:h-[111.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover images-house'
         alt={footer?.background?.altText || footer?.background?.title}
         src={footer?.background?.sourceUrl || '/images/bg-footer.png'}
-        sizes='100rem'
+        sizes='100vw'
         quality={100}
         priority
         width={100}

@@ -28,7 +28,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
           src={section2?.map?.sourceUrl || '/images/mapvn.png'}
           alt={section2?.map?.altText || section2?.map?.title}
           fill
-          sizes='100rem'
+          sizes='100vw'
           quality={100}
         />
       </div>
@@ -46,7 +46,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
                 className='z-0 object-contain'
                 src={'/images/bg-text-cheer.png'}
                 fill
-                sizes='100rem'
+                sizes='100vw'
               />
               <span className='relative z-[1] text-[0.875rem] max-lg:text-[1.5rem] text-primary-5 font-bold leading-[1.375] tracking-[0.00219rem] line-clamp-1'>
                 {e?.title}

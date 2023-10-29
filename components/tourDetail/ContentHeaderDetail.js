@@ -30,7 +30,7 @@ export default function ContentHeaderDetail({ data, slug }) {
           className='object-cover max-lg:object-contain'
           src={'/images/bg-time-detail.png'}
           fill
-          sizes='100rem'
+          sizes='100vw'
           priority
         />
         <span className='relative text-[1rem] max-lg:text-[2rem] font-semibold leading-normal tracking-[0.0125rem] text-gray-scale-80 uppercase max-md:text-[3.467rem] max-md:leading-[1.38]'>

@@ -28,7 +28,7 @@ export default function SlideCheersTour({ section2 }) {
             className='z-0 object-contain'
             src={'/images/bg-text-cheer.png'}
             fill
-            sizes='100rem'
+            sizes='100vw'
           />
           <span className='relative w-full line-clamp-1 text-center  z-[1] text-primary-5 font-bold text-[3.5rem] leading-[1.57] tracking-[0.00933rem]'>
             {e?.title}

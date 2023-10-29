@@ -10,7 +10,7 @@ export default function Travelers({ section5 }) {
         className='z-0 object-cover'
         src={'/images/bg-traveller.png'}
         fill
-        sizes='100rem'
+        sizes='100vw'
       /> */}
       <div className='w-full h-[8rem] bg-gradient-travelers absolute top-0 left-0 z-[1]'></div>
       <SubTitle

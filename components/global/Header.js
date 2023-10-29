@@ -47,7 +47,7 @@ export default function Header({ header, allTourHG, isHome }) {
           src={header?.background?.sourceUrl || '/images/bg-header.jpg'}
           alt={'background cheer tour'}
           fill
-          sizes='100rem'
+          sizes='100vw'
           priority
         />
         <Image
@@ -55,7 +55,7 @@ export default function Header({ header, allTourHG, isHome }) {
           src={header?.backgroundMobile?.sourceUrl || '/images/bg-header.jpg'}
           alt={'background cheer tour'}
           fill
-          sizes='100rem'
+          sizes='100vw'
           priority
         />
         <h1 className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[-1] text-white'>Ha Giang Tour</h1>

@@ -60,7 +60,7 @@ export default function SlidePopupGallery({ section4, indexTab }) {
               src={e?.sourceUrl || '/images/gallery.jpg'}
               alt={e?.altText || e?.title}
               fill
-              sizes='100rem'
+              sizes='100vw'
             />
           </SwiperSlide>
         ))}

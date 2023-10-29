@@ -74,7 +74,7 @@ export default function Weather({ section7 }) {
           src={'/images/mask-weather.png'}
           alt='mask-weather'
           fill
-          sizes='100rem'
+          sizes='100vw'
         />
       )}
       <div className='w-full h-[6rem] bg-gradient-travelers2 absolute bottom-0 left-0 z-[1]'></div>

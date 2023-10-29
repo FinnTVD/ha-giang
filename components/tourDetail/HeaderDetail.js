@@ -43,7 +43,7 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
         src={data?.data?.tourHG?.featuredImage?.node?.sourceUrl || '/images/header-detail.jpg'}
         alt={data?.data?.tourHG?.featuredImage?.node?.altText || data?.data?.tourHG?.featuredImage?.node?.title}
         fill
-        sizes='100rem'
+        sizes='100vw'
         priority
       />
       <div className='absolute top-0 left-0 z-0 w-full h-full bg-gradient-header-detail bg-overlay'></div>
@@ -62,7 +62,7 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
             src={'/images/circle-orange.png'}
             alt='circle currency'
             fill
-            sizes='100rem'
+            sizes='100vw'
           />
           <div className='relative z-[1] flex flex-col justify-center items-center'>
             <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
@@ -79,7 +79,7 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
             src={'/images/circle-orange.png'}
             alt='circle currency'
             fill
-            sizes='100rem'
+            sizes='100vw'
           />
           <div className='relative z-[1] flex flex-col justify-center items-center'>
             <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
