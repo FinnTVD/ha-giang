@@ -10,6 +10,7 @@ export async function generateMetadata({ params }) {
   const title = data?.data?.tourHG?.title
   const tourHaGiangDetail = data?.data?.tourHG?.tourHaGiangDetail
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
     title: tourHaGiangDetail?.metaSeo?.metaTitle,
     description: tourHaGiangDetail?.metaSeo?.metaDescription,
     applicationName: process.env.SITE_NAME,

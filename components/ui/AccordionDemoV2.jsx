@@ -18,7 +18,7 @@ export function AccordionDemoV2({ className, data }) {
                             value={`value-${index + 1}`}
                         >
                             <AccordionTrigger
-                                indexTab={indexTab}
+                                indextab={indexTab}
                                 onClick={() => {
                                     if (index === indexTab) {
                                         setIndexTab(-1)

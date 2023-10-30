@@ -8,6 +8,7 @@ export async function generateMetadata() {
   const featuredImage = data?.data?.page?.featuredImage
   const aboutUs = data?.data?.page?.aboutUs
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
     title: aboutUs?.meta?.title,
     description: aboutUs?.meta?.description,
     applicationName: process.env.SITE_NAME,
