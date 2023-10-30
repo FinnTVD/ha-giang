@@ -13,8 +13,7 @@ import * as Yup from 'yup'
 import Button from '../global/Button'
 import RHFDatePicker from '../ui/RHFDatePicker'
 import { useMediaQuery } from 'react-responsive'
-import motoImg from '@/public/images/motobikeMobile.svg'
-import IconEnjoin from '../icons/IconEnjoin'
+
 import { exchangeRate } from '@/utils'
 import { FORM_GLOBAL } from '@/graphql/form/queries'
 import { useMutation } from '@apollo/client'
@@ -169,7 +168,6 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
   }
 
   const onSubmit = async (e) => {
-    console.log('totalAmount', totalAmount)
     if (typeof window === 'undefined') return
     if (totalAmount <= 0) {
       setError('root', {
