@@ -17,7 +17,6 @@ export default async function getDataDetail(query, slug) {
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     // throw new Error('Failed to fetch data')
-    console.log('fetch', query, slug)
     return null
   }
 

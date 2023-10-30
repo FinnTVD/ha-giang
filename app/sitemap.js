@@ -23,6 +23,40 @@ const GET_TOURS = `
 export default async function sitemap() {
   const posts = await getData(GET_POSTS)
   const tours = await getData(GET_TOURS)
+  if (!posts || !tours) {
+    return [
+      {
+        url: process.env.DOMAIN,
+        lastModified: new Date(),
+        priority: 1,
+      },
+      {
+        url: `${process.env.DOMAIN}/about-us`,
+        lastModified: new Date(),
+        priority: 0.9,
+      },
+      {
+        url: `${process.env.DOMAIN}/blog`,
+        lastModified: new Date(),
+        priority: 0.9,
+      },
+      {
+        url: `${process.env.DOMAIN}/contact`,
+        lastModified: new Date(),
+        priority: 0.9,
+      },
+      {
+        url: `${process.env.DOMAIN}/destinations`,
+        lastModified: new Date(),
+        priority: 0.9,
+      },
+      {
+        url: `${process.env.DOMAIN}/faq`,
+        lastModified: new Date(),
+        priority: 0.9,
+      },
+    ]
+  }
   const arrPosts = posts?.data?.posts?.nodes?.map((e) => {
     return {
       url: `${process.env.DOMAIN}/${e?.slug}`,
