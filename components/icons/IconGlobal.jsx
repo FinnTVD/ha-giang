@@ -8,7 +8,7 @@ export default function IconGlobal({ className }) {
             fill='none'
             className={className}
         >
-            <g clip-path='url(#clip0_7405_10226)'>
+            <g clipPath='url(#clip0_7405_10226)'>
                 <circle
                     cx='6'
                     cy='11'

@@ -24,7 +24,7 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
         'flex flex-1 items-center justify-between py-[0.5rem] max-lg:py-[1.5rem] font-semibold transition-all [&[data-state=open]>svg]:rotate-180 max-md:text-[3.733rem] leading-[1.57] tracking-[0.00933rem] max-md:pt-[2rem] max-md:pb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem]',
         className,
         props?.index === 0 ? 'max-md:mt-[4.27rem]' : 'max-md:mt-[2.67rem]',
-        props?.indexTab === props?.index ? 'text-primary-70' : 'text-gray-scale-50',
+        props?.indextab === props?.index ? 'text-primary-70' : 'text-gray-scale-50',
       )}
       {...props}
     >

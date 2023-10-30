@@ -18,7 +18,7 @@ export function AccordionDemo({ className='', data }) {
                             value={`value-${index + 1}`}
                         >
                             <AccordionTrigger
-                                indexTab={indexTab}
+                                indextab={indexTab}
                                 className={`${index===indexTab?'border-[#B34B1E] mb-[2rem]':''} border-b `}
                                 onClick={() => {
                                     if (index === indexTab) {

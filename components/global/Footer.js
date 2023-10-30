@@ -29,7 +29,7 @@ export default async function Footer() {
         priority
         width={100}
         height={100}
-        object-cover
+        // object-cover
       />
       <div className='lg:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem] max-lg:h-[130rem]'>
         <div className='flex justify-between items-center w-full relative z-[1] max-md:px-[4.27rem] max-lg:flex-col'>
@@ -90,6 +90,7 @@ export default async function Footer() {
               <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>
                 {data?.data?.allTourHG?.nodes?.map((e, index) => (
                   <InfoFooter
+                    key={index}
                     icon={transportIcon}
                     text={e?.title}
                     href={e?.slug ? '/' + e?.slug : '/'}

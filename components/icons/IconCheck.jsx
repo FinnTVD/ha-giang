@@ -8,7 +8,7 @@ export default function IconCheck({ className }) {
             fill='none'
             className={className}
         >
-            <g clip-path='url(#clip0_5729_4185)'>
+            <g clipPath='url(#clip0_5729_4185)'>
                 <circle
                     cx='8'
                     cy='8'

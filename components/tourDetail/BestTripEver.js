@@ -221,6 +221,7 @@ export default function BestTripEver({ data }) {
                   >
                     {data?.listDay?.map((e, index) => (
                       <div
+                        key={index}
                         onClick={() => dayHandler(index)}
                         className={`${
                           index === indexMb ? 'bg-[#B34B1E]' : 'bg-[#F9F9F9]'
@@ -242,9 +243,9 @@ export default function BestTripEver({ data }) {
                 </div>
                 <div className='mt-[3.7rem]'>
                   {data?.listDay?.map((e, index) => (
-                    <div className={`${index === indexMb ? 'block' : 'hidden'} flex gap-[2.1rem] flex-wrap`}>
+                    <div key={index} className={`${index === indexMb ? 'block' : 'hidden'} flex gap-[2.1rem] flex-wrap`}>
                       {e?.listProvince?.map((item) => (
-                        <div className='w-[29rem] md:w-[22rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'>
+                        <div key={index} className='w-[29rem] md:w-[22rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'>
                           {item.province}
                         </div>
                       ))}
