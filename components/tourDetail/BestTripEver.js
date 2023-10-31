@@ -137,7 +137,7 @@ export default function BestTripEver({ data }) {
                         cy='4'
                         r='3'
                         stroke='#B34B1E'
-                        stroke-width='2'
+                        strokeWidth='2'
                       />
                     </svg>
                     <div className='relative overflow-hidden'>
@@ -153,9 +153,9 @@ export default function BestTripEver({ data }) {
                           d='M1 1.07812H93'
                           stroke='#B34B1E'
                           stroke-opacity='0.26'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke-linecap='round'
-                          stroke-dasharray='10 10'
+                          strokeDasharray='10 10'
                         />
                       </svg>
                       <div
@@ -178,7 +178,7 @@ export default function BestTripEver({ data }) {
                           cy='4'
                           r='3'
                           stroke='#B34B1E'
-                          stroke-width='2'
+                          strokeWidth='2'
                         />
                       </svg>
                     )}
@@ -197,7 +197,7 @@ export default function BestTripEver({ data }) {
                     cy='4'
                     r='3'
                     stroke='#B34B1E'
-                    stroke-width='2'
+                    strokeWidth='2'
                   />
                 </svg>
               </div>
@@ -243,9 +243,15 @@ export default function BestTripEver({ data }) {
                 </div>
                 <div className='mt-[3.7rem]'>
                   {data?.listDay?.map((e, index) => (
-                    <div key={index} className={`${index === indexMb ? 'block' : 'hidden'} flex gap-[2.1rem] flex-wrap`}>
+                    <div
+                      key={index}
+                      className={`${index === indexMb ? 'block' : 'hidden'} flex gap-[2.1rem] flex-wrap`}
+                    >
                       {e?.listProvince?.map((item) => (
-                        <div key={index} className='w-[29rem] md:w-[22rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'>
+                        <div
+                          key={index}
+                          className='w-[29rem] md:w-[22rem] h-[7.4rem] flex-shrink-0 text-[#2E2E2E] text-[3.4rem] bg-[#F2FFBF] flex items-center justify-center font-medium rounded-[1rem]'
+                        >
                           {item.province}
                         </div>
                       ))}

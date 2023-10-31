@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import src from '../../public/images/abcloud.png'
 
 export default function Banner({ bannerData, title }) {
   return (
@@ -13,10 +14,8 @@ export default function Banner({ bannerData, title }) {
       />
       <div className='bg-white bg-opacity-[0.85] absolute w-full h-full left-0 top-0'></div>
       <Image
-        width={1600}
-        height={435}
         alt='about-us-overlay'
-        src='/images/abcloud.png'
+        src={src}
         className='absolute bottom-0 left-0 w-full'
         priority
       />

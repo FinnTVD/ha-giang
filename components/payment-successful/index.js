@@ -9,12 +9,13 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const dataForm = JSON.parse(localStorage.getItem('formDataPayment'))
+    const dataForm = JSON.parse(window?.localStorage?.getItem('formDataPayment'))
     dataForm && setData(dataForm)
-    return () => localStorage.removeItem('formDataPayment')
+    return () => window?.localStorage?.removeItem('formDataPayment')
   }, [])
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
     // nếu thánh toán thành công sẽ đẩy data về form thành công
     if (data && searchParams?.vpc_TxnResponseCode === '0') {
       mutate({
@@ -80,7 +81,7 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
           },
         },
       }).then((res) => {
-        res?.data?.submitGfForm?.entry?.id && localStorage.removeItem('formDataPayment')
+        res?.data?.submitGfForm?.entry?.id && window?.localStorage?.removeItem('formDataPayment')
       })
     }
 
@@ -149,7 +150,7 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
           },
         },
       }).then((res) => {
-        res?.data?.submitGfForm?.entry?.id && localStorage.removeItem('formDataPayment')
+        res?.data?.submitGfForm?.entry?.id && window?.localStorage?.removeItem('formDataPayment')
       })
     }
   }, [data])

@@ -43,7 +43,7 @@ export default function Header({ header, allTourHG, isHome }) {
           allTourHG={allTourHG}
         />
         <Image
-          className='z-0 object-cover max-md:hidden bg-header'
+          className='z-0 object-cover max-md:hidden'
           src={header?.background?.sourceUrl || '/images/bg-header.jpg'}
           alt={'background cheer tour'}
           fill
@@ -51,7 +51,7 @@ export default function Header({ header, allTourHG, isHome }) {
           priority
         />
         <Image
-          className='z-0 object-cover md:hidden bg-header'
+          className='z-0 object-cover md:hidden'
           src={header?.backgroundMobile?.sourceUrl || '/images/bg-header.jpg'}
           alt={'background cheer tour'}
           fill

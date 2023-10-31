@@ -1,11 +1,11 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
+
 import SubTitle from '../global/SubTitle'
-import SlideFamily from './SlideFamily'
 import Button from '../global/Button'
 import SlideTabFamily from './SlideTabFamily'
 import SlidePeople from './SlidePeople'
-import { useMediaQuery } from 'react-responsive'
 import SlideFamilyMb from './SlideFamilyMb'
 import IconPeople from '../icons/IconPeople'
 import IconMotor from '../icons/IconMotor'

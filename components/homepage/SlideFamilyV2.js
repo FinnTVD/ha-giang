@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export default function SlideFamilyV2({ section6, setTourLeader }) {
@@ -10,7 +10,7 @@ export default function SlideFamilyV2({ section6, setTourLeader }) {
 
   const handleSlideChange = (swiper) => {
     setTourLeader(
-      section6?.listCategory[0]?.listAddress[swiper.realIndex >= 5 ? swiper.realIndex - 5 : swiper.realIndex],
+      section6?.listCategory[0]?.listAddress[swiper.realIndex >= 4 ? swiper.realIndex - 4 : swiper.realIndex],
     )
     setIndexSlider(swiper.realIndex)
   }

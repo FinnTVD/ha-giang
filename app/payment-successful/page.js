@@ -1,5 +1,6 @@
-import PaymentSuccessFulPage from '@/components/payment-successful'
+import dynamic from 'next/dynamic'
 
+const PaymentSuccessFulPage = dynamic(() => import('@/components/payment-successful'), { ssr: false })
 export default function PaymentSuccessFul({ searchParams }) {
-    return <PaymentSuccessFulPage searchParams={searchParams} />
+  return <PaymentSuccessFulPage searchParams={searchParams} />
 }

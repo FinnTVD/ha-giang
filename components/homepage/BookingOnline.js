@@ -231,7 +231,7 @@ export default function BookingOnline({ data, title }) {
         },
       })
     }
-    window.localStorage.setItem('formDataPayment', JSON.stringify(formData))
+    window?.localStorage?.setItem('formDataPayment', JSON.stringify(formData))
 
     const params = generateParams(e, true)
     const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
