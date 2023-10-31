@@ -22,11 +22,12 @@ export default function SlideCheersTour({ section2 }) {
       {section2?.listTitle?.map((e, index) => (
         <SwiperSlide
           key={index}
-          className='!h-full !w-[91.4rem] !flex !justify-center !items-center'
+          className='!h-full !w-[91.4rem] !flex !justify-center !items-center relative'
         >
           <Image
             className='z-0 object-contain'
             src={'/images/bg-text-cheer.png'}
+            alt='text'
             fill
             sizes='100vw'
           />

@@ -45,6 +45,7 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
               <Image
                 className='z-0 object-contain'
                 src={'/images/bg-text-cheer.png'}
+                alt='text'
                 fill
                 sizes='100vw'
               />
