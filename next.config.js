@@ -16,6 +16,7 @@ const nextConfig = {
       //   protocol: 'https',
       //   hostname: 'ha-giang-tour.s3.ap-southeast-1.amazonaws.com',
       // },
+      //domains:['cheers.okhub.tech','ha-giang-tour.s3-accelerate.amazonaws.com','ha-giang-tour.s3.ap-southeast-1.amazonaws.com']
       { protocol: 'https', hostname: '**' },
     ],
   },
