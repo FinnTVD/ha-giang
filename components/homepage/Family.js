@@ -12,12 +12,22 @@ import IconMotor from '../icons/IconMotor'
 import IconCheck from '../icons/IconCheck'
 import SlideFamilyV2 from './SlideFamilyV2'
 
+// const handleArrayImg = (arr) => {
+//   if (!Array.isArray(arr)) return
+//   const a = []
+//   for (let index = 0; index < arr.length; index++) {
+//     a.concat(arr[index]?.listPeople)
+//   }
+//   return a
+// }
+
 export default function Family({ section6 }) {
   const isTablet = useMediaQuery({ query: '(max-width: 1023px)' })
   const contentRef = useRef(null)
   const [indexTab, setIndexTab] = useState(0)
   const [tourLeader, setTourLeader] = useState(section6?.listCategory[0]?.listAddress[0])
-
+  // const listImgPreview = handleArrayImg(section6?.listCategory)
+  // console.log('🚀 ~ file: Family.js:30 ~ Family ~ listImgPreview:', listImgPreview)
   useEffect(() => {
     if (typeof window === 'undefined' || !contentRef.current) return
     if (window.innerWidth < 768) return
@@ -123,6 +133,23 @@ export default function Family({ section6 }) {
           indexTab={indexTab}
         />
       )}
+      {/* <div className='h-[25.875rem] max-md:h-[113.93rem] w-full max-lg:h-[45rem]'>
+        {Array.isArray(listImgPreview) &&
+          listImgPreview.map((e, index) => (
+            <div
+              key={index}
+              className='relative w-full h-full'
+            >
+              <Image
+                className='object-cover w-full h-full rounded-[1rem] max-md:rounded-[4.27rem]'
+                src={e?.avatar?.sourceUrl || '/images/people.jpg'}
+                alt={e?.avatar?.altText || e?.avatar?.title}
+                width={400}
+                height={500}
+              />
+            </div>
+          ))}
+      </div> */}
     </section>
   )
 }
