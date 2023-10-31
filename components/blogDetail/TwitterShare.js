@@ -1,17 +1,16 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import twitter from '../../public/images/twitter.svg'
 import Image from 'next/image'
 
-function TwitterShare({ url, title }) {
+function TwitterShare() {
+  const pathName = usePathname()
   const handleClick = () => {
     if (typeof window === 'undefined') return
-    const twitterUrl = 'https://twitter.com/intent/tweet?'
-    const params = new URLSearchParams({
-      url: url,
-      text: title,
-    })
-    window.open(twitterUrl + params.toString(), '_blank')
+    const twitterUrl =
+      'https://twitter.com/share?url=' + encodeURIComponent('https://hagiangcheerstours.com' + pathName)
+    window.open(twitterUrl, '_blank')
   }
 
   return (

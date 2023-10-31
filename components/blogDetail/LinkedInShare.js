@@ -1,17 +1,17 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import linkdin from '../../public/images/linkedinBlog.svg'
 import Image from 'next/image'
 
-function LinkedInShare({ url, title }) {
+function LinkedInShare() {
+  const pathName = usePathname()
   const handleClick = () => {
     if (typeof window === 'undefined') return
-    const linkedInUrl = 'https://www.linkedin.com/sharing/share-offsite/?'
-    const params = new URLSearchParams({
-      url: url,
-      text: title,
-    })
-    window.open(linkedInUrl + params.toString(), '_blank')
+    const linkedInUrl =
+      'https://www.linkedin.com/sharing/share-offsite/?url=' +
+      encodeURIComponent('https://hagiangcheerstours.com' + pathName)
+    window.open(linkedInUrl, '_blank')
   }
 
   return (

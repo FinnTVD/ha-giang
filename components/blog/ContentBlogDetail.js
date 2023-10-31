@@ -23,18 +23,9 @@ function ContentBlogDetail({ data }) {
           share on it:
         </span>
         <div className='flex items-center'>
-          <TwitterShare
-            url={data?.link}
-            title={data?.title}
-          />
-          <FaceBookShare
-            url={data?.link}
-            title={data?.title}
-          />
-          <LinkedInShare
-            url={data?.link}
-            title={data?.title}
-          />
+          <TwitterShare />
+          <FaceBookShare />
+          <LinkedInShare />
         </div>
       </div>
     </div>

@@ -1,17 +1,16 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import facebook from '../../public/images/facebookBlog.svg'
 import Image from 'next/image'
 
-function FaceBookShare({ url, title }) {
+function FaceBookShare() {
+  const pathName = usePathname()
   const handleClick = () => {
     if (typeof window === 'undefined') return
-    const facebookUrl = 'https://www.facebook.com/sharer/sharer.php?'
-    const params = new URLSearchParams({
-      url: url,
-      text: title,
-    })
-    window.open(facebookUrl + params.toString(), '_blank')
+    const facebookUrl =
+      'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://hagiangcheerstours.com' + pathName)
+    window.open(facebookUrl, '_blank')
   }
 
   return (

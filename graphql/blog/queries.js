@@ -79,7 +79,6 @@ query GetBlogDetail($slug: ID!) {
     title
     date
     content
-    link
     categories{
       nodes{
         name
