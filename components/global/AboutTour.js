@@ -33,11 +33,23 @@ const handleCheckIcon = (category) => {
   }
 }
 
+const handleArrayImg = (arr) => {
+  if (!Array.isArray(arr)) return null
+  const a = []
+  for (let index = 0; index < arr.length; index++) {
+    if (Array.isArray(arr[index]?.gallery)) {
+      a.push(...arr[index]?.gallery)
+    }
+  }
+  return a
+}
+
 function AboutTour({ data, isMobile }) {
   const [activeCate, setActiveCate] = useState(0)
   const [content, setContent] = useState(data?.listCheckin[0])
   const [isShow, setIsShow] = useState(isMobile ? true : false)
   const setIndexTab = useStore((state) => state.setIndexTab)
+  const listImgPreview = handleArrayImg(data?.listCheckin)
 
   return (
     <>
@@ -143,7 +155,7 @@ function AboutTour({ data, isMobile }) {
           {/* ------------content-right----------- */}
           <div className='flex flex-col md:gap-[1.5rem] lg:gap-[1rem] gap-[4.27rem] justify-start font-poppins'>
             <ScrollTrigger onEnter={() => setIndexTab(3)}>
-              <div className='flex md:gap-[2rem] lg:gap-[0.75rem] gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[1rem] whitespace-nowrap slideCategory'>
+              <div className='flex md:gap-[2rem] lg:gap-[0.75rem] select-none gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[1rem] whitespace-nowrap slideCategory'>
                 {data?.listCheckin?.map((item, index) => (
                   <div
                     key={index}
@@ -192,7 +204,21 @@ function AboutTour({ data, isMobile }) {
             isShow ? 'z-10 opacity-100' : 'z-[-1] opacity-0'
           } w-full cursor-pointer h-[14rem] max-lg:h-[10.5rem] max-md:h-[16rem] bg-gradient-travelers2 max-md:bg-gradient-detailTourRes2 absolute bottom-[-2px] left-0 transition-all duration-150`}
         ></div>
+        <div className='absolute top-0 left-0 -z-10 w-[28rem] h-[63.73333rem] max-md:w-[91rem] md:h-[22.5625rem] lg:h-[19.5625rem] opacity-0'>
+          {Array.isArray(listImgPreview) &&
+            listImgPreview?.map((image, index) => (
+              <Image
+                key={index}
+                className='absolute top-0 left-0 w-full h-full'
+                src={image?.sourceUrl || '/images/imgSlide1.jpg'}
+                alt={image?.altText || image?.title}
+                width={600}
+                height={400}
+              />
+            ))}
+        </div>
       </section>
+
       <div className='md:hidden border-t border-solid border-[#b34b1e52] max-md:mb-[3.27vw] mx-auto max-md:w-[91.46667rem]'></div>
     </>
   )

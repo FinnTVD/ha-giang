@@ -6,10 +6,12 @@ import PopupGallery from './PopupGallery'
 import Image from 'next/image'
 
 const handleArrayImg = (arr) => {
-  if (!Array.isArray(arr)) return 'test'
+  if (!Array.isArray(arr)) return null
   const a = []
   for (let index = 0; index < arr.length; index++) {
-    a.push(...arr[index]?.slidesImage)
+    if (Array.isArray(arr[index]?.slidesImage)) {
+      a.push(...arr[index]?.slidesImage)
+    }
   }
   return a
 }
@@ -43,7 +45,7 @@ export default function TheGallery({ section4, allTourHG }) {
         />
       </div>
       <div
-        className={`lg:h-[29.08975rem] md:h-[34rem] w-[43rem] max-2xl:h-[26rem] max-md:h-[121rem] absolute top-[1rem] left-[1rem] -z-20`}
+        className={`lg:h-[29.08975rem] md:h-[34rem] max-md:w-[91rem] w-[43rem] max-2xl:h-[26rem] max-md:h-[121rem] absolute top-[1rem] left-[1rem] -z-20 opacity-0`}
       >
         {Array.isArray(listImgPreview) &&
           listImgPreview?.map((e, index) => (

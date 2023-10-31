@@ -11,7 +11,11 @@ export default function TheTrip({ section8, allTourHG, isOther = false }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
 
   return (
-    <section className='w-[87.5rem] max-lg:w-[95rem] max-md:w-[91.46667rem] mx-auto flex justify-between mt-[16rem] md:mt-[6.25rem] max-lg:flex-col max-md:gap-[8rem] font-poppins'>
+    <section
+      className={`${
+        isOther ? 'md:mt-0' : 'md:mt-[6.25rem]'
+      } w-[87.5rem] max-lg:w-[95rem] max-md:w-[91.46667rem] mx-auto flex justify-between mt-[16rem] max-lg:flex-col max-md:gap-[8rem] font-poppins`}
+    >
       <div className={`${isOther ? 'hidden' : ''} max-lg:mb-[4rem] max-md:mb-0`}>
         <SubTitle
           title={section8?.title}
