@@ -24,11 +24,8 @@ export default async function Footer() {
         className='z-0 max-md:h-[111.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover images-house'
         alt={footer?.background?.altText || footer?.background?.title}
         src={footer?.background?.sourceUrl || '/images/bg-footer.png'}
-        sizes='100vw'
-        quality={100}
-        priority
-        width={100}
-        height={100}
+        width={1600}
+        height={900}
         // object-cover
       />
       <div className='lg:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem] max-lg:h-[130rem]'>

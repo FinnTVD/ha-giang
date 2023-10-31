@@ -16,8 +16,9 @@ export default function DestinationListItems({ dataDestination }) {
             width={500}
             height={600}
             src={itm?.picture?.sourceUrl}
+            alt='item destination'
             className='w-full h-[25.875rem] object-cover rounded-[1rem] max-md:rounded-[2rem] max-md:h-[113rem] max-lg:h-[50.5rem]'
-          ></Image>
+          />
           <div className='group-hover:opacity-0 transition-all duration-200 flex flex-col items-center py-[0.75rem] w-[85.5%] bg-[#B34B1E] rounded-[1.5rem] gap-[0.25rem] absolute bottom-[1.5rem] left-[50%] translate-x-[-50%] max-md:bottom-[5.5rem] max-md:py-[1.94rem] max-md:rounded-[2rem]'>
             <h2 className='text-white font-poppins text-[1rem] font-bold leading-[1.5] tracking-[0.08px] uppercase line-clamp-1 max-md:text-[4.67rem] max-lg:text-[2.08rem]'>
               {itm.title}
@@ -137,8 +138,9 @@ export default function DestinationListItems({ dataDestination }) {
                 src={'/icons/ggmap.svg'}
                 width={16}
                 height={16}
+                alt='google map'
                 className='w-[1rem] max-md:w-[4rem] max-lg:w-[2rem]'
-              ></Image>
+              />
               <span className='font-poppins font-medium text-[0.75rem] leading-[1.33] tracking-[0.5px] max-md:text-[3.85rem] max-lg:text-[1.5625rem] text-black'>
                 {' '}
                 Google Map{' '}

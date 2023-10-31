@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import NavFixed from './NavFixed'
 import MenuDown from './MenuDown'
+import src from '../../public/images/linear-res.png'
 
 export default function Header({ header, allTourHG, isHome }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
@@ -61,10 +62,8 @@ export default function Header({ header, allTourHG, isHome }) {
         <h1 className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[-1] text-white'>Ha Giang Tour</h1>
         <Image
           className='absolute bottom-[-0.5rem] left-0 z-0 object-cover w-full lg:hidden bg-overlay'
-          src='/images/linear-res.png'
+          src={src}
           alt='linear res'
-          width={600}
-          height={800}
           priority
         />
         <ContentHeader header={header} />

@@ -55,6 +55,7 @@ const RHFDatePicker = ({ selected, onChange, end, long, details = false, ...othe
       <Image
         className='absolute top-1/2 max-md:right-[4.26rem] right-[1rem] translate-y-[-50%] pointer-events-none max-lg:hidden max-md:block'
         src={dateImg}
+        alt='date'
       />
     </div>
   )
