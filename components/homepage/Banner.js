@@ -158,7 +158,7 @@ export default function Banner({ section1 }) {
         <div className='w-full lg:relative h-fit'>
           <h2
             id='text-vn'
-            className='font-tomatoes relative z-10 text-[16.0195rem] font-normal leading-normal tracking-[0.16019rem] text-[#ffd772] text-center mt-[2.19rem] max-lg:text-[6.4rem] max-lg:tracking-[0.064rem] max-lg:text-white max-lg:mt-[3.2rem]'
+            className='font-tomatoes relative z-10 text-[8.0195rem] font-normal leading-normal tracking-[0.16019rem] text-[#ffd772] text-center mt-[2.19rem] max-lg:text-[6.4rem] max-lg:tracking-[0.064rem] max-lg:text-white max-lg:mt-[3.2rem]'
           >
             {section1?.heading}
           </h2>
