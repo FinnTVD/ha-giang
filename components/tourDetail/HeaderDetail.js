@@ -8,8 +8,11 @@ import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import NavFixed from '../global/NavFixed'
 import MenuDown from '../global/MenuDown'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 export default function HeaderDetail({ data, allTourHG, slug }) {
+  const param = useParams()
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
   const [isOpen, setIsOpen] = useState(false)
@@ -56,7 +59,10 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
         header={data?.data?.page?.homeHG?.header}
       />
       <div className='flex gap-x-[1rem] absolute bottom-0 translate-y-1/2 lg:right-[6.27rem] max-lg:gap-x-[3rem] max-lg:left-[5vw] max-md:left-[4.27rem] font-poppins'>
-        <div className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center'>
+        <Link
+          href={`/${param.slug}#bookingId`}
+          className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center select-none'
+        >
           <Image
             className='z-0 object-cover animate-spin duration-7000'
             src={'/images/circle-orange.png'}
@@ -72,8 +78,11 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
               ${data?.data?.tourHG?.tourHaGiangDetail?.price?.selfDriving}
             </span>
           </div>
-        </div>
-        <div className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center'>
+        </Link>
+        <Link
+          href={`/${param.slug}#bookingId`}
+          className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center select-none'
+        >
           <Image
             className='z-0 object-cover animate-spin duration-7000'
             src={'/images/circle-orange.png'}
@@ -89,7 +98,7 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
               ${data?.data?.tourHG?.tourHaGiangDetail?.price?.localDriver}
             </span>
           </div>
-        </div>
+        </Link>
       </div>
       {isMobile && (
         <MenuRes
