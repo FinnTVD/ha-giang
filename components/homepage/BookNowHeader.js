@@ -41,7 +41,7 @@ export default function BookNowHeader({ allTourHG }) {
       </svg>
       <div className='max-lg:w-1/2 max-lg:pr-[3.2rem] max-lg:inline-flex max-lg:flex-col'>
         <span className='text-[0.875rem] block mb-[0.5rem] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] max-md:text-[3.2rem] max-lg:text-[2.2rem] max-lg:font-medium max-lg:leading-[1.33rem] whitespace-nowrap max-lg:mb-[2.13rem] uppercase'>
-          With Easy Rider
+          Easy Rider - Basic Bike
         </span>
         <div className='flex items-center'>
           <IconPeople className='w-[2rem] h-[2rem] max-lg:w-[4.33rem] max-lg:h-[4.33rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-lg:mr-[2.13rem]' />
