@@ -334,7 +334,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   }{' '}
                   Days Motorbike Tour:
                 </div>
-                <div className='rounded-[0.5rem] bg-[#F2F2F2] p-[1rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[4.26rem]'>
+                <div className='rounded-[0.5rem] bg-[#F2F2F2] p-[1rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[3.26rem]'>
                   <div className='flex items-center justify-between'>
                     <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-80 max-md:text-[3.467rem] max-md:leading-[1.38]'>
                       {basicBike}
