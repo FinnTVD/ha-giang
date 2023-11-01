@@ -60,14 +60,14 @@ export default async function sitemap() {
   const arrPosts = posts?.data?.posts?.nodes?.map((e) => {
     return {
       url: `${process.env.DOMAIN}/${e?.slug}`,
-      lastModified: e?.date,
+      lastModified: new Date(),
       priority: 0.8,
     }
   })
   const arrTours = tours?.data?.allTourHG?.nodes?.map((e) => {
     return {
       url: `${process.env.DOMAIN}/${e?.slug}`,
-      lastModified: e?.date,
+      lastModified: new Date(),
       priority: 1,
     }
   })
@@ -75,7 +75,6 @@ export default async function sitemap() {
     {
       url: process.env.DOMAIN,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
       priority: 1,
     },
     {
@@ -86,7 +85,6 @@ export default async function sitemap() {
     {
       url: `${process.env.DOMAIN}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
@@ -97,7 +95,6 @@ export default async function sitemap() {
     {
       url: `${process.env.DOMAIN}/destinations`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
