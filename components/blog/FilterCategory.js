@@ -35,7 +35,7 @@ export default function FilterCategory({ categories }) {
           <select
             name=''
             id=''
-            className='cursor-pointer w-max'
+            className='bg-white cursor-pointer w-max'
             onChange={handleChange}
             defaultValue={searchParams.get('category') || ''}
           >

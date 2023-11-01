@@ -37,7 +37,7 @@ const OverviewMb = ({ data }) => {
             marginBottom: 0,
             paddingBottom: 0,
             paddingTop: 0,
-            boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+            boxShadow: 'rgba(0, 0, 0, 0.04) 0px 3px 8px',
             scrollTrigger: {
               trigger: parentRef.current,
               start: 'top top',

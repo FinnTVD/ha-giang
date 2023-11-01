@@ -145,7 +145,7 @@ function AboutTour({ data, isMobile }) {
                   data-aos='fade-right'
                   data-aos-delay='100'
                   id='content-trip-details'
-                  className='md:text-[1.5rem] lg:text-[0.875rem] text-[3.27869rem] font-poppins font-[400] md:leading-[1.375] leading-normal md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
+                  className='md:text-[1.5rem] lg:text-[0.875rem] text-[3.27869rem] font-poppins max-md:pb-[1rem] font-[400] md:leading-[1.375] leading-normal md:tracking-[0.00219rem] tracking-[0.0082rem] text-gray-scale-50'
                   dangerouslySetInnerHTML={{ __html: content?.content }}
                 />
               )}
@@ -155,7 +155,7 @@ function AboutTour({ data, isMobile }) {
           {/* ------------content-right----------- */}
           <div className='flex flex-col md:gap-[1.5rem] lg:gap-[1rem] gap-[4.27rem] justify-start font-poppins'>
             <ScrollTrigger onEnter={() => setIndexTab(3)}>
-              <div className='flex md:gap-[2rem] lg:gap-[0.75rem] select-none gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[1rem] whitespace-nowrap slideCategory'>
+              <div className='flex md:gap-[2rem] lg:gap-[0.75rem] select-none gap-[3.2rem] max-md:overflow-x-auto max-md:px-[4.27rem] max-md:pb-[2rem] whitespace-nowrap slideCategory'>
                 {data?.listCheckin?.map((item, index) => (
                   <div
                     key={index}

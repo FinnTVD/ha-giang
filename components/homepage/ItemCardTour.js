@@ -40,7 +40,11 @@ export default function ItemCardTour({ data, allTourHG, className = '' }) {
         </h2>
       </Link>
       <div className='flex items-center'>
-        <IconHome className={'w-[1rem] h-[1rem] max-lg:w-[2rem] max-lg:h-[2rem] max-md:w-[7rem] max-md:h-[4.267rem]'} />
+        <IconHome
+          className={
+            'w-[1rem] h-[1rem] max-md:flex-shrink-0 max-lg:w-[2rem] max-lg:h-[2rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+          }
+        />
         <span className='text-[0.875rem] max-lg:text-[1.875rem] whitespace-nowrap font-semibold leading-[1.57] max-md:text-[3.467rem] max-md:font-semibold tracking-[0.00219rem] text-primary-70 ml-[0.37rem] mr-[0.25rem] max-md:ml-[1.6rem] max-md:mr-[1.07rem]'>
           Pick up:
         </span>
@@ -50,7 +54,9 @@ export default function ItemCardTour({ data, allTourHG, className = '' }) {
       </div>
       <div className='flex items-center my-[0.5rem] max-md:my-[2.13rem]'>
         <IconPeople
-          className={'w-[1rem] h-[1rem] max-lg:w-[2rem] max-lg:h-[2rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'}
+          className={
+            'w-[1rem] h-[1rem] max-md:flex-shrink-0 max-lg:w-[2rem] max-lg:h-[2rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+          }
         />
         <span className='text-[0.875rem] max-lg:text-[1.875rem] font-semibold leading-[1.57] max-md:text-[3.467rem] max-md:font-semibold tracking-[0.00219rem] text-primary-70 ml-[0.37rem] mr-[0.25rem] max-md:ml-[1.6rem] max-md:mr-[1.07rem]'>
           Group size:
@@ -61,7 +67,9 @@ export default function ItemCardTour({ data, allTourHG, className = '' }) {
       </div>
       <div className='flex items-center'>
         <IconBus
-          className={'w-[1rem] h-[1rem] max-lg:w-[2rem] max-lg:h-[2rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'}
+          className={
+            'w-[1rem] h-[1rem] max-md:flex-shrink-0 max-lg:w-[2rem] max-lg:h-[2rem] max-md:w-[4.267rem] max-md:h-[4.267rem]'
+          }
         />
         <span className='text-[0.875rem] max-lg:text-[1.875rem] font-semibold leading-[1.57] max-md:text-[3.467rem] max-md:font-semibold tracking-[0.00219rem] text-primary-70 ml-[0.37rem] mr-[0.25rem] max-md:ml-[1.6rem] max-md:mr-[1.07rem]'>
           Transport:

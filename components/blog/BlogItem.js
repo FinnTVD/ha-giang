@@ -12,7 +12,7 @@ function BlogItem({ data }) {
     >
       <div className={`w-full font-poppins`}>
         <div className='relative image'>
-          <div className='thumb md:rounded-[0.5rem] rounded-[2.13333rem]'>
+          <div className='thumb md:rounded-[1.5rem] lg:rounded-[0.5rem] rounded-[2.13333rem]'>
             <Image
               src={data?.featuredImage?.node?.sourceUrl || img}
               width={1000}

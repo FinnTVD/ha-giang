@@ -30,7 +30,7 @@ export default function SlideGreatTrips({ allTourHG }) {
   return (
     <>
       {isMobile && (
-        <div className='w-full flex gap-x-[3.2rem] px-[4.27rem] my-[5.33rem] relative z-20 cursor-pointer font-poppins'>
+        <div className='w-full select-none flex gap-x-[3.2rem] px-[4.27rem] my-[5.33rem] relative z-20 cursor-pointer font-poppins'>
           {arr?.map((e, index) => (
             <div
               key={index}

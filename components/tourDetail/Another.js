@@ -13,7 +13,7 @@ export default function Another({ allTourHG, slug, data }) {
       <div
         data-aos='fade-up'
         data-aos-anchor-placement='top-bottom'
-        className='flex justify-center mt-[2.625rem] relative z-[1] gap-x-[1.5rem] max-md:mt-[8rem] max-md:px-[4.27rem]'
+        className='flex justify-center mt-[2.625rem] relative z-[1] gap-x-[1.5rem] max-md:mt-[6rem] max-md:px-[4.27rem]'
       >
         {allTourHG?.nodes
           ?.filter((e) => e?.slug !== slug)

@@ -64,7 +64,6 @@ async function page({ params, searchParams }) {
   }
 
   const blogs = await getData(GET_ALL_BLOG_V2(offset, JSON.stringify(listSlugCategories)))
-  // const dataAboutUs = await getData(GET_DATA_ABOUT_US)
 
   return (
     <IndexBlog
