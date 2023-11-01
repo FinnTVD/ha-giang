@@ -36,3 +36,5 @@ next-env.d.ts
 API.md
 /app/test
 /components/test
+
+.env
