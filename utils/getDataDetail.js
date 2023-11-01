@@ -6,7 +6,6 @@ export default async function getDataDetail(query, slug) {
       query,
       variables: { slug: slug },
     })
-    console.log("data", data);
     return data
   } catch (error) {
     console.log(error, "error");

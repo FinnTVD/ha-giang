@@ -6,7 +6,6 @@ export default async function getData(query, variables = {}) {
       query,
       variables,
     })
-    console.log("data", data);
     return data
   } catch (error) {
     console.log(error, "error");
