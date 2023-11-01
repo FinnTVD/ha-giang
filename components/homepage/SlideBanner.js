@@ -136,7 +136,7 @@ export default function SlideBanner({ section1, isMobile, isActive }) {
           />
           <div className='flex flex-col lg:items-center'>
             <span className='mt-[0.5rem] text-white text-[1.25rem] max-lg:text-[4.27rem] max-lg:font-bold max-lg:leading-normal max-lg:tracking-[-0.08533rem] font-bold leading-[1.2] tracking-[0.00188rem]'>
-              8 hours
+              6 hours
             </span>
             <span className='text-[0.875rem] text-white max-lg:text-[3.2rem] max-lg:leading-[1.33rem] font-normal leading-[1.57] tracking-[0.00219rem]'>
               Bus drive
