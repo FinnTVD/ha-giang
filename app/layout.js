@@ -55,9 +55,13 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang='en'
-      suppressHydrationWarning
+      suppressHydrationWarning={true}
     >
       <head>
+        <meta
+          name='google-site-verification'
+          content='xZu-R_qHMGQVpE1mZc1JuwL4Zj3Hi9ZybbsJfxgzQiQ'
+        />
         <meta
           name='DC.title'
           content='Vietnam Cheers Hostel Official Site'
@@ -90,6 +94,16 @@ export default function RootLayout({ children }) {
             <Footer />
           </Theme>
         </ApolloWrapper>
+        <Script
+          strategy='lazyOnload'
+          src={`https://www.googletagmanager.com/gtag/js?id=G-Z5ZH5N3P8B`}
+        ></Script>
+        <Script strategy='lazyOnload'>
+          {`window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+							gtag('config', 'G-Z5ZH5N3P8B');`}
+        </Script>
       </body>
     </html>
   )
