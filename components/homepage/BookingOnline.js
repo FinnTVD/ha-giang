@@ -1,6 +1,6 @@
 'use client'
 import { ACCESS_CODE, BASE_URL, MERCHANT_ID, ONEPAY_HOST, SECRET_KEY_HASH } from '@/config-global'
-import { convertStr2URL, fCurrency, fDate } from '@/lib/utils'
+import { basicBike, bigBike, convertStr2URL, fCurrency, fDate } from '@/lib/utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Select, Separator, TextArea, TextField } from '@radix-ui/themes'
 import CryptoJS from 'crypto-js'
@@ -263,7 +263,7 @@ export default function BookingOnline({ data, title }) {
             <div className='rounded-[0.5rem] bg-[#F2F2F2] px-[1rem] py-[0.5rem] max-lg:p-[1.5rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[4.26rem]'>
               <div className='flex items-center justify-between'>
                 <span className='text-[0.875rem] max-lg:text-[1.875rem] font-medium leading-[1.57] text-gray-scale-80 max-md:text-[3.467rem] max-md:leading-[1.38]'>
-                  Easy rider
+                  {basicBike}
                 </span>
                 <div className='flex items-center'>
                   <span className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-80 font-semibold lading-[1.57] max-md:text-[3.733rem] max-lg:mr-[1.75rem] max-md:mr-[3.2rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'>
@@ -293,7 +293,7 @@ export default function BookingOnline({ data, title }) {
               </div>
               <div className='flex justify-between mt-[0.75rem] max-lg:mt-[0.75rem] max-lg:mb-[1.75rem] h-[2.5rem] max-lg:h-[5.5rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
                 <span className='text-[0.875rem] max-lg:text-[1.875rem] font-medium leading-[1.57] text-gray-scale-80 whitespace-nowrap max-md:text-[3.467rem] max-md:leading-[1.38]'>
-                  Easy rider + big bike
+                  {bigBike}
                 </span>
                 <div className='flex items-center'>
                   <span className='text-[0.875rem] max-lg:text-[1.875rem] text-gray-scale-80 font-semibold lading-[1.57] max-md:text-[3.733rem] max-lg:mr-[1.75rem] max-md:mr-[3.2rem] max-md:tracking-[0.00933rem] tracking-[0.00219rem] block mr-[0.75rem]'>
@@ -578,16 +578,16 @@ export default function BookingOnline({ data, title }) {
               id='bill-payment-detail'
               className='rounded-[0.5rem] text-[#2E2E2E] border-[#287c0023] border-[0.5px] bg-[#F8FDFF] max-md:rounded-[2.13rem]'
             >
-              <div className='flex h-[2.5rem] max-lg:h-[5.5rem] border-b border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
-                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium text-[0.875rem] max-lg:text-[1.875rem] py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'>
+              <div className='flex h-[2.5rem] max-lg:h-[5.5rem] border-b border-[#EEE] items-center text-[0.875rem] max-md:h-[12.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium text-[0.875rem] max-lg:text-[1.875rem] py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem]'>
                   Type of tour
                 </div>
                 <div className='py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                   {title}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
-                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'>
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[12.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem]'>
                   Name
                 </div>
                 <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
@@ -610,8 +610,8 @@ export default function BookingOnline({ data, title }) {
                   {values.departureDate && fDate(values.departureDate)} from {values.pickup} at {values.pickupAddress}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
-                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[9.06rem] max-md:text-[3.46rem]'>
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[12.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[12.06rem] max-md:text-[3.46rem]'>
                   Tour duration
                 </div>
                 <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
@@ -626,17 +626,17 @@ export default function BookingOnline({ data, title }) {
                   {values.endDate && fDate(values.endDate)} to {values.droff} at {values.droffAddress}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
-                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem] text-[0.875rem] max-lg:text-[1.875rem]'>
-                  Easy rider
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[12.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem] text-[0.875rem] max-lg:text-[1.875rem]'>
+                  {basicBike}
                 </div>
                 <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem] text-[0.875rem] max-lg:text-[1.875rem]'>
                   {selfDriving && `${selfDriving} x $${data?.selfDriving} (${fCurrency(selfCost) || 0} VND)`}
                 </div>
               </div>
-              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[9.06rem]'>
-                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem] text-[0.875rem] max-lg:text-[1.875rem]'>
-                  Easy Rider with big bike
+              <div className='flex border-b h-[2.5rem] max-lg:h-[5.5rem] border-[#EEE] items-center text-[0.875rem] max-md:h-[12.06rem]'>
+                <div className='w-[12.1875rem] max-lg:w-[14.1875rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem] text-[0.875rem] max-lg:text-[1.875rem]'>
+                  {bigBike}
                 </div>
                 <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem] text-[0.875rem] max-lg:text-[1.875rem]'>
                   {localDriver && `${localDriver} x $${data?.localDriver} (${fCurrency(localCose) || 0} VND)`}

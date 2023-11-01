@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ComboboxV2 } from '../ui/ComboboxV2'
 import { PopupBookNow } from '../global/PopupBookNow'
 import IconPeople from '../icons/IconPeople'
+import { basicBike, bigBike } from '@/lib/utils'
 
 export default function BookNowHeader({ allTourHG }) {
   const [countSelf, setCountSelf] = useState(1)
@@ -41,7 +42,7 @@ export default function BookNowHeader({ allTourHG }) {
       </svg>
       <div className='max-lg:w-1/2 max-lg:pr-[3.2rem] max-lg:inline-flex max-lg:flex-col'>
         <span className='text-[0.875rem] block mb-[0.5rem] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] max-md:text-[3.2rem] max-lg:text-[2.2rem] max-lg:font-medium max-lg:leading-[1.33rem] whitespace-nowrap max-lg:mb-[2.13rem] uppercase'>
-          Easy Rider - Basic Bike
+          {basicBike}
         </span>
         <div className='flex items-center'>
           <IconPeople className='w-[2rem] h-[2rem] max-lg:w-[4.33rem] max-lg:h-[4.33rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-lg:mr-[2.13rem]' />
@@ -85,7 +86,7 @@ export default function BookNowHeader({ allTourHG }) {
       </svg>
       <div className='max-lg:w-1/2 max-lg:pl-[3.2rem] max-lg:inline-flex max-lg:flex-col'>
         <span className='text-[0.875rem] block mb-[0.5rem] text-gray-scale-50 font-normal leading-[1.43] tracking-[0.00875rem] max-md:text-[3.2rem] max-lg:text-[2.2rem] max-lg:font-medium max-lg:leading-[1.33rem] whitespace-nowrap max-lg:mb-[2.13rem] uppercase'>
-          Easy Rider - Big Bike
+          {bigBike}
         </span>
         <div className='flex items-center'>
           <IconPeople className='w-[2rem] h-[2rem] max-lg:w-[4.33rem] max-lg:h-[4.33rem] max-md:w-[5.33rem] max-md:h-[5.33rem] max-lg:mr-[2.13rem]' />

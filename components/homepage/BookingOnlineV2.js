@@ -1,6 +1,6 @@
 'use client'
 import { ACCESS_CODE, BASE_URL, MERCHANT_ID, ONEPAY_HOST, SECRET_KEY_HASH } from '@/config-global'
-import { convertStr2URL, fCurrency, fDate } from '@/lib/utils'
+import { basicBike, bigBike, convertStr2URL, fCurrency, fDate } from '@/lib/utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Select, Separator, TextArea, TextField } from '@radix-ui/themes'
 import CryptoJS from 'crypto-js'
@@ -337,7 +337,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <div className='rounded-[0.5rem] bg-[#F2F2F2] p-[1rem] max-md:flex max-md:rounded-[2.13rem] max-md:flex-col max-md:gap-[3.2rem] max-md:p-[4.26rem]'>
                   <div className='flex items-center justify-between'>
                     <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-80 max-md:text-[3.467rem] max-md:leading-[1.38]'>
-                      Easy rider
+                      {basicBike}
                     </span>
                     <div className='flex items-center'>
                       <span
@@ -370,7 +370,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   </div>
                   <div className='flex justify-between my-[0.75rem] h-[2.5rem] max-lg:h-fit max-lg:mt-[1.5rem] max-lg:mb-[2.75rem] items-center max-md:my-0 max-md:h-[10.66rem]'>
                     <span className='text-[0.75rem] max-lg:text-[1.75rem] font-medium leading-[1.33] text-gray-scale-80 whitespace-nowrap max-md:text-[3.467rem] max-md:leading-[1.38]'>
-                      Easy rider + big bike
+                      {bigBike}
                     </span>
                     <div className='flex items-center'>
                       <span
@@ -644,10 +644,10 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 CONFIRMED TOUR BOOKING:
               </div>
               <div className='rounded-[0.5rem] text-[#2E2E2E] border-[#287c0023] border-[0.5px] bg-[#F8FDFF] max-md:rounded-[2.13rem]'>
-                <div className='flex h-[2.5rem] max-lg:h-[4.5rem] border-b border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
+                <div className='flex h-[2.5rem] max-lg:h-[4.5rem] border-b border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[12.06rem]'>
                   <div
                     className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium text-[0.8125rem] max-lg:text-[1.8125rem] py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
+                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem]'
                   >
                     Type of tour
                   </div>
@@ -655,11 +655,8 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title || '...'}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
-                  <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
-                  >
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[12.06rem]'>
+                  <div className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem]'>
                     Name
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
@@ -679,8 +676,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </div>
                 <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[23.46rem]'>
                   <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
                   >
                     Pick up
                   </div>
@@ -688,10 +684,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.departureDate && fDate(values.departureDate)} from {values.pickup} at {values.pickupAddress}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[12.06rem]'>
                   <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[9.06rem] max-md:text-[3.46rem]'
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[12.06rem] max-md:text-[3.46rem]'
                   >
                     Tour duration
                   </div>
@@ -706,8 +701,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </div>
                 <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[23.46rem]'>
                   <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
                   >
                     Drop off
                   </div>
@@ -715,23 +709,17 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     {values.endDate && fDate(values.endDate)} to {values.droff} at {values.droffAddress}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
-                  <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
-                  >
-                    Easy rider
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[12.06rem]'>
+                  <div className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem]'>
+                    {basicBike}
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                     {selfDriving && `${selfDriving} x $${selfPrice} (${fCurrency(selfCost) || 0} VND)`}
                   </div>
                 </div>
-                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[9.06rem]'>
-                  <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[9.06rem]'
-                  >
-                    Easy Rider with big bike
+                <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[12.06rem]'>
+                  <div className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[12.06rem]'>
+                    {bigBike}
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                     {localDriver && `${localDriver} x $${localPrice} (${fCurrency(localCose) || 0} VND)`}
@@ -739,8 +727,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[13.86rem]'>
                   <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem]
-                                max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.86rem]'
+                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.86rem]'
                   >
                     {' '}
                     Message

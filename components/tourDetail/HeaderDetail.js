@@ -65,8 +65,8 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
             sizes='100vw'
           />
           <div className='relative z-[1] flex flex-col justify-center items-center'>
-            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
-              WITH EASY RIDER
+            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal uppercase text-center'>
+              easy rider <br /> basic bike
             </span>
             <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
               ${data?.data?.tourHG?.tourHaGiangDetail?.price?.selfDriving}
@@ -82,8 +82,8 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
             sizes='100vw'
           />
           <div className='relative z-[1] flex flex-col justify-center items-center'>
-            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal'>
-              EASY RIDER - BIG BIKE
+            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal uppercase text-center'>
+              easy rider <br /> big bike
             </span>
             <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
               ${data?.data?.tourHG?.tourHaGiangDetail?.price?.localDriver}
