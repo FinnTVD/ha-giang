@@ -13,6 +13,7 @@ import { Theme } from '@radix-ui/themes'
 import Footer from '@/components/global/Footer'
 import ApolloWrapper from '@/components/global/ApolloWrapper'
 import AosInit from '@/components/global/AosInit'
+import Script from 'next/script'
 
 const heavitas = localFont({
   src: [
