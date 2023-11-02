@@ -185,6 +185,14 @@ const PaymentSuccessFulPage = ({ searchParams }) => {
         >
           {searchParams?.vpc_TxnResponseCode === '0' ? 'Payment Successfully!' : 'Payment failed!'}
         </h1>
+        <h2
+          className={`${
+            searchParams?.vpc_TxnResponseCode === '0' ? 'text-secondary-green-600' : 'text-red-500 hidden'
+          } text-[1rem] font-heavitas leading-normal font-normal text-center max-lg:text-[1.7rem] max-lg:w-[90%] max-md:text-[3.5rem] max-md:w-full max-md:leading-[1.6]`}
+        >
+          Please check your email.
+          <br /> We have sent the instant confirmation. Chat us any time for help.
+        </h2>
         <Link
           href={'/'}
           className='text-[1.25rem] font-heavitas text-primary-70 font-normal leading-[1] w-fit px-[2rem] py-[1rem] flex justify-center rounded-[0.5rem] border border-solid border-primary-70 hover:bg-primary-70 max-md:text-[4.25rem] max-md:py-[4rem] max-md:px-[8rem] hover:text-white transition-all duration-500 hover:scale-[1.1] active:scale-95'
