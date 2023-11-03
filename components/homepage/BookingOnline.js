@@ -145,9 +145,9 @@ export default function BookingOnline({ data, title }) {
 
   const onSubmit = async (e) => {
     if (typeof window === 'undefined') return
-    if (totalAmount <= 0) {
+    if (totalAmount <= 0 || !Number(totalAmount)) {
       setError('root', {
-        message: 'Please choose at least a type of tour',
+        message: 'Please select the number of participants!',
       })
       return
     }
@@ -231,13 +231,15 @@ export default function BookingOnline({ data, title }) {
         },
       })
     }
-    window?.localStorage?.setItem('formDataPayment', JSON.stringify(formData))
+    setTimeout(() => {
+      window?.localStorage?.setItem('formDataPayment', JSON.stringify(formData))
 
-    const params = generateParams(e, true)
-    const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
-    const hash = CryptoJS.HmacSHA256(params, secretWordArray)
-    const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-    router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
+      const params = generateParams(e, true)
+      const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
+      const hash = CryptoJS.HmacSHA256(params, secretWordArray)
+      const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
+      router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
+    }, 500)
   }
 
   return (

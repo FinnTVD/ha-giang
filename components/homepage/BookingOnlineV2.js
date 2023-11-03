@@ -169,9 +169,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
 
   const onSubmit = async (e) => {
     if (typeof window === 'undefined') return
-    if (totalAmount <= 0) {
+    if (totalAmount <= 0 || !Number(totalAmount)) {
       setError('root', {
-        message: 'Please choose at least a type of tour',
+        message: 'Please select the number of participants!',
       })
       return
     }
@@ -257,13 +257,14 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
         },
       })
     }
-    window?.localStorage?.setItem('formDataPayment', JSON.stringify(formData))
-
-    const params = generateParams(e, true)
-    const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
-    const hash = CryptoJS.HmacSHA256(params, secretWordArray)
-    const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-    router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
+    setTimeout(() => {
+      window?.localStorage?.setItem('formDataPayment', JSON.stringify(formData))
+      const params = generateParams(e, true)
+      const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
+      const hash = CryptoJS.HmacSHA256(params, secretWordArray)
+      const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
+      router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
+    }, 500)
   }
 
   return (
@@ -675,9 +676,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   </div>
                 </div>
                 <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[23.46rem]'>
-                  <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
-                  >
+                  <div className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'>
                     Pick up
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
@@ -685,9 +684,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[12.06rem]'>
-                  <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[12.06rem] max-md:text-[3.46rem]'
-                  >
+                  <div className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:ml-[4.26rem] max-md:border-r-[0.5rem] max-md:flex max-md:items-center max-md:h-[12.06rem] max-md:text-[3.46rem]'>
                     Tour duration
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
@@ -700,9 +697,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   </div>
                 </div>
                 <div className='flex border-b h-[3.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[23.46rem]'>
-                  <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'
-                  >
+                  <div className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[23.46rem]'>
                     Drop off
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
@@ -726,9 +721,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[13.86rem]'>
-                  <div
-                    className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.86rem]'
-                  >
+                  <div className='w-[12.1875rem] max-lg:w-[18.1825rem] border-r-[#EEE] border-r-[0.5px] flex-none  font-medium  py-[0.5rem] px-[1rem] max-md:w-[29.3rem] max-md:flex max-md:items-center max-md:ml-[4.26rem] max-md:text-[3.46rem] max-md:h-[13.86rem]'>
                     {' '}
                     Message
                   </div>
