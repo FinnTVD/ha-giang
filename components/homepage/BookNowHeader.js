@@ -9,7 +9,7 @@ import { basicBike, bigBike } from '@/lib/utils'
 export default function BookNowHeader({ allTourHG }) {
   const [countSelf, setCountSelf] = useState(1)
   const [countDriver, setCountDriver] = useState(1)
-  const [tour, setTour] = useState(allTourHG?.nodes[0])
+  const [tour, setTour] = useState([...allTourHG?.nodes]?.reverse()[0])
   return (
     <div className='bg-white w-[71.75rem] max-md:w-[91.467rem] max-lg:w-[80vw] max-lg:rounded-[3.2rem] items-center rounded-[0.75rem] absolute bottom-[2.63rem] left-1/2 -translate-x-1/2 lg:flex lg:justify-between py-[1.25rem] px-[1.88rem] max-lg:p-[2.27rem] max-md:p-[4.27rem] max-lg:bottom-0 max-lg:translate-y-1/2 max-lg:shadow-boxTour font-poppins'>
       <div className='max-md:w-full'>

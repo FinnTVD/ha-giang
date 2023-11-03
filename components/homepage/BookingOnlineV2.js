@@ -63,16 +63,19 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
   const [selfDriving, setSelfDriving] = useState(0)
   const [localDriver, setLocalDriver] = useState(0)
   const [pick, setPick] = useState(
-    tour?.tour?.tourHaGiangDetail?.price?.pickUp || allTourHG?.nodes[0]?.tourHaGiangDetail?.price?.pickUp,
+    tour?.tour?.tourHaGiangDetail?.price?.pickUp ||
+      [...allTourHG?.nodes]?.reverse()[0]?.tourHaGiangDetail?.price?.pickUp,
   )
   const [droff, setDroff] = useState(
-    tour?.tour?.tourHaGiangDetail?.price?.droff || allTourHG?.nodes[0]?.tourHaGiangDetail?.price?.droff,
+    tour?.tour?.tourHaGiangDetail?.price?.droff || [...allTourHG?.nodes]?.reverse()[0]?.tourHaGiangDetail?.price?.droff,
   )
   const [selfPrice, setSelfPrice] = useState(
-    tour?.tour?.tourHaGiangDetail?.price?.selfDriving || allTourHG?.nodes[0]?.tourHaGiangDetail?.price?.selfDriving,
+    tour?.tour?.tourHaGiangDetail?.price?.selfDriving ||
+      [...allTourHG?.nodes]?.reverse()[0]?.tourHaGiangDetail?.price?.selfDriving,
   )
   const [localPrice, setLocalPrice] = useState(
-    tour?.tour?.tourHaGiangDetail?.price?.localDriver || allTourHG?.nodes[0]?.tourHaGiangDetail?.price?.localDriver,
+    tour?.tour?.tourHaGiangDetail?.price?.localDriver ||
+      [...allTourHG?.nodes]?.reverse()[0]?.tourHaGiangDetail?.price?.localDriver,
   )
   const router = useRouter()
 
@@ -176,14 +179,15 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       return
     }
     const formData = {
-      nameTour: values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title,
+      nameTour: values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title,
       name: e?.name + ' - ' + (selfDriving + localDriver) + ' pax',
       email: e?.email,
       contactInfo: e?.email + ' - ' + e?.phone,
       pickUp: fDate(e.departureDate) + ' from ' + e.pickup + ' at ' + e.pickupAddress,
       tourDuration:
-        allTourHG?.nodes?.find((e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title))
-          ?.tourHaGiangDetail?.price?.longTimeTourDay + ' Days',
+        allTourHG?.nodes?.find(
+          (e) => e?.title === (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
+        )?.tourHaGiangDetail?.price?.longTimeTourDay + ' Days',
       droffOf: fDate(e.endDate) + ' to ' + e.droff + ' at ' + e.droffAddress,
       selfDriving: selfDriving + ' x $' + selfPrice + ' (' + fCurrency(selfCost) + ' VND)',
       localDriver: localDriver + ' x $' + localPrice + ' (' + fCurrency(localCose) + ' VND)',
@@ -295,7 +299,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Tour
                   </div>
                   <Select.Root
-                    defaultValue={tour?.tour?.title || allTourHG?.nodes[0]?.title}
+                    defaultValue={tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title}
                     onValueChange={(value) => {
                       setValue('typeTour', value)
                       setSelfPrice(
@@ -315,7 +319,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                       placeholder='Select tour…'
                     />
                     <Select.Content className='z-[99999]'>
-                      {allTourHG?.nodes?.map((e, index) => (
+                      {[...allTourHG?.nodes]?.reverse()?.map((e, index) => (
                         <Select.Item
                           key={index}
                           className='text-[0.875rem] font-bold leading-[1.57] cursor-pointer text-gray-scale-80 max-lg:!text-[1.875rem] max-md:!text-[3.47rem] max-md:!h-[10rem]'
@@ -330,7 +334,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <div className='text-[0.875rem] font-bold leading-[150%] mb-[0.5rem] max-md:text-[3.46rem] max-lg:text-[1.875rem] text-gray-scale-80'>
                   {
                     allTourHG?.nodes?.find(
-                      (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                      (e) =>
+                        e?.title ===
+                        (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
                     )?.tourHaGiangDetail?.price?.longTimeTourDay
                   }{' '}
                   Days Motorbike Tour:
@@ -465,7 +471,8 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 className='absolute top-[3rem] max-lg:top-[6rem] -left-[1rem] max-lg:w-[105%] max-md:hidden w-[105%] z-[-1]'
                 dayAmount={
                   allTourHG?.nodes?.find(
-                    (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                    (e) =>
+                      e?.title === (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
                   )?.tourHaGiangDetail?.price?.longTimeTourDay
                 }
               />
@@ -504,7 +511,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   onChange={(date) => {
                     const originalDate = new Date(date)
                     const day = allTourHG?.nodes?.find(
-                      (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                      (e) =>
+                        e?.title ===
+                        (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
                     )?.tourHaGiangDetail?.price?.longTimeTourDay
 
                     const updatedDate = new Date(originalDate.getTime() + day * 24 * 60 * 60 * 1000)
@@ -554,7 +563,8 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 Enjoy{' '}
                 {
                   allTourHG?.nodes?.find(
-                    (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                    (e) =>
+                      e?.title === (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
                   )?.tourHaGiangDetail?.price?.longTimeTourDay
                 }{' '}
                 Days in Ha Giang Loop
@@ -600,7 +610,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   onChange={(date) => {
                     const originalDate = new Date(date)
                     const day = allTourHG?.nodes?.find(
-                      (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                      (e) =>
+                        e?.title ===
+                        (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
                     )?.tourHaGiangDetail?.price?.longTimeTourDay
 
                     const updatedDate = new Date(originalDate.getTime() - day * 24 * 60 * 60 * 1000)
@@ -653,7 +665,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                     Type of tour
                   </div>
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
-                    {values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title || '...'}
+                    {values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title || '...'}
                   </div>
                 </div>
                 <div className='flex border-b h-[2.5rem] max-lg:h-[4.5rem] border-[#EEE] items-center text-[0.8125rem] max-lg:text-[1.8125rem] max-md:h-[12.06rem]'>
@@ -690,7 +702,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                   <div className='py-[0.5rem] px-[1rem] max-md:ml-[4.26rem] max-md:text-[3.46rem]'>
                     {
                       allTourHG?.nodes?.find(
-                        (e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title),
+                        (e) =>
+                          e?.title ===
+                          (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
                       )?.tourHaGiangDetail?.price?.longTimeTourDay
                     }{' '}
                     Days

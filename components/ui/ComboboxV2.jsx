@@ -1,16 +1,16 @@
 'use client'
 
 import * as React from 'react'
-import { Check, ChevronsUpDown } from 'lucide-react'
+import { Check } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command'
+import { Command, CommandGroup, CommandItem } from '@/components/ui/command'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
 export function ComboboxV2({ allTourHG, setTour }) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState(allTourHG?.nodes[0]?.title)
+  const [value, setValue] = React.useState([...allTourHG?.nodes]?.reverse()[0]?.title)
 
   return (
     <Popover
@@ -46,7 +46,7 @@ export function ComboboxV2({ allTourHG, setTour }) {
           {/* <CommandInput placeholder='Search tour...' /> */}
           {/* <CommandEmpty>No tour found.</CommandEmpty> */}
           <CommandGroup className='max-lg:p-[1.25rem]'>
-            {allTourHG?.nodes?.map((item, index) => (
+            {[...allTourHG?.nodes]?.reverse()?.map((item, index) => (
               <CommandItem
                 key={index}
                 onSelect={(currentValue) => {
