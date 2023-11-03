@@ -184,7 +184,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       tourDuration:
         allTourHG?.nodes?.find((e) => e?.title === (values.typeTour || tour?.tour?.title || allTourHG?.nodes[0]?.title))
           ?.tourHaGiangDetail?.price?.longTimeTourDay + ' Days',
-      droffOf: fDate(e.endDate) + ' from ' + e.droff + ' at ' + e.droffAddress,
+      droffOf: fDate(e.endDate) + ' to ' + e.droff + ' at ' + e.droffAddress,
       selfDriving: selfDriving + ' x $' + selfPrice + ' (' + fCurrency(selfCost) + ' VND)',
       localDriver: localDriver + ' x $' + localPrice + ' (' + fCurrency(localCose) + ' VND)',
       message: e?.message,
