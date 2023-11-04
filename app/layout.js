@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 import './globals.scss'
 
-import { Poppins, Roboto } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Theme } from '@radix-ui/themes'
 import Footer from '@/components/global/Footer'
@@ -37,14 +37,14 @@ const tomatoes = localFont({
   display: 'swap',
 })
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700', '900'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+// const roboto = Roboto({
+//   weight: ['300', '400', '500', '700', '900'],
+//   subsets: ['latin'],
+//   display: 'swap',
+// })
 
 const poppins = Poppins({
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
 })
@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         // suppressHydrationWarning={true}
-        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} ${roboto.className} w-full`}
+        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
       >
         <ApolloWrapper>
           <AosInit />

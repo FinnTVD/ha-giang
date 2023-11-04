@@ -86,7 +86,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
-        roboto: ['var(--font-roboto)'],
+        // roboto: ['var(--font-roboto)'],
         tomatoes: ['var(--font-tomatoes)'],
         heavitas: ['var(--font-heavitas)'],
       },
