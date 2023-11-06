@@ -4,7 +4,7 @@ const AboutUs = async () => {
   const data = await getData(GET_DETAIL_TOUR, { slug: params?.slug })
   // if (!data?.data?.tourHG) return <IndexNotFound />
   return (
-    <div>hehe {params?.slug} <Link href="/">Back</Link></div>
+    <div>{params?.slug} <Link href="/">Back</Link></div>
   )
 }
 
