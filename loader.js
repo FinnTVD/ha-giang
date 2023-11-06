@@ -5,6 +5,7 @@ export default function myImageLoader({ src, width, quality }) {
 
   // Run Production
   // Public file
+  if (src.includes("wp-content/uploads")) return `${src}?w=${width}&q=${quality || 75}`
   if (!src.includes(process.env.NEXT_PUBLIC_ORIGIN_URL)) {
     let url = src
     if (!!src.includes('/_next/static/media/')) {
