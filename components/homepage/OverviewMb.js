@@ -1,12 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import highLightImg from '../../public/images/hightLight.svg'
-import includedImg from '../../public/images/included.svg'
-import pickUpFromImg from '../../public/images/pickUpFrom.svg'
-import transportImg from '../../public/images/transport.svg'
-import excludedImg from '../../public/images/EXCLUDED.svg'
+
 import Image from 'next/image'
-import rowUpImg from '../../public/images/rowUp.svg'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { gsap } from 'gsap'
@@ -98,8 +93,11 @@ const OverviewMb = ({ data }) => {
         <div>
           <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
             <Image
-              src={highLightImg}
+              className='w-[4.27rem] h-[4.27rem] object-contain'
+              src={'/images/hightLight.svg'}
               alt='icon'
+              width={36}
+              height={36}
             />
             hight light:
           </h2>
@@ -117,8 +115,11 @@ const OverviewMb = ({ data }) => {
         <div>
           <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
             <Image
-              src={transportImg}
+              className='w-[4.27rem] h-[4.27rem] object-cover'
+              src={'/images/transport.svg'}
               alt='icon'
+              width={36}
+              height={36}
             />
             TRANSPORT:
           </h2>
@@ -129,8 +130,11 @@ const OverviewMb = ({ data }) => {
         <div>
           <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
             <Image
-              src={pickUpFromImg}
+              className='w-[4.27rem] h-[4.27rem] object-cover'
+              src={'/images/pickUpFrom.svg'}
               alt='icon'
+              width={36}
+              height={36}
             />
             PICK UP FROM:
           </h2>
@@ -142,8 +146,11 @@ const OverviewMb = ({ data }) => {
           <div>
             <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
               <Image
-                src={includedImg}
+                className='w-[4.27rem] h-[4.27rem] object-cover'
+                src={'/images/included.svg'}
                 alt='icon'
+                width={36}
+                height={36}
               />
               INCLUDED:
             </h2>
@@ -162,8 +169,11 @@ const OverviewMb = ({ data }) => {
         <div>
           <h2 className='text-[3.46rem] flex gap-[1.6rem] mb-[0.53rem] text-[#A1A1A1] uppercase'>
             <Image
-              src={excludedImg}
+              className='w-[4.27rem] h-[4.27rem] object-cover'
+              src={'/images/EXCLUDED.svg'}
               alt='icon'
+              width={36}
+              height={36}
             />
             EXCLUDED:
           </h2>
@@ -185,9 +195,11 @@ const OverviewMb = ({ data }) => {
       >
         {show ? 'See less' : 'See more'}
         <Image
-          src={rowUpImg}
+          src={'/images/rowUp.svg'}
           alt='arrow up'
-          className={show ? '' : 'rotate-180'}
+          width={36}
+          height={36}
+          className={`${show ? '' : 'rotate-180'} w-[2.38rem] h-[1.29rem] object-cover`}
         />
       </button>
     </section>
