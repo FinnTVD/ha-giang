@@ -1,7 +1,7 @@
 import IndexNotFound from '@/components/not-found'
+import IndexTourDetail from '@/components/tourDetail'
 import { GET_DETAIL_TOUR, GET_META_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import getData from '@/utils/getData'
-import Link from 'next/link'
 
 export async function generateMetadata({ params }) {
   const data = await getData(GET_META_TOUR_DETAIL, { slug: params?.slug })
@@ -53,8 +53,12 @@ export async function generateMetadata({ params }) {
 
 export default async function page({ params }) {
   const data = await getData(GET_DETAIL_TOUR, { slug: params?.slug })
-  // if (!data?.data?.tourHG) return <IndexNotFound />
+  if (!data?.data?.tourHG) return <IndexNotFound />
   return (
-    <div>hehe {params?.slug} <Link href="/">Back</Link></div>
+    <IndexTourDetail
+      data={data}
+      allTourHG={data?.data?.allTourHG}
+      slug={params?.slug}
+    />
   )
 }

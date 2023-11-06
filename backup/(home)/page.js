@@ -1,6 +1,6 @@
+import IndexHomePage from '@/components/homepage'
 import { GET_DATA_HOME, GET_META_HOME } from '@/graphql/home/queries'
 import getData from '@/utils/getData'
-import Link from 'next/link'
 export async function generateMetadata() {
   const data = await getData(GET_META_HOME)
   if (!data) return
@@ -57,11 +57,9 @@ export async function generateMetadata() {
 export default async function page() {
   const data = await getData(GET_DATA_HOME)
   return (
-    <div>
-      Ngo The Son
-      <div><Link href="/son">son</Link></div>
-      <div><Link href="/123">123</Link></div>
-      <div><Link href="/hihi">hihi</Link></div>
-    </div>
+    <IndexHomePage
+      data={data?.data?.page?.homeHG}
+      allTourHG={data?.data?.allTourHG}
+    />
   )
 }
