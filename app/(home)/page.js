@@ -59,6 +59,7 @@ export default async function page() {
   return (
     <div>
       Ngo The Son
+      <div><Link href="/about-us">about us</Link></div>
       <div><Link href="/son">son</Link></div>
       <div><Link href="/123">123</Link></div>
       <div><Link href="/hihi">hihi</Link></div>
