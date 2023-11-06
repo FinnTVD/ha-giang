@@ -135,7 +135,7 @@ export default function DestinationListItems({ dataDestination }) {
               }}
             >
               <Image
-                src={'/icons/ggmap.svg'}
+                src={'/images/ggmap.svg'}
                 width={16}
                 height={16}
                 alt='google map'
