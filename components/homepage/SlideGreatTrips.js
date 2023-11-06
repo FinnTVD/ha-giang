@@ -6,7 +6,6 @@ import ItemCardTour from './ItemCardTour'
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import IconMotor from '../icons/IconMotor'
-import { isArray } from 'lodash'
 
 const arr = new Array(2).fill(0)
 
@@ -20,7 +19,6 @@ export default function SlideGreatTrips({ allTourHG }) {
   }
 
   const handleSlideTo = (index) => {
-    // swiperRef.current?.slideTo(index)
     if (index === indexTab) return
     swiperRef.current?.slideNext()
   }
