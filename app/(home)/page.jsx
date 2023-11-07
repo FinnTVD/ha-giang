@@ -8,6 +8,8 @@ import Travelers from '@/components/homepage/Travelers'
 import Weather from '@/components/homepage/Weather'
 import { GET_DATA_HOME, GET_META_HOME } from '@/graphql/home/queries'
 import getData from '@/utils/getData'
+import Image from 'next/image'
+
 export async function generateMetadata() {
   const data = await getData(GET_META_HOME)
   if (!data) return
