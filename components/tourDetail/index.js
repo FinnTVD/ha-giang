@@ -12,11 +12,11 @@ const BookingOnline = dynamic(() => import('../homepage/BookingOnline'), { ssr: 
 export default function IndexTourDetail({ data, allTourHG, slug }) {
   return (
     <>
-      <HeaderDetail
+      {/* <HeaderDetail
         data={data}
         allTourHG={allTourHG}
         slug={slug}
-      />
+      /> */}
       <main>
         <OverviewMb data={data?.data?.tourHG?.tourHaGiangDetail?.header} />
         <div className='overflow-hidden max-md:flex max-md:flex-col-reverse'>
