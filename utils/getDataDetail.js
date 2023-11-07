@@ -16,8 +16,8 @@ export default async function getDataDetail(query, slug) {
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    // throw new Error('Failed to fetch data')
-    return null
+    throw new Error('Failed to fetch data')
+    // return null
   }
 
   return res.json()
