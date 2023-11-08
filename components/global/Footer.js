@@ -21,13 +21,14 @@ export default async function Footer() {
     >
       <BgFooter className='w-full md:h-[58.5625rem] h-full absolute top-0 left-0 z-0 max-md:inset-0' />
       <Image
-        className='z-0 max-md:h-[111.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover images-house'
+        className='z-[2] max-md:h-[111.6rem] h-full absolute md:inset-0 bottom-0 w-full object-cover images-house'
         alt={footer?.background?.altText || footer?.background?.title}
         src={footer?.background?.sourceUrl || '/images/bg-footer.png'}
         width={1600}
         height={900}
         // object-cover
       />
+      <div className='md:hidden bg-[#fffdf6] w-full h-[185rem]  absolute bottom-0 z-[1] left-0'></div>
       <div className='lg:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem] max-lg:h-[130rem]'>
         <div className='flex justify-between items-center w-full relative z-[1] max-md:px-[4.27rem] max-lg:flex-col'>
           <Link

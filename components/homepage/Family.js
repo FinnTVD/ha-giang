@@ -138,7 +138,7 @@ export default function Family({ section6 }) {
           listImgPreview?.map((e, index) => (
             <Image
               key={index}
-              className='object-cover w-full h-full absolute top-0 left-0 '
+              className='absolute top-0 left-0 object-cover w-full h-full '
               src={e?.avatar?.sourceUrl || '/images/people.jpg'}
               alt={e?.avatar?.altText || e?.avatar?.title}
               width={400}
