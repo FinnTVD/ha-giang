@@ -48,7 +48,7 @@ export default async function Footer() {
               <h2 className='lg:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] md:text-[1.8vw]'>
                 CONTACT US
               </h2>
-              <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'></div>
+              <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>
                 <div className='flex gap-x-[0.5rem] max-md:gap-x-[2.13rem] max-md:w-fit max-md:mx-auto'>
                   <Image
                     src={phoneIcon}
