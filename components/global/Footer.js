@@ -17,7 +17,7 @@ export default async function Footer() {
   return (
     <footer
       id='footer'
-      className='relative overflow-hidden font-poppins max-md:h-[105vh]'
+      className='relative overflow-hidden font-poppins max-md:h-[105vh] max-md:mt-[1.5rem]'
     >
       <BgFooter className='w-full md:h-[58.5625rem] h-full absolute top-0 left-0 z-0 max-md:inset-0' />
       <Image
@@ -28,7 +28,7 @@ export default async function Footer() {
         height={900}
         // object-cover
       />
-      <div className='md:hidden bg-[#fffdf6] w-full h-[185rem]  absolute bottom-0 z-[1] left-0'></div>
+      <div className='md:hidden bg-[#fffdf6] w-full h-full absolute bottom-0 z-[1] left-0'></div>
       <div className='lg:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem] max-lg:h-[130rem]'>
         <div className='flex justify-between items-center w-full relative z-[1] max-md:px-[4.27rem] max-lg:flex-col'>
           <Link
@@ -48,8 +48,8 @@ export default async function Footer() {
               <h2 className='lg:text-[0.875rem] md:font-[700] font-[600] md:leading-[1.25rem] leading-[4.8rem] md:tracking-[0.00875rem] text-[3.46667rem] md:text-[1.8vw]'>
                 CONTACT US
               </h2>
-              <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>
-                <div className='flex gap-x-[0.5rem] max-md:gap-x-[2.13rem]'>
+              <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'></div>
+                <div className='flex gap-x-[0.5rem] max-md:gap-x-[2.13rem] max-md:w-fit max-md:mx-auto'>
                   <Image
                     src={phoneIcon}
                     alt='icon'
