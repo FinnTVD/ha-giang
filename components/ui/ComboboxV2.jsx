@@ -43,8 +43,6 @@ export function ComboboxV2({ allTourHG, setTour }) {
       </PopoverTrigger>
       <PopoverContent className='p-0 w-[20rem] max-lg:w-full font-poppins z-[9999]'>
         <Command>
-          {/* <CommandInput placeholder='Search tour...' /> */}
-          {/* <CommandEmpty>No tour found.</CommandEmpty> */}
           <CommandGroup className='max-lg:p-[1.25rem]'>
             {[...allTourHG?.nodes]?.reverse()?.map((item, index) => (
               <CommandItem
