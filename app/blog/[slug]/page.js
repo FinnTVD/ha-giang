@@ -10,7 +10,7 @@ import IndexNotFound from '@/components/not-found'
 
 export async function generateMetadata({ params: { slug } }) {
   const data = await getDataDetail(GET_BLOG_DETAIL, slug)
-  if (!data) return
+  if (!data) return {}
   const dataTour = data?.data?.post
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),

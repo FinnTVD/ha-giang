@@ -5,7 +5,7 @@ import getData from '@/utils/getData'
 
 export async function generateMetadata() {
   const data = await getData(GET_META_CONTACT)
-  if (!data) return
+  if (!data) return {}
   const contact = data?.data?.page?.contact
   const featuredImage = data?.data?.page?.featuredImage
 

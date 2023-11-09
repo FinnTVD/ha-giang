@@ -3,7 +3,7 @@ import { GET_DATA_HOME, GET_META_HOME } from '@/graphql/home/queries'
 import getData from '@/utils/getData'
 export async function generateMetadata() {
   const data = await getData(GET_META_HOME)
-  if (!data) return
+  if (!data) return {}
   const featuredImage = data?.data?.page?.featuredImage
   const homeHG = data?.data?.page?.homeHG
   return {
