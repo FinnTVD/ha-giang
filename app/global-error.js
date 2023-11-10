@@ -1,4 +1,6 @@
 'use client'
+import Button from '@/components/global/Button'
+import Image from 'next/image'
 
 export default function GlobalError({ error, reset }) {
   return (
