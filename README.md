@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js with Docker, PM2 and NGINX
 
-## Getting Started
+This project is a production Docker setup for a Next.js app.
 
-First, run the development server:
+The Next.js app is launched with [PM2 Runtime](https://pm2.io/runtime/), which is a Production Process Manager for Node.js applications and is used to keep the app alive forever.
+
+A second container with the [NGINX](https://www.nginx.com/) web server is used as a reverse proxy, and to handle HTTP caching.
+
+## Docker Compose
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker-compose up
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+NGINX listens on port 80, which is the default HTTP port, so you can just visit **http://localhost/**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Without Docker Compose
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+# Build images
+docker build --tag nextjs-image .
+docker build --tag nginx-image ./nginx
 
-## Learn More
+# Create shared network
+docker network create my-network
 
-To learn more about Next.js, take a look at the following resources:
+# Run containers
+docker run --network my-network --name nextjs-container nextjs-image
+docker run --network my-network --link nextjs-container:nextjs --publish 80:80 nginx-image
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+_Next.js container is referenced inside NGINX container as `nextjs`._
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## PM2 commands
 
-## Deploy on Vercel
+PM2 commands can still be used inside a container with the `docker exec` command:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+docker exec -it <container-id> pm2 monit          # Monitoring CPU/Usage of each process
+```
+```
+docker exec -it <container-id> pm2 list           # Listing managed processes
+```
+```
+docker exec -it <container-id> pm2 show           # Get more information about a process
+```
+```
+docker exec -it <container-id> pm2 reload all     # 0sec downtime reload all applications
+```
