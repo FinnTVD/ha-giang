@@ -2,7 +2,14 @@ version: '3'
 services:
   nextjs: 
     build: ./
+    networks:
+      - app-network
   nginx: 
     build: ./nginx
     ports:
       - 80:80
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
