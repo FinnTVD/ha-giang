@@ -95,7 +95,7 @@ export default function RootLayout({ children }) {
           <AosInit />
           <Theme>
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </Theme>
         </ApolloWrapper>
         <Script
