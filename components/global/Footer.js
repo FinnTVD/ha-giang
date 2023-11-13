@@ -29,7 +29,7 @@ export default async function Footer() {
         // object-cover
       />
       <div className='md:hidden bg-[#fffdf6] w-full h-full absolute bottom-0 z-[1] left-0'></div>
-      <div className='lg:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem] max-lg:h-[130rem]'>
+      <div className='lg:h-screen max-md:h-auto w-[87.5rem] max-md:w-[91.46667rem] relative mx-auto max-md:pb-[74.6rem] max-lg:h-[130rem] z-20'>
         <div className='flex justify-between items-center w-full relative z-[1] max-md:px-[4.27rem] max-lg:flex-col'>
           <Link
             href='/'

@@ -4,7 +4,7 @@ const stylePrimary = 'text-white bg-primary-70 border border-solid border-primar
 
 const styleDefault = 'box-border border border-solid border-primary-70 text-primary-70 hover:bg-primary-70'
 
-export default function Button({ href, className, type = 'button', primary, content, maskClass, classContent }) {
+export default function Button({ href, className='', type = 'button', primary, content, maskClass, classContent }) {
   return (
     <>
       {href ? (
