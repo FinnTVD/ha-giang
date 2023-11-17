@@ -54,7 +54,7 @@ function SlideImage({ listImageSlide }) {
             className=''
           >
             <Image
-              className='w-full h-[63.73333rem] md:h-[22.5625rem] lg:h-[19.5625rem] md:rounded-[1rem] rounded-[3.2rem] select-none'
+              className='w-full h-[63.73333rem] md:h-[22.5625rem] lg:h-[19.5625rem] md:rounded-[1rem] rounded-[3.2rem] select-none object-cover'
               src={image?.sourceUrl || '/images/imgSlide1.jpg'}
               alt={image?.altText || image?.title}
               width={600}
