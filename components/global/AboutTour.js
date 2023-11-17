@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import moon from '@/public/images/moon.svg'
+import sun from '@/public/images/sun-day.svg'
 import SlideImage from './SlideImage'
 import ScrollTrigger from 'react-scroll-trigger'
 import useStore from '@/app/(store)/store'
@@ -50,6 +51,7 @@ function AboutTour({ data, isMobile }) {
   const [isShow, setIsShow] = useState(isMobile ? true : false)
   const setIndexTab = useStore((state) => state.setIndexTab)
   const listImgPreview = handleArrayImg(data?.listCheckin)
+  const isCheckDay = data?.step?.toLowerCase()?.includes('night')
 
   return (
     <>
@@ -60,12 +62,21 @@ function AboutTour({ data, isMobile }) {
       >
         <div className='flex justify-between max-md:px-[4.27rem] items-center max-md:mb-[1.87rem]'>
           <div className='flex md:gap-[0.625rem] gap-[2.34rem] items-center max-md:flex-row-reverse'>
-            <Image
-              src={moon}
-              alt='moon'
-              quality={100}
-              className='md:w-[1.75rem] md:h-[1.75rem] w-[4.68384rem] h-[4.68384rem] max-md:hidden'
-            />
+            {isCheckDay ? (
+              <Image
+                src={moon}
+                alt='moon'
+                quality={100}
+                className='md:w-[1.75rem] md:h-[1.75rem] w-[4.68384rem] h-[4.68384rem] max-md:hidden'
+              />
+            ) : (
+              <Image
+                src={sun}
+                alt='sun'
+                quality={100}
+                className='md:w-[1.75rem] md:h-[1.75rem] w-[4.68384rem] h-[4.68384rem] max-md:hidden'
+              />
+            )}
             <h3
               data-aos='fade-right'
               className='lg:text-[2.125rem] md:text-[3.125rem] text-[4.68384rem]  font-[600] leading-normal tracking-[0.00531rem] font-poppins text-gray-scale-80'
