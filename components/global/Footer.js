@@ -49,7 +49,7 @@ export default async function Footer() {
                 CONTACT US
               </h2>
               <div className='flex flex-col md:gap-[0.75rem] gap-[2.13rem] md:mt-[1rem] mt-[2.13rem]'>
-                <div className='flex gap-x-[0.5rem] max-md:gap-x-[2.13rem] max-md:w-fit max-md:mx-auto'>
+                <div className='flex gap-x-[0.5rem] max-md:gap-x-[2.13rem] max-md:w-fit'>
                   <Image
                     src={phoneIcon}
                     alt='icon'
