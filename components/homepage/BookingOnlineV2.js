@@ -173,22 +173,25 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
   const onSubmit = async (e) => {
     if (typeof window === 'undefined') return
     if (totalAmount <= 0 || !Number(totalAmount)) {
-      setError('root', {
+      return setError('root', {
         message: 'Please select the number of participants!',
       })
-      return
     }
+    if (!e?.departureDate || !e?.endDate)
+      return setError('root', {
+        message: 'Please select a departure date!',
+      })
     const formData = {
       nameTour: values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title,
       name: e?.name + ' - ' + (selfDriving + localDriver) + ' pax',
       email: e?.email,
       contactInfo: e?.email + ' - ' + e?.phone,
-      pickUp: fDate(e.departureDate) + ' from ' + e.pickup + ' at ' + e.pickupAddress,
+      pickUp: fDate(e?.departureDate) + ' from ' + e?.pickup + ' at ' + e?.pickupAddress,
       tourDuration:
         allTourHG?.nodes?.find(
-          (e) => e?.title === (values.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
+          (e) => e?.title === (values?.typeTour || tour?.tour?.title || [...allTourHG?.nodes]?.reverse()[0]?.title),
         )?.tourHaGiangDetail?.price?.longTimeTourDay + ' Days',
-      droffOf: fDate(e.endDate) + ' to ' + e.droff + ' at ' + e.droffAddress,
+      droffOf: fDate(e?.endDate) + ' to ' + e?.droff + ' at ' + e?.droffAddress,
       selfDriving: selfDriving + ' x $' + selfPrice + ' (' + fCurrency(selfCost) + ' VND)',
       localDriver: localDriver + ' x $' + localPrice + ' (' + fCurrency(localCose) + ' VND)',
       message: e?.message,
@@ -773,13 +776,17 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 </div>
               </div>
 
-              <p>{errors.root?.message}</p>
+              {errors.root?.message && (
+                <p className='max-md:text-[3.73rem] max-md:mt-[2.13rem] text-[1rem] mt-[0.5rem] max-lg:text-[2rem] max-lg:mt-[1rem]'>
+                  {errors.root?.message}
+                </p>
+              )}
 
               <div className='flex items-center mt-[1rem] gap-[1.88rem] max-lg:mb-[2rem] max-md:mb-0 max-md:gap-[2.13rem] max-lg:mt-[2rem] max-md:mt-[3.2rem] max-md:flex-col max-lg:justify-end max-md:justify-start'>
                 <Button
                   className='w-[12.1875rem] max-lg:w-fit py-[1rem] px-[2rem] text-[0.8125rem] max-lg:text-[1.8125rem] 
                             font-bold max-md:text-[3.46rem] whitespace-nowrap max-lg:py-[2rem] max-lg:px-[3rem]
-                            max-md:w-full max-md:px-[8.52rem] max-md:py-[4.26rem] max-md:rounded-[2.1rem]'
+                            max-md:w-full max-md:px-[8.52rem] max-md:py-[4.26rem] max-md:rounded-[2.1rem] max-md:flex max-md:justify-center'
                   primary={true}
                   content={'BOOK & PAY NOW'}
                   type='submit'

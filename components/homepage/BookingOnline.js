@@ -146,19 +146,22 @@ export default function BookingOnline({ data, title }) {
   const onSubmit = async (e) => {
     if (typeof window === 'undefined') return
     if (totalAmount <= 0 || !Number(totalAmount)) {
-      setError('root', {
+      return setError('root', {
         message: 'Please select the number of participants!',
       })
-      return
     }
+    if (!e?.departureDate || !e?.endDate)
+      return setError('root', {
+        message: 'Please select a departure date!',
+      })
     const formData = {
       nameTour: title,
       name: e?.name + ' - ' + (selfDriving + localDriver) + ' pax',
       email: e?.email,
       contactInfo: e?.email + ' - ' + e?.phone,
-      pickUp: fDate(e.departureDate) + ' from ' + e.pickup + ' at ' + e.pickupAddress,
+      pickUp: fDate(e?.departureDate) + ' from ' + e?.pickup + ' at ' + e?.pickupAddress,
       tourDuration: data?.longTimeTourDay + ' Days',
-      droffOf: fDate(e.endDate) + ' to ' + e.droff + ' at ' + e.droffAddress,
+      droffOf: fDate(e?.endDate) + ' to ' + e?.droff + ' at ' + e?.droffAddress,
       selfDriving: selfDriving + ' x $' + data?.selfDriving + ' (' + fCurrency(selfCost) + ' VND)',
       localDriver: localDriver + ' x $' + data?.localDriver + ' (' + fCurrency(localCose) + ' VND)',
       message: e?.message,
@@ -683,13 +686,13 @@ export default function BookingOnline({ data, title }) {
               </div>
             </div>
 
-            <p>{errors.root?.message}</p>
+            {errors.root?.message && <p className='mt-[0.5rem]'>{errors.root?.message}</p>}
 
             <div className='flex items-center mt-[1rem] gap-[1.88rem] max-md:gap-[2.13rem] max-md:mt-[3.2rem] max-md:flex-col'>
               <Button
                 className='lg:w-[12.1875rem] max-lg:w-[14.1875rem] md:w-fit py-[1rem] px-[2rem] text-[0.875rem] 
                             font-bold max-md:text-[3.46rem] 
-                            max-md:w-full max-md:px-[8.52rem] max-md:py-[4.26rem] max-md:rounded-[2.1rem] whitespace-nowrap'
+                            max-md:w-full max-md:px-[8.52rem] max-md:py-[4.26rem] max-md:rounded-[2.1rem] whitespace-nowrap max-md:flex max-md:justify-center'
                 primary={true}
                 content={'BOOK & PAY NOW'}
                 type='submit'

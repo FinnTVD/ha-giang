@@ -93,7 +93,7 @@ export default function ItemCardTour({ data, allTourHG, className = '' }) {
               content={'book now'}
               maskClass={'w-[8.31831rem]'}
               className={
-                'my-[0.87rem] w-[9.4375rem] h-[3rem] max-lg:w-fit max-lg:h-fit max-md:rounded-[2.133rem] max-md:w-full max-md:h-[11.73rem] whitespace-nowrap'
+                'my-[0.87rem] w-[9.4375rem] h-[3rem] max-lg:w-fit max-lg:h-fit max-md:rounded-[2.133rem] max-md:w-full max-md:h-[11.73rem] whitespace-nowrap max-md:flex max-md:justify-center'
               }
             />
           </div>
