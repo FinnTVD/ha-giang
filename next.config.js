@@ -20,7 +20,6 @@ const nextConfig = {
   //     // { protocol: 'https', hostname: '**' },
   //   ],
   // },
-  output: 'export',
   images: {
     loader: 'custom',
     loaderFile: './loader.js',
