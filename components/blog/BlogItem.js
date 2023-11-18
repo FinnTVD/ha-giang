@@ -15,8 +15,8 @@ function BlogItem({ data }) {
           <div className='thumb md:rounded-[1.5rem] lg:rounded-[0.5rem] rounded-[2.13333rem]'>
             <Image
               src={data?.featuredImage?.node?.sourceUrl || img}
-              width={1000}
-              height={1000}
+              width={450}
+              height={350}
               alt='img'
               className={`lg:!h-[16.3125rem] h-[43.73rem] object-cover md:rounded-[0.5rem] rounded-[2.13333rem] md:!h-[28.5rem]`}
             />
