@@ -3,6 +3,24 @@ import IndexTourDetail from '@/components/tourDetail'
 import { GET_DETAIL_TOUR, GET_META_TOUR_DETAIL } from '@/graphql/tourDetail/queries'
 import getData from '@/utils/getData'
 
+const GET_PARAMS_ALL_TOUR = `{
+  allTourHG(first:5){
+    nodes{
+      slug
+    }
+  }
+}`
+
+export async function generateStaticParams() {
+  const { data } = await getData(GET_PARAMS_ALL_TOUR)
+
+  const tours = data?.allTourHG?.nodes || []
+
+  return tours.map((tour) => ({
+    slug: tour?.slug || undefined,
+  }))
+}
+
 export async function generateMetadata({ params }) {
   const data = await getData(GET_META_TOUR_DETAIL, { slug: params?.slug })
   if (!data) return

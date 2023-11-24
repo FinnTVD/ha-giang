@@ -8,6 +8,24 @@ import GreatTrips from '@/components/homepage/GreatTrips'
 import OtherArticle from '@/components/blog/OtherArticle'
 import IndexNotFound from '@/components/not-found'
 
+const GET_PARAMS_ALL_BLOG = `{
+  posts(first:100){
+    nodes{
+      slug
+    }
+  }
+}`
+
+export async function generateStaticParams() {
+  const { data } = await getData(GET_PARAMS_ALL_BLOG)
+
+  const posts = data?.posts?.nodes || []
+
+  return posts.map((post) => ({
+    slug: post?.slug || undefined,
+  }))
+}
+
 export async function generateMetadata({ params: { slug } }) {
   const data = await getDataDetail(GET_BLOG_DETAIL, slug)
   if (!data) return
