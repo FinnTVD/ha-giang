@@ -212,6 +212,7 @@ const GET_DATA_HOME = `
   }
   allTourHG {
     nodes {
+      id
       title
       slug
       featuredImage {

@@ -27,6 +27,7 @@ export default function IndexTourDetail({ data, allTourHG, slug }) {
         <BookingOnline
           data={data?.data?.tourHG?.tourHaGiangDetail?.price}
           title={data?.data?.tourHG?.title}
+          idTour={data?.data?.tourHG?.id}
         />
         <TheTripDetail data={data?.data?.tourHG?.tourHaGiangDetail?.faq} />
         <Another

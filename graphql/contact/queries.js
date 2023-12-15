@@ -82,6 +82,7 @@ const GET_NAV_AND_FOOTER = `
   }
   allTourHG {
     nodes {
+      id
       title
       slug
       featuredImage {

@@ -21,6 +21,7 @@ query ($slug: ID!){
 
 const GET_DETAIL_TOUR = `query ($slug: ID!){
   tourHG(id: $slug, idType: SLUG) {
+    id
     title
     featuredImage {
       node {
@@ -126,6 +127,7 @@ const GET_DETAIL_TOUR = `query ($slug: ID!){
   }
   allTourHG{
     nodes{
+      id
       title
       slug
       featuredImage{

@@ -40,7 +40,7 @@ export default function Family({ section6 }) {
   }, [])
 
   return (
-    <section className='mx-auto mt-[6.25rem] max-md:px-[4.27rem] max-md:mt-[16rem] font-poppins w-[87.5rem] max-lg:w-full max-lg:px-[3.2vw] relative'>
+    <section className='mx-auto mt-[6.25rem] max-md:px-[4.27rem] max-md:mt-[16rem] font-poppins w-[87.5rem] max-lg:w-full max-lg:px-[3.2vw] relative z-[999]'>
       <div className='relative z-10'>
         <div className='flex justify-between items-end mb-[1.87rem] max-md:mb-[5.33rem] max-lg:flex-col max-md:gap-y-[5.33rem] max-lg:gap-y-[2.5rem]'>
           <SubTitle

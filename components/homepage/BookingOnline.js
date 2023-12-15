@@ -57,7 +57,7 @@ const inputMobileStyle = {
   padding: '4.26rem 3.2rem',
 }
 
-export default function BookingOnline({ data, title }) {
+export default function BookingOnline({idTour, data, title }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
   const router = useRouter()
   const [mutate] = useMutation(FORM_GLOBAL)
@@ -66,6 +66,10 @@ export default function BookingOnline({ data, title }) {
   const setIndexTab = useStore((state) => state.setIndexTab)
   const [selfDriving, setSelfDriving] = useState(0)
   const [localDriver, setLocalDriver] = useState(0)
+  const [pickUp, setPickUp] = useState(null)
+  const [addressPickUp, setAddressPickUp] = useState(null)
+  const [drop, setDrop] = useState(null)
+  const [dropAddress, setDropAddreess] = useState(null)
 
   const BookingSchema = Yup.object({
     name: Yup.string().required(),
@@ -118,7 +122,7 @@ export default function BookingOnline({ data, title }) {
     getIp()
   }, [])
 
-  const generateParams = (data, pickVpc = false) => {
+  const generateParams = (dataF, pickVpc = false, formData) => {
     const reqParam = {
       AgainLink: BASE_URL,
       Title: 'Ha Giang Tour Payment',
@@ -130,19 +134,24 @@ export default function BookingOnline({ data, title }) {
       vpc_Locale: 'en',
       vpc_MerchTxnRef: Math.floor(Date.now() / 1000) + '_hgtour',
       vpc_Merchant: MERCHANT_ID,
-      vpc_OrderInfo: data?.name,
-      vpc_ReturnURL: BASE_URL + '/payment-successful',
+      vpc_OrderInfo: dataF?.name,
+      vpc_ReturnURL:
+        BASE_URL +
+        `/payment-successfull/${idTour}/${pickUp}${addressPickUp}${drop}${dropAddress}/${dataF?.phone?.replaceAll(
+          '+',
+          '',
+        )}/${dataF?.email}/${selfDriving}/${localDriver}/${fDate(dataF?.departureDate)?.replaceAll('/', '-')}/${fDate(
+          dataF?.endDate,
+        )?.replaceAll('/', '-')}`,
       vpc_TicketNo: ip,
       vpc_Version: '2',
     }
     if (pickVpc) {
       const pickParams = pickBy(reqParam, (_, key) => key.startsWith('vpc_') || key.startsWith('user_'))
-
       return convertStr2URL(pickParams)
     }
     return convertStr2URL(reqParam)
   }
-
   const onSubmit = async (e) => {
     if (typeof window === 'undefined') return
     if (totalAmount <= 0 || !Number(totalAmount)) {
@@ -236,12 +245,12 @@ export default function BookingOnline({ data, title }) {
     }
     setTimeout(() => {
       window?.localStorage?.setItem('formDataPayment', JSON.stringify(formData))
-
-      const params = generateParams(e, true)
-      const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
-      const hash = CryptoJS.HmacSHA256(params, secretWordArray)
-      const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-      router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
+      window?.localStorage?.removeItem('isSendForm')
+    const params = generateParams(e, true)
+    const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
+    const hash = CryptoJS.HmacSHA256(params, secretWordArray)
+    const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
+    router.push(`${ONEPAY_HOST}?${generateParams(e, false, formData)}&vpc_SecureHash=${vpc_SecureHash}`)
     }, 500)
   }
 
@@ -413,7 +422,17 @@ export default function BookingOnline({ data, title }) {
                 <div className='truncate font-semibold mb-[0.25rem] text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem] text-gray-scale-80'>
                   Pick up
                 </div>
-                <Select.Root onValueChange={(value) => setValue('pickup', value)}>
+                <Select.Root
+                  onValueChange={(value) => {
+                    setValue('pickup', value)
+                    data?.pickUp?.forEach((e, index) => {
+                      if (e?.province === value) {
+                        setPickUp(index)
+                        return
+                      }
+                    })
+                  }}
+                >
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
@@ -457,7 +476,19 @@ export default function BookingOnline({ data, title }) {
                 <div className='mb-[0.25rem] font-semibold text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem] text-gray-scale-80'>
                   Address *
                 </div>
-                <Select.Root onValueChange={(value) => setValue('pickupAddress', value)}>
+                <Select.Root
+                  onValueChange={(value) => {
+                    setValue('pickupAddress', value)
+                    data?.pickUp
+                      ?.find((e) => e?.province === values?.pickup)
+                      ?.listAddress?.forEach((e, index) => {
+                        if (e?.address === value) {
+                          setAddressPickUp(index)
+                          return
+                        }
+                      })
+                  }}
+                >
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
@@ -481,13 +512,7 @@ export default function BookingOnline({ data, title }) {
                 </Select.Root>
               </div>
             </div>
-            {/* <Image
-              src={'/images/motobikeMobileV2.svg'}
-              width={300}
-              height={100}
-              alt='moto'
-              className='my-[6.4rem] max-md:block hidden'
-            /> */}
+
             <div className='flex items-center max-md:my-[6.4vw] md:hidden'>
               <LineLeftPayMent />
               <IconMotorMbPayment className={'w-[9.57rem] h-[6.4rem] flex-shrink-0'} />
@@ -503,7 +528,15 @@ export default function BookingOnline({ data, title }) {
                 </div>
                 <Select.Root
                   className='w-full'
-                  onValueChange={(value) => setValue('droff', value)}
+                  onValueChange={(value) => {
+                    setValue('droff', value)
+                    data?.droff?.forEach((e, index) => {
+                      if (e?.province === value) {
+                        setDrop(index)
+                        return
+                      }
+                    })
+                  }}
                 >
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
@@ -550,7 +583,19 @@ export default function BookingOnline({ data, title }) {
                 <div className='mb-[0.25rem] font-semibold max-lg:text-[1.875rem] text-[0.875rem] max-md:text-[3.46rem] text-gray-scale-80'>
                   Address *
                 </div>
-                <Select.Root onValueChange={(value) => setValue('droffAddress', value)}>
+                <Select.Root
+                  onValueChange={(value) => {
+                    setValue('droffAddress', value)
+                    data?.droff
+                      ?.find((e) => e?.province === values?.droff)
+                      ?.listAddress?.forEach((e, index) => {
+                        if (e?.address === value) {
+                          setDropAddreess(index)
+                          return
+                        }
+                      })
+                  }}
+                >
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
