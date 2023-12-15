@@ -14,7 +14,7 @@ const PaymentSuccessFulPage = ({ searchParams, formDataNew }) => {
     const reqParam = {
       vpc_AccessCode: ACCESS_CODE,
       vpc_Command: 'queryDR',
-      vpc_MerchTxnRef: '1702608182_hgtour',
+      vpc_MerchTxnRef: searchParams?.vpc_MerchTxnRef,
       vpc_Merchant: MERCHANT_ID,
       vpc_Password: 'op123456',
       vpc_User: 'op01',
@@ -40,7 +40,7 @@ const PaymentSuccessFulPage = ({ searchParams, formDataNew }) => {
         body: JSON.stringify({
           vpc_AccessCode: ACCESS_CODE,
           vpc_Command: 'queryDR',
-          vpc_MerchTxnRef: '1702608182_hgtour',
+          vpc_MerchTxnRef: searchParams?.vpc_MerchTxnRef,
           vpc_Merchant: MERCHANT_ID,
           vpc_Password: 'op123456',
           vpc_User: 'op01',
