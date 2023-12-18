@@ -1,3 +1,5 @@
+import { REQUEST_API } from '@/config-global'
+
 export async function POST(req) {
   const body = await req.json()
   const myHeaders = new Headers()
@@ -20,7 +22,7 @@ export async function POST(req) {
     redirect: 'follow',
   }
 
-  const responsive = await fetch('https://mtf.onepay.vn/msp/api/v1/vpc/invoices/queries', requestOptions)
+  const responsive = await fetch(REQUEST_API, requestOptions)
 
   const data = await responsive.text()
   return Response.json(data)

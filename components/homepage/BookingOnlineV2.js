@@ -284,7 +284,7 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       const hash = CryptoJS.HmacSHA256(params, secretWordArray)
       const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
       router.push(`${ONEPAY_HOST}?${generateParams(e)}&vpc_SecureHash=${vpc_SecureHash}`)
-    }, 500)
+    }, 1000)
   }
 
   return (

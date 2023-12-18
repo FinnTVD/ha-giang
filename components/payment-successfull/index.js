@@ -51,6 +51,7 @@ const PaymentSuccessFulPage = ({ searchParams, formDataNew }) => {
       const data = await res.json()
       return data
     }
+    if (JSON.parse(window?.localStorage?.getItem('isSendForm'))) return
     callApi()
       .then((res) => {
         const list = res.toString().split('&')
@@ -132,6 +133,7 @@ const PaymentSuccessFulPage = ({ searchParams, formDataNew }) => {
           }).then((res) => {
             res?.data?.submitGfForm?.entry?.id && window?.localStorage?.removeItem('formDataPayment')
             res?.data?.submitGfForm?.entry?.id && window?.localStorage?.setItem('isSendForm', JSON.stringify(true))
+            return
           })
         }
         // // nếu thánh toán thất bại sẽ đẩy data về form thất bại
@@ -201,13 +203,10 @@ const PaymentSuccessFulPage = ({ searchParams, formDataNew }) => {
           }).then((res) => {
             res?.data?.submitGfForm?.entry?.id && window?.localStorage?.removeItem('formDataPayment')
             res?.data?.submitGfForm?.entry?.id && window?.localStorage?.setItem('isSendForm', JSON.stringify(true))
+            return
           })
         }
       })
-  }, [])
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
   }, [])
 
   return (
