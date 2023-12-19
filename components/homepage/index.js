@@ -22,7 +22,7 @@ export default function IndexHomePage({ data, allTourHG, viewport, type, isBot }
 
   return (
     <>
-      {isBot ? (
+      {!isBot ? (
         <>
           <Header
             header={header}
