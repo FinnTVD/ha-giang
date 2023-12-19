@@ -9,31 +9,40 @@ import dynamic from 'next/dynamic'
 
 const BookingOnline = dynamic(() => import('../homepage/BookingOnline'), { ssr: false })
 
-export default function IndexTourDetail({ data, allTourHG, slug }) {
+export default function IndexTourDetail({ data, allTourHG, slug, viewport }) {
   return (
     <>
       <HeaderDetail
         data={data}
         allTourHG={allTourHG}
         slug={slug}
+        viewport={viewport}
       />
       <main>
         <OverviewMb data={data?.data?.tourHG?.tourHaGiangDetail?.header} />
         <div className='overflow-hidden max-md:flex max-md:flex-col-reverse'>
-          <BestTripEver data={data?.data?.tourHG?.tourHaGiangDetail?.section1} />
+          <BestTripEver
+            data={data?.data?.tourHG?.tourHaGiangDetail?.section1}
+            viewport={viewport}
+          />
           <BoxVideo data={data?.data?.tourHG?.tourHaGiangDetail?.section1} />
         </div>
-        <TourDetail data={data?.data?.tourHG?.tourHaGiangDetail?.tripDetails} />
+        <TourDetail
+          data={data?.data?.tourHG?.tourHaGiangDetail?.tripDetails}
+          viewport={viewport}
+        />
         <BookingOnline
           data={data?.data?.tourHG?.tourHaGiangDetail?.price}
           title={data?.data?.tourHG?.title}
           idTour={data?.data?.tourHG?.id}
+          viewport={viewport}
         />
         <TheTripDetail data={data?.data?.tourHG?.tourHaGiangDetail?.faq} />
         <Another
           allTourHG={allTourHG}
           slug={slug}
           data={data?.data?.tourHG?.tourHaGiangDetail?.anotherGreatTrips}
+          viewport={viewport}
         />
       </main>
     </>

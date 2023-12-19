@@ -2,7 +2,7 @@ import Image from 'next/image'
 import SubTitle from '../global/SubTitle'
 import ItemCardTour from '../homepage/ItemCardTour'
 
-export default function Another({ allTourHG, slug, data }) {
+export default function Another({ allTourHG, slug, data, viewport }) {
   return (
     <section className='mt-[6.25rem] relative h-[47.4rem] max-md:h-fit flex flex-col items-center pt-[5rem] max-md:pt-[16.5rem] mb-[6.5rem]'>
       <SubTitle
@@ -23,6 +23,7 @@ export default function Another({ allTourHG, slug, data }) {
               data={e}
               allTourHG={allTourHG}
               key={index}
+              viewport={viewport}
             />
           ))}
       </div>

@@ -7,14 +7,13 @@ import ValueTowards from './ValueTowards'
 import { useEffect, useState } from 'react'
 import Nav from '../global/Nav'
 import MenuRes from '../global/MenuRes'
-import { useMediaQuery } from 'react-responsive'
 import Family from '../homepage/Family'
 import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import CheersTour from '../homepage/CheersTour'
 import MenuDown from '../global/MenuDown'
 
-export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
+export default function IndexAboutUs({ data, allTourHG, dataAboutUs, viewport }) {
   const header = data?.header
   const section6 = data?.section6
   const section2 = data?.section2
@@ -24,8 +23,8 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
   const textRun = dataAboutUs?.textRun
   const video = dataAboutUs?.video
 
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
 
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -53,6 +52,7 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
         <FeaturesHeader
           header={header}
           allTourHG={allTourHG}
+          viewport={viewport}
         />
         <Banner
           bannerData={banner}
@@ -72,6 +72,7 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
             allTourHG={allTourHG}
             header={header}
             setIsOpen={setIsOpen}
+            viewport={viewport}
           />
         )}
       </header>
@@ -85,12 +86,16 @@ export default function IndexAboutUs({ data, allTourHG, dataAboutUs }) {
           section2={section2}
           allTourHG={allTourHG}
           isOther={true}
+          viewport={viewport}
         />
 
         <ValueTowards valueTowards={valueTowards}></ValueTowards>
         <TextInfinite textRun={textRun}></TextInfinite>
         <Video video={video}></Video>
-        <Family section6={section6} />
+        <Family
+          section6={section6}
+          viewport={viewport}
+        />
       </main>
     </>
   )

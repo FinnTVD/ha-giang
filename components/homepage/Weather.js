@@ -3,15 +3,14 @@ import Image from 'next/image'
 import SubTitle from '../global/SubTitle'
 import { useState } from 'react'
 import SlideWeather from './SlideWeather'
-import { useMediaQuery } from 'react-responsive'
 
 const getMonthNow = () => {
   let now = new Date()
   let month = now.getMonth() // Tháng được đếm từ 0, nên cần cộng thêm 1
   return Number(month)
 }
-export default function Weather({ section7 }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+export default function Weather({ section7, viewport }) {
+  const isMobile = viewport?.includes('mobile')
   const [month, setMonth] = useState(getMonthNow())
 
   return (

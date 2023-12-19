@@ -6,14 +6,13 @@ import ContentHeader from '../homepage/ContentHeader'
 import BookNowHeader from '../homepage/BookNowHeader'
 import MenuRes from './MenuRes'
 import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import NavFixed from './NavFixed'
 import MenuDown from './MenuDown'
 import src from '../../public/images/linear-res.png'
 
-export default function Header({ header, allTourHG, isHome }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+export default function Header({ header, allTourHG, isHome, viewport }) {
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -71,8 +70,12 @@ export default function Header({ header, allTourHG, isHome }) {
           header={header}
           allTourHG={allTourHG}
           isHome={isHome}
+          viewport={viewport}
         />
-        <BookNowHeader allTourHG={allTourHG} />
+        <BookNowHeader
+          allTourHG={allTourHG}
+          viewport={viewport}
+        />
       </div>
       {isMobile && (
         <MenuRes
@@ -88,6 +91,7 @@ export default function Header({ header, allTourHG, isHome }) {
           header={header}
           setIsOpen={setIsOpen}
           isHome={isHome}
+          viewport={viewport}
         />
       )}
     </header>

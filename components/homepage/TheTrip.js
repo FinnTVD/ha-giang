@@ -2,13 +2,12 @@
 import { useState } from 'react'
 import Button from '../global/Button'
 import SubTitle from '../global/SubTitle'
-import { useMediaQuery } from 'react-responsive'
 import { AccordionDemo } from '../ui/AccordionDemo'
 import { PopupBookNow } from '../global/PopupBookNow'
 
-export default function TheTrip({ section8, allTourHG, isOther = false }) {
+export default function TheTrip({ section8, allTourHG, isOther = false, viewport }) {
   const [active, setActive] = useState(0)
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = viewport?.includes('mobile')
 
   return (
     <section
@@ -21,7 +20,10 @@ export default function TheTrip({ section8, allTourHG, isOther = false }) {
           title={section8?.title}
           subTitle={section8?.subtitle}
         />
-        <PopupBookNow allTourHG={allTourHG}>
+        <PopupBookNow
+          allTourHG={allTourHG}
+          viewport={viewport}
+        >
           <div>
             <Button
               primary={true}

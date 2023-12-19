@@ -45,7 +45,7 @@ const handleArrayImg = (arr) => {
   return a
 }
 
-function AboutTour({ data, isMobile }) {
+function AboutTour({ data, isMobile, viewport }) {
   const [activeCate, setActiveCate] = useState(0)
   const [content, setContent] = useState(data?.listCheckin[0])
   const [isShow, setIsShow] = useState(isMobile ? true : false)
@@ -199,7 +199,10 @@ function AboutTour({ data, isMobile }) {
 
             {/* slide image */}
             <div className='lg:w-[54.95rem] md:w-[59.95rem] max-md:px-[4.27rem]'>
-              <SlideImage listImageSlide={content?.gallery} />
+              <SlideImage
+                listImageSlide={content?.gallery}
+                viewport={viewport}
+              />
             </div>
             {/* sub description */}
             <div className='flex md:px-[1.75rem] lg:px-[0.75rem] max-md:mb-[4.27rem] px-[3.2rem] max-md:mx-[4.27rem] md:py-[1.625rem] lg:py-[0.625rem] py-[2.66667rem] self-stretch md:rounded-[0.75rem] rounded-[3.2rem] bg-[#FFF0EA]'>

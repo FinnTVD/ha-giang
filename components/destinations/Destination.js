@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
 import Banner from '../about-us/Banner'
@@ -10,11 +9,11 @@ import DestinationListItems from './ListItems'
 import GreatTrips from '../homepage/GreatTrips'
 import MenuDown from '../global/MenuDown'
 
-function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination }) {
+function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination, viewport }) {
   const header = dataHome?.header
   const banner = dataAboutUs?.banner
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
 
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -43,6 +42,7 @@ function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination }) {
         <FeaturesHeader
           header={header}
           allTourHG={allTourHG}
+          viewport={viewport}
         />
         <Banner
           bannerData={banner}
@@ -61,12 +61,14 @@ function Destination({ dataHome, dataAboutUs, allTourHG, dataDestination }) {
             allTourHG={allTourHG}
             header={header}
             setIsOpen={setIsOpen}
+            viewport={viewport}
           />
         )}
       </header>
       <main>
         <DestinationListItems dataDestination={dataDestination?.content} />
         <GreatTrips
+          viewport={viewport}
           allTourHG={allTourHG}
           section3={{
             subtitle: 'our',

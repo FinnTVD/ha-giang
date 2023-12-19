@@ -48,7 +48,7 @@ export async function generateMetadata() {
     },
   }
 }
-export default async function AboutUs() {
+export default async function AboutUs({ searchParams: { viewport } }) {
   const data = await getData(GET_DATA_HOME)
   const dataAboutUs = await getData(GET_DATA_ABOUT_US)
 
@@ -57,6 +57,7 @@ export default async function AboutUs() {
       data={data?.data?.page?.homeHG}
       allTourHG={data?.data?.allTourHG}
       dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
-    ></IndexAboutUs>
+      viewport={viewport}
+    />
   )
 }

@@ -3,14 +3,13 @@
 import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ItemCardTour from './ItemCardTour'
-import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import IconMotor from '../icons/IconMotor'
 
 const arr = new Array(2).fill(0)
 
-export default function SlideGreatTrips({ allTourHG }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+export default function SlideGreatTrips({ allTourHG, viewport }) {
+  const isMobile = viewport?.includes('mobile')
   const swiperRef = useRef(null)
   const [indexTab, setIndexTab] = useState(0)
 
@@ -85,6 +84,7 @@ export default function SlideGreatTrips({ allTourHG }) {
                 <ItemCardTour
                   data={e}
                   allTourHG={allTourHG}
+                  viewport={viewport}
                 />
               </SwiperSlide>
             ))}

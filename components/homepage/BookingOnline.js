@@ -14,7 +14,6 @@ import Button from '../global/Button'
 import SubTitle from '../global/SubTitle'
 import LineTrip from '../icons/LineTrip'
 import RHFDatePicker from '../ui/RHFDatePicker'
-import { useMediaQuery } from 'react-responsive'
 import { exchangeRate } from '@/utils'
 import useStore from '@/app/(store)/store'
 import ScrollTrigger from 'react-scroll-trigger'
@@ -57,8 +56,8 @@ const inputMobileStyle = {
   padding: '4.26rem 3.2rem',
 }
 
-export default function BookingOnline({idTour, data, title }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+export default function BookingOnline({idTour, data, title,viewport }) {
+  const isMobile = viewport?.includes('mobile')
   const router = useRouter()
   const [mutate] = useMutation(FORM_GLOBAL)
 

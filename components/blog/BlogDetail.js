@@ -1,7 +1,6 @@
 'use client'
 
 import moment from 'moment'
-import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
 import { useState, useEffect, useRef } from 'react'
@@ -16,9 +15,9 @@ import TableContentRes from './TableContentRes'
 import ContentBlogDetail from './ContentBlogDetail'
 
 gsap.registerPlugin(ScrollTrigger)
-function BlogDetail({ data, dataHome, allTourHG }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+function BlogDetail({ data, dataHome, allTourHG, viewport }) {
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
   const parentRef = useRef(null)
   const [isActive, setIsActive] = useState(false)
   const [isTable, setIsTable] = useState(false)
@@ -89,6 +88,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
       <FeaturesHeader
         header={dataHome?.header}
         allTourHG={allTourHG}
+        viewport={viewport}
       />
 
       <div className='relative pt-[11.25rem] pb-[4rem] max-md:px-0 max-md:pt-[49rem] max-lg:pt-[18rem] max-lg:pb-[12rem]'>
@@ -168,6 +168,7 @@ function BlogDetail({ data, dataHome, allTourHG }) {
           allTourHG={allTourHG}
           header={dataHome?.header}
           setIsOpen={setIsOpen}
+          viewport={viewport}
         />
       )}
     </div>

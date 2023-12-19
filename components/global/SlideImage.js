@@ -4,10 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Autoplay, FreeMode } from 'swiper/modules'
 import Image from 'next/image'
-import { useMediaQuery } from 'react-responsive'
 
-function SlideImage({ listImageSlide }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+function SlideImage({ listImageSlide, viewport }) {
+  const isMobile = viewport?.includes('mobile')
 
   const swiperRef = useRef(null)
   const handleNextSlide = () => {

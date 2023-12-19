@@ -1,11 +1,9 @@
-'use client'
-
 import Link from 'next/link'
 import SlidePopupGallery from './SlidePopupGallery'
 import IconClose from '../icons/IconClose'
 import IconMotor from '../icons/IconMotor'
 
-export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, setIndexTab, allTourHG }) {
+export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, setIndexTab, allTourHG, viewport }) {
   return (
     <>
       <div
@@ -50,6 +48,7 @@ export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, se
         <SlidePopupGallery
           section4={section4}
           indexTab={indexTab}
+          viewport={viewport}
         />
         <ul className=' flex justify-center mt-[1.47rem] max-lg:mt-[3.47rem] max-lg:gap-x-[2.75rem] max-md:mt-0 gap-x-[0.75rem] max-md:order-2 max-md:gap-x-[3.2rem]'>
           {allTourHG?.nodes?.map((e, index) => (

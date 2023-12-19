@@ -4,16 +4,16 @@ import { PopupBookNow } from './PopupBookNow'
 import IconPhoneHeaderV2 from '../icons/IconPhoneHeaderV2'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
+import { useEffect, useRef, useState } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
-export default function FeaturesHeader({ header, allTourHG, isHome }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+export default function FeaturesHeader({ header, allTourHG, isHome, viewport }) {
+  const isMobile = viewport?.includes('mobile')
   const [scrollY, setScrollY] = useState(0)
 
   const circleRef = useRef(null)
   useEffect(() => {
+    if (typeof window === 'undefined') return
     // Define a function to handle the scroll event
     const handleScroll = () => {
       // Update the state with the current scroll position
@@ -74,7 +74,10 @@ export default function FeaturesHeader({ header, allTourHG, isHome }) {
           ref={circleRef}
         />
       </svg>
-      <PopupBookNow allTourHG={allTourHG}>
+      <PopupBookNow
+        allTourHG={allTourHG}
+        viewport={viewport}
+      >
         <div className='cursor-pointer w-[3.5rem] text-[0.75rem] font-extrabold leading-[1.08] tracking-[0.03125rem] h-[3.5rem] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67rem] max-lg:text-[1.75rem] max-lg:w-[7.5rem] max-lg:h-[7.5rem] max-md:h-[10.67rem] max-md:text-[2.56rem] max-md:tracking-[0.10667rem]  animate-bounce max-md:hidden'>
           BOOK NOW
         </div>

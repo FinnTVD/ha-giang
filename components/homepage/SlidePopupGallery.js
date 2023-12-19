@@ -1,12 +1,11 @@
 'use client'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import { Autoplay, FreeMode } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-export default function SlidePopupGallery({ section4, indexTab }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+export default function SlidePopupGallery({ section4, indexTab, viewport }) {
+  const isMobile = viewport?.includes('mobile')
 
   const swiperRef = useRef(null)
 

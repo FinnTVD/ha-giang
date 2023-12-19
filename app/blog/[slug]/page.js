@@ -72,7 +72,7 @@ export async function generateMetadata({ params: { slug } }) {
   }
 }
 
-async function page({ params: { slug } }) {
+async function page({ params: { slug }, searchParams: { viewport } }) {
   const data = await getDataDetail(GET_BLOG_DETAIL, slug)
   const dataHome = await getData(GET_DATA_HOME)
   const dataOtherPost = await getData(GET_OTHER_POST)
@@ -84,6 +84,7 @@ async function page({ params: { slug } }) {
         data={dataTour}
         dataHome={dataHome?.data?.page?.homeHG}
         allTourHG={dataHome?.data?.allTourHG}
+        viewport={viewport}
       />
       <OtherArticle
         dataOtherPost={dataOtherPost?.data?.posts?.nodes}
@@ -91,6 +92,7 @@ async function page({ params: { slug } }) {
         category='blog'
       />
       <GreatTrips
+        viewport={viewport}
         allTourHG={dataHome?.data?.allTourHG}
         section3={{
           subtitle: 'our',

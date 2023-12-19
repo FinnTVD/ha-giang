@@ -4,7 +4,7 @@ import SlideCheersTour from './SlideCheersTour'
 import Button from '../global/Button'
 import { PopupBookNow } from '../global/PopupBookNow'
 
-export default function CheersTour({ section2, allTourHG, isOther }) {
+export default function CheersTour({ section2, allTourHG, isOther, viewport }) {
   return (
     <section
       id='cheers-tour'
@@ -65,7 +65,10 @@ export default function CheersTour({ section2, allTourHG, isOther }) {
         )}
 
         <div className='flex gap-x-[1rem] max-lg:gap-x-[2.5rem] max-md:gap-x-[3.2rem] mt-[1.87rem] max-lg:mt-[2.5rem] max-md:mt-[5.33rem] max-md:px-[4.27rem]'>
-          <PopupBookNow allTourHG={allTourHG}>
+          <PopupBookNow
+            allTourHG={allTourHG}
+            viewport={viewport}
+          >
             <div className='max-md:w-[calc(50%-1.6rem)]'>
               <Button
                 primary={true}

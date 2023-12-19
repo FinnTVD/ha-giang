@@ -6,12 +6,13 @@ import HeaderBlog from './HeaderBlog'
 import ListBlog from './ListBlog'
 import FilterCategory from './FilterCategory'
 
-export default function IndexBlog({ categories, blogs, dataHome, allTourHG }) {
+export default function IndexBlog({ categories, blogs, dataHome, allTourHG, viewport }) {
   return (
     <>
       <HeaderBlog
         dataHome={dataHome}
         allTourHG={allTourHG}
+        viewport={viewport}
       />
       <main className='relative'>
         <div className='absolute inset-0 max-md:hidden'>

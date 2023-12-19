@@ -5,12 +5,11 @@ import SlideBanner from './SlideBanner'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 
 gsap.registerPlugin(ScrollTrigger)
-export default function Banner({ section1 }) {
+export default function Banner({ section1, viewport }) {
   const parentRef = useRef(null)
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+  const isMobile = viewport?.includes('tablet')
   const [isActive, setIsActive] = useState(false)
   useEffect(() => {
     let ctx = gsap.context(() => {

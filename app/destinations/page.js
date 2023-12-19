@@ -51,7 +51,7 @@ export async function generateMetadata() {
   }
 }
 
-async function page() {
+async function page({ searchParams: { viewport } }) {
   const data = await getData(GET_DATA_HOME)
   const dataAboutUs = await getData(GET_DATA_ABOUT_US)
   const dataDestination = await getData(GET_CONTENT_DESTINATIONS)
@@ -63,6 +63,7 @@ async function page() {
         allTourHG={data?.data?.allTourHG}
         dataAboutUs={dataAboutUs?.data?.page?.aboutUs}
         dataDestination={dataDestination?.data?.page?.destination}
+        viewport={viewport}
       />
     </div>
   )

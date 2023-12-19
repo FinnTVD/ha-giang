@@ -51,7 +51,7 @@ export async function generateMetadata() {
   }
 }
 
-async function page({ params, searchParams }) {
+async function page({ searchParams }) {
   const categories = await getData(CATEGORIES)
   const data = await getData(GET_DATA_HOME)
 
@@ -71,6 +71,7 @@ async function page({ params, searchParams }) {
       allTourHG={data?.data?.allTourHG}
       categories={categories?.data?.categories?.nodes}
       blogs={blogs?.data?.posts}
+      viewport={searchParams.viewport}
     />
   )
 }

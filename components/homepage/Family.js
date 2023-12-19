@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 
 import SubTitle from '../global/SubTitle'
 import Button from '../global/Button'
@@ -24,8 +23,8 @@ const handleArrayImg = (arr) => {
   return a
 }
 
-export default function Family({ section6 }) {
-  const isTablet = useMediaQuery({ query: '(max-width: 1023px)' })
+export default function Family({ section6, viewport }) {
+  const isTablet = viewport?.includes('tablet')
   const contentRef = useRef(null)
   const [indexTab, setIndexTab] = useState(0)
   const [tourLeader, setTourLeader] = useState(section6?.listCategory[0]?.listAddress[0])

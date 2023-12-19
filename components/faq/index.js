@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react'
 import Nav from '../global/Nav'
 import MenuRes from '../global/MenuRes'
-import { useMediaQuery } from 'react-responsive'
 import TheTrip from '../homepage/TheTrip'
 import Family from '../homepage/Family'
 import Banner from '../about-us/Banner'
@@ -10,13 +9,13 @@ import FeaturesHeader from '../global/FeaturesHeader'
 import NavFixed from '../global/NavFixed'
 import MenuDown from '../global/MenuDown'
 
-export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
+export default function IndexFaq({ data, dataAboutUs, allTourHG, viewport }) {
   const header = data?.header
   const section6 = data?.section6
   const section8 = data?.section8
   const banner = dataAboutUs?.banner
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
 
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -45,6 +44,7 @@ export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
         <FeaturesHeader
           header={header}
           allTourHG={allTourHG}
+          viewport={viewport}
         />
         <Banner
           bannerData={banner}
@@ -63,6 +63,7 @@ export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
             allTourHG={allTourHG}
             header={header}
             setIsOpen={setIsOpen}
+            viewport={viewport}
           />
         )}
       </header>
@@ -71,8 +72,12 @@ export default function IndexFaq({ data, dataAboutUs, allTourHG }) {
           section8={section8}
           allTourHG={data?.data?.allTourHG}
           isOther={true}
+          viewport={viewport}
         />
-        <Family section6={section6} />
+        <Family
+          section6={section6}
+          viewport={viewport}
+        />
       </main>
     </>
   )

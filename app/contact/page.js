@@ -51,7 +51,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function page() {
+export default async function page({ searchParams: { viewport } }) {
   const data = await getData(GET_DATA_CONTACT)
   const dataFooter = await getData(GET_NAV_AND_FOOTER)
   const dataHome = await getData(GET_DATA_HOME)
@@ -60,6 +60,7 @@ export default async function page() {
       data={data?.data?.page?.contact}
       dataFooter={dataFooter}
       dataHome={dataHome}
+      viewport={viewport}
     />
   )
 }

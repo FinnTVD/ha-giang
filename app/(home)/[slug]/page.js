@@ -69,7 +69,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function page({ params }) {
+export default async function page({ params, searchParams }) {
   const data = await getData(GET_DETAIL_TOUR, { slug: params?.slug })
   if (!data?.data?.tourHG) return <IndexNotFound />
   return (
@@ -77,6 +77,7 @@ export default async function page({ params }) {
       data={data}
       allTourHG={data?.data?.allTourHG}
       slug={params?.slug}
+      viewport={searchParams.viewport}
     />
   )
 }

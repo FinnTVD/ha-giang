@@ -3,15 +3,14 @@
 import { useEffect, useState } from 'react'
 import Nav from '../global/Nav'
 import FeaturesHeader from '../global/FeaturesHeader'
-import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import NavFixed from '../global/NavFixed'
 import MenuDown from '../global/MenuDown'
 import BannerContact from './BannerContact'
 
-export default function HeaderContact({ dataHome, data }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+export default function HeaderContact({ dataHome, data, viewport }) {
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
 
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -38,6 +37,7 @@ export default function HeaderContact({ dataHome, data }) {
       <FeaturesHeader
         header={dataHome?.data?.page?.homeHG?.header}
         allTourHG={dataHome?.data?.allTourHG}
+        viewport={viewport}
       />
       <BannerContact data={data} />
       {isMobile && (
@@ -53,6 +53,7 @@ export default function HeaderContact({ dataHome, data }) {
           allTourHG={dataHome?.data?.allTourHG}
           header={dataHome?.data?.page?.homeHG?.header}
           setIsOpen={setIsOpen}
+          viewport={viewport}
         />
       )}
     </header>

@@ -16,7 +16,7 @@ const handleArrayImg = (arr) => {
   return a
 }
 
-export default function TheGallery({ section4, allTourHG }) {
+export default function TheGallery({ section4, allTourHG, viewport }) {
   const [isOpen, setIsOpen] = useState(false)
   const [indexTab, setIndexTab] = useState(0)
   const listImgPreview = handleArrayImg(section4?.listGallery)
@@ -42,6 +42,7 @@ export default function TheGallery({ section4, allTourHG }) {
           isOpen={isOpen}
           setIndexTab={setIndexTab}
           allTourHG={allTourHG}
+          viewport={viewport}
         />
       </div>
       <div

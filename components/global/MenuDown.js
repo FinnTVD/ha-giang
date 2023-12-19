@@ -8,7 +8,7 @@ import { PopupBookNow } from './PopupBookNow'
 import IconMotorV2 from '../icons/IconMotorV2'
 import IconHomeV2 from '../icons/IconHomeV2.'
 
-export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
+export default function MenuDown({ allTourHG, header, setIsOpen, isHome, viewport }) {
   const [scrollY, setScrollY] = useState(0)
   const [heightBanner, setHeightBanner] = useState(500)
   const [indexActive, setIndexActive] = useState(isHome ? 1 : 0)
@@ -70,7 +70,10 @@ export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
           className='w-[4.733rem] h-[4.733rem]'
         />
       </ItemMenu>
-      <PopupBookNow allTourHG={allTourHG}>
+      <PopupBookNow
+        allTourHG={allTourHG}
+        viewport={viewport}
+      >
         <ItemMenu
           isActive={indexActive === 4}
           title={'Book Now'}

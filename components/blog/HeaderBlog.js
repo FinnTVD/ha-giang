@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 //
 import Banner from '../about-us/Banner'
 import FeaturesHeader from '../global/FeaturesHeader'
@@ -10,10 +9,10 @@ import MenuRes from '../global/MenuRes'
 import Nav from '../global/Nav'
 import NavFixed from '../global/NavFixed'
 
-export default function HeaderBlog({ dataHome, allTourHG }) {
+export default function HeaderBlog({ dataHome, allTourHG, viewport }) {
   const [isOpen, setIsOpen] = useState(false)
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -41,6 +40,7 @@ export default function HeaderBlog({ dataHome, allTourHG }) {
       <FeaturesHeader
         header={dataHome?.header}
         allTourHG={allTourHG}
+        viewport={viewport}
       />
       <Banner
         // bannerData={banner}
@@ -59,6 +59,7 @@ export default function HeaderBlog({ dataHome, allTourHG }) {
           allTourHG={allTourHG}
           header={dataHome?.header}
           setIsOpen={setIsOpen}
+          viewport={viewport}
         />
       )}
     </header>

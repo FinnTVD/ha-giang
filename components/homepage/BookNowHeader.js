@@ -6,7 +6,7 @@ import { PopupBookNow } from '../global/PopupBookNow'
 import IconPeople from '../icons/IconPeople'
 import { basicBike, bigBike } from '@/lib/utils'
 
-export default function BookNowHeader({ allTourHG }) {
+export default function BookNowHeader({ allTourHG, viewport }) {
   const [countSelf, setCountSelf] = useState(1)
   const [countDriver, setCountDriver] = useState(1)
   const [tour, setTour] = useState([...allTourHG?.nodes]?.reverse()[0])
@@ -122,6 +122,7 @@ export default function BookNowHeader({ allTourHG }) {
           countSelf,
         }}
         allTourHG={allTourHG}
+        viewport={viewport}
       >
         <button
           className={`${

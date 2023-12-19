@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 
 const BookingOnlineV2 = dynamic(() => import('../homepage/BookingOnlineV2'), { ssr: false })
 
-export function PopupBookNow({ children, allTourHG, tour }) {
+export function PopupBookNow({ children, allTourHG, tour, viewport }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -12,6 +12,7 @@ export function PopupBookNow({ children, allTourHG, tour }) {
         <BookingOnlineV2
           allTourHG={allTourHG}
           tour={tour}
+          viewport={viewport}
         />
       </DialogContent>
     </Dialog>

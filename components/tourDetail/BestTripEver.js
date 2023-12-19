@@ -1,18 +1,17 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import SubTitle from '../global/SubTitle'
 import ItemLane from './ItemLane'
 import Image from 'next/image'
 import Button from '../global/Button'
-import { useMediaQuery } from 'react-responsive'
 import { useParams } from 'next/navigation'
 import IconBtnLeft from '../icons/IconBtnLeft'
 import ScrollTrigger from 'react-scroll-trigger'
 import useStore from '@/app/(store)/store'
 
-export default function BestTripEver({ data }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
+export default function BestTripEver({ data, viewport }) {
+  const isMobile = viewport?.includes('tablet')
   const param = useParams()
   const setIndexTab = useStore((state) => state.setIndexTab)
 

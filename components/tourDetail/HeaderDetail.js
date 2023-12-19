@@ -4,17 +4,16 @@ import Nav from '../global/Nav'
 import FeaturesHeader from '../global/FeaturesHeader'
 import ContentHeaderDetail from './ContentHeaderDetail'
 import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import MenuRes from '../global/MenuRes'
 import NavFixed from '../global/NavFixed'
 import MenuDown from '../global/MenuDown'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 
-export default function HeaderDetail({ data, allTourHG, slug }) {
+export default function HeaderDetail({ data, allTourHG, slug, viewport }) {
   const param = useParams()
-  const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
-  const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const isMobile = viewport?.includes('tablet')
+  const isMobile2 = viewport?.includes('mobile')
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     if (!isOpen) {
@@ -57,6 +56,7 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
       <FeaturesHeader
         allTourHG={allTourHG}
         header={data?.data?.page?.homeHG?.header}
+        viewport={viewport}
       />
       <div className='flex gap-x-[1rem] absolute bottom-0 translate-y-1/2 lg:right-[6.27rem] max-lg:gap-x-[3rem] max-lg:left-[5vw] max-md:left-[4.27rem] font-poppins'>
         <Link
@@ -113,6 +113,7 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
           allTourHG={allTourHG}
           header={data?.data?.page?.homeHG?.header}
           setIsOpen={setIsOpen}
+          viewport={viewport}
         />
       )}
     </header>

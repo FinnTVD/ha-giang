@@ -7,7 +7,7 @@ import IconBus from '../icons/IconBus'
 import Link from 'next/link'
 import { PopupBookNow } from '../global/PopupBookNow'
 
-export default function ItemCardTour({ data, allTourHG, className = '' }) {
+export default function ItemCardTour({ data, allTourHG, className = '', viewport }) {
   return (
     <article
       className={`${className} w-full p-[1rem] max-md:p-[3.2rem] rounded-[1.5rem] max-md:rounded-[4.267rem] bg-white group shadow-itemCardTour font-poppins`}
@@ -86,6 +86,7 @@ export default function ItemCardTour({ data, allTourHG, className = '' }) {
             countSelf: 1,
           }}
           allTourHG={allTourHG}
+          viewport={viewport}
         >
           <div className='max-md:w-[calc(50%-1.6rem)]'>
             <Button

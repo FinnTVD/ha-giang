@@ -12,7 +12,7 @@ import { Form, useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import Button from '../global/Button'
 import RHFDatePicker from '../ui/RHFDatePicker'
-import { useMediaQuery } from 'react-responsive'
+
 
 import { exchangeRate } from '@/utils'
 import { FORM_GLOBAL } from '@/graphql/form/queries'
@@ -55,8 +55,8 @@ const inputMobileStyle = {
   padding: '4.26rem 3.2rem',
 }
 
-export default function BookingOnlineV2({ tour = '', allTourHG }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+export default function BookingOnlineV2({ tour = '', allTourHG, viewport }) {
+  const isMobile = viewport?.includes('mobile')
   const router = useRouter()
 
   const [ip, setIp] = useState('')
@@ -166,7 +166,9 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
       vpc_MerchTxnRef: Math.floor(Date.now() / 1000) + '_hgtour',
       vpc_Merchant: MERCHANT_ID,
       vpc_OrderInfo: dataF?.name,
-      vpc_ReturnURL: BASE_URL + `/payment-successfull/${idTour}/${pickUp}${addressPickUp}${drop}${dropAddress}/${dataF?.phone?.replaceAll(
+      vpc_ReturnURL:
+        BASE_URL +
+        `/payment-successfull/${idTour}/${pickUp}${addressPickUp}${drop}${dropAddress}/${dataF?.phone?.replaceAll(
           '+',
           '',
         )}/${dataF?.email}/${selfDriving}/${localDriver}/${fDate(dataF?.departureDate)?.replaceAll('/', '-')}/${fDate(
@@ -497,15 +499,17 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <div className='truncate font-semibold mb-[0.5rem] text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
                   Pick up
                 </div>
-                <Select.Root onValueChange={(value) => {
-                  setValue('pickup', value)
-                  pick?.forEach((e, index) => {
-                  if (e?.province === value) {
-                    setPickUp(index)
-                    return
-                  }
-                })
-              }}>
+                <Select.Root
+                  onValueChange={(value) => {
+                    setValue('pickup', value)
+                    pick?.forEach((e, index) => {
+                      if (e?.province === value) {
+                        setPickUp(index)
+                        return
+                      }
+                    })
+                  }}
+                >
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
@@ -552,19 +556,19 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-lg:text-[1.875rem] max-md:text-[3.46rem]'>
                   Address *
                 </div>
-                <Select.Root onValueChange={(value) => 
-                  {
-                  setValue('pickupAddress', value)
-                  pick
-                    ?.find((e) => e?.province === values?.pickup)
-                    ?.listAddress?.forEach((e, index) => {
-                      if (e?.address === value) {
-                        setAddressPickUp(index)
-                        return
-                      }
-                    })
-                }
-                  }>
+                <Select.Root
+                  onValueChange={(value) => {
+                    setValue('pickupAddress', value)
+                    pick
+                      ?.find((e) => e?.province === values?.pickup)
+                      ?.listAddress?.forEach((e, index) => {
+                        if (e?.address === value) {
+                          setAddressPickUp(index)
+                          return
+                        }
+                      })
+                  }}
+                >
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
@@ -671,9 +675,10 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                 <div className='mb-[0.5rem] font-semibold text-[0.875rem] max-md:text-[3.46rem] max-lg:text-[1.875rem]'>
                   Address *
                 </div>
-                <Select.Root onValueChange={(value) => {
-                  setValue('droffAddress', value)
-                  droff
+                <Select.Root
+                  onValueChange={(value) => {
+                    setValue('droffAddress', value)
+                    droff
                       ?.find((e) => e?.province === values?.droff)
                       ?.listAddress?.forEach((e, index) => {
                         if (e?.address === value) {
@@ -681,7 +686,8 @@ export default function BookingOnlineV2({ tour = '', allTourHG }) {
                           return
                         }
                       })
-                  }}>
+                  }}
+                >
                   <Select.Trigger
                     className='w-full md:!text-[1.875rem] lg:!text-[0.875rem] !h-fit'
                     style={isMobile ? inputMobileStyle : inputStyle}
