@@ -54,12 +54,15 @@ export async function generateMetadata() {
     },
   }
 }
-export default async function page() {
+export default async function page({ searchParams: { viewport, type, isBot } }) {
   const data = await getData(GET_DATA_HOME)
   return (
     <IndexHomePage
       data={data?.data?.page?.homeHG}
       allTourHG={data?.data?.allTourHG}
+      viewport={viewport}
+      type={type}
+      isBot={isBot}
     />
   )
 }

@@ -7,8 +7,11 @@ export function middleware(request) {
       return NextResponse.redirect(new URL('/', request.url))
     }
   }
-  const { device } = userAgent(request)
+  const { device, isBot } = userAgent(request)
   const viewport = device.type === 'mobile' ? 'mobile' : device.type === 'tablet' ? 'tablet' : 'desktop'
   url.searchParams.set('viewport', viewport)
+  url.searchParams.set('type', device.type)
+  url.searchParams.set('type', device.type)
+  url.searchParams.set('isBot', isBot)
   return NextResponse.rewrite(url)
 }

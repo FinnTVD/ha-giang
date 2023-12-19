@@ -9,7 +9,7 @@ import Family from './Family'
 import Header from '../global/Header'
 import Banner from './Banner'
 
-export default function IndexHomePage({ data, allTourHG }) {
+export default function IndexHomePage({ data, allTourHG, viewport, type, isBot }) {
   const header = data?.header
   const section1 = data?.section1
   const section2 = data?.section2
@@ -22,39 +22,57 @@ export default function IndexHomePage({ data, allTourHG }) {
 
   return (
     <>
-      <Header
-        header={header}
-        allTourHG={allTourHG}
-        isHome={true}
-      />
-      <main className='relative w-full overflow-x-hidden'>
-        <Banner section1={section1} />
-        <Image
-          className='!h-[220vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
-          src={'/images/mask.png'}
-          fill
-          sizes='100vw'
-        />
-        <CheersTour
-          section2={section2}
-          allTourHG={allTourHG}
-        />
-        <GreatTrips
-          section3={section3}
-          allTourHG={allTourHG}
-        />
-        <TheGallery
-          section4={section4}
-          allTourHG={allTourHG}
-        />
-        <Travelers section5={section5} />
-        <Family section6={section6} />
-        <Weather section7={section7} />
-        <TheTrip
-          section8={section8}
-          allTourHG={allTourHG}
-        />
-      </main>
+      {isBot ? (
+        <>
+          <Header
+            header={header}
+            allTourHG={allTourHG}
+            isHome={true}
+          />
+          <main className='relative w-full overflow-x-hidden'>
+            <Banner section1={section1} />
+          </main>
+        </>
+      ) : (
+        <>
+          <Header
+            header={header}
+            allTourHG={allTourHG}
+            isHome={true}
+          />
+          <main className='relative w-full overflow-x-hidden'>
+            {/* <div className='text-3xl text-black'>{viewport}</div>
+            <div className='text-3xl text-black'>{type}</div>
+            <div className='text-3xl text-black'>{isBot}</div> */}
+            <Banner section1={section1} />
+            <Image
+              className='!h-[220vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
+              src={'/images/mask.png'}
+              fill
+              sizes='100vw'
+            />
+            <CheersTour
+              section2={section2}
+              allTourHG={allTourHG}
+            />
+            <GreatTrips
+              section3={section3}
+              allTourHG={allTourHG}
+            />
+            <TheGallery
+              section4={section4}
+              allTourHG={allTourHG}
+            />
+            <Travelers section5={section5} />
+            <Family section6={section6} />
+            <Weather section7={section7} />
+            <TheTrip
+              section8={section8}
+              allTourHG={allTourHG}
+            />
+          </main>
+        </>
+      )}
     </>
   )
 }
