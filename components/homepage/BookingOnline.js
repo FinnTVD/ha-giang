@@ -57,7 +57,7 @@ const inputMobileStyle = {
   padding: '4.26rem 3.2rem',
 }
 
-export default function BookingOnline({idTour, data, title }) {
+export default function BookingOnline({ idTour, data, title }) {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
   const router = useRouter()
   const [mutate] = useMutation(FORM_GLOBAL)
@@ -246,11 +246,11 @@ export default function BookingOnline({idTour, data, title }) {
     setTimeout(() => {
       window?.localStorage?.setItem('formDataPayment', JSON.stringify(formData))
       window?.localStorage?.removeItem('isSendForm')
-    const params = generateParams(e, true)
-    const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
-    const hash = CryptoJS.HmacSHA256(params, secretWordArray)
-    const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
-    router.push(`${ONEPAY_HOST}?${generateParams(e, false, formData)}&vpc_SecureHash=${vpc_SecureHash}`)
+      const params = generateParams(e, true)
+      const secretWordArray = CryptoJS.enc.Hex.parse(SECRET_KEY_HASH)
+      const hash = CryptoJS.HmacSHA256(params, secretWordArray)
+      const vpc_SecureHash = hash.toString(CryptoJS.enc.Hex).toUpperCase()
+      router.push(`${ONEPAY_HOST}?${generateParams(e, false, formData)}&vpc_SecureHash=${vpc_SecureHash}`)
     }, 1000)
   }
 

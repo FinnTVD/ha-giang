@@ -4,7 +4,7 @@ import { PopupBookNow } from './PopupBookNow'
 import IconPhoneHeaderV2 from '../icons/IconPhoneHeaderV2'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 gsap.registerPlugin(ScrollTrigger)

@@ -21,7 +21,7 @@ export default function TheGallery({ section4, allTourHG }) {
   const [indexTab, setIndexTab] = useState(0)
   const listImgPreview = handleArrayImg(section4?.listGallery)
   return (
-    <section className='lg:w-[87.5rem] max-lg:w-[95vw] max-md:w-full mt-[6.25rem] max-md:mt-[9rem] mx-auto relative'>
+    <section className='lg:w-[87.5rem] max-lg:w-[95vw] max-md:w-full mt-[6.25rem] max-md:mt-[9rem] mx-auto relative z-[9999]'>
       <div className='relative z-10 bg-white'>
         <SubTitle
           subTitle={section4?.subtitle}
