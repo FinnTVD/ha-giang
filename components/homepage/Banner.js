@@ -11,6 +11,7 @@ export default function Banner({ section1, viewport }) {
   const parentRef = useRef(null)
   const isMobile = viewport?.includes('tablet')
   const [isActive, setIsActive] = useState(false)
+
   useEffect(() => {
     let ctx = gsap.context(() => {
       setTimeout(() => {

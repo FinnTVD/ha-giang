@@ -2,7 +2,7 @@
 
 import 'swiper/css/effect-fade'
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper/modules'
 import ItemVideoV2 from './ItemVideoV2'
@@ -22,11 +22,6 @@ export default function SlideBanner({ section1, isMobile, isActive }) {
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev()
   }
-
-  useEffect(() => {
-    const video = document.getElementById('videoBanner' + indexSlider)
-    video && video?.play()
-  }, [indexSlider])
 
   arrSlide = isMobile ? section1?.slidesVideoMobile : section1?.slidesVideo
   return (

@@ -1,5 +1,4 @@
 'use client'
-import { memo } from 'react'
 import FaceBookShare from '../blogDetail/FaceBookShare'
 import LinkedInShare from '../blogDetail/LinkedInShare'
 import TwitterShare from '../blogDetail/TwitterShare'
@@ -15,7 +14,7 @@ function ContentBlogDetail({ data }) {
           id='content-detail-blog'
           className='content-detail font-poppins'
           dangerouslySetInnerHTML={{ __html: `${data?.content}` }}
-        ></div>
+        />
       )}
       <div className='w-full md:mt-[1.31rem] mt-[5.067rem] md:mb-[1.62rem] mb-[3.73rem] h-[1px] bg-[#44444424]'></div>
       <div className='flex items-center justify-end'>
@@ -31,4 +30,4 @@ function ContentBlogDetail({ data }) {
     </div>
   )
 }
-export default memo(ContentBlogDetail)
+export default ContentBlogDetail

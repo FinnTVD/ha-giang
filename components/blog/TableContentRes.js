@@ -7,7 +7,6 @@ import IconMenuV2 from '../icons/IconMenuV2'
 export default function TableContentRes({ isTable }) {
   const [tableOfContents, setTableOfContents] = useState([])
   const [isOpen, setIsOpen] = useState(false)
-  const [idx, setIdx] = useState(0)
 
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return
@@ -76,7 +75,6 @@ export default function TableContentRes({ isTable }) {
                 key={item.slug}
                 data-id={item.level}
                 className={`text-gray-scale-80`}
-                onClick={() => setIdx(index)}
               >
                 <Link
                   className={`text-gray-scale-80 text-[0.875rem] font-semibold leading-[1.42] max-lg:text-[2rem] tracking-[0.00875rem] font-poppins max-md:text-[3.733rem]`}

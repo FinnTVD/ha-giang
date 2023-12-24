@@ -37,7 +37,7 @@ export default function IndexHomePage({ data, allTourHG, viewport }) {
           className='!h-[220vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
           src={'/images/mask.png'}
           fill
-          sizes='100vw'
+          sizes='(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw'
         />
         <CheersTour
           section2={section2}

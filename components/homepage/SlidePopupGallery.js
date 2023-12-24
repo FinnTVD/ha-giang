@@ -19,7 +19,7 @@ export default function SlidePopupGallery({ section4, indexTab, viewport }) {
   return (
     <div className='relative w-full h-fit'>
       <Swiper
-        loop={true}
+        // loop={true}
         breakpoints={{
           0: {
             slidesPerView: 2,
@@ -59,7 +59,7 @@ export default function SlidePopupGallery({ section4, indexTab, viewport }) {
               src={e?.sourceUrl || '/images/gallery.jpg'}
               alt={e?.altText || e?.title}
               fill
-              sizes='100vw'
+              sizes='(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw'
             />
           </SwiperSlide>
         ))}

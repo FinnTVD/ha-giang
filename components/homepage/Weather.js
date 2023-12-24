@@ -22,14 +22,13 @@ export default function Weather({ section7, viewport }) {
         subTitleClass={'text-center'}
       />
       <Image
-        className='w-[74.625rem] h-[27.25rem] max-lg:w-[80rem] max-lg:h-[36rem] object-cover rounded-[0.75rem] blur-sm mx-auto relative max-md:w-[91.46667rem] max-md:h-[54.93333rem] z-[5] mt-[1.88rem] max-lg:mt-[2.8rem] max-md:rounded-[3.2rem]'
+        className='w-[74.625rem] h-[27.25rem] max-lg:w-[80rem] max-lg:h-[36rem] object-cover rounded-[0.75rem] mx-auto relative max-md:w-[91.46667rem] max-md:h-[54.93333rem] z-[5] mt-[1.88rem] max-lg:mt-[2.8rem] max-md:rounded-[3.2rem]'
         src={section7?.twelveMonthsOfTheYear[month]?.image?.sourceUrl || '/images/weather.jpg'}
         alt={
           section7?.twelveMonthsOfTheYear[month]?.image?.altText || section7?.twelveMonthsOfTheYear[month]?.image?.title
         }
-        width={1200}
-        height={500}
-        onLoadingComplete={(image) => image.classList.remove('blur-sm')}
+        width={isMobile ? 400 : 1200}
+        height={isMobile ? 300 : 500}
       />
       <SlideWeather
         section7={section7}

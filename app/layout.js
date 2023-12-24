@@ -1,19 +1,17 @@
 import '@radix-ui/themes/styles.css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
-import 'react-toastify/dist/ReactToastify.css'
-import 'aos/dist/aos.css'
-import 'react-datepicker/dist/react-datepicker.css'
+
+// import 'aos/dist/aos.css'
 
 import './globals.scss'
-
 import { Poppins } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Theme } from '@radix-ui/themes'
 import Footer from '@/components/global/Footer'
 import ApolloWrapper from '@/components/global/ApolloWrapper'
-import AosInit from '@/components/global/AosInit'
-import Script from 'next/script'
+// import AosInit from '@/components/global/AosInit'
+// import Script from 'next/script'
 
 const heavitas = localFont({
   src: [
@@ -37,12 +35,6 @@ const tomatoes = localFont({
   display: 'swap',
 })
 
-// const roboto = Roboto({
-//   weight: ['300', '400', '500', '700', '900'],
-//   subsets: ['latin'],
-//   display: 'swap',
-// })
-
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
@@ -59,10 +51,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang='en'
-      suppressHydrationWarning={true}
-    >
+    <html lang='en'>
       <head>
         <meta
           name='google-site-verification'
@@ -90,17 +79,15 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        // suppressHydrationWarning={true}
+        suppressHydrationWarning={true}
         className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
       >
         <ApolloWrapper>
-          <AosInit />
-          <Theme>
-            {children}
-            <Footer />
-          </Theme>
+          <Theme>{children}</Theme>
+          {/* <AosInit /> */}
         </ApolloWrapper>
-        <Script
+        <Footer />
+        {/* <Script
           strategy='lazyOnload'
           src={`https://www.googletagmanager.com/gtag/js?id=G-Z5ZH5N3P8B`}
         ></Script>
@@ -109,7 +96,7 @@ export default function RootLayout({ children }) {
 							function gtag(){dataLayer.push(arguments);}
 							gtag('js', new Date());
 							gtag('config', 'G-Z5ZH5N3P8B');`}
-        </Script>
+        </Script> */}
       </body>
     </html>
   )

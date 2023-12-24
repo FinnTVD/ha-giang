@@ -1,4 +1,5 @@
 'use client'
+import 'react-datepicker/dist/react-datepicker.css'
 import { forwardRef, useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import dateImg from '@/public/images/date.svg'

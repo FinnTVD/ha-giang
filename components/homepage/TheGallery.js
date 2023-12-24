@@ -53,10 +53,10 @@ export default function TheGallery({ section4, allTourHG, viewport }) {
             <Image
               key={index}
               className='object-cover w-full h-full'
-              src={e?.sourceUrl || '/images/gallery.jpg'}
+              src={e?.sourceUrl}
               alt={e?.altText || e?.title}
               fill
-              sizes='100vw'
+              sizes='(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw'
             />
           ))}
       </div>
