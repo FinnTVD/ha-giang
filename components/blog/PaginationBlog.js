@@ -2,26 +2,17 @@
 
 import { sizeBlog } from '@/utils'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useCallback } from 'react'
 
 export default function PaginationBlog({ blogs }) {
   const router = useRouter()
   const pathName = usePathname()
   const searchParams = useSearchParams()
   const page = searchParams.get('page') || 1
-  const createQueryString = useCallback(
-    (name, value) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
-
-      if (!value) return params.toString().replace(name + '=', '')
-      return params.toString()
-    },
-    [searchParams],
-  )
 
   const handleChangePage = (index) => {
-    router.push(pathName + '?' + createQueryString('page', index), {
+    const params = new URLSearchParams(searchParams)
+    params.set('page', index)
+    router.replace(pathName + '?' + params.toString(), {
       scroll: true,
     })
   }

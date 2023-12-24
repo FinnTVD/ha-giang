@@ -1,28 +1,17 @@
 'use client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import IconFilterDestination from '../icons/IconFilterDestination'
-import { useCallback } from 'react'
 
 export default function FilterCategory({ categories }) {
   const router = useRouter()
   const pathName = usePathname()
   const searchParams = useSearchParams()
 
-  const createQueryString = useCallback(
-    (name, value) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
-      if (Number(searchParams.get('page')) > 1) {
-        params.set('page', '1')
-      }
-      if (!value) return params.toString().replace(name + '=', '')
-      return params.toString()
-    },
-    [searchParams],
-  )
-
   const handleChange = (e) => {
-    router.push(pathName + '?' + createQueryString('category', e.target.value), {
+    const params = new URLSearchParams(searchParams)
+    params.set('category', e.target.value)
+
+    router.replace(pathName + '?' + params.toString(), {
       scroll: false,
     })
   }
