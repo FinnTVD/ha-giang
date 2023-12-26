@@ -78,7 +78,7 @@ export default function FeaturesHeader({ header, allTourHG, isHome, viewport }) 
         allTourHG={allTourHG}
         viewport={viewport}
       >
-        <div className='cursor-pointer w-[3.5rem] text-[0.75rem] font-extrabold leading-[1.08] tracking-[0.03125rem] h-[3.5rem] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67rem] max-lg:text-[1.75rem] max-lg:w-[7.5rem] max-lg:h-[7.5rem] max-md:h-[10.67rem] max-md:text-[2.56rem] max-md:tracking-[0.10667rem]  animate-bounce max-md:hidden'>
+        <div className='cursor-pointer w-[3.5rem] text-[0.75rem] font-extrabold leading-[1.08] tracking-[0.03125rem] h-[3.5rem] rounded-full text-white flex text-center justify-center items-center bg-primary-50 border-[1.5px] border-solid border-white max-md:w-[10.67rem] max-lg:text-[1.75rem] max-lg:w-[7.5rem] max-lg:h-[7.5rem] max-md:h-[10.67rem] max-md:text-[2.56rem] max-md:tracking-[0.10667rem]  max-md:hidden'>
           BOOK NOW
         </div>
       </PopupBookNow>
@@ -95,7 +95,7 @@ export default function FeaturesHeader({ header, allTourHG, isHome, viewport }) 
             'z-[1] lg:w-[3.125rem] lg:h-[3.125rem] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
           }
         />
-        <div className='lg:w-[3.125rem] lg:h-[3.125rem] md:w-[6.5rem] md:h-[6.5rem] pingCall bg-[#cecece] rounded-full z-0'></div>
+        <div className='lg:w-[3.125rem] lg:h-[3.125rem] md:w-[6.5rem] md:h-[6.5rem] bg-[#cecece] rounded-full z-0'></div>
       </Link>
     </div>
   )
