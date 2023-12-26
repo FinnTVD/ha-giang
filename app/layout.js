@@ -16,7 +16,7 @@ import ApolloWrapper from '@/components/global/ApolloWrapper'
 const heavitas = localFont({
   src: [
     {
-      path: '../font/Heavitas.ttf',
+      path: '../public/font/Heavitas.ttf',
       weight: '400',
       style: 'normal',
     },
@@ -27,7 +27,7 @@ const heavitas = localFont({
 const tomatoes = localFont({
   src: [
     {
-      path: '../font/Tomatoes.ttf',
+      path: '../public/font/Tomatoes.ttf',
       weight: '400',
       style: 'normal',
     },
@@ -53,14 +53,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <head>
-        <script data-no-optimize='1'>
-          var litespeed_docref=sessionStorage.getItem("litespeed_docref")
-          litespeed_docref&&(Object.defineProperty(document,"referrer",
-          {function get() {
-            return litespeed_docref
-          }}
-          ), sessionStorage.removeItem("litespeed_docref"))
-        </script>
         <meta
           name='google-site-verification'
           content='xZu-R_qHMGQVpE1mZc1JuwL4Zj3Hi9ZybbsJfxgzQiQ'

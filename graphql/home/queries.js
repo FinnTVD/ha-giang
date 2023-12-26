@@ -250,7 +250,235 @@ const GET_DATA_HOME = `
   }
 }
 `
-
+const GET_DATA_HOME_RES = `{
+  page(id: "cG9zdDoyMQ==") {
+    homeHG {
+      header {
+        logo {
+          sourceUrl(size: THUMBNAIL)
+          title
+          altText
+        }
+        background {
+          sourceUrl
+          altText
+          title
+        }
+        backgroundMobile {
+          sourceUrl(size: MEDIUM)
+          altText
+          title
+        }
+        slogan
+        phoneNumber
+        facebook {
+          url
+        }
+        youtube {
+          url
+        }
+        vietnamCheersHostel {
+          url
+        }
+      }
+      section1 {
+        subTitle
+        title
+        heading
+        imageLeftUp {
+          sourceUrl(size: MEDIUM)
+          altText
+          title
+        }
+        imageLeftDown {
+          sourceUrl(size: MEDIUM)
+          altText
+          title
+        }
+        imageRightUp {
+          sourceUrl(size: MEDIUM)
+          altText
+          title
+        }
+        imageRightDown {
+          sourceUrl(size: MEDIUM)
+          altText
+          title
+        }
+        listInfo {
+          icon {
+            sourceUrl(size: THUMBNAIL)
+            altText
+            title
+          }
+          title
+          description
+        }
+        slidesVideo {
+          linkVideo {
+            url
+          }
+        }
+        slidesVideoMobile {
+          linkVideo {
+            url
+          }
+        }
+      }
+      section2 {
+        subTitle
+        title
+        map {
+          sourceUrl(size: MEDIUM_LARGE)
+          altText
+          title
+        }
+        listTitle {
+          title
+        }
+        description
+      }
+      section3 {
+        subtitle
+        title
+      }
+      section4 {
+        subtitle
+        title
+        listGallery {
+          thumnail {
+            sourceUrl(size: MEDIUM)
+            altText
+            title
+          }
+          category
+          slidesImage {
+            sourceUrl(size: MEDIUM_LARGE)
+            altText
+            title
+          }
+        }
+      }
+      section5 {
+        subtitle
+        title
+        listFeedback {
+          name
+          rate
+          description
+        }
+        listPartner {
+          button {
+            sourceUrl(size: THUMBNAIL)
+            altText
+            title
+          }
+          linkPartner {
+            url
+          }
+        }
+      }
+      section6 {
+        subTitle
+        title
+        listCategory {
+          category
+          listAddress {
+            title
+            description
+            image {
+              sourceUrl(size: MEDIUM)
+              altText
+              title
+            }
+            groupSize
+            transport
+            tripCompleted
+            joinWithUs {
+              url
+            }
+            callUs
+          }
+          listPeople {
+            avatar {
+              sourceUrl(size: MEDIUM)
+              altText
+              title
+            }
+            name
+            job
+            experience
+            description
+          }
+        }
+      }
+      section7 {
+        subtitle
+        title
+        twelveMonthsOfTheYear {
+          image {
+            sourceUrl(size: LARGE)
+            altText
+            title
+          }
+          slogan
+          averageTemperature
+          averageRainfall
+        }
+      }
+      section8 {
+        subtitle
+        title
+        listCategory {
+          category
+          description
+          listInfo {
+            heading
+            description
+          }
+        }
+      }
+    }
+  }
+  allTourHG {
+    nodes {
+      id
+      title
+      slug
+      featuredImage {
+        node {
+          sourceUrl(size: MEDIUM_LARGE)
+          altText
+          title
+        }
+      }
+      tourHaGiangDetail {
+        price {
+          selfDriving
+          localDriver
+          pickUp {
+            province
+            listAddress {
+              address
+            }
+          }
+          droff {
+            province
+            listAddress {
+              address
+            }
+          }
+          longTimeTourDay
+        }
+        header {
+          pickUpFrom
+          groupSize
+          transport
+        }
+      }
+    }
+  }
+}`
 const GET_DATA_FOOTER = `
 {
   page(id: "cG9zdDoyMQ==") {
@@ -338,4 +566,4 @@ page(id: "cG9zdDozOTE==") {
   }
 }}
 `
-export { GET_DATA_HOME, GET_META_HOME, GET_DATA_FOOTER, GET_DATA_ABOUT_US }
+export { GET_DATA_HOME, GET_META_HOME, GET_DATA_HOME_RES, GET_DATA_FOOTER, GET_DATA_ABOUT_US }

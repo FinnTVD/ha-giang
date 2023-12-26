@@ -1,5 +1,5 @@
 import IndexHomePage from '@/components/homepage'
-import { GET_DATA_HOME, GET_META_HOME } from '@/graphql/home/queries'
+import { GET_DATA_HOME, GET_DATA_HOME_RES, GET_META_HOME } from '@/graphql/home/queries'
 import getData from '@/utils/getData'
 export async function generateMetadata() {
   const data = await getData(GET_META_HOME)
@@ -55,7 +55,8 @@ export async function generateMetadata() {
   }
 }
 export default async function page({ searchParams: { viewport } }) {
-  const data = await getData(GET_DATA_HOME)
+  const isMobile = viewport?.includes('mobile')
+  const data = await getData(isMobile ? GET_DATA_HOME_RES : GET_DATA_HOME)
   return (
     <IndexHomePage
       data={data?.data?.page?.homeHG}

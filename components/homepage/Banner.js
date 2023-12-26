@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-// import SlideBanner from './SlideBanner'
+import SlideBanner from './SlideBanner'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef, useState } from 'react'
@@ -166,11 +166,11 @@ export default function Banner({ section1, viewport }) {
             id='box-slide'
             className='h-[29.8125rem] w-[53rem] max-lg:w-full max-lg:h-[100vh] absolute bottom-[11rem] max-lg:top-0 max-lg:left-0 lg:translate-y-full left-1/2 lg:-translate-x-1/2 lg:rounded-[1rem]'
           >
-            {/* <SlideBanner
+            <SlideBanner
               section1={section1}
               isMobile={isMobile}
               isActive={isActive}
-            /> */}
+            />
           </div>
         </div>
         {!isMobile && (
