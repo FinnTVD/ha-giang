@@ -5,21 +5,21 @@ import SlideGallery from './SlideGallery'
 import PopupGallery from './PopupGallery'
 import Image from 'next/image'
 
-const handleArrayImg = (arr) => {
-  if (!Array.isArray(arr)) return null
-  const a = []
-  for (let index = 0; index < arr.length; index++) {
-    if (Array.isArray(arr[index]?.slidesImage)) {
-      a.push(...arr[index]?.slidesImage)
-    }
-  }
-  return a
-}
+// const handleArrayImg = (arr) => {
+//   if (!Array.isArray(arr)) return null
+//   const a = []
+//   for (let index = 0; index < arr.length; index++) {
+//     if (Array.isArray(arr[index]?.slidesImage)) {
+//       a.push(...arr[index]?.slidesImage)
+//     }
+//   }
+//   return a
+// }
 
 export default function TheGallery({ section4, allTourHG, viewport }) {
   const [isOpen, setIsOpen] = useState(false)
   const [indexTab, setIndexTab] = useState(0)
-  const listImgPreview = handleArrayImg(section4?.listGallery)
+  // const listImgPreview = handleArrayImg(section4?.listGallery)
   return (
     <section className='lg:w-[87.5rem] max-lg:w-[95vw] max-md:w-full mt-[6.25rem] max-md:mt-[9rem] mx-auto relative'>
       <div className='relative z-10 bg-white'>
@@ -45,7 +45,7 @@ export default function TheGallery({ section4, allTourHG, viewport }) {
           viewport={viewport}
         />
       </div>
-      <div
+      {/* <div
         className={`lg:h-[29.08975rem] md:h-[34rem] max-md:w-[91rem] w-[43rem] max-2xl:h-[26rem] max-md:h-[121rem] absolute top-[1rem] left-[1rem] -z-20 opacity-0`}
       >
         {Array.isArray(listImgPreview) &&
@@ -59,7 +59,7 @@ export default function TheGallery({ section4, allTourHG, viewport }) {
               sizes='(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw'
             />
           ))}
-      </div>
+      </div> */}
     </section>
   )
 }

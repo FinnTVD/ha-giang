@@ -10,25 +10,25 @@ import IconPeople from '../icons/IconPeople'
 import IconMotor from '../icons/IconMotor'
 import IconCheck from '../icons/IconCheck'
 import SlideFamilyV2 from './SlideFamilyV2'
-import Image from 'next/image'
+// import Image from 'next/image'
 
-const handleArrayImg = (arr) => {
-  if (!Array.isArray(arr)) return null
-  const a = []
-  for (let index = 0; index < arr.length; index++) {
-    if (Array.isArray(arr[index]?.listPeople)) {
-      a.push(...arr[index]?.listPeople)
-    }
-  }
-  return a
-}
+// const handleArrayImg = (arr) => {
+//   if (!Array.isArray(arr)) return null
+//   const a = []
+//   for (let index = 0; index < arr.length; index++) {
+//     if (Array.isArray(arr[index]?.listPeople)) {
+//       a.push(...arr[index]?.listPeople)
+//     }
+//   }
+//   return a
+// }
 
 export default function Family({ section6, viewport }) {
   const isTablet = viewport?.includes('tablet')
   const contentRef = useRef(null)
   const [indexTab, setIndexTab] = useState(0)
   const [tourLeader, setTourLeader] = useState(section6?.listCategory[0]?.listAddress[0])
-  const listImgPreview = handleArrayImg(section6?.listCategory)
+  // const listImgPreview = handleArrayImg(section6?.listCategory)
   useEffect(() => {
     if (typeof window === 'undefined' || !contentRef.current) return
     if (window.innerWidth < 768) return
@@ -132,7 +132,7 @@ export default function Family({ section6, viewport }) {
           />
         )}
       </div>
-      <div className='h-[25.875rem] max-md:h-[113.93rem] w-[20.75rem] max-md:w-[91rem] max-lg:h-[45rem] top-0 left-0 opacity-0 absolute -z-10'>
+      {/* <div className='h-[25.875rem] max-md:h-[113.93rem] w-[20.75rem] max-md:w-[91rem] max-lg:h-[45rem] top-0 left-0 opacity-0 absolute -z-10'>
         {Array.isArray(listImgPreview) &&
           listImgPreview?.map((e, index) => (
             <Image
@@ -144,7 +144,7 @@ export default function Family({ section6, viewport }) {
               height={500}
             />
           ))}
-      </div>
+      </div> */}
     </section>
   )
 }

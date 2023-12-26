@@ -22,7 +22,7 @@ export function ComboboxV2({ allTourHG, setTour }) {
         <Button
           variant='outline'
           role='combobox'
-          aria-expanded={open}
+          // ariaExpanded={open}
           title={value}
           className='w-[20rem] justify-between text-[1rem] font-poppins font-bold max-lg:font-semibold leading-normal tracking-[0.005rem] text-gray-scale-80 border-none whitespace-nowrap line-clamp-1 py-[0.25rem] px-[0.5rem] max-md:text-[3.733rem] max-lg:text-[2.2rem] max-lg:leading-[1.57] max-lg:w-full uppercase max-lg:h-fit max-lg:px-[1.5rem] max-lg:py-[1.25rem]'
         >
