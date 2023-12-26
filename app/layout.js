@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
         <script data-no-optimize='1'>
           var litespeed_docref=sessionStorage.getItem("litespeed_docref")
           litespeed_docref&&(Object.defineProperty(document,"referrer",
-          {function () {
+          {function get() {
             return litespeed_docref
           }}
           ), sessionStorage.removeItem("litespeed_docref"))
