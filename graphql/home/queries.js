@@ -22,155 +22,156 @@ const GET_DATA_HOME = `
 {
   page(id: "cG9zdDoyMQ==") {
     homeHG {
-      header {
-        logo {
-          sourceUrl(size: THUMBNAIL)
+      header{
+				logo{
+          sourceUrl
           title
           altText
         }
-        background {
+        background{
           sourceUrl
           altText
           title
         }
-        backgroundMobile {
-          sourceUrl(size: MEDIUM)
+        backgroundMobile{
+          sourceUrl
           altText
           title
         }
         slogan
         phoneNumber
-        facebook {
+        facebook{
           url
         }
-        youtube {
+        youtube{
           url
         }
-        vietnamCheersHostel {
+        vietnamCheersHostel{
           url
         }
       }
-      section1 {
-        subTitle
+      section1{
+				subTitle
         title
         heading
-        imageLeftUp {
-          sourceUrl(size: MEDIUM)
+        imageLeftUp{
+          sourceUrl
           altText
           title
         }
-        imageLeftDown {
-          sourceUrl(size: MEDIUM)
+        imageLeftDown{
+          sourceUrl
           altText
           title
         }
-        imageRightUp {
-          sourceUrl(size: MEDIUM)
+        imageRightUp{
+          sourceUrl
           altText
           title
         }
-        imageRightDown {
-          sourceUrl(size: MEDIUM)
+        imageRightDown{
+          sourceUrl
           altText
           title
         }
-        listInfo {
-          icon {
-            sourceUrl(size: THUMBNAIL)
+        listInfo{
+        	icon{
+            sourceUrl
             altText
             title
           }
           title
           description
         }
-        slidesVideo {
-          linkVideo {
+        slidesVideo{
+          linkVideo{
             url
           }
         }
-        slidesVideoMobile {
-          linkVideo {
+        slidesVideoMobile{
+          linkVideo{
             url
           }
         }
       }
-      section2 {
+      section2{
         subTitle
         title
-        map {
-          sourceUrl(size: MEDIUM_LARGE)
+        map{
+          sourceUrl
           altText
           title
         }
-        listTitle {
+        listTitle{
           title
         }
         description
       }
-      section3 {
+      section3{
         subtitle
         title
       }
-      section4 {
+      section4{
         subtitle
         title
-        listGallery {
-          thumnail {
-            sourceUrl(size: MEDIUM)
+        listGallery{
+          thumnail{
+            sourceUrl
             altText
             title
           }
           category
-          slidesImage {
-            sourceUrl(size: MEDIUM_LARGE)
+          slidesImage{
+            sourceUrl
             altText
             title
+            
           }
         }
       }
-      section5 {
+      section5{
         subtitle
         title
-        listFeedback {
+        listFeedback{
           name
           rate
           description
         }
-        listPartner {
-          button {
-            sourceUrl(size: THUMBNAIL)
+        listPartner{
+          button{
+            sourceUrl
             altText
             title
           }
-          linkPartner {
+          linkPartner{
             url
           }
         }
       }
-      section6 {
+      section6{
         subTitle
         title
-        listCategory {
+        listCategory{
           category
-          listAddress {
+          listAddress{
             title
             description
-            image {
-              sourceUrl(size: MEDIUM)
+            image{
+              sourceUrl
               altText
               title
-            }
+            	}
             groupSize
             transport
             tripCompleted
-            joinWithUs {
+            joinWithUs{
               url
             }
             callUs
           }
-          listPeople {
-            avatar {
-              sourceUrl(size: MEDIUM)
+          listPeople{
+            avatar{
+              sourceUrl
               altText
               title
             }
@@ -181,12 +182,12 @@ const GET_DATA_HOME = `
           }
         }
       }
-      section7 {
+      section7{
         subtitle
         title
-        twelveMonthsOfTheYear {
-          image {
-            sourceUrl(size: LARGE)
+        twelveMonthsOfTheYear{
+          image{
+            sourceUrl
             altText
             title
           }
@@ -195,13 +196,13 @@ const GET_DATA_HOME = `
           averageRainfall
         }
       }
-      section8 {
+      section8{
         subtitle
         title
-        listCategory {
+        listCategory{
           category
           description
-          listInfo {
+          listInfo{
             heading
             description
           }
@@ -216,7 +217,7 @@ const GET_DATA_HOME = `
       slug
       featuredImage {
         node {
-          sourceUrl(size: MEDIUM_LARGE)
+          sourceUrl
           altText
           title
         }
@@ -225,18 +226,18 @@ const GET_DATA_HOME = `
         price {
           selfDriving
           localDriver
-          pickUp {
-            province
-            listAddress {
-              address
-            }
+          pickUp{
+          province
+          listAddress{
+            address
           }
-          droff {
-            province
-            listAddress {
-              address
-            }
+        }
+        droff{
+          province
+          listAddress{
+            address
           }
+        }
           longTimeTourDay
         }
         header {
