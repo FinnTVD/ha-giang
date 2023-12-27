@@ -49,7 +49,6 @@ export default function Header({ header, allTourHG, isHome, viewport }) {
           fill
           sizes='100vw'
           priority
-          fetchPriority='high'
         />
         <Image
           className='z-0 object-cover md:hidden'
@@ -58,7 +57,6 @@ export default function Header({ header, allTourHG, isHome, viewport }) {
           fill
           sizes='100vw'
           priority
-          fetchPriority='high'
         />
         <h1 className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[-1] text-white'>Ha Giang Tour</h1>
         {/* <Image
