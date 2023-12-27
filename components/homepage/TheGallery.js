@@ -56,7 +56,7 @@ export default function TheGallery({ section4, allTourHG, viewport }) {
               src={e?.sourceUrl}
               alt={e?.altText || e?.title}
               fill
-              sizes='(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw'
+              sizes='100vw'
             />
           ))}
       </div> */}
