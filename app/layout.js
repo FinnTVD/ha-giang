@@ -54,10 +54,6 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <head>
         <meta
-          name='google-site-verification'
-          content='xZu-R_qHMGQVpE1mZc1JuwL4Zj3Hi9ZybbsJfxgzQiQ'
-        />
-        <meta
           name='DC.title'
           content='Vietnam Cheers Hostel Official Site'
         />
