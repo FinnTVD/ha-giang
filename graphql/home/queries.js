@@ -265,7 +265,7 @@ const GET_DATA_HOME_RES = `{
           title
         }
         backgroundMobile {
-          sourceUrl(size: MEDIUM)
+          sourceUrl(size: MEDIUM_LARGE)
           altText
           title
         }
