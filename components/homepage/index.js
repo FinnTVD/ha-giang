@@ -11,7 +11,7 @@ import Header from '../global/Header'
 
 export default function IndexHomePage({ data, allTourHG, viewport }) {
   const header = data?.header
-  const section1 = data?.section1
+  // const section1 = data?.section1
   const section2 = data?.section2
   const section3 = data?.section3
   const section4 = data?.section4
