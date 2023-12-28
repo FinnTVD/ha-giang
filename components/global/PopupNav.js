@@ -9,7 +9,6 @@ export function PopupNav({ children, allTourHG }) {
         {Array.isArray(allTourHG?.nodes) &&
           allTourHG?.nodes?.map((e, index) => (
             <Link
-              prefetch={false}
               key={index}
               href={e?.slug ? '/' + e?.slug : '/'}
               className='py-[0.3rem] relative hover:text-primary-70 transition-all duration-200'

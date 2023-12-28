@@ -53,7 +53,6 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
     >
       <div className='w-[calc(100rem-12rem)] max-lg:w-[95vw] max-md:w-[calc(100rem-8.54rem)] lg:bg-white rounded-[1rem] flex items-center justify-between h-fit lg:px-[1.88rem]'>
         <Link
-          prefetch={false}
           href={'/'}
           onClick={() => setIsOpen(false)}
         >
@@ -94,7 +93,6 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
             ) : (
               <div key={e?.id}>
                 <Link
-                  prefetch={false}
                   href={(e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href) || '/'}
                   className='text-[0.875rem] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25rem] block hover:-translate-y-[0.5rem] hover:text-primary-50'
                 >
@@ -107,8 +105,6 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
         </div>
         <div className='flex gap-x-[0.5rem] max-lg:hidden'>
           <Link
-            prefetch={false}
-            target='_blank'
             href={header?.facebook?.url || '/'}
             className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75rem] h-[1.75rem]'
           >
@@ -126,8 +122,6 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
             </svg>
           </Link>
           <Link
-            prefetch={false}
-            target='_blank'
             href={header?.youtube?.url || '/'}
             className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75rem] h-[1.75rem]'
           >
