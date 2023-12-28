@@ -7,7 +7,7 @@ import TheTrip from './TheTrip'
 import GreatTrips from './GreatTrips'
 import Family from './Family'
 import Header from '../global/Header'
-import Banner from './Banner'
+// import Banner from './Banner'
 
 export default function IndexHomePage({ data, allTourHG, viewport }) {
   const header = data?.header
@@ -29,10 +29,10 @@ export default function IndexHomePage({ data, allTourHG, viewport }) {
         viewport={viewport}
       />
       <main className='relative w-full overflow-x-hidden'>
-        <Banner
+        {/* <Banner
           section1={section1}
           viewport={viewport}
-        />
+        /> */}
         <Image
           className='!h-[220vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
           src={'/images/mask.png'}
