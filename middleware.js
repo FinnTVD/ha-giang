@@ -7,6 +7,12 @@ export function middleware(request) {
       return NextResponse.redirect(new URL('/', request.url))
     }
   }
+  if (url.pathname === '/index.html' || url.pathname === '/index.php') {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
+  if (url.pathname.includes('undefined')) {
+    return NextResponse.redirect(new URL('/404', request.url))
+  }
   const { device } = userAgent(request)
   const viewport = device.type === 'mobile' ? 'mobile' : device.type === 'tablet' ? 'tablet' : 'desktop'
   url.searchParams.set('viewport', viewport)

@@ -59,6 +59,10 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning={true}
     >
       <head>
+        <link
+          rel='canonical'
+          href='https://hagiangcheerstours.com'
+        />
         <meta
           name='google-site-verification'
           content='xZu-R_qHMGQVpE1mZc1JuwL4Zj3Hi9ZybbsJfxgzQiQ'
