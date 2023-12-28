@@ -6,6 +6,7 @@ import IconClose from '../icons/IconClose'
 import IconMotor from '../icons/IconMotor'
 
 export default function PopupGallery({ indexTab, section4, isOpen, setIsOpen, setIndexTab, allTourHG }) {
+  if (!isOpen) return <></>
   return (
     <>
       <div

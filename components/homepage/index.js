@@ -22,6 +22,9 @@ export default function IndexHomePage({ data, allTourHG }) {
 
   return (
     <>
+      <h1 className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[-1] text-white'>
+        Ha Giang Cheers Tours
+      </h1>
       <Header
         header={header}
         allTourHG={allTourHG}
@@ -34,6 +37,7 @@ export default function IndexHomePage({ data, allTourHG }) {
           src={'/images/mask.png'}
           fill
           sizes='100vw'
+          alt='image mask'
         />
         <CheersTour
           section2={section2}
