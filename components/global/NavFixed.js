@@ -85,7 +85,10 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
       } fixed left-1/2 top-0 -translate-x-1/2 transition-all duration-1000 z-[999] flex justify-center pt-[1.5rem] max-lg:mt-[2.5rem] max-md:pt-[5.8rem] font-heavitas -translate-y-[150%] opacity-0 lg:shadow-navFixed max-md:hidden`}
     >
       <div className='w-[calc(100rem-12rem)] max-lg:w-[calc(100rem-8.54rem)] lg:bg-white rounded-[1rem] flex items-center justify-between h-fit lg:px-[1.88rem]'>
-        <Link href={'/'}>
+        <Link
+          scroll={false}
+          href={'/'}
+        >
           <Image
             className='w-[4.75rem] h-[4.16rem] max-md:w-[18.13333rem] max-md:h-[15.8976rem] object-cover lg:my-[0.913rem] max-lg:w-[8.75rem] max-lg:h-[8.16rem] max-lg:object-contain'
             src={header?.logo?.sourceUrl || '/images/logo.png'}

@@ -54,6 +54,7 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
       <div className='w-[calc(100rem-12rem)] max-lg:w-[95vw] max-md:w-[calc(100rem-8.54rem)] lg:bg-white rounded-[1rem] flex items-center justify-between h-fit lg:px-[1.88rem]'>
         <Link
           href={'/'}
+          scroll={false}
           onClick={() => setIsOpen(false)}
         >
           <Image
