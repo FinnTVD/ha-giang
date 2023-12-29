@@ -1,44 +1,24 @@
-'use client'
 import Image from 'next/image'
 import Nav from './Nav'
 import FeaturesHeader from './FeaturesHeader'
 import ContentHeader from '../homepage/ContentHeader'
 import BookNowHeader from '../homepage/BookNowHeader'
 import MenuRes from './MenuRes'
-import { useEffect, useState } from 'react'
 import NavFixed from './NavFixed'
 import MenuDown from './MenuDown'
-// import src from '../../public/images/linear-res.png'
 
 export default function Header({ header, allTourHG, isHome, viewport }) {
   const isMobile = viewport?.includes('tablet')
   const isMobile2 = viewport?.includes('mobile')
-  const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => {
-    if (!isOpen) {
-      document.body.style.overflow = 'auto'
-    } else {
-      document.body.style.overflow = 'hidden'
-    }
-  }, [isOpen])
 
   return (
     <header className='relative w-full h-screen max-md:h-[90vh] overflow-hidden'>
-      <div
-        // style={{
-        //   background:
-        //     'linear-gradient(245deg, rgba(204, 237, 199, 0.816) 0%, rgb(112 132 109) 0%, rgb(58 68 56) 77%, rgb(62 74 60) 100%)',
-        // }}
-        className='max-md:h-[70vh] max-lg:h-[80vh] h-screen relative'
-      >
+      <div className='max-md:h-[70vh] max-lg:h-[80vh] h-screen relative'>
         <Nav
-          setIsOpen={setIsOpen}
           header={header}
           allTourHG={allTourHG}
         />
         <NavFixed
-          setIsOpen={setIsOpen}
           header={header}
           allTourHG={allTourHG}
         />
@@ -59,13 +39,6 @@ export default function Header({ header, allTourHG, isHome, viewport }) {
           priority
         />
         <h1 className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[-1] text-white'>Ha Giang Tour</h1>
-        {/* <Image
-          className='absolute bottom-[-0.5rem] left-0 z-0 object-cover w-full lg:hidden bg-overlay'
-          src={src}
-          alt='linear res'
-          priority
-          fetchPriority='high'
-        /> */}
         <div
           style={{ background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)' }}
           className='absolute bottom-[-0.5rem] left-0 z-0 object-cover w-full h-[26vh] lg:hidden'

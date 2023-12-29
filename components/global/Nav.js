@@ -55,7 +55,6 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
         <Link
           href={'/'}
           prefetch={false}
-          onClick={() => setIsOpen(false)}
         >
           <Image
             className='w-[4.75rem] h-[4.16rem] max-md:w-[18.13333rem] max-md:h-[15.8976rem] object-cover lg:my-[0.913rem] max-lg:w-[8.75rem] max-lg:h-[8.16rem] max-lg:object-contain'
@@ -150,7 +149,6 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
           viewBox='0 0 24 25'
           fill='none'
           className='lg:hidden max-lg:w-[4vw] max-lg:h-[4vw] max-md:w-[6.4rem] max-md:h-[6.4rem] cursor-pointer'
-          onClick={() => setIsOpen(true)}
         >
           <path
             fillRule='evenodd'

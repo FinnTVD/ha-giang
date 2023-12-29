@@ -47,7 +47,7 @@ const listNav = [
   },
 ]
 
-export default function NavFixed({ setIsOpen, header, allTourHG }) {
+export default function NavFixed({ header, allTourHG }) {
   const navRef = useRef(null)
   const [isShow, setIsShow] = useState(false)
   const [prevScrollY, setPrevScrollY] = useState(0)
@@ -181,7 +181,6 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
           viewBox='0 0 24 25'
           fill='none'
           className='lg:hidden max-md:w-[6.4rem] max-md:h-[6.4rem] max-lg:w-[4vw] max-lg:h-[4vw] cursor-pointer'
-          onClick={() => setIsOpen(true)}
         >
           <path
             fillRule='evenodd'
