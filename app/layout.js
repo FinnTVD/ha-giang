@@ -1,8 +1,6 @@
 import '@radix-ui/themes/styles.css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
-import { WebVitals } from './_components/web-vitals'
-// import 'aos/dist/aos.css'
 
 import './globals.scss'
 import { Poppins } from 'next/font/google'
@@ -10,8 +8,6 @@ import localFont from 'next/font/local'
 import { Theme } from '@radix-ui/themes'
 import Footer from '@/components/global/Footer'
 import ApolloWrapper from '@/components/global/ApolloWrapper'
-// import AosInit from '@/components/global/AosInit'
-// import Script from 'next/script'
 
 const heavitas = localFont({
   src: [
@@ -40,14 +36,6 @@ const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
 })
-
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  // Also supported by less commonly used
-  // interactiveWidget: 'resizes-visual',
-}
 
 export default function RootLayout({ children }) {
   return (
@@ -79,21 +67,9 @@ export default function RootLayout({ children }) {
         className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
       >
         <ApolloWrapper>
-          <WebVitals />
           <Theme>{children}</Theme>
-          {/* <AosInit /> */}
         </ApolloWrapper>
         <Footer />
-        {/* <Script
-          strategy='lazyOnload'
-          src={`https://www.googletagmanager.com/gtag/js?id=G-Z5ZH5N3P8B`}
-        ></Script>
-        <Script strategy='lazyOnload'>
-          {`window.dataLayer = window.dataLayer || [];
-							function gtag(){dataLayer.push(arguments);}
-							gtag('js', new Date());
-							gtag('config', 'G-Z5ZH5N3P8B');`}
-        </Script> */}
       </body>
     </html>
   )

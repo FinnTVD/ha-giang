@@ -8,7 +8,6 @@ export default async function getDataDetail(query, slug) {
       query,
       variables: { slug: slug },
     }),
-    next: { revalidate: 600 },
   })
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.

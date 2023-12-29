@@ -8,7 +8,6 @@ export default async function getData(query, variables = {}) {
       query,
       variables,
     }),
-    next: { revalidate: 600 },
   })
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
