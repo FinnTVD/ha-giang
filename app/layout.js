@@ -1,7 +1,7 @@
 import '@radix-ui/themes/styles.css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
-
+import { WebVitals } from './_components/web-vitals'
 // import 'aos/dist/aos.css'
 
 import './globals.scss'
@@ -79,6 +79,7 @@ export default function RootLayout({ children }) {
         className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
       >
         <ApolloWrapper>
+          <WebVitals />
           <Theme>{children}</Theme>
           {/* <AosInit /> */}
         </ApolloWrapper>
