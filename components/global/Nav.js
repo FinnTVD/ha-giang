@@ -49,11 +49,12 @@ const listNav = [
 export default function Nav({ setIsOpen, header, allTourHG }) {
   return (
     <nav
-      className={`w-full relative pt-[1.5rem] max-lg:pt-[2.5rem] max-md:pt-[5.8rem] transition-all duration-1000 z-[999] flex justify-center font-heavitas`}
+      id='nav_primary'
+      className={`w-full relative pt-[1.5rem] max-lg:pt-[2.5rem] max-md:pt-[5.8rem] transition-all duration-1000 z-[999999] flex justify-center font-heavitas`}
     >
       <div className='w-[calc(100rem-12rem)] max-lg:w-[95vw] max-md:w-[calc(100rem-8.54rem)] lg:bg-white rounded-[1rem] flex items-center justify-between h-fit lg:px-[1.88rem]'>
         <Link
-          href={'/'}
+          href={'/#nav_primary'}
           scroll={false}
           onClick={() => setIsOpen(false)}
         >
@@ -94,7 +95,10 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
             ) : (
               <div key={e?.id}>
                 <Link
-                  href={(e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href) || '/'}
+                  href={
+                    (e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href === '/' ? '/#nav_primary' : e?.href) ||
+                    '/#nav_primary'
+                  }
                   className='text-[0.875rem] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25rem] block hover:-translate-y-[0.5rem] hover:text-primary-50'
                 >
                   {e?.title}
