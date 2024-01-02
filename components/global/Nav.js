@@ -7,7 +7,7 @@ const listNav = [
   {
     id: 1,
     title: 'HOME',
-    href: '/',
+    href: '/#nav_primary',
   },
   {
     id: 2,
@@ -95,10 +95,7 @@ export default function Nav({ setIsOpen, header, allTourHG }) {
             ) : (
               <div key={e?.id}>
                 <Link
-                  href={
-                    (e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href === '/' ? '/#nav_primary' : e?.href) ||
-                    '/#nav_primary'
-                  }
+                  href={(e?.id === 8 ? header?.vietnamCheersHostel?.url : e?.href) || '/#nav_primary'}
                   className='text-[0.875rem] transition duration-200 group relative font-medium uppercase leading-[1.57] tracking-[0.00219rem] p-[1.25rem] block hover:-translate-y-[0.5rem] hover:text-primary-50'
                 >
                   {e?.title}

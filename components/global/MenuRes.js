@@ -6,7 +6,7 @@ const listNav = [
   {
     id: 1,
     title: 'HOME',
-    href: '/',
+    href: '/#nav_primary',
   },
   {
     id: 2,
@@ -74,7 +74,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
             /> */}
       <div
         onClick={() => setIsOpen(false)}
-        className='absolute top-[8.53rem] right-[4.27rem] object-cover z-10 cursor-pointer'
+        className='absolute top-[56%] right-[4.27rem] object-cover z-10 cursor-pointer'
       >
         <IconClose className={'w-[8.53rem] h-[8.53rem] md:w-[6.53rem] md:h-[6.53rem]'} />
       </div>
