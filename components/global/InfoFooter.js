@@ -8,6 +8,7 @@ function InfoFooter({ icon, text, href, className }) {
         <Link
           className='flex md:gap-[0.5rem] gap-[2.13rem] lg:w-[16.6875rem] items-center md:mb-[0.25rem] md:w-auto'
           href={href || '/'}
+          target='_blank'
         >
           <div>
             <Image

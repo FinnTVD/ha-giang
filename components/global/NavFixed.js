@@ -134,6 +134,7 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
         </div>
         <div className='flex gap-x-[0.5rem] max-lg:hidden'>
           <Link
+            target='_blank'
             href={header?.facebook?.url || '/'}
             className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75rem] h-[1.75rem]'
           >
@@ -151,6 +152,7 @@ export default function NavFixed({ setIsOpen, header, allTourHG }) {
             </svg>
           </Link>
           <Link
+            target='_blank'
             href={header?.youtube?.url || '/'}
             className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[1.75rem] h-[1.75rem]'
           >

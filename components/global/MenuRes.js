@@ -98,6 +98,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
         <div className='flex gap-x-[3.47rem] justify-center mt-[5.33rem]'>
           <Link
             href={header?.facebook?.url || '/'}
+            target='_blank'
             className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[7.46rem] h-[7.46rem]'
           >
             <svg
@@ -116,6 +117,7 @@ export default function MenuRes({ isOpen, setIsOpen, header, allTourHG }) {
           </Link>
           <Link
             href={header?.youtube?.url || '/'}
+            target='_blank'
             className='bg-primary-70 cursor-pointer rounded-full flex items-center justify-center w-[7.46rem] h-[7.46rem]'
           >
             <svg
