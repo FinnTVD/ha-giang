@@ -2,7 +2,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 export const client = new ApolloClient({
-  uri: process.env.API || 'https://cheers.okhub.tech/graphql',
+  uri: process.env.API || 'https://cms.hagiangcheerstours.com/graphql',
   cache: new InMemoryCache(),
 })
 
