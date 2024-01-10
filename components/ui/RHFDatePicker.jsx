@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker'
 import dateImg from '@/public/images/date.svg'
 
 import Image from 'next/image'
+import { addDays } from 'date-fns'
 
 const RHFDatePicker = ({ selected, onChange, end, long, details = false, ...other }) => {
   const [formattedDate, setFormattedDate] = useState()
@@ -50,6 +51,15 @@ const RHFDatePicker = ({ selected, onChange, end, long, details = false, ...othe
         dateFormat='dd/MM/yyyy'
         defaultValue={formattedDate}
         customInput={<ExampleCustomInput />}
+        excludeDates={[
+          addDays(new Date('02/05/2024'), 1),
+          addDays(new Date('02/05/2024'), 2),
+          addDays(new Date('02/05/2024'), 3),
+          addDays(new Date('02/05/2024'), 4),
+          addDays(new Date('02/05/2024'), 5),
+          addDays(new Date('02/05/2024'), 6),
+          addDays(new Date('02/05/2024'), 7),
+        ]}
         {...other}
       />
       <Image
