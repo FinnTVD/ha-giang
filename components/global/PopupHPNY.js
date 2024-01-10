@@ -32,6 +32,7 @@ export default function PopupHPNY() {
             className='w-[75%] h-auto relative z-50 object-contain max-lg:hidden'
             width={1200}
             height={800}
+            priority
           />
           <Image
             ref={sideRef}
@@ -40,6 +41,7 @@ export default function PopupHPNY() {
             className='relative z-50 object-contain max-lg:w-[90%] max-lg:h-[58vh] max-md:w-[96%] lg:hidden'
             width={600}
             height={400}
+            priority
           />
           <svg
             xmlns='http://www.w3.org/2000/svg'
