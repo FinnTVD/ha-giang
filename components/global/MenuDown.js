@@ -37,7 +37,7 @@ export default function MenuDown({ allTourHG, header, setIsOpen, isHome }) {
       } fixed bottom-0 left-0 bg-white w-full h-fit px-[4.27rem] py-[3.2rem] flex justify-between z-[99999] shadow-menuDown`}
     >
       <ItemMenu
-        href='/'
+        href='/#nav_primary'
         title={'Home'}
         isActive={indexActive === 1}
         onClick={() => setIndexActive(1)}
