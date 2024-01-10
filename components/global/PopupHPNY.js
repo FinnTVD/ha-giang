@@ -24,7 +24,7 @@ export default function PopupHPNY() {
       {isClose ? (
         <></>
       ) : (
-        <div className='fixed w-full h-screen top-0 left-0 bg-gray-900/50 flex justify-center items-center z-[999999999999999999999]'>
+        <div className='fixed w-full h-screen top-0 left-0 bg-gray-900/50 flex justify-center items-center z-[9999999]'>
           <Image
             ref={sideRef}
             src='/images/hpny.png'
