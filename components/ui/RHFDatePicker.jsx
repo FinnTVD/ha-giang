@@ -59,6 +59,7 @@ const RHFDatePicker = ({ selected, onChange, end, long, details = false, ...othe
           addDays(new Date('02/05/2024'), 5),
           addDays(new Date('02/05/2024'), 6),
           addDays(new Date('02/05/2024'), 7),
+          addDays(new Date('02/05/2024'), 8),
         ]}
         {...other}
       />
