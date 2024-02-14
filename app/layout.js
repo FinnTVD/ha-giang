@@ -14,7 +14,7 @@ import Footer from '@/components/global/Footer'
 import ApolloWrapper from '@/components/global/ApolloWrapper'
 import AosInit from '@/components/global/AosInit'
 import Script from 'next/script'
-import PopupHPNY from '@/components/global/PopupHPNY'
+// import PopupHPNY from '@/components/global/PopupHPNY'
 
 const heavitas = localFont({
   src: [
@@ -96,7 +96,7 @@ export default function RootLayout({ children }) {
         <ApolloWrapper>
           <AosInit />
           <Theme>
-            <PopupHPNY />
+            {/* <PopupHPNY /> */}
             {children}
             <Footer />
           </Theme>
