@@ -1,9 +1,14 @@
 'use client'
 import { useState } from 'react'
 import SubTitle from '../global/SubTitle'
-import SlideGallery from './SlideGallery'
-import PopupGallery from './PopupGallery'
+// import SlideGallery from './SlideGallery'
+// import PopupGallery from './PopupGallery'
 import Image from 'next/image'
+
+import dynamic from 'next/dynamic'
+
+const SlideGallery = dynamic(() => import('./SlideGallery'), { ssr: false })
+const PopupGallery = dynamic(() => import('./PopupGallery'), { ssr: false })
 
 const handleArrayImg = (arr) => {
   if (!Array.isArray(arr)) return null

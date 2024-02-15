@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import SubTitle from '../global/SubTitle'
-import SlideTravelers from './SlideTravelers'
+// import SlideTravelers from './SlideTravelers'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
+const SlideTravelers = dynamic(() => import('./SlideTravelers'), { ssr: false })
 export default function Travelers({ section5 }) {
   return (
     <section className='w-full relative h-fit mt-[6.25rem] lg:px-[12.75rem] max-md:mt-[16rem]'>

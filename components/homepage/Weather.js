@@ -2,9 +2,11 @@
 import Image from 'next/image'
 import SubTitle from '../global/SubTitle'
 import { useState } from 'react'
-import SlideWeather from './SlideWeather'
+// import SlideWeather from './SlideWeather'
 import { useMediaQuery } from 'react-responsive'
+import dynamic from 'next/dynamic'
 
+const SlideWeather = dynamic(() => import('./SlideWeather'), { ssr: false })
 const getMonthNow = () => {
   let now = new Date()
   let month = now.getMonth() // Tháng được đếm từ 0, nên cần cộng thêm 1

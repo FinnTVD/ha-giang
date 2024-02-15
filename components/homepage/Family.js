@@ -4,15 +4,20 @@ import { useMediaQuery } from 'react-responsive'
 
 import SubTitle from '../global/SubTitle'
 import Button from '../global/Button'
-import SlideTabFamily from './SlideTabFamily'
-import SlidePeople from './SlidePeople'
-import SlideFamilyMb from './SlideFamilyMb'
+// import SlideTabFamily from './SlideTabFamily'
+// import SlidePeople from './SlidePeople'
+// import SlideFamilyMb from './SlideFamilyMb'
 import IconPeople from '../icons/IconPeople'
 import IconMotor from '../icons/IconMotor'
 import IconCheck from '../icons/IconCheck'
-import SlideFamilyV2 from './SlideFamilyV2'
+// import SlideFamilyV2 from './SlideFamilyV2'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 
+const SlideTabFamily = dynamic(() => import('./SlideTabFamily'), { ssr: false })
+const SlidePeople = dynamic(() => import('./SlidePeople'), { ssr: false })
+const SlideFamilyMb = dynamic(() => import('./SlideFamilyMb'), { ssr: false })
+const SlideFamilyV2 = dynamic(() => import('./SlideFamilyV2'), { ssr: false })
 const handleArrayImg = (arr) => {
   if (!Array.isArray(arr)) return null
   const a = []
