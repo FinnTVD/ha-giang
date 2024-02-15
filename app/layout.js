@@ -19,7 +19,6 @@ import Script from 'next/script'
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
-  variable: '--font-poppins',
   display: 'swap',
 })
 
@@ -99,7 +98,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         // suppressHydrationWarning={true}
-        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full font-poppins`}
+        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
       >
         <ApolloWrapper>
           <AosInit />
