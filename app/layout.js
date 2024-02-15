@@ -53,10 +53,6 @@ const tomatoes = localFont({
 //   display: 'swap',
 // })
 
-// export const metadata = {
-//   viewport: 'width=device-width, initial-scale=1, maximum-scale=1', // <-- now here
-// }
-
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -103,7 +99,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         // suppressHydrationWarning={true}
-        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full !font-poppins`}
+        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full font-poppins`}
       >
         <ApolloWrapper>
           <AosInit />
