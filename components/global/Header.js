@@ -10,7 +10,7 @@ import { useMediaQuery } from 'react-responsive'
 import NavFixed from './NavFixed'
 import MenuDown from './MenuDown'
 // import src from '../../public/images/linear-res.png'
-import { Suspense } from 'react'
+
 export default function Header({ header, allTourHG, isHome }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
@@ -33,20 +33,16 @@ export default function Header({ header, allTourHG, isHome }) {
         }}
         className='max-md:h-[70vh] max-lg:h-[80vh] h-screen relative'
       >
-        <Suspense>
-          <Nav
-            setIsOpen={setIsOpen}
-            header={header}
-            allTourHG={allTourHG}
-          />
-        </Suspense>
-        <Suspense>
-          <NavFixed
-            setIsOpen={setIsOpen}
-            header={header}
-            allTourHG={allTourHG}
-          />
-        </Suspense>
+        <Nav
+          setIsOpen={setIsOpen}
+          header={header}
+          allTourHG={allTourHG}
+        />
+        <NavFixed
+          setIsOpen={setIsOpen}
+          header={header}
+          allTourHG={allTourHG}
+        />
         <Image
           className='z-0 object-cover max-md:hidden'
           src={header?.background?.sourceUrl || '/images/bg-header.jpg'}
@@ -73,39 +69,29 @@ export default function Header({ header, allTourHG, isHome }) {
           style={{ background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)' }}
           className='absolute bottom-[-0.5rem] left-0 z-0 object-cover w-full h-[26vh] lg:hidden'
         ></div>
-        <Suspense>
-          <ContentHeader header={header} />
-        </Suspense>
-        <Suspense>
-          <FeaturesHeader
-            header={header}
-            allTourHG={allTourHG}
-            isHome={isHome}
-          />
-        </Suspense>
-        <Suspense>
-          <BookNowHeader allTourHG={allTourHG} />
-        </Suspense>
+        <ContentHeader header={header} />
+        <FeaturesHeader
+          header={header}
+          allTourHG={allTourHG}
+          isHome={isHome}
+        />
+        <BookNowHeader allTourHG={allTourHG} />
       </div>
       {isMobile && (
-        <Suspense>
-          <MenuRes
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-            header={header}
-            allTourHG={allTourHG}
-          />
-        </Suspense>
+        <MenuRes
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          header={header}
+          allTourHG={allTourHG}
+        />
       )}
       {isMobile2 && (
-        <Suspense>
-          <MenuDown
-            allTourHG={allTourHG}
-            header={header}
-            setIsOpen={setIsOpen}
-            isHome={isHome}
-          />
-        </Suspense>
+        <MenuDown
+          allTourHG={allTourHG}
+          header={header}
+          setIsOpen={setIsOpen}
+          isHome={isHome}
+        />
       )}
     </header>
   )

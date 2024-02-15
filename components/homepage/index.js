@@ -25,13 +25,11 @@ export default function IndexHomePage({ data, allTourHG }) {
       <h1 className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[-1] text-white'>
         Ha Giang Cheers Tours
       </h1>
-      <Suspense>
-        <Header
-          header={header}
-          allTourHG={allTourHG}
-          isHome={true}
-        />
-      </Suspense>
+      <Header
+        header={header}
+        allTourHG={allTourHG}
+        isHome={true}
+      />
       <main className='relative w-full overflow-x-hidden'>
         <Suspense>
           <Banner section1={section1} />
