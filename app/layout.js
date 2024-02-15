@@ -101,14 +101,12 @@ export default function RootLayout({ children }) {
         className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
       >
         <ApolloWrapper>
+          <AosInit />
           <Suspense>
-            <AosInit />
             <Theme>
               {/* <PopupHPNY /> */}
               {children}
-              <Suspense>
-                <Footer />
-              </Suspense>
+              <Footer />
             </Theme>
           </Suspense>
         </ApolloWrapper>
