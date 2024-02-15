@@ -16,6 +16,13 @@ import AosInit from '@/components/global/AosInit'
 import Script from 'next/script'
 // import PopupHPNY from '@/components/global/PopupHPNY'
 
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  display: 'swap',
+})
+
 const heavitas = localFont({
   src: [
     {
@@ -24,6 +31,7 @@ const heavitas = localFont({
       style: 'normal',
     },
   ],
+  variable: '--font-heavitas',
   display: 'swap',
 })
 
@@ -35,6 +43,7 @@ const tomatoes = localFont({
       style: 'normal',
     },
   ],
+  variable: '--font-tomatoes',
   display: 'swap',
 })
 
@@ -44,14 +53,17 @@ const tomatoes = localFont({
 //   display: 'swap',
 // })
 
-const poppins = Poppins({
-  weight: ['300', '400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+// export const metadata = {
+//   viewport: 'width=device-width, initial-scale=1, maximum-scale=1', // <-- now here
+// }
 
-export const metadata = {
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1', // <-- now here
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  // userScalable: false,
+  // Also supported by less commonly used
+  // interactiveWidget: 'resizes-visual',
 }
 export default function RootLayout({ children }) {
   return (
@@ -91,7 +103,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         // suppressHydrationWarning={true}
-        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
+        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full !font-poppins`}
       >
         <ApolloWrapper>
           <AosInit />
