@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import './globals.scss'
-
+import { Suspense } from 'react'
 import { Poppins } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Theme } from '@radix-ui/themes'
@@ -101,12 +101,16 @@ export default function RootLayout({ children }) {
         className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
       >
         <ApolloWrapper>
-          <AosInit />
-          <Theme>
-            {/* <PopupHPNY /> */}
-            {children}
-            <Footer />
-          </Theme>
+          <Suspense>
+            <AosInit />
+            <Theme>
+              {/* <PopupHPNY /> */}
+              {children}
+              <Suspense>
+                <Footer />
+              </Suspense>
+            </Theme>
+          </Suspense>
         </ApolloWrapper>
         <Script
           strategy='lazyOnload'

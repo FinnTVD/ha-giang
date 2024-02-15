@@ -8,7 +8,7 @@ import GreatTrips from './GreatTrips'
 import Family from './Family'
 import Header from '../global/Header'
 import Banner from './Banner'
-
+import { Suspense } from 'react'
 export default function IndexHomePage({ data, allTourHG }) {
   const header = data?.header
   const section1 = data?.section1
@@ -31,7 +31,9 @@ export default function IndexHomePage({ data, allTourHG }) {
         isHome={true}
       />
       <main className='relative w-full overflow-x-hidden'>
-        <Banner section1={section1} />
+        <Suspense>
+          <Banner section1={section1} />
+        </Suspense>
         <Image
           className='!h-[220vh] object-cover w-full top-0 left-0 z-0 max-lg:hidden'
           src={'/images/mask.png'}
@@ -39,25 +41,39 @@ export default function IndexHomePage({ data, allTourHG }) {
           sizes='100vw'
           alt='image mask'
         />
-        <CheersTour
-          section2={section2}
-          allTourHG={allTourHG}
-        />
-        <GreatTrips
-          section3={section3}
-          allTourHG={allTourHG}
-        />
-        <TheGallery
-          section4={section4}
-          allTourHG={allTourHG}
-        />
-        <Travelers section5={section5} />
-        <Family section6={section6} />
-        <Weather section7={section7} />
-        <TheTrip
-          section8={section8}
-          allTourHG={allTourHG}
-        />
+        <Suspense>
+          <CheersTour
+            section2={section2}
+            allTourHG={allTourHG}
+          />
+        </Suspense>
+        <Suspense>
+          <GreatTrips
+            section3={section3}
+            allTourHG={allTourHG}
+          />
+        </Suspense>
+        <Suspense>
+          <TheGallery
+            section4={section4}
+            allTourHG={allTourHG}
+          />
+        </Suspense>
+        <Suspense>
+          <Travelers section5={section5} />
+        </Suspense>
+        <Suspense>
+          <Family section6={section6} />
+        </Suspense>
+        <Suspense>
+          <Weather section7={section7} />
+        </Suspense>
+        <Suspense>
+          <TheTrip
+            section8={section8}
+            allTourHG={allTourHG}
+          />
+        </Suspense>
       </main>
     </>
   )
