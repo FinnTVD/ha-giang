@@ -1,16 +1,20 @@
 'use client'
 import Image from 'next/image'
 import Nav from './Nav'
-import FeaturesHeader from './FeaturesHeader'
+// import FeaturesHeader from './FeaturesHeader'
 import ContentHeader from '../homepage/ContentHeader'
-import BookNowHeader from '../homepage/BookNowHeader'
+// import BookNowHeader from '../homepage/BookNowHeader'
 import MenuRes from './MenuRes'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import NavFixed from './NavFixed'
+// import NavFixed from './NavFixed'
 import MenuDown from './MenuDown'
 // import src from '../../public/images/linear-res.png'
+import dynamic from 'next/dynamic'
 
+const NavFixed = dynamic(() => import('./NavFixed'), { ssr: false })
+const FeaturesHeader = dynamic(() => import('./FeaturesHeader'), { ssr: false })
+const BookNowHeader = dynamic(() => import('./BookNowHeader'), { ssr: false })
 export default function Header({ header, allTourHG, isHome }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
