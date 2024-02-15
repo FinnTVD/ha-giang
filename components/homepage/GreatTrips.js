@@ -1,5 +1,8 @@
 import SubTitle from '../global/SubTitle'
-import SlideGreatTrips from './SlideGreatTrips'
+// import SlideGreatTrips from './SlideGreatTrips'
+import dynamic from 'next/dynamic'
+
+const SlideGreatTrips = dynamic(() => import('./SlideGreatTrips'), { ssr: false })
 
 export default function GreatTrips({ section3, allTourHG }) {
   return (

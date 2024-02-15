@@ -1,7 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import SlideBanner from './SlideBanner'
+// import SlideBanner from './SlideBanner'
+import dynamic from 'next/dynamic'
+
+const SlideBanner = dynamic(() => import('./SlideBanner'), { ssr: false })
+
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef, useState } from 'react'
