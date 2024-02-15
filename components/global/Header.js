@@ -14,7 +14,7 @@ import dynamic from 'next/dynamic'
 
 const NavFixed = dynamic(() => import('./NavFixed'), { ssr: false })
 const FeaturesHeader = dynamic(() => import('./FeaturesHeader'), { ssr: false })
-const BookNowHeader = dynamic(() => import('./BookNowHeader'), { ssr: false })
+const BookNowHeader = dynamic(() => import('../homepage/BookNowHeader'), { ssr: false })
 export default function Header({ header, allTourHG, isHome }) {
   const isMobile = useMediaQuery({ query: '(max-width: 1023.9px)' })
   const isMobile2 = useMediaQuery({ query: '(max-width: 767.9px)' })
