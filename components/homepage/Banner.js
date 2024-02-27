@@ -136,7 +136,7 @@ export default function Banner({ section1 }) {
       <section
         ref={parentRef}
         id='banner-home'
-        className='h-screen relative z-[5] overflow-hidden max-lg:mt-[5.33rem]'
+        className='h-screen max-lg:h-[90vh] max-md:h-[80vh] relative z-[5] overflow-hidden max-lg:mt-[5.33rem]'
       >
         <div
           id='box-title'
@@ -164,7 +164,7 @@ export default function Banner({ section1 }) {
           </h2>
           <div
             id='box-slide'
-            className='h-[29.8125rem] w-[53rem] max-lg:w-full max-lg:h-[100vh] absolute bottom-[11rem] max-lg:top-0 max-lg:left-0 lg:translate-y-full left-1/2 lg:-translate-x-1/2 lg:rounded-[1rem]'
+            className='h-[29.8125rem] w-[53rem] max-lg:w-full max-lg:h-[90vh] max-md:h-[80vh] absolute bottom-[11rem] max-lg:top-0 max-lg:left-0 lg:translate-y-full left-1/2 lg:-translate-x-1/2 lg:rounded-[1rem]'
           >
             <SlideBanner
               section1={section1}
