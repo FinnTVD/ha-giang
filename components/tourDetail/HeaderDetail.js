@@ -59,46 +59,50 @@ export default function HeaderDetail({ data, allTourHG, slug }) {
         header={data?.data?.page?.homeHG?.header}
       />
       <div className='flex gap-x-[1rem] absolute bottom-0 translate-y-1/2 lg:right-[6.27rem] max-lg:gap-x-[3rem] max-lg:left-[5vw] max-md:left-[4.27rem] font-poppins'>
-        <Link
-          href={`/${param.slug}#bookingId`}
-          className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center select-none'
-        >
-          <Image
-            className='z-0 object-cover animate-spin duration-7000'
-            src={'/images/circle-orange.png'}
-            alt='circle currency'
-            fill
-            sizes='100vw'
-          />
-          <div className='relative z-[1] flex flex-col justify-center items-center'>
-            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal uppercase text-center'>
-              easy rider <br /> basic bike
-            </span>
-            <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
-              ${data?.data?.tourHG?.tourHaGiangDetail?.price?.selfDriving}
-            </span>
-          </div>
-        </Link>
-        <Link
-          href={`/${param.slug}#bookingId`}
-          className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center select-none'
-        >
-          <Image
-            className='z-0 object-cover animate-spin duration-7000'
-            src={'/images/circle-orange.png'}
-            alt='circle currency'
-            fill
-            sizes='100vw'
-          />
-          <div className='relative z-[1] flex flex-col justify-center items-center'>
-            <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal uppercase text-center'>
-              easy rider <br /> big bike
-            </span>
-            <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
-              ${data?.data?.tourHG?.tourHaGiangDetail?.price?.localDriver}
-            </span>
-          </div>
-        </Link>
+        {data?.data?.tourHG?.tourHaGiangDetail?.price?.selfDriving && (
+          <Link
+            href={`/${param.slug}#bookingId`}
+            className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center select-none'
+          >
+            <Image
+              className='z-0 object-cover animate-spin duration-7000'
+              src={'/images/circle-orange.png'}
+              alt='circle currency'
+              fill
+              sizes='100vw'
+            />
+            <div className='relative z-[1] flex flex-col justify-center items-center'>
+              <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal uppercase text-center'>
+                easy rider <br /> basic bike
+              </span>
+              <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
+                ${data?.data?.tourHG?.tourHaGiangDetail?.price?.selfDriving}
+              </span>
+            </div>
+          </Link>
+        )}
+        {data?.data?.tourHG?.tourHaGiangDetail?.price?.localDriver && (
+          <Link
+            href={`/${param.slug}#bookingId`}
+            className='w-[11.88rem] h-[12.12rem] max-lg:w-[20rem] max-lg:h-[21rem] max-md:w-[30.69rem] max-md:h-[30.92rem] relative flex items-center justify-center select-none'
+          >
+            <Image
+              className='z-0 object-cover animate-spin duration-7000'
+              src={'/images/circle-orange.png'}
+              alt='circle currency'
+              fill
+              sizes='100vw'
+            />
+            <div className='relative z-[1] flex flex-col justify-center items-center'>
+              <span className='text-[0.875rem] text-white font-semibold leading-[1.42] max-lg:text-[1.5rem] tracking-[0.00875rem] max-md:text-[2.67rem] max-md:leading-normal uppercase text-center'>
+                easy rider <br /> big bike
+              </span>
+              <span className='text-[3rem] font-bold leading-[1.08] max-lg:text-[5rem] text-white max-md:text-[9.067rem] max-md:leading-[1.17] max-md:tracking-[0.02267rem]'>
+                ${data?.data?.tourHG?.tourHaGiangDetail?.price?.localDriver}
+              </span>
+            </div>
+          </Link>
+        )}
       </div>
       {isMobile && (
         <MenuRes

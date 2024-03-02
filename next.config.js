@@ -9,6 +9,9 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
+  compiler: {
+    removeConsole: true,
+  },
 }
 
 module.exports = nextConfig

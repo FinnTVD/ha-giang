@@ -47,7 +47,7 @@ const handleArrayImg = (arr) => {
 
 function AboutTour({ data, isMobile }) {
   const [activeCate, setActiveCate] = useState(0)
-  const [content, setContent] = useState(data?.listCheckin[0])
+  const [content, setContent] = useState(data?.listCheckin?.length && data?.listCheckin[0])
   const [isShow, setIsShow] = useState(isMobile ? true : false)
   const setIndexTab = useStore((state) => state.setIndexTab)
   const listImgPreview = handleArrayImg(data?.listCheckin)
