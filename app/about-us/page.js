@@ -23,7 +23,7 @@ export async function generateMetadata() {
     openGraph: {
       title: aboutUs?.meta?.title,
       description: aboutUs?.meta?.description,
-      url: process.env.DOMAIN,
+      url: process.env.DOMAIN + '/about-us',
       siteName: process.env.SITE_NAME,
       images: [
         {

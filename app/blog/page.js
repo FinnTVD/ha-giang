@@ -25,7 +25,7 @@ export async function generateMetadata() {
     openGraph: {
       title: blog?.meta?.title,
       description: blog?.meta?.description,
-      url: process.env.DOMAIN,
+      url: process.env.DOMAIN + '/blog',
       siteName: process.env.SITE_NAME,
       images: [
         {
