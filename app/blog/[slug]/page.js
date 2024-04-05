@@ -46,7 +46,7 @@ export async function generateMetadata({ params: { slug } }) {
     openGraph: {
       title: dataTour?.title,
       description: dataTour?.excerpt,
-      url: process.env.DOMAIN,
+      url: process.env.DOMAIN + '/' + slug,
       siteName: process.env.SITE_NAME,
       images: [
         {

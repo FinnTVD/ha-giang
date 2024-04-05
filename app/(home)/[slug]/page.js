@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: tourHaGiangDetail?.metaSeo?.metaTitle,
       description: tourHaGiangDetail?.metaSeo?.metaDescription,
-      url: process.env.DOMAIN,
+      url: process.env.DOMAIN + '/' + params?.slug,
       siteName: process.env.SITE_NAME,
       images: [
         {
