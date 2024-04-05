@@ -20,6 +20,7 @@ const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-poppins',
 })
 
 const heavitas = localFont({
@@ -98,7 +99,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         // suppressHydrationWarning={true}
-        className={`bg-white text-black ${poppins.className} ${heavitas.className} ${tomatoes.className} w-full`}
+        className={`bg-white text-black ${poppins.className} ${poppins.variable} ${heavitas.variable} ${tomatoes.variable} w-full`}
       >
         <ApolloWrapper>
           <AosInit />
