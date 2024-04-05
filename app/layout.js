@@ -25,7 +25,7 @@ const poppins = Poppins({
 const heavitas = localFont({
   src: [
     {
-      path: '../font/Heavitas.ttf',
+      path: './font/Heavitas.ttf',
       weight: '400',
       style: 'normal',
     },
@@ -37,7 +37,7 @@ const heavitas = localFont({
 const tomatoes = localFont({
   src: [
     {
-      path: '../font/Tomatoes.ttf',
+      path: './font/Tomatoes.ttf',
       weight: '400',
       style: 'normal',
     },
