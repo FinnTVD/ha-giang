@@ -51,16 +51,16 @@ const RHFDatePicker = ({ selected, onChange, end, long, details = false, ...othe
         dateFormat='dd/MM/yyyy'
         defaultValue={formattedDate}
         customInput={<ExampleCustomInput />}
-        // excludeDates={[
-        //   addDays(new Date('02/05/2024'), 1),
-        //   addDays(new Date('02/05/2024'), 2),
-        //   addDays(new Date('02/05/2024'), 3),
-        //   addDays(new Date('02/05/2024'), 4),
-        //   addDays(new Date('02/05/2024'), 5),
-        //   addDays(new Date('02/05/2024'), 6),
-        //   addDays(new Date('02/05/2024'), 7),
-        //   addDays(new Date('02/05/2024'), 8),
-        // ]}
+        excludeDates={[
+          addDays(new Date('04/26/2024'), 1),
+          // addDays(new Date('02/05/2024'), 2),
+          // addDays(new Date('02/05/2024'), 3),
+          // addDays(new Date('02/05/2024'), 4),
+          // addDays(new Date('02/05/2024'), 5),
+          // addDays(new Date('02/05/2024'), 6),
+          // addDays(new Date('02/05/2024'), 7),
+          // addDays(new Date('02/05/2024'), 8),
+        ]}
         {...other}
       />
       <Image
