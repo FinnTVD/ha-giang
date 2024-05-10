@@ -111,13 +111,13 @@ export default function RootLayout({ children }) {
         </ApolloWrapper>
         <Script
           strategy='lazyOnload'
-          src={`https://www.googletagmanager.com/gtag/js?id=G-Z5ZH5N3P8B`}
+          src={`https://www.googletagmanager.com/gtag/js?id=GTM-KNCGJ7W4`}
         ></Script>
         <Script strategy='lazyOnload'>
           {`window.dataLayer = window.dataLayer || [];
 							function gtag(){dataLayer.push(arguments);}
 							gtag('js', new Date());
-							gtag('config', 'G-Z5ZH5N3P8B');`}
+							gtag('config', 'GTM-KNCGJ7W4');`}
         </Script>
       </body>
     </html>
