@@ -1,8 +1,6 @@
 'use client'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import dynamic from 'next/dynamic'
-
-const BookingOnlineV2 = dynamic(() => import('../homepage/BookingOnlineV2'), { ssr: false })
+import BookingOnlineV2 from '../homepage/BookingOnlineV2'
 
 export function PopupBookNow({ children, allTourHG, tour }) {
   return (
