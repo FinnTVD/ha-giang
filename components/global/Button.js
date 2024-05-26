@@ -1,10 +1,20 @@
+'use client'
 import Link from 'next/link'
 import IconMaskButton from '../icons/IconMaskButton'
 const stylePrimary = 'text-white bg-primary-70 border border-solid border-primary-70'
 
 const styleDefault = 'box-border border border-solid border-primary-70 text-primary-70 hover:bg-primary-70'
 
-export default function Button({ href, className='', type = 'button', primary, content, maskClass, classContent }) {
+export default function Button({
+  href,
+  className = '',
+  type = 'button',
+  primary,
+  content,
+  maskClass,
+  classContent,
+  onClick = () => {},
+}) {
   return (
     <>
       {href ? (
@@ -29,6 +39,7 @@ export default function Button({ href, className='', type = 'button', primary, c
         </Link>
       ) : (
         <button
+          onClick={onClick}
           type={type}
           className={`${className} ${
             primary ? stylePrimary : styleDefault
