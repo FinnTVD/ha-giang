@@ -24,7 +24,7 @@ const notifyError = () =>
     theme: 'colored',
   })
 
-const exchangeRate = 25500
+const exchangeRate = 24700
 const sizeBlog = 12
 
 export { exchangeRate, notify, notifyError, sizeBlog }
