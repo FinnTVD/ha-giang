@@ -273,6 +273,7 @@ const GET_DATA_FOOTER = `
           }
           email
           address
+          address2
           global
         }
         cheersTour{

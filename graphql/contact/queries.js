@@ -75,6 +75,7 @@ const GET_NAV_AND_FOOTER = `
           }
           email
           address
+          address2
           global
         }
       }

@@ -53,6 +53,17 @@ export default function MapContact({ data, footer }) {
                 {footer?.contactUs?.address}
               </span>
             </div>
+            {footer?.contactUs?.address2 && (
+              <>
+                <div className='w-full border-t border-solid border-[#d9d9d966] my-[1.5rem] max-md:my-[5.33rem]'></div>
+                <div className='flex items-center gap-x-[0.5rem] max-lg:gap-x-[1.5rem] max-md:flex-col max-md:items-center max-md:gap-y-[2.13rem]'>
+                  <IconHome className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem] max-lg:w-[2.5rem] max-lg:h-[2.5rem]' />
+                  <span className='font-normal text-[0.875rem] max-lg:text-[1.875rem] leading-[1.57] tracking-[0.00219rem] text-gray-scale-50 max-md:text-[3.733rem] max-md:tracking-[0.00933rem]'>
+                    {footer?.contactUs?.address2}
+                  </span>
+                </div>
+              </>
+            )}
             <div className='w-full border-t border-solid border-[#d9d9d966] my-[1.5rem] max-md:my-[5.33rem]'></div>
             <div className='flex items-center gap-x-[0.5rem] max-lg:gap-x-[1.5rem] max-md:flex-col max-md:items-center max-md:gap-y-[2.13rem]'>
               <IconGlobal className='w-[1rem] h-[1rem] max-md:w-[4.267rem] max-md:h-[4.267rem] max-lg:w-[2.5rem] max-lg:h-[2.5rem]' />

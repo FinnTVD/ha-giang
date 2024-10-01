@@ -74,6 +74,8 @@ export default async function Footer() {
                 <InfoFooter
                   icon={homeIcon}
                   text={footer?.contactUs?.address}
+                  text1={footer?.contactUs?.address2}
+                  className={'max-md:text-start'}
                 />
                 <InfoFooter
                   icon={worldIcon}
